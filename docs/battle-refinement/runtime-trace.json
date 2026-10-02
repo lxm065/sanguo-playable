@@ -1,0 +1,715 @@
+{
+  "success": true,
+  "result": {
+    "trace": [
+      {
+        "type": "move",
+        "t": 0,
+        "uid": 1,
+        "magic": false,
+        "facing": "n",
+        "animation": "run-n"
+      },
+      {
+        "type": "move",
+        "t": 0,
+        "uid": 2,
+        "magic": false,
+        "facing": "n",
+        "animation": "run-n"
+      },
+      {
+        "type": "move",
+        "t": 0,
+        "uid": 3,
+        "magic": true,
+        "facing": "n",
+        "animation": "run-n"
+      },
+      {
+        "type": "move",
+        "t": 0,
+        "uid": -1,
+        "magic": false,
+        "facing": "s",
+        "animation": "run-s"
+      },
+      {
+        "type": "attack",
+        "t": 0,
+        "uid": -2,
+        "target": 1,
+        "ranged": true,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "move",
+        "t": 0,
+        "uid": -3,
+        "magic": false,
+        "facing": "s",
+        "animation": "run-s"
+      },
+      {
+        "type": "attack",
+        "t": 0.3,
+        "uid": 1,
+        "target": -1,
+        "ranged": false,
+        "magic": false,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "move",
+        "t": 0.3,
+        "uid": 2,
+        "magic": false,
+        "facing": "n",
+        "animation": "run-n"
+      },
+      {
+        "type": "attack",
+        "t": 0.3,
+        "uid": 3,
+        "target": -3,
+        "ranged": true,
+        "magic": true,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 0.3,
+        "uid": -1,
+        "target": 1,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 0.3,
+        "uid": -3,
+        "target": 3,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 0.6,
+        "uid": 2,
+        "target": -2,
+        "ranged": true,
+        "magic": false,
+        "facing": "ne",
+        "animation": "skill1-ne"
+      },
+      {
+        "type": "attack",
+        "t": 1.5,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 1.8,
+        "uid": 1,
+        "target": -1,
+        "ranged": false,
+        "magic": false,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 1.8,
+        "uid": 3,
+        "target": -3,
+        "ranged": true,
+        "magic": true,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 1.8,
+        "uid": -1,
+        "target": 1,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 1.8,
+        "uid": -3,
+        "target": 3,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 2.1,
+        "uid": 2,
+        "target": -2,
+        "ranged": true,
+        "magic": false,
+        "facing": "ne",
+        "animation": "skill1-ne"
+      },
+      {
+        "type": "attack",
+        "t": 3,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 3.3,
+        "uid": 3,
+        "target": -3,
+        "ranged": true,
+        "magic": true,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 3.3,
+        "uid": -1,
+        "target": 1,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 3.3,
+        "uid": -3,
+        "target": 3,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 3.7,
+        "uid": 1,
+        "target": -1,
+        "ranged": false,
+        "magic": false,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 4,
+        "uid": 2,
+        "target": -2,
+        "ranged": true,
+        "magic": false,
+        "facing": "ne",
+        "animation": "skill1-ne"
+      },
+      {
+        "type": "attack",
+        "t": 4.5,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 4.8,
+        "uid": 3,
+        "target": -3,
+        "ranged": true,
+        "magic": true,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 4.8,
+        "uid": -1,
+        "target": 1,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 4.8,
+        "uid": -3,
+        "target": 3,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "death",
+        "t": 5.2,
+        "uid": 3,
+        "magic": true,
+        "facing": "n",
+        "animation": "dead-n"
+      },
+      {
+        "type": "attack",
+        "t": 5.2,
+        "uid": 1,
+        "target": -1,
+        "ranged": false,
+        "magic": false,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 5.9,
+        "uid": 2,
+        "target": -2,
+        "ranged": true,
+        "magic": false,
+        "facing": "ne",
+        "animation": "skill1-ne"
+      },
+      {
+        "type": "attack",
+        "t": 6,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 6.3,
+        "uid": -1,
+        "target": 1,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 6.3,
+        "uid": -3,
+        "target": -3,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill2-s"
+      },
+      {
+        "type": "attack",
+        "t": 6.7,
+        "uid": 1,
+        "target": -1,
+        "ranged": false,
+        "magic": false,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 7.5,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 7.8,
+        "uid": 2,
+        "target": -2,
+        "ranged": true,
+        "magic": false,
+        "facing": "ne",
+        "animation": "skill1-ne"
+      },
+      {
+        "type": "attack",
+        "t": 7.8,
+        "uid": -1,
+        "target": 1,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "move",
+        "t": 7.8,
+        "uid": -3,
+        "magic": false,
+        "facing": "s",
+        "animation": "run-s"
+      },
+      {
+        "type": "move",
+        "t": 8.1,
+        "uid": -3,
+        "magic": false,
+        "facing": "w",
+        "animation": "run-e"
+      },
+      {
+        "type": "attack",
+        "t": 8.2,
+        "uid": 1,
+        "target": -3,
+        "ranged": false,
+        "magic": false,
+        "facing": "e",
+        "animation": "skill1-e"
+      },
+      {
+        "type": "attack",
+        "t": 8.4,
+        "uid": -3,
+        "target": 1,
+        "ranged": false,
+        "magic": false,
+        "facing": "w",
+        "animation": "skill1-e"
+      },
+      {
+        "type": "attack",
+        "t": 9,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 9.3,
+        "uid": -1,
+        "target": 1,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 9.7,
+        "uid": 1,
+        "target": -3,
+        "ranged": false,
+        "magic": false,
+        "facing": "e",
+        "animation": "skill1-e"
+      },
+      {
+        "type": "attack",
+        "t": 9.7,
+        "uid": 2,
+        "target": -2,
+        "ranged": true,
+        "magic": false,
+        "facing": "ne",
+        "animation": "skill1-ne"
+      },
+      {
+        "type": "attack",
+        "t": 9.9,
+        "uid": -3,
+        "target": 1,
+        "ranged": false,
+        "magic": false,
+        "facing": "w",
+        "animation": "skill1-e"
+      },
+      {
+        "type": "attack",
+        "t": 10.5,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 10.8,
+        "uid": -1,
+        "target": 1,
+        "ranged": false,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "death",
+        "t": 11.2,
+        "uid": 1,
+        "magic": false,
+        "facing": "e",
+        "animation": "dead-e"
+      },
+      {
+        "type": "move",
+        "t": 11.4,
+        "uid": -3,
+        "magic": false,
+        "facing": "w",
+        "animation": "run-e"
+      },
+      {
+        "type": "attack",
+        "t": 11.6,
+        "uid": 2,
+        "target": -2,
+        "ranged": true,
+        "magic": false,
+        "facing": "ne",
+        "animation": "skill1-ne"
+      },
+      {
+        "type": "move",
+        "t": 11.8,
+        "uid": -3,
+        "magic": false,
+        "facing": "w",
+        "animation": "run-e"
+      },
+      {
+        "type": "attack",
+        "t": 12.2,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "move",
+        "t": 12.2,
+        "uid": -3,
+        "magic": false,
+        "facing": "w",
+        "animation": "run-e"
+      },
+      {
+        "type": "move",
+        "t": 12.3,
+        "uid": -1,
+        "magic": false,
+        "facing": "w",
+        "animation": "run-e"
+      },
+      {
+        "type": "attack",
+        "t": 12.5,
+        "uid": -3,
+        "target": -3,
+        "magic": false,
+        "facing": "w",
+        "animation": "skill2-e"
+      },
+      {
+        "type": "attack",
+        "t": 12.7,
+        "uid": -1,
+        "target": 2,
+        "ranged": false,
+        "magic": false,
+        "facing": "w",
+        "animation": "skill1-e"
+      },
+      {
+        "type": "attack",
+        "t": 13.5,
+        "uid": 2,
+        "target": -3,
+        "ranged": true,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 13.7,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 14,
+        "uid": -3,
+        "target": 2,
+        "ranged": false,
+        "magic": false,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 14.2,
+        "uid": -1,
+        "target": 2,
+        "ranged": false,
+        "magic": false,
+        "facing": "w",
+        "animation": "skill1-e"
+      },
+      {
+        "type": "attack",
+        "t": 15.2,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 15.4,
+        "uid": 2,
+        "target": -3,
+        "ranged": true,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 15.5,
+        "uid": -3,
+        "target": 2,
+        "ranged": false,
+        "magic": false,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 15.7,
+        "uid": -1,
+        "target": 2,
+        "ranged": false,
+        "magic": false,
+        "facing": "w",
+        "animation": "skill1-e"
+      },
+      {
+        "type": "attack",
+        "t": 16.7,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 17,
+        "uid": -3,
+        "target": 2,
+        "ranged": false,
+        "magic": false,
+        "facing": "n",
+        "animation": "skill1-n"
+      },
+      {
+        "type": "attack",
+        "t": 17.2,
+        "uid": -1,
+        "target": 2,
+        "ranged": false,
+        "magic": false,
+        "facing": "w",
+        "animation": "skill1-e"
+      },
+      {
+        "type": "attack",
+        "t": 17.3,
+        "uid": 2,
+        "target": -3,
+        "ranged": true,
+        "magic": false,
+        "facing": "s",
+        "animation": "skill1-s"
+      },
+      {
+        "type": "attack",
+        "t": 18.2,
+        "uid": -2,
+        "target": 2,
+        "ranged": true,
+        "magic": false,
+        "facing": "sw",
+        "animation": "skill1-se"
+      },
+      {
+        "type": "attack",
+        "t": 18.5,
+        "uid": -3,
+        "target": -3,
+        "magic": false,
+        "facing": "n",
+        "animation": "skill2-n"
+      },
+      {
+        "type": "attack",
+        "t": 18.7,
+        "uid": -1,
+        "target": 2,
+        "ranged": false,
+        "magic": false,
+        "facing": "w",
+        "animation": "skill1-e"
+      },
+      {
+        "type": "death",
+        "t": 19.1,
+        "uid": 2,
+        "magic": false,
+        "facing": "s",
+        "animation": "dead-s"
+      }
+    ],
+    "unchanged": true
+  }
+}

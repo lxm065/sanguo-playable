@@ -1,0 +1,231 @@
+{
+  "textures": [
+    "battle-huangzhong-packed-0.png",
+    "battle-huangzhong-packed-1.png"
+  ],
+  "frames": 220,
+  "actions": {
+    "idle-s": {
+      "source": "Stand",
+      "duration": 1.1
+    },
+    "run-s": {
+      "source": "Walk",
+      "duration": 0.6
+    },
+    "skill1-s": {
+      "source": "Attack - 1",
+      "duration": 0.8
+    },
+    "skill2-s": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-s": {
+      "source": "Death",
+      "duration": 0.9
+    },
+    "idle-se": {
+      "source": "Stand",
+      "duration": 1.1
+    },
+    "run-se": {
+      "source": "Walk",
+      "duration": 0.6
+    },
+    "skill1-se": {
+      "source": "Attack - 1",
+      "duration": 0.8
+    },
+    "skill2-se": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-se": {
+      "source": "Death",
+      "duration": 0.9
+    },
+    "idle-e": {
+      "source": "Stand",
+      "duration": 1.1
+    },
+    "run-e": {
+      "source": "Walk",
+      "duration": 0.6
+    },
+    "skill1-e": {
+      "source": "Attack - 1",
+      "duration": 0.8
+    },
+    "skill2-e": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-e": {
+      "source": "Death",
+      "duration": 0.9
+    },
+    "idle-ne": {
+      "source": "Stand",
+      "duration": 1.1
+    },
+    "run-ne": {
+      "source": "Walk",
+      "duration": 0.6
+    },
+    "skill1-ne": {
+      "source": "Attack - 1",
+      "duration": 0.8
+    },
+    "skill2-ne": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-ne": {
+      "source": "Death",
+      "duration": 0.9
+    },
+    "idle-n": {
+      "source": "Stand",
+      "duration": 1.1
+    },
+    "run-n": {
+      "source": "Walk",
+      "duration": 0.6
+    },
+    "skill1-n": {
+      "source": "Attack - 1",
+      "duration": 0.8
+    },
+    "skill2-n": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-n": {
+      "source": "Death",
+      "duration": 0.9
+    }
+  },
+  "directions": [
+    "s",
+    "se",
+    "e",
+    "ne",
+    "n"
+  ],
+  "scale": 1.3066666666666666,
+  "anchors": {
+    "s": {
+      "left": 80,
+      "top": 58,
+      "right": 112,
+      "bottom": 135,
+      "width": 33,
+      "height": 78
+    },
+    "se": {
+      "left": 63,
+      "top": 58,
+      "right": 127,
+      "bottom": 135,
+      "width": 65,
+      "height": 78
+    },
+    "e": {
+      "left": 58,
+      "top": 58,
+      "right": 132,
+      "bottom": 134,
+      "width": 75,
+      "height": 77
+    },
+    "ne": {
+      "left": 72,
+      "top": 58,
+      "right": 122,
+      "bottom": 134,
+      "width": 51,
+      "height": 77
+    },
+    "n": {
+      "left": 78,
+      "top": 58,
+      "right": 112,
+      "bottom": 134,
+      "width": 35,
+      "height": 77
+    }
+  },
+  "model": "war3mapImported/moon_shin_HZ.mdx",
+  "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+  "dependencies": {
+    "war3mapImported/moon_shin_HZ.mdx": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\war3mapImported\\moon_shin_HZ.mdx",
+      "sha256": "e2c04974566809acca185ea03a355601dc6029cdd7559fa15844bb01e546c317"
+    },
+    "dustwave.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\dustwave.blp",
+      "sha256": "656d622d5b9c400196e72105e35417cdaf7ce035e5bb11d9bd2457989c812920"
+    },
+    "BS1.BLP": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS1.BLP",
+      "sha256": "872128d85fa7fb418c8ceb47b71eba21de00cf5b3e152a29fc1b2adade9fb68d"
+    },
+    "HuangZhong_1.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\HuangZhong_1.blp",
+      "sha256": "34e7374f75c92bedfcd28abd70bc6ece53ec9c912cff7904b0e1231dcc28b8c8"
+    },
+    "hzBODY.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\hzBODY.blp",
+      "sha256": "ce586229958ef3cbd40c22c291c917e073f08810b1124b073014c3dc72dcd48e"
+    },
+    "HZdao.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\HZdao.blp",
+      "sha256": "1eea9c1cebd179ca9b55788c692090c0bbb8707d6b79da0faa2bba5754cf6ab3"
+    },
+    "HZS.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\HZS.blp",
+      "sha256": "674e1896134a969db7b8f0c7e2d3e1410dc65058df01784bbda35017fc54b51a"
+    },
+    "BS2.BLP": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS2.BLP",
+      "sha256": "9785d032d21fc67c27dfa8b58c7fdb507f6de6bbb911105775cda9453482e54e"
+    },
+    "BS3.BLP": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS3.BLP",
+      "sha256": "eba04fde06d76a323dd68eaaf4ac27771c21d8db0ded47199c0d308f2f7259a6"
+    },
+    "BS4.BLP": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS4.BLP",
+      "sha256": "e6579996059f96b380fd635c9b4d837d861e092ca892c45548ba0d331d6d15e2"
+    },
+    "BS5.BLP": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS5.BLP",
+      "sha256": "85d9777553c9b6ce95cd635dcac6a6c354016dcd6afe9e165d602988aeddd465"
+    },
+    "BS6.BLP": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS6.BLP",
+      "sha256": "7341b44680d6307b4a2d01a507237c1df7868f3870edaf759d1450ab53bd1591"
+    },
+    "ZFdaoguang.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ZFdaoguang.blp",
+      "sha256": "56719212e609270e34a9de5402d9858c571c3f21d1e57689f50dfbd38271d3d5"
+    }
+  },
+  "camera": {
+    "center": [
+      12.36650821652438,
+      -3.477832051925361,
+      52.82367734413128
+    ],
+    "height": 107.78832780267112,
+    "span": 112.37210584230685
+  },
+  "uniformZoom": 1.4,
+  "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
+  "compacted": {
+    "beforeBytes": 33030144,
+    "afterBytes": 6733824,
+    "boundaryFrames": 0
+  }
+}

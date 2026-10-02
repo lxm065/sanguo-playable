@@ -1,0 +1,190 @@
+{
+  "textures": [
+    "battle-zhouyu-packed-0.png"
+  ],
+  "frames": 290,
+  "actions": {
+    "idle-s": {
+      "source": "Stand Ready",
+      "duration": 1
+    },
+    "run-s": {
+      "source": "Walk",
+      "duration": 0.533
+    },
+    "skill1-s": {
+      "source": "Attack - 2",
+      "duration": 1.133
+    },
+    "skill2-s": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-s": {
+      "source": "Death",
+      "duration": 1.967
+    },
+    "idle-se": {
+      "source": "Stand Ready",
+      "duration": 1
+    },
+    "run-se": {
+      "source": "Walk",
+      "duration": 0.533
+    },
+    "skill1-se": {
+      "source": "Attack - 2",
+      "duration": 1.133
+    },
+    "skill2-se": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-se": {
+      "source": "Death",
+      "duration": 1.967
+    },
+    "idle-e": {
+      "source": "Stand Ready",
+      "duration": 1
+    },
+    "run-e": {
+      "source": "Walk",
+      "duration": 0.533
+    },
+    "skill1-e": {
+      "source": "Attack - 2",
+      "duration": 1.133
+    },
+    "skill2-e": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-e": {
+      "source": "Death",
+      "duration": 1.967
+    },
+    "idle-ne": {
+      "source": "Stand Ready",
+      "duration": 1
+    },
+    "run-ne": {
+      "source": "Walk",
+      "duration": 0.533
+    },
+    "skill1-ne": {
+      "source": "Attack - 2",
+      "duration": 1.133
+    },
+    "skill2-ne": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-ne": {
+      "source": "Death",
+      "duration": 1.967
+    },
+    "idle-n": {
+      "source": "Stand Ready",
+      "duration": 1
+    },
+    "run-n": {
+      "source": "Walk",
+      "duration": 0.533
+    },
+    "skill1-n": {
+      "source": "Attack - 2",
+      "duration": 1.133
+    },
+    "skill2-n": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-n": {
+      "source": "Death",
+      "duration": 1.967
+    }
+  },
+  "directions": [
+    "s",
+    "se",
+    "e",
+    "ne",
+    "n"
+  ],
+  "scale": 1.849056603773585,
+  "anchors": {
+    "s": {
+      "left": 74,
+      "top": 70,
+      "right": 113,
+      "bottom": 124,
+      "width": 40,
+      "height": 55
+    },
+    "se": {
+      "left": 68,
+      "top": 71,
+      "right": 120,
+      "bottom": 122,
+      "width": 53,
+      "height": 52
+    },
+    "e": {
+      "left": 71,
+      "top": 68,
+      "right": 119,
+      "bottom": 124,
+      "width": 49,
+      "height": 57
+    },
+    "ne": {
+      "left": 79,
+      "top": 67,
+      "right": 112,
+      "bottom": 123,
+      "width": 34,
+      "height": 57
+    },
+    "n": {
+      "left": 82,
+      "top": 67,
+      "right": 110,
+      "bottom": 122,
+      "width": 29,
+      "height": 56
+    }
+  },
+  "model": "war3mapImported/ZhouYu.mdx",
+  "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+  "dependencies": {
+    "war3mapImported/ZhouYu.mdx": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\war3mapImported\\ZhouYu.mdx",
+      "sha256": "6b545d5eb957280a95a8dfd4ff048c33df1beba510b298c7d07f4a3db284a52c"
+    },
+    "ZhouYuJ.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ZhouYuJ.blp",
+      "sha256": "ecb1b5cdd2adde6cf9f9136eb96636ff36fff2ba2ca3f58ce8137d0d8a8f8818"
+    },
+    "ZhouYu.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ZhouYu.blp",
+      "sha256": "1df484a5a26ef05cf3e0fa8fd01bd52dbdce54c3c347cfc6fc39f16efdb7fd46"
+    }
+  },
+  "camera": {
+    "center": [
+      21.185958573623793,
+      0.8462580628693104,
+      66.22220313243452
+    ],
+    "height": 136.05678216175875,
+    "span": 149.51244194977664
+  },
+  "uniformZoom": 1.9599999999999997,
+  "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
+  "compacted": {
+    "beforeBytes": 43646976,
+    "afterBytes": 4177920,
+    "boundaryFrames": 0
+  }
+}

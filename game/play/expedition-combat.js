@@ -29,15 +29,12 @@ function prepare(units, side, roster, rules, scale, equipment) {
     };
   });
 }
-/** 本地确定性演算；主技能使用恢复的倍率，服务端时序与次级技能尚未完整恢复。 */
-function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
+/** 提供战斗与属性弹窗共享的只读初始属性快照。 */
+function prepareBattle(allies, enemies, roster, rules, scale, equipment = []) {
   const units = [
-      ...prepare(allies, "ally", roster, rules, 1, equipment),
-      ...prepare(enemies, "enemy", roster, rules, scale, []),
-    ],
-    rng = random(seed),
-    events = [],
-    hits = [];
+    ...prepare(allies, "ally", roster, rules, 1, equipment),
+    ...prepare(enemies, "enemy", roster, rules, scale, []),
+  ];
   for (const side of ["ally", "enemy"])
     for (const b of bonds(side === "ally" ? allies : enemies, roster)) {
       if (!b.level) continue;
@@ -46,6 +43,14 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
         if (b.id === "strategist") u.magicArmor -= b.amount;
       }
     }
+  return units;
+}
+/** 本地确定性演算；主技能使用恢复的倍率，服务端时序与次级技能尚未完整恢复。 */
+function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
+  const units = prepareBattle(allies, enemies, roster, rules, scale, equipment),
+    rng = random(seed),
+    events = [],
+    hits = [];
   const initial = JSON.parse(JSON.stringify(units));
   let result = "draw",
     elapsed = 0;
@@ -286,4 +291,4 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
     final: units.map((u) => ({ uid: u.uid, hp: u.hp, x: u.x, y: u.y })),
   };
 }
-module.exports = { simulate };
+module.exports = { simulate, prepareBattle };

@@ -1,0 +1,590 @@
+{
+  "rendering": "原始MDX骨骼动作烘焙为Spine附件序列，不是实时3D模型加载",
+  "totalTextureFileBytes": 6626372,
+  "totalTextureMemoryBytes": 106041344,
+  "models": [
+    {
+      "id": "zhenji",
+      "name": "甄姬",
+      "model": "zhenjipf.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 2
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 1.334
+        },
+        "skill1-s": {
+          "source": "Attack - 1",
+          "duration": 1
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 1.333
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 1.667
+        }
+      },
+      "frames": 375,
+      "textures": 2,
+      "bytes": 369148,
+      "textureBytes": 6455296,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "xuchu",
+      "name": "许褚",
+      "model": "war3mapImported/XuChu.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.234
+        },
+        "run-s": {
+          "source": "Walk - OgreLord Only",
+          "duration": 1
+        },
+        "skill1-s": {
+          "source": "Attack",
+          "duration": 1
+        },
+        "skill2-s": {
+          "source": "Spell - OgreMagi Only",
+          "duration": 1.167
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 2
+        }
+      },
+      "frames": 325,
+      "textures": 2,
+      "bytes": 358899,
+      "textureBytes": 5095424,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "xiahouyuan",
+      "name": "夏侯渊",
+      "model": "war3mapImported/XHY.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.5
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.733
+        },
+        "skill1-s": {
+          "source": "Attack",
+          "duration": 1.167
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 1.9
+        }
+      },
+      "frames": 320,
+      "textures": 2,
+      "bytes": 376624,
+      "textureBytes": 8171520,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "zhaoyun",
+      "name": "赵云",
+      "model": "units/human/Arthas/Arthas.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand - 1",
+          "duration": 2
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.766
+        },
+        "skill1-s": {
+          "source": "Attack - 1",
+          "duration": 1
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 2.167
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 1.5
+        }
+      },
+      "frames": 375,
+      "textures": 3,
+      "bytes": 654638,
+      "textureBytes": 9273344,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "dianwei",
+      "name": "典韦",
+      "model": "Units/Creeps/Beastmaster/Beastmaster.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand - 1",
+          "duration": 2
+        },
+        "run-s": {
+          "source": "walk",
+          "duration": 1
+        },
+        "skill1-s": {
+          "source": "Attack",
+          "duration": 0.967
+        },
+        "skill2-s": {
+          "source": "Spell Slam",
+          "duration": 1.666
+        },
+        "dead-s": {
+          "source": "death",
+          "duration": 3.667
+        }
+      },
+      "frames": 470,
+      "textures": 2,
+      "bytes": 719762,
+      "textureBytes": 8065024,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "diaochan",
+      "name": "貂蝉",
+      "model": "war3mapImported/DC.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.5
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.6
+        },
+        "skill1-s": {
+          "source": "Attack - 1",
+          "duration": 1
+        },
+        "skill2-s": {
+          "source": "Spell Throw",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 0.9
+        }
+      },
+      "frames": 250,
+      "textures": 2,
+      "bytes": 274685,
+      "textureBytes": 5287936,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "huangzhong",
+      "name": "黄忠",
+      "model": "war3mapImported/moon_shin_HZ.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.1
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.6
+        },
+        "skill1-s": {
+          "source": "Attack - 1",
+          "duration": 0.8
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 0.9
+        }
+      },
+      "frames": 220,
+      "textures": 2,
+      "bytes": 342058,
+      "textureBytes": 6733824,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "zhangfei",
+      "name": "张飞",
+      "model": "war3mapImported/moon_shin_ZF.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.5
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.6
+        },
+        "skill1-s": {
+          "source": "Attack - 1",
+          "duration": 0.8
+        },
+        "skill2-s": {
+          "source": "Spell Slam",
+          "duration": 0.8
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 0.9
+        }
+      },
+      "frames": 230,
+      "textures": 2,
+      "bytes": 273948,
+      "textureBytes": 6275072,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "xiaoqiao",
+      "name": "小乔",
+      "model": "q2.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\守卫剑阁降龙伏虎3.0T资源\\守卫剑阁-降龙伏虎3.0T(C)1.24EMM版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.4
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.867
+        },
+        "skill1-s": {
+          "source": "Attack",
+          "duration": 0.9
+        },
+        "skill2-s": {
+          "source": "Spell - Entangle",
+          "duration": 0.8
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 3.233
+        }
+      },
+      "frames": 365,
+      "textures": 2,
+      "bytes": 450589,
+      "textureBytes": 6557696,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "zhangliao",
+      "name": "张辽",
+      "model": "war3mapImported/moon_shin_ZL21.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.3
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.6
+        },
+        "skill1-s": {
+          "source": "Attack - 1",
+          "duration": 0.8
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 0.9
+        }
+      },
+      "frames": 230,
+      "textures": 2,
+      "bytes": 263701,
+      "textureBytes": 6266880,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "zhouyu",
+      "name": "周瑜",
+      "model": "war3mapImported/ZhouYu.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand Ready",
+          "duration": 1
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.533
+        },
+        "skill1-s": {
+          "source": "Attack - 2",
+          "duration": 1.133
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 1.967
+        }
+      },
+      "frames": 290,
+      "textures": 1,
+      "bytes": 264181,
+      "textureBytes": 4177920,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "guanyu",
+      "name": "关羽",
+      "model": "war3mapImported/GY.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand Ready",
+          "duration": 1.333
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.667
+        },
+        "skill1-s": {
+          "source": "Attack - 1",
+          "duration": 1.333
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 2
+        }
+      },
+      "frames": 325,
+      "textures": 2,
+      "bytes": 279109,
+      "textureBytes": 5873664,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "machao",
+      "name": "马超",
+      "model": "war3mapImported/moon_shin_MC.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.5
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.6
+        },
+        "skill1-s": {
+          "source": "Attack - 1",
+          "duration": 0.8
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 1.5
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 0.9
+        }
+      },
+      "frames": 265,
+      "textures": 2,
+      "bytes": 364934,
+      "textureBytes": 6799360,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "sunshangxiang",
+      "name": "孙尚香",
+      "model": "war3mapImported/SSX12.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.5
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.8
+        },
+        "skill1-s": {
+          "source": "Attack",
+          "duration": 1.1
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 1
+        }
+      },
+      "frames": 270,
+      "textures": 1,
+      "bytes": 197384,
+      "textureBytes": 2985984,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "huangyueying",
+      "name": "黄月英",
+      "model": "units/nightelf/Runner/Runner.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.267
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.9
+        },
+        "skill1-s": {
+          "source": "Attack",
+          "duration": 0.966
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 1.267
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 2.033
+        }
+      },
+      "frames": 330,
+      "textures": 2,
+      "bytes": 560306,
+      "textureBytes": 6742016,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "zhurong",
+      "name": "祝融",
+      "model": "units/nightelf/Huntress/Huntress.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.334
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.634
+        },
+        "skill1-s": {
+          "source": "Attack -1",
+          "duration": 1
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 1.667
+        }
+      },
+      "frames": 290,
+      "textures": 2,
+      "bytes": 649521,
+      "textureBytes": 7749632,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "lvbu",
+      "name": "吕布",
+      "model": "war3mapImported/moon_shin_LB.mdx",
+      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+      "animationSources": {
+        "idle-s": {
+          "source": "Stand",
+          "duration": 1.5
+        },
+        "run-s": {
+          "source": "Walk",
+          "duration": 0.8
+        },
+        "skill1-s": {
+          "source": "Attack - 1",
+          "duration": 0.7
+        },
+        "skill2-s": {
+          "source": "Spell",
+          "duration": 2.2
+        },
+        "dead-s": {
+          "source": "Death",
+          "duration": 0.9
+        }
+      },
+      "frames": 305,
+      "textures": 1,
+      "bytes": 226885,
+      "textureBytes": 3530752,
+      "boundaryFrames": 0
+    }
+  ],
+  "pending": [
+    {
+      "id": "taishici",
+      "name": "太史慈",
+      "status": "头像保留，模型待制作"
+    },
+    {
+      "id": "ganning",
+      "name": "甘宁",
+      "status": "头像保留，模型待制作"
+    },
+    {
+      "id": "zhangjiao",
+      "name": "张角",
+      "status": "头像保留，模型待制作"
+    },
+    {
+      "id": "yanliang",
+      "name": "颜良",
+      "status": "头像保留，模型待制作"
+    }
+  ]
+}

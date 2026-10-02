@@ -36,6 +36,12 @@ class Expedition extends Campaign {
   /** 新远征初始化保留旧协议字段，新增状态由构造器统一填充。 */
   create() {
     const s = super.create();
+    s.units.forEach((unit, index) => {
+      unit.slot =
+        index < this.validationLimit({ ...s, meta: this.state?.meta })
+          ? (policy.initialSlots[index] ?? -1)
+          : -1;
+    });
     s.expedition = {
       equipment: [],
       nextEquipment: 1,
@@ -54,7 +60,7 @@ class Expedition extends Campaign {
       c = require("./classic-config");
     return Math.min(
       this.rules.maxDeployedLimit,
-      c.baseArmyLimit +
+      policy.baseArmyLimit +
         (c.lordArmyBonus[s.meta?.lord || c.defaultLord] || 0) +
         level -
         1,

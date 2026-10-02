@@ -247,14 +247,14 @@ test("第18章才开放5阶，重开远征不重置已领新人福利", () => {
 test("首胜100经验跨过90门槛，上阵上限与存档校验同步", () => {
   const { m } = fixture();
   assert.equal(m.canDirect(), false);
-  assert.equal(m.limit(), 2);
+  assert.equal(m.limit(), 3);
+  assert.equal(m.state.units.filter((u) => u.slot >= 0).length, 3);
   victory(m);
   m.claim(0);
   assert.equal(m.state.expedition.level, 2);
   assert.equal(m.state.expedition.experience, 10);
-  assert.equal(m.limit(), 3);
-  m.deploy(2, 1);
-  m.deploy(3, 2);
-  assert.equal(m.state.units.filter((u) => u.slot >= 0).length, 3);
+  assert.equal(m.limit(), 4);
+  m.deploy(4, 4);
+  assert.equal(m.state.units.filter((u) => u.slot >= 0).length, 4);
   assert.equal(m.canDirect(), true);
 });

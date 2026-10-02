@@ -38,7 +38,8 @@ function frame(name,ms){
  const seq=parser.sequences.findIndex(s=>s.name===name);if(seq<0)throw Error('缺少动作 '+name);
  inst.clearEmittedObjects();inst.setSequence(seq);inst.setSequenceLoopMode(0);
  // 从动作起点顺序推进，保留原始粒子与拖尾的演化。
- let remaining=ms;while(remaining>0){const dt=Math.min(1000/60,remaining);viewer.update(dt);remaining-=dt;}
+ viewer.update(1);
+ let remaining=Math.max(0,ms-1);while(remaining>0){const dt=Math.min(1000/60,remaining);viewer.update(dt);remaining-=dt;}
  viewer.updateAndRender(0);return canvas.toDataURL('image/png');
 }
 /** 用同一模型生成高分辨率角色大图，头像另用独立近景镜头输出。 */

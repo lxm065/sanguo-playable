@@ -1,0 +1,47 @@
+"use strict";
+/** 战场外观与动作配置独立于兵种数值和头像映射。 */
+module.exports = {
+  models: Object.fromEntries(
+    [
+      "zhenji",
+      "xuchu",
+      "xiahouyuan",
+      "zhaoyun",
+      "dianwei",
+      "diaochan",
+      "huangzhong",
+      "zhangfei",
+      "xiaoqiao",
+      "zhangliao",
+      "zhouyu",
+      "guanyu",
+      "machao",
+      "sunshangxiang",
+      "huangyueying",
+      "zhurong",
+      "lvbu",
+    ].map((id) => [id, { assetKey: "battle-" + id, directional: true }]),
+  ),
+  legacy: { zhugeliang: { assetKey: "zhugeliang", directional: false } },
+  pending: ["taishici", "ganning", "zhangjiao", "yanliang"],
+  directions: ["e", "ne", "n", "nw", "w", "sw", "s", "se"],
+  mirrored: { w: "e", nw: "ne", sw: "se" },
+  defaultDirection: { ally: "n", enemy: "s" },
+  attackContact: 0.5,
+  fallback: {
+    width: 80,
+    height: 80,
+    y: 48,
+    noteY: 5,
+    noteFont: 17,
+    note: "模型待制作",
+  },
+  projectile: {
+    height: 48,
+    arrowLength: 20,
+    arrowWidth: 4,
+    physical: "#F5DC91",
+    magic: "#7ED9FF",
+    magicRadius: 7,
+  },
+};

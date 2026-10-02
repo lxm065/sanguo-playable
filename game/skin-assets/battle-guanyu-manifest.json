@@ -1,0 +1,191 @@
+{
+  "textures": [
+    "battle-guanyu-packed-0.png",
+    "battle-guanyu-packed-1.png"
+  ],
+  "frames": 325,
+  "actions": {
+    "idle-s": {
+      "source": "Stand Ready",
+      "duration": 1.333
+    },
+    "run-s": {
+      "source": "Walk",
+      "duration": 0.667
+    },
+    "skill1-s": {
+      "source": "Attack - 1",
+      "duration": 1.333
+    },
+    "skill2-s": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-s": {
+      "source": "Death",
+      "duration": 2
+    },
+    "idle-se": {
+      "source": "Stand Ready",
+      "duration": 1.333
+    },
+    "run-se": {
+      "source": "Walk",
+      "duration": 0.667
+    },
+    "skill1-se": {
+      "source": "Attack - 1",
+      "duration": 1.333
+    },
+    "skill2-se": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-se": {
+      "source": "Death",
+      "duration": 2
+    },
+    "idle-e": {
+      "source": "Stand Ready",
+      "duration": 1.333
+    },
+    "run-e": {
+      "source": "Walk",
+      "duration": 0.667
+    },
+    "skill1-e": {
+      "source": "Attack - 1",
+      "duration": 1.333
+    },
+    "skill2-e": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-e": {
+      "source": "Death",
+      "duration": 2
+    },
+    "idle-ne": {
+      "source": "Stand Ready",
+      "duration": 1.333
+    },
+    "run-ne": {
+      "source": "Walk",
+      "duration": 0.667
+    },
+    "skill1-ne": {
+      "source": "Attack - 1",
+      "duration": 1.333
+    },
+    "skill2-ne": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-ne": {
+      "source": "Death",
+      "duration": 2
+    },
+    "idle-n": {
+      "source": "Stand Ready",
+      "duration": 1.333
+    },
+    "run-n": {
+      "source": "Walk",
+      "duration": 0.667
+    },
+    "skill1-n": {
+      "source": "Attack - 1",
+      "duration": 1.333
+    },
+    "skill2-n": {
+      "source": "Spell",
+      "duration": 1
+    },
+    "dead-n": {
+      "source": "Death",
+      "duration": 2
+    }
+  },
+  "directions": [
+    "s",
+    "se",
+    "e",
+    "ne",
+    "n"
+  ],
+  "scale": 1.7818181818181817,
+  "anchors": {
+    "s": {
+      "left": 72,
+      "top": 74,
+      "right": 123,
+      "bottom": 121,
+      "width": 52,
+      "height": 48
+    },
+    "se": {
+      "left": 73,
+      "top": 78,
+      "right": 123,
+      "bottom": 114,
+      "width": 51,
+      "height": 37
+    },
+    "e": {
+      "left": 81,
+      "top": 67,
+      "right": 111,
+      "bottom": 123,
+      "width": 31,
+      "height": 57
+    },
+    "ne": {
+      "left": 67,
+      "top": 72,
+      "right": 119,
+      "bottom": 120,
+      "width": 53,
+      "height": 49
+    },
+    "n": {
+      "left": 67,
+      "top": 72,
+      "right": 121,
+      "bottom": 120,
+      "width": 55,
+      "height": 49
+    }
+  },
+  "model": "war3mapImported/GY.mdx",
+  "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
+  "dependencies": {
+    "war3mapImported/GY.mdx": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\war3mapImported\\GY.mdx",
+      "sha256": "17efbfcbb52f7d5d2edac1cc3e41357ad20ccf5c6b6f37fe8397a7806ea5670a"
+    },
+    "GY.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\GY.blp",
+      "sha256": "fa9e117e26e0bade9795ad02f9b3a9b4cb8264cd38e912e07f6ffeaf503b01b5"
+    },
+    "Textures/RibbonNE1.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\Textures\\RibbonNE1.blp",
+      "sha256": "130f1a89f565b8eeb8676941b34ba00e8088b83473a2c8c68963d58a2a460ada"
+    }
+  },
+  "camera": {
+    "center": [
+      -1.7959743202809477,
+      -67.5860244021751,
+      102.77367259649623
+    ],
+    "height": 209.9904912096622,
+    "span": 233.46684842157006
+  },
+  "uniformZoom": 1.9599999999999997,
+  "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
+  "compacted": {
+    "beforeBytes": 48365568,
+    "afterBytes": 5873664,
+    "boundaryFrames": 0
+  }
+}

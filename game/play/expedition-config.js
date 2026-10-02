@@ -2,6 +2,8 @@
 /** 远征本地规则集中维护；掉落权重与模拟数值属于本地策略。 */
 module.exports = {
   equipmentLimit: 3,
+  baseArmyLimit: 2,
+  initialSlots: [1, 2, 3],
   rankLimit: 4,
   maxStar: 5,
   fiveStarChapter: 18,
@@ -15,7 +17,10 @@ module.exports = {
   },
   directedAfterFirstNode: true,
   initialRoster: ["xuchu", "xuchu", "xuchu"],
-  models: ["zhaoyun", "zhangfei", "guanyu", "huangzhong", "zhugeliang"],
+  models: [
+    ...Object.keys(require("./battle-appearance").models),
+    ...Object.keys(require("./battle-appearance").legacy),
+  ],
   novice: [
     { kind: "hero", id: "guanyu", star: 3 },
     { kind: "equipment", id: "7212" },

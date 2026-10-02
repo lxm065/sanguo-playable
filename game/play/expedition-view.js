@@ -1,10 +1,10 @@
 "use strict";
 const { ClassicView } = require("./classic-view"),
-  { PlayView } = require("./view"),
   policy = require("./expedition-config"),
-  { stats, bonds } = require("./expedition-stats"),
   classic = require("./classic-config");
 const { BattleHud } = require("./battle-hud");
+const hudLayout = require("./battle-hud-config");
+const { showUnitDetails } = require("./unit-details");
 /** 远征视图负责交互展示，奖励和装备事务交给领域服务。 */
 class ExpeditionView extends ClassicView {
   /** 保留战场领取后的阵容，通过前进按钮返回路线。 */
@@ -21,23 +21,28 @@ class ExpeditionView extends ClassicView {
   }
   /** 棋盘、主公资源、新人福利以及羁绊装备栏共用战斗状态。 */
   renderBattle() {
-    PlayView.prototype.renderBattle.call(this);
     const u = this.ui,
       s = this.model.state,
       m = s.meta;
-    for (const n of [...this.root.children])
-      if (
-        [
-          "battle-header",
-          "详情 / 合成",
-          "选中下阵",
-          "军营招募",
-          "开始战斗",
-          "阵容说明",
-        ].includes(n.name)
-      )
-        n.destroy();
-    u.box(this.root, "expedition-header", 0, 550, 720, 180, "#241F19");
+    u.image(
+      this.root,
+      this.config.battleImage,
+      0,
+      0,
+      this.config.layout.width,
+      this.config.layout.height,
+    );
+    this.renderFormation();
+    u.box(
+      this.root,
+      "expedition-header",
+      0,
+      hudLayout.scene.headerY,
+      720,
+      hudLayout.scene.headerHeight,
+      hudLayout.scene.headerColor,
+      false,
+    );
     const lordAvatar = u.portrait(
       this.root,
       this.progress.lord().portrait,
@@ -81,21 +86,6 @@ class ExpeditionView extends ClassicView {
       "#EFD784",
       135,
     );
-    u.button(
-      this.root,
-      "地图",
-      270,
-      531,
-      128,
-      () => {
-        if (!this.playing) {
-          this.page = "map";
-          this.render();
-        }
-      },
-      "#72572C",
-      48,
-    );
     const offer = policy.novice[s.expedition.novice];
     if (offer && !s.pending) {
       const name =
@@ -131,23 +121,34 @@ class ExpeditionView extends ClassicView {
       );
       const ticket = this.model.adTicket();
     }
-    u.box(this.root, "expedition-footer", 0, -521, 720, 222, "#2B251F");
+    u.box(
+      this.root,
+      "expedition-footer",
+      0,
+      -521,
+      720,
+      222,
+      hudLayout.scene.footerColor,
+      false,
+    );
     this.battleHud = new BattleHud(this);
     this.battleHud.render();
-    u.button(
+    this.battleStartButton = u.button(
       this.root,
       m.activeNode ? "开始" : "前进",
       229,
       -533,
       230,
       () =>
-        m.activeNode
-          ? this.act(() => this.start(false))
-          : ((this.page = "map"), this.render()),
+        this.playing
+          ? undefined
+          : m.activeNode
+            ? this.act(() => this.start(false))
+            : ((this.page = "map"), this.render()),
       "#973B22",
       72,
     );
-    u.button(
+    this.battleSpeedButton = u.button(
       this.root,
       "×" + this.speed,
       153,
@@ -156,12 +157,172 @@ class ExpeditionView extends ClassicView {
       () => {
         const list = this.config.speedOptions;
         this.speed = list[(list.indexOf(this.speed) + 1) % list.length];
-        this.render();
+        if (this.playing)
+          this.battleSpeedButton.getComponentInChildren(this.cc.Label).string =
+            "×" + this.speed;
+        else this.render();
       },
       "#524B3C",
       43,
     );
+    if (s.pending) this.reward();
     if (this.modal) this.modal.setSiblingIndex(this.root.children.length - 1);
+  }
+  /** 绘制敌我棋盘与无外框备战席；不继承旧版额外管理按钮。 */
+  renderFormation() {
+    const u = this.ui,
+      s = this.model.state;
+    for (let y = 0; y < this.config.rows * 2; y++)
+      for (let x = 0; x < this.config.columns; x++) {
+        const p = this.position(x, y);
+        u.box(
+          this.root,
+          "slot-" + (y * this.config.columns + x),
+          p.x,
+          p.y,
+          this.config.layout.boardX[y] - 7,
+          this.config.layout.boardHitHeight - 8,
+          hudLayout.scene.gridColors[
+            (x + y) % hudLayout.scene.gridColors.length
+          ],
+          false,
+        );
+      }
+    if (s.pending) {
+      for (const initial of s.pending.battle.initial) {
+        const final = s.pending.battle.final.find((f) => f.uid === initial.uid),
+          unit = { ...initial, ...final },
+          p = this.position(unit.x, unit.y),
+          actor = u.actor(
+            this.root,
+            unit,
+            p.x,
+            p.y,
+            this.config.layout.modelScale,
+          );
+        this.actors.set(unit.uid, actor);
+        if (unit.hp === 0) actor.body.active = false;
+        this.bindAttributeTap(actor, unit, initial);
+      }
+    } else {
+      for (const unit of this.model.enemies()) {
+        const p = this.position(
+            unit.slot % this.config.columns,
+            Math.floor(unit.slot / this.config.columns) + this.config.rows,
+          ),
+          actor = u.actor(
+            this.root,
+            { ...unit, side: "enemy" },
+            p.x,
+            p.y,
+            this.config.layout.modelScale,
+          );
+        this.actors.set(unit.uid, actor);
+        this.bindAttributeTap(actor, unit);
+      }
+      for (const unit of s.units
+        .filter((v) => v.slot >= 0)
+        .sort((a, b) => b.slot - a.slot)) {
+        const p = this.position(
+          unit.slot % this.config.columns,
+          Math.floor(unit.slot / this.config.columns),
+        );
+        this.drawFriendly(unit, p.x, p.y, this.config.layout.modelScale);
+      }
+    }
+    this.renderReserve();
+  }
+  /** 备战席仅保留人物、描边姓名和必要的翻页箭头。 */
+  renderReserve() {
+    const u = this.ui,
+      c = hudLayout.reserve,
+      bench = this.model.state.units.filter((v) => v.slot < 0),
+      size = this.config.layout.benchPageSize,
+      pages = Math.max(1, Math.ceil(bench.length / size));
+    this.benchPage = Math.min(this.benchPage, pages - 1);
+    bench
+      .slice(this.benchPage * size, (this.benchPage + 1) * size)
+      .forEach((unit, i) => {
+        const x = (i - (size - 1) / 2) * this.config.layout.benchSpacing,
+          actor = this.drawFriendly(
+            unit,
+            x,
+            this.config.layout.benchY,
+            this.config.layout.benchScale,
+          );
+        actor.body.getChildByName("portrait-frame")?.destroy();
+        const h = this.roster.find((h) => h.id === unit.heroId),
+          label = u.text(
+            this.root,
+            h.name,
+            x,
+            c.nameY,
+            c.nameFont,
+            c.nameColor,
+            104,
+            36,
+          ),
+          outline = label.node.addComponent(this.cc.LabelOutline);
+        outline.color = new this.cc.Color(c.outlineColor);
+        outline.width = c.outlineWidth;
+      });
+    if (pages > 1)
+      for (const direction of [-1, 1])
+        u.button(
+          this.root,
+          direction < 0 ? "‹" : "›",
+          direction * c.arrowX,
+          c.arrowY,
+          c.arrowWidth,
+          () => {
+            if (this.playing) return;
+            this.benchPage = (this.benchPage + direction + pages) % pages;
+            this.render();
+          },
+          "#191F1B44",
+          c.arrowHeight,
+        );
+  }
+  /** 绑定敌方和回放中单位的只读点击，不注册布阵或合成操作。 */
+  bindAttributeTap(actor, unit, snapshot = null) {
+    actor.node.on(this.cc.Node.EventType.TOUCH_END, (e) => {
+      e.propagationStopped = true;
+      if (this.modal?.isValid) return;
+      this.details(unit.heroId, unit.uid, snapshot);
+    });
+  }
+  /** 回放复用原时间轴，只展示原有战斗控件，不创建跳过或管理按钮。 */
+  start(training) {
+    const battle = this.model.fight(training);
+    this.page = "battle";
+    this.render();
+    if (this.modal) {
+      this.modal.destroy();
+      this.modal = null;
+    }
+    for (const unit of battle.initial) {
+      this.actors.get(unit.uid)?.node.destroy();
+      const p = this.position(unit.x, unit.y),
+        actor = this.ui.actor(
+          this.root,
+          unit,
+          p.x,
+          p.y,
+          this.config.layout.modelScale,
+        );
+      this.actors.set(unit.uid, actor);
+      this.bindAttributeTap(actor, unit, unit);
+      if (unit.uid > 0) this.battleHud.renderEquipped(unit);
+    }
+    this.playing = true;
+    this.replay = battle;
+    this.elapsed = 0;
+    this.eventIndex = 0;
+    this.lastTime = Date.now();
+    this.status = null;
+    this.battleStartButton.getComponentInChildren(this.cc.Label).string =
+      "战斗中";
+    this.timer = setInterval(() => this.tick(), 40);
   }
   /** 单击直接显示武将详情；拖动只布阵，取消时恢复原位置。 */
   drawFriendly(unit, x, y, scale) {
@@ -193,14 +354,20 @@ class ExpeditionView extends ClassicView {
         actor.node.setPosition(q.x, q.y);
       }
     });
-    actor.node.on(events.TOUCH_END, (event) => {
+    /** 统一处理节点内外松手，拖出原触摸区域仍可完成布阵。 */
+    const release = (event) => {
       event.propagationStopped = true;
       if (!start) return;
       start = null;
       if (this.playing || this.model.state.pending) return;
       this.selected = unit.uid;
       if (!moved) {
-        this.details(unit.heroId, unit.uid);
+        const count = this.model.state.units.filter(
+          (v) => v.heroId === unit.heroId && v.star === unit.star,
+        ).length;
+        if (count >= this.config.mergeCount && unit.star < this.model.maxRank())
+          this.mergePanel(unit.uid);
+        else this.details(unit.heroId, unit.uid);
         return;
       }
       const p = event.getUILocation(),
@@ -213,8 +380,10 @@ class ExpeditionView extends ClassicView {
         else if (q.y < -260 && q.y > -425) this.model.deploy(unit.uid, -1);
         else throw Error("请放在己方棋盘或备战席");
       });
-    });
+    };
+    actor.node.on(events.TOUCH_END, release);
     actor.node.on(events.TOUCH_CANCEL, (event) => {
+      if (event.getEventCode?.() === "touch-end") return release(event);
       event.propagationStopped = true;
       start = null;
       if (!this.playing) this.render();
@@ -422,91 +591,9 @@ class ExpeditionView extends ClassicView {
       }, 0);
     });
   }
-  /** 武将详情左侧固定三个装备槽，卸下与穿戴均调用领域事务。 */
-  details(id, uid = null) {
-    const unit = uid ? this.model.unit(uid) : null,
-      hero = this.roster.find((h) => h.id === id),
-      m = this.overlay(),
-      l = policy.layout;
-    m.on(this.cc.Node.EventType.TOUCH_END, (e) => {
-      if (e.target === m) this.render();
-    });
-    const value = unit
-      ? stats(
-          unit,
-          unit.slot >= 0
-            ? this.model.state.units.filter((v) => v.slot >= 0)
-            : [unit],
-          this.roster,
-          this.model.state.expedition.equipment,
-          this.config,
-        )
-      : null;
-    const card = this.heroCard(
-      m,
-      id,
-      unit?.star || hero.tier || 1,
-      54,
-      33,
-      l.detailWidth,
-      l.detailHeight,
-      false,
-      0,
-      value,
-    );
-    if (unit) {
-      const items = this.model.state.expedition.equipment.filter(
-        (e) => e.owner === uid,
-      );
-      this.ui.text(m, "装备栏", -235, 557, 26, "#EEE6D6", 140);
-      for (let i = 0; i < policy.equipmentLimit; i++) {
-        const item = items[i],
-          e = policy.equipment.find((v) => v.id === item?.id);
-        const slot = this.ui.button(
-          m,
-          e ? "" : "＋",
-          -235,
-          475 - i * 110,
-          100,
-          () =>
-            e ? this.equipmentDetails(item, uid) : this.equipmentPanel(uid),
-          "#53412D",
-          94,
-        );
-        if (e) this.ui.image(slot, "equipment/" + e.id + ".png", 0, 0, 82, 82);
-      }
-      this.ui.text(
-        card,
-        "本地演算：主技能生效",
-        0,
-        -l.detailHeight / 2 + 94,
-        20,
-        "#79562E",
-        l.detailWidth - 32,
-        40,
-      );
-      this.ui.button(m, "合成", -170, -563, 176, () =>
-        unit.star < this.model.maxRank()
-          ? this.mergePanel(uid)
-          : this.notice("提示", "当前章节已达最高阶"),
-      );
-      this.ui.button(m, "下阵", 20, -563, 176, () =>
-        this.act(() => this.model.deploy(uid, -1)),
-      );
-      this.ui.button(m, "遣返", 210, -563, 176, () =>
-        this.act(() => this.model.sell(uid)),
-      );
-    }
-    this.ui.button(
-      m,
-      "点击返回",
-      0,
-      -615,
-      250,
-      () => this.render(),
-      "#655744",
-      42,
-    );
+  /** 敌我共用只读单页属性，不加入合成、下阵或遣返按钮。 */
+  details(id, uid = null, snapshot = null) {
+    return showUnitDetails(this, id, uid, snapshot);
   }
   /** 分类通关弹窗，广告刷新只改变待领取候选。 */
   reward() {
@@ -681,18 +768,96 @@ class ExpeditionView extends ClassicView {
         );
       });
   }
-  /** 回放回血与头像棋子的死亡反馈，其余事件复用现有播放器。 */
+  /** 根据战报事件更新模型朝向和动作；数值与命中仍由模拟器决定。 */
   apply(event) {
+    const cc = this.cc,
+      u = this.ui,
+      actor = this.actors.get(event.uid),
+      target = this.actors.get(event.target);
     if (event.type === "heal") {
-      const target = this.actors.get(event.target);
-      if (target) this.ui.health(target, event.hp);
+      if (target) u.health(target, event.hp);
       return;
     }
-    super.apply(event);
-    if (event.type === "death") {
-      const actor = this.actors.get(event.uid);
-      if (actor && !actor.sp.skeletonData) actor.body.active = false;
+    if (event.type === "move" && actor) {
+      const p = this.position(event.x, event.y);
+      u.face(actor, p.x - actor.node.position.x, p.y - actor.node.position.y);
+      u.animate(actor, "run", true, { speed: this.speed });
+      cc.Tween.stopAllByTarget(actor.node);
+      cc.tween(actor.node)
+        .to(event.duration / this.speed, { position: new cc.Vec3(p.x, p.y, 0) })
+        .call(() => {
+          if (actor.alive)
+            u.animate(actor, "idle", true, { speed: this.speed });
+        })
+        .start();
     }
+    if (event.type === "attack" && actor) {
+      if (target && target !== actor)
+        u.face(
+          actor,
+          target.node.position.x - actor.node.position.x,
+          target.node.position.y - actor.node.position.y,
+        );
+      u.animate(actor, event.skill ? "skill2" : "skill1", false, {
+        speed: this.speed,
+        contactDelay: this.config.attackDelay,
+      });
+      if (target && event.ranged) this.projectile(actor, target, event.skill);
+    }
+    if (event.type === "damage" && target) {
+      u.health(target, event.hp);
+      this.damageText(target, event.damage, event.critical, event.skill);
+    }
+    if (event.type === "death" && actor) {
+      actor.alive = false;
+      cc.Tween.stopAllByTarget(actor.node);
+      u.animate(actor, "dead", false, { speed: this.speed });
+      if (!actor.sp.skeletonData) actor.body.active = false;
+    }
+  }
+  /** 物理远程绘制箭矢，法系绘制法术光点；两者沿实际目标方向飞行。 */
+  projectile(actor, target, skill) {
+    const cc = this.cc,
+      c = require("./battle-appearance").projectile,
+      n = this.ui.node(
+        this.root,
+        "projectile",
+        actor.node.position.x,
+        actor.node.position.y + c.height,
+      ),
+      g = n.addComponent(cc.Graphics),
+      magic = !!actor.unit.magic;
+    g.fillColor = new cc.Color(magic ? c.magic : c.physical);
+    if (magic) {
+      g.circle(0, 0, c.magicRadius);
+      g.fill();
+    } else {
+      const dx = target.node.position.x - actor.node.position.x,
+        dy = target.node.position.y - actor.node.position.y;
+      n.angle = (Math.atan2(dy, dx) * 180) / Math.PI;
+      g.rect(
+        -c.arrowLength / 2,
+        -c.arrowWidth / 2,
+        c.arrowLength,
+        c.arrowWidth,
+      );
+      g.fill();
+      g.moveTo(c.arrowLength / 2 + 5, 0);
+      g.lineTo(c.arrowLength / 2 - 3, 5);
+      g.lineTo(c.arrowLength / 2 - 3, -5);
+      g.close();
+      g.fill();
+    }
+    cc.tween(n)
+      .to(this.config.attackDelay / this.speed, {
+        position: new cc.Vec3(
+          target.node.position.x,
+          target.node.position.y + c.height,
+          0,
+        ),
+      })
+      .call(() => n.destroy())
+      .start();
   }
 }
 module.exports = { ExpeditionView };

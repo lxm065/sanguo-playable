@@ -12,7 +12,7 @@ class Progression{
  /** 解锁条件直接使用原始章节和签到次数，不受战斗胜场混淆。 */
  unlocked(id){const l=this.lord(id);return !!l&&this.state.cleared>=l.chapter&&this.state.signs>=l.sign;}
  /** 只有远征未开始时允许更换主公，防止中途重置生命金币。 */
- select(id){return this.model.transact(()=>{if(!this.unlocked(id))throw Error('尚未满足解锁条件');if(this.state.layer||this.state.section>1||this.model.state.pending)throw Error('本次远征中不能切换主公');const l=this.lord(id);this.state.lord=id;this.state.hp=l.hp;this.model.state.gold=l.coin;});}
+ select(id){return this.model.transact(()=>{if(!this.unlocked(id))throw Error('尚未满足解锁条件');if(this.state.layer||this.state.section>1||this.model.state.pending)throw Error('本次远征中不能切换主公');const l=this.lord(id);this.state.lord=id;this.state.hp=l.hp;this.model.state.gold=l.coin;const limit=this.model.limit();this.model.state.units.filter(u=>u.slot>=0).slice(limit).forEach(u=>{u.slot=-1;});});}
  /** 每个自然日只能签到一次；第9签和第18签分别解锁对应主公。 */
  sign(){return this.model.transact(()=>{if(this.state.lastSign===this.day())throw Error('今日已签到');this.state.lastSign=this.day();this.state.signs++;});}
  /** 生成配置化分叉节点；远端原服随机路线未在离线客户端恢复。 */
