@@ -58,4 +58,4 @@ function simulate(allies,enemies,roster,rules,seed,enemyScale){
  }
  return {initial,events,result,duration:elapsed,final:units.map(u=>({uid:u.uid,hp:u.hp,x:u.x,y:u.y}))};
 }
-module.exports={random,simulate,distance,combatants};
+module.exports={random,simulate,distance,combatants,nextStep};

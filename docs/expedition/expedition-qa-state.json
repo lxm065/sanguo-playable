@@ -1,0 +1,78 @@
+{
+  "success": true,
+  "result": {
+    "units": [
+      {
+        "uid": 1,
+        "heroId": "zhenji",
+        "star": 3,
+        "slot": 2
+      },
+      {
+        "uid": 5,
+        "heroId": "guanyu",
+        "star": 3,
+        "slot": 3
+      }
+    ],
+    "progress": {
+      "lord": "1001",
+      "hp": 3,
+      "chapter": 1,
+      "section": 1,
+      "layer": 3,
+      "lane": 1,
+      "cleared": 0,
+      "signs": 0,
+      "lastSign": "",
+      "activeNode": null,
+      "unlocked": [
+        "zhaoyun",
+        "guanyu",
+        "huangzhong",
+        "zhugeliang"
+      ],
+      "diamonds": 0,
+      "inventory": {
+        "5": 0,
+        "8": 0,
+        "10": 0
+      },
+      "claimed": [],
+      "bought": [],
+      "refreshes": 5,
+      "shopDay": "2026-10-2",
+      "mineLevel": 0
+    },
+    "expedition": {
+      "equipment": [
+        {
+          "uid": 1,
+          "id": "7212",
+          "owner": 5
+        },
+        {
+          "uid": 2,
+          "id": "7206",
+          "owner": 5
+        },
+        {
+          "uid": 3,
+          "id": "7213",
+          "owner": 5
+        },
+        {
+          "uid": 4,
+          "id": "7208",
+          "owner": null
+        }
+      ],
+      "nextEquipment": 5,
+      "novice": 2,
+      "adSerial": 4,
+      "level": 2,
+      "experience": 210
+    },
+    "originalUnchanged": true
+  }
+}

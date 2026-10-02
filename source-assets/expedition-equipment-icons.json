@@ -1,0 +1,56 @@
+[
+  {
+    "id": "7201",
+    "pic": "30001",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\fight-img\\native\\73\\731b5f3c-e696-416a-8cfa-b2fac68a4499.fbcf4.jpg",
+    "output": "equipment/7201.png"
+  },
+  {
+    "id": "7202",
+    "pic": "30002",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\fight-img\\native\\57\\57605c1c-5813-4523-bb48-957390b5580d.393c4.jpg",
+    "output": "equipment/7202.png"
+  },
+  {
+    "id": "7204",
+    "pic": "30004",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\fight-img\\native\\48\\485ac17b-a16b-4da2-802e-a9b7be266e64.5304c.jpg",
+    "output": "equipment/7204.png"
+  },
+  {
+    "id": "7206",
+    "pic": "30006",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\fight-img\\native\\c2\\c2136278-47f4-454d-b7c7-c1ec004ded69.9405f.jpg",
+    "output": "equipment/7206.png"
+  },
+  {
+    "id": "7207",
+    "pic": "30007",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\fight-img\\native\\71\\716c315c-e8bb-422e-8196-1915bf3a569e.08deb.jpg",
+    "output": "equipment/7207.png"
+  },
+  {
+    "id": "7208",
+    "pic": "30008",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\fight-img\\native\\5d\\5d04fbd7-9fb5-406d-a1fc-30aeb726302c.d9b6c.jpg",
+    "output": "equipment/7208.png"
+  },
+  {
+    "id": "7211",
+    "pic": "30011",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\fight-img\\native\\67\\67a2c55d-d355-4474-ab53-8b29b122125b.70792.jpg",
+    "output": "equipment/7211.png"
+  },
+  {
+    "id": "7212",
+    "pic": "30012",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\fight-img\\native\\67\\67fa10b5-6e9f-4d13-b8c9-ae31b97c3645.c48b8.jpg",
+    "output": "equipment/7212.png"
+  },
+  {
+    "id": "7213",
+    "pic": "30013",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\fight-img\\native\\11\\118bf35a-0df9-488d-9a19-7ed748ff55fc.7fff3.jpg",
+    "output": "equipment/7213.png"
+  }
+]

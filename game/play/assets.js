@@ -10,7 +10,9 @@ class Assets{
  sprite(file){const key='sprite:'+file;if(!this.cache.has(key))this.cache.set(key,this.texture(file).then(texture=>{const frame=new this.cc.SpriteFrame();frame.texture=texture;frame.addRef();return frame;}));return this.cache.get(key);}
  /** 读取指定武将的 Spine 图集、动画和纹理，不包含网络回退。 */
  skeleton(hero){const key='skeleton:'+hero;if(!this.cache.has(key))this.cache.set(key,(async()=>{const fs=this.wx.getFileSystemManager(),read=file=>fs.readFileSync(this.config.assetsRoot+file,'utf8'),manifest=JSON.parse(read(hero+'-manifest.json')),data=new this.cc.sp.SkeletonData();data.name='sanguo:'+hero;data.skeletonJson=JSON.parse(read(hero+'.json'));data.atlasText=read(hero+'.atlas');data.textures=await Promise.all(manifest.textures.map(file=>this.texture(file)));data.textureNames=manifest.textures;data.addRef();if(!data.getRuntimeData())throw Error('无法解析武将动画 '+hero);return data;})());return this.cache.get(key);}
- /** 进入交互前验证全部武将资源，缺图时明确失败，防止白模静默上线。 */
- async preload(roster){await Promise.all(roster.map(async h=>{await this.skeleton(h.id);await this.sprite(h.id+'-avatar.png');}));await Promise.all([this.sprite(this.config.mapImage),this.sprite(this.config.battleImage)]);}
+ /** 按资源配置判断是否具有已制作的战斗模型。 */
+ hasModel(id){return require('./expedition-config').models.includes(id);}
+ /** 只预载存在的骨骼，其余武将使用包内独立头像。 */
+ async preload(roster){await Promise.all(roster.map(async h=>{if(this.hasModel(h.id))await this.skeleton(h.id);await this.sprite(h.id+'-avatar.png');}));await Promise.all([this.sprite(this.config.mapImage),this.sprite(this.config.battleImage)]);}
 }
 module.exports={Assets};
