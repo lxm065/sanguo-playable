@@ -1,0 +1,1 @@
+"use strict";var e,t;System.register("chunks:///module_invite.js",[],(function(){return{execute:function(){}}})),e="virtual:///prerequisite-imports/module_invite",t="chunks:///module_invite.js",System.register(e,[t],(function(e,t){return{setters:[function(t){var i={};for(var u in t)"default"!==u&&"__esModule"!==u&&(i[u]=t[u]);e(i)}],execute:function(){}}}));

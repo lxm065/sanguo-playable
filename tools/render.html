@@ -1,0 +1,52 @@
+<!doctype html><meta charset="utf-8"><style>html,body{margin:0;background:transparent}canvas{display:block}</style><canvas id="c"></canvas><script src="/bundle.js"></script><script>
+const MV=window.ModelViewer,canvas=document.querySelector('canvas');
+let viewer,scene,inst,model,parser,cfg,errors=[];
+/** 将依赖限制在同一地图的资源副本，避免同名贴图覆盖。 */
+function solve(p){return typeof p==='string'?'/asset/'+p.replace(/\\/g,'/').split('/').map(encodeURIComponent).join('/'):p;}
+/** 载入真实模型及贴图，建立所有动作共用的固定镜头。 */
+async function initialize(config){
+ cfg=config;canvas.width=canvas.height=cfg.frameSize;
+ viewer=new MV.viewer.ModelViewer(canvas,{alpha:true,preserveDrawingBuffer:true});
+ /** 覆写默认不透明清屏，保留模型本身的真实透明通道。 */
+ viewer.startFrame=function clearTransparent(){const gl=this.gl;gl.depthMask(true);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);};
+ viewer.on('error',e=>errors.push(String(e.error)+' '+(e.fetchUrl||'')+' '+(e.reason?.message||'')));
+ for(const type of ['blp','dds','tga','mdx'])viewer.addHandler(MV.viewer.handlers[type],solve);
+ scene=viewer.addScene();scene.alpha=true;
+ parser=new MV.parsers.mdlx.Model();parser.load(await(await fetch(solve(cfg.model))).arrayBuffer());
+ // 场景出生物、脚印与声音事件不属于角色纹理；本地战场自行处理命中表现。
+ if(cfg.omitSceneEvents)parser.eventObjects=[];
+ // 队伍地面光圈属于魔兽场景装饰，不烘焙进角色的透明精灵。
+ if(cfg.omitTeamGlow)for(const material of parser.materials)for(const layer of material.layers){if(parser.textures[layer.textureId]?.replaceableId===2){layer.alpha=0;layer.animations=[];}}
+ model=await viewer.load(parser,solve);
+ for(let i=0;i<12&&viewer.promiseMap.size;i++)await Promise.allSettled([...viewer.promiseMap.values()]);
+ if(!model||errors.length)throw Error(errors.join('\n')||'模型加载失败');
+ inst=model.addInstance();inst.setScene(scene);inst.setTeamColor(1);
+ let lo=[Infinity,Infinity,Infinity],hi=[-Infinity,-Infinity,-Infinity];
+ for(const g of parser.geosets)for(let i=0;i<g.vertices.length;i+=3)for(let k=0;k<3;k++){lo[k]=Math.min(lo[k],g.vertices[i+k]);hi[k]=Math.max(hi[k],g.vertices[i+k]);}
+ const center=lo.map((v,k)=>(v+hi[k])/2),radius=Math.hypot(...lo.map((v,k)=>(hi[k]-v)/2));
+ const d=cfg.cameraDirection,len=Math.hypot(...d),distance=radius*cfg.distanceFactor;
+ model.bounds.fromExtents(center.map(v=>v-radius*2),center.map(v=>v+radius*2));
+ for(const s of model.sequences)s.bounds.fromExtents(center.map(v=>v-radius*2),center.map(v=>v+radius*2));
+ scene.camera.perspective(Math.PI/4,1,Math.max(.01,radius/100),radius*100+1000);
+ scene.camera.moveToAndFace(center.map((v,k)=>v+d[k]/len*distance),center,[0,0,1]);
+ return {name:parser.name,errors,sequences:parser.sequences.map(s=>({name:s.name,interval:Array.from(s.interval)})),center,radius};
+}
+/** 按指定源动作与时刻渲染透明帧，不生成或更改战斗逻辑。 */
+function frame(name,ms){
+ const seq=parser.sequences.findIndex(s=>s.name===name);if(seq<0)throw Error('缺少动作 '+name);
+ inst.clearEmittedObjects();inst.setSequence(seq);inst.setSequenceLoopMode(0);
+ // 从动作起点顺序推进，保留原始粒子与拖尾的演化。
+ let remaining=ms;while(remaining>0){const dt=Math.min(1000/60,remaining);viewer.update(dt);remaining-=dt;}
+ viewer.updateAndRender(0);return canvas.toDataURL('image/png');
+}
+/** 用同一模型生成高分辨率角色大图，头像另用独立近景镜头输出。 */
+function portrait(head){
+ const camera=head?cfg.avatar:cfg.portrait;
+ canvas.width=camera.width;canvas.height=camera.height;scene.viewport=[0,0,canvas.width,canvas.height];
+ const center=camera.center,distance=camera.distance;
+ scene.camera.perspective(Math.PI/4,canvas.width/canvas.height,.1,5000);
+ scene.camera.moveToAndFace([center[0]+distance*.8,center[1]+distance*.6,center[2]+distance*.28],center,[0,0,1]);
+ return frame(cfg.actions.idle,600);
+}
+window.api={initialize,frame,portrait};
+</script>

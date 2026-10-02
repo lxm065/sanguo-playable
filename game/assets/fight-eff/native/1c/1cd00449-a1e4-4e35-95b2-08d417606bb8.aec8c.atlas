@@ -1,0 +1,97 @@
+
+bone19.png
+size: 912,286
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ef/9_001
+  rotate: true
+  xy: 178, 64
+  size: 117, 86
+  orig: 200, 151
+  offset: 39, 10
+  index: -1
+ef/9_002
+  rotate: false
+  xy: 770, 28
+  size: 140, 103
+  orig: 200, 151
+  offset: 24, 10
+  index: -1
+ef/9_003
+  rotate: false
+  xy: 444, 51
+  size: 156, 110
+  orig: 200, 151
+  offset: 15, 10
+  index: -1
+ef/9_004
+  rotate: false
+  xy: 266, 43
+  size: 167, 117
+  orig: 200, 151
+  offset: 8, 10
+  index: -1
+ef/9_005
+  rotate: false
+  xy: 616, 164
+  size: 168, 120
+  orig: 200, 151
+  offset: 7, 10
+  index: -1
+ef/9_006
+  rotate: false
+  xy: 444, 163
+  size: 170, 121
+  orig: 200, 151
+  offset: 5, 10
+  index: -1
+ef/9_007
+  rotate: false
+  xy: 270, 162
+  size: 172, 122
+  orig: 200, 151
+  offset: 3, 12
+  index: -1
+ef/9_008
+  rotate: true
+  xy: 786, 133
+  size: 151, 124
+  orig: 200, 151
+  offset: 1, 15
+  index: -1
+ef/daodan
+  rotate: false
+  xy: 435, 2
+  size: 121, 47
+  orig: 188, 58
+  offset: 19, 5
+  index: -1
+ef/dd
+  rotate: false
+  xy: 178, 20
+  size: 42, 42
+  orig: 50, 50
+  offset: 4, 4
+  index: -1
+ef/dm1
+  rotate: false
+  xy: 2, 183
+  size: 266, 101
+  orig: 266, 118
+  offset: 0, 8
+  index: -1
+ef/gq2
+  rotate: false
+  xy: 616, 22
+  size: 152, 140
+  orig: 156, 156
+  offset: 2, 2
+  index: -1
+ef/iceq
+  rotate: false
+  xy: 2, 3
+  size: 174, 178
+  orig: 200, 186
+  offset: 11, 5
+  index: -1

@@ -1,0 +1,118 @@
+
+bone51.png
+size: 157,483
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ef/dd_2 (2)
+  rotate: false
+  xy: 2, 3
+  size: 34, 34
+  orig: 40, 40
+  offset: 3, 3
+  index: -1
+ef/g2
+  rotate: true
+  xy: 84, 435
+  size: 46, 71
+  orig: 54, 78
+  offset: 4, 5
+  index: -1
+ef/gq
+  rotate: true
+  xy: 83, 227
+  size: 78, 72
+  orig: 83, 83
+  offset: 3, 2
+  index: -1
+ef/sd_04
+  rotate: true
+  xy: 2, 118
+  size: 74, 79
+  orig: 80, 80
+  offset: 5, 1
+  index: -1
+ef/sd_05
+  rotate: false
+  xy: 2, 39
+  size: 77, 77
+  orig: 80, 80
+  offset: 3, 0
+  index: -1
+ef/sd_06
+  rotate: false
+  xy: 84, 307
+  size: 69, 47
+  orig: 80, 80
+  offset: 5, 2
+  index: -1
+ef/sd_07
+  rotate: false
+  xy: 83, 80
+  size: 46, 42
+  orig: 80, 80
+  offset: 11, 7
+  index: -1
+ef/sd_08
+  rotate: true
+  xy: 81, 2
+  size: 76, 74
+  orig: 80, 80
+  offset: 4, 0
+  index: -1
+ef/sd_09
+  rotate: true
+  xy: 2, 350
+  size: 62, 80
+  orig: 80, 80
+  offset: 5, 0
+  index: -1
+ef/sd_10
+  rotate: true
+  xy: 83, 124
+  size: 48, 57
+  orig: 80, 80
+  offset: 7, 0
+  index: -1
+ef/sd_11
+  rotate: true
+  xy: 2, 194
+  size: 75, 79
+  orig: 80, 80
+  offset: 5, 0
+  index: -1
+ef/sd_12
+  rotate: false
+  xy: 2, 414
+  size: 80, 67
+  orig: 80, 80
+  offset: 0, 13
+  index: -1
+ef/sd_13
+  rotate: true
+  xy: 83, 174
+  size: 51, 62
+  orig: 80, 80
+  offset: 29, 18
+  index: -1
+ef/sd_14
+  rotate: true
+  xy: 2, 271
+  size: 77, 79
+  orig: 80, 80
+  offset: 1, 1
+  index: -1
+ef/sd_15
+  rotate: false
+  xy: 84, 356
+  size: 69, 77
+  orig: 80, 80
+  offset: 3, 3
+  index: -1
+ef/sd_16
+  rotate: false
+  xy: 38, 6
+  size: 32, 31
+  orig: 80, 80
+  offset: 5, 5
+  index: -1

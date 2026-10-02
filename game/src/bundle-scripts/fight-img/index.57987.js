@@ -1,0 +1,1 @@
+"use strict";var t,e;System.register("chunks:///fight-img.js",[],(function(){return{execute:function(){}}})),t="virtual:///prerequisite-imports/fight-img",e="chunks:///fight-img.js",System.register(t,[e],(function(t,e){return{setters:[function(e){var i={};for(var r in e)"default"!==r&&"__esModule"!==r&&(i[r]=e[r]);t(i)}],execute:function(){}}}));

@@ -1,0 +1,38 @@
+{
+  "textures": [
+    "zhugeliang-0.png",
+    "zhugeliang-1.png",
+    "zhugeliang-2.png"
+  ],
+  "frames": 183,
+  "actions": {
+    "idle": {
+      "source": "Stand",
+      "duration": 1.5
+    },
+    "run": {
+      "source": "Walk",
+      "duration": 0.933
+    },
+    "skill1": {
+      "source": "Attack",
+      "duration": 1.5
+    },
+    "skill2": {
+      "source": "Spell",
+      "duration": 1.5
+    },
+    "dead": {
+      "source": "Death",
+      "duration": 3
+    },
+    "hit": {
+      "source": "Stand - 1",
+      "duration": 4.667
+    },
+    "win": {
+      "source": "Spell Channel",
+      "duration": 2
+    }
+  }
+}

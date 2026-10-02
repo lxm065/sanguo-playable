@@ -1,0 +1,111 @@
+
+bone35.png
+size: 426,159
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+baozhayan0001
+  rotate: true
+  xy: 384, 113
+  size: 44, 39
+  orig: 73, 85
+  offset: 14, 10
+  index: -1
+baozhayan0003
+  rotate: true
+  xy: 2, 2
+  size: 73, 78
+  orig: 73, 85
+  offset: 0, 1
+  index: -1
+baozhayan0005
+  rotate: false
+  xy: 76, 80
+  size: 73, 77
+  orig: 73, 85
+  offset: 0, 8
+  index: -1
+baozhayan0007
+  rotate: false
+  xy: 82, 2
+  size: 73, 76
+  orig: 73, 85
+  offset: 0, 9
+  index: -1
+baozhayan0009
+  rotate: true
+  xy: 232, 10
+  size: 72, 59
+  orig: 73, 85
+  offset: 1, 26
+  index: -1
+paopao0001
+  rotate: false
+  xy: 343, 47
+  size: 42, 53
+  orig: 73, 85
+  offset: 15, 5
+  index: -1
+paopao0003
+  rotate: true
+  xy: 343, 4
+  size: 41, 48
+  orig: 73, 85
+  offset: 16, 12
+  index: -1
+paopao0005
+  rotate: false
+  xy: 293, 25
+  size: 48, 57
+  orig: 73, 85
+  offset: 11, 13
+  index: -1
+paopao0007
+  rotate: false
+  xy: 339, 102
+  size: 43, 55
+  orig: 73, 85
+  offset: 14, 17
+  index: -1
+paopao0009
+  rotate: false
+  xy: 295, 99
+  size: 42, 58
+  orig: 73, 85
+  offset: 17, 13
+  index: -1
+paopao0011
+  rotate: false
+  xy: 387, 66
+  size: 37, 45
+  orig: 73, 85
+  offset: 18, 26
+  index: -1
+yanwup0001
+  rotate: false
+  xy: 2, 77
+  size: 72, 80
+  orig: 73, 85
+  offset: 0, 4
+  index: -1
+yanwup0006
+  rotate: true
+  xy: 226, 84
+  size: 73, 67
+  orig: 73, 85
+  offset: 0, 5
+  index: -1
+yanwup0009
+  rotate: false
+  xy: 157, 8
+  size: 73, 73
+  orig: 73, 85
+  offset: 0, 6
+  index: -1
+yanwup0010
+  rotate: false
+  xy: 151, 83
+  size: 73, 74
+  orig: 73, 85
+  offset: 0, 6
+  index: -1

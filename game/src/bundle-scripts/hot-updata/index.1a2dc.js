@@ -1,0 +1,1 @@
+"use strict";var t,e;System.register("chunks:///hot-updata.js",[],(function(){return{execute:function(){}}})),t="virtual:///prerequisite-imports/hot-updata",e="chunks:///hot-updata.js",System.register(t,[e],(function(t,e){return{setters:[function(e){var u={};for(var r in e)"default"!==r&&"__esModule"!==r&&(u[r]=e[r]);t(u)}],execute:function(){}}}));

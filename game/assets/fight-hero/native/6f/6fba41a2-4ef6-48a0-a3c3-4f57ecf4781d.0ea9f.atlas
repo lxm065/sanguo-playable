@@ -1,0 +1,27 @@
+
+50003.png
+size: 98,98
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hero_shadow
+  rotate: false
+  xy: 2, 83
+  size: 40, 13
+  orig: 42, 15
+  offset: 1, 1
+  index: -1
+skill/th
+  rotate: true
+  xy: 44, 78
+  size: 18, 50
+  orig: 18, 50
+  offset: 0, 0
+  index: -1
+skill/yang
+  rotate: false
+  xy: 2, 2
+  size: 94, 74
+  orig: 94, 74
+  offset: 0, 0
+  index: -1

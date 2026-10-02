@@ -1,0 +1,457 @@
+{
+  "metadata": {
+    "name": "grunt",
+    "errors": [],
+    "sequences": [
+      {
+        "name": "walk",
+        "interval": [
+          667,
+          1333
+        ]
+      },
+      {
+        "name": "Stand - 1",
+        "interval": [
+          1833,
+          4833
+        ]
+      },
+      {
+        "name": "Attack - 1",
+        "interval": [
+          5133,
+          6100
+        ]
+      },
+      {
+        "name": "Death",
+        "interval": [
+          6833,
+          8400
+        ]
+      },
+      {
+        "name": "Decay Flesh",
+        "interval": [
+          8967,
+          68967
+        ]
+      },
+      {
+        "name": "Attack - 2",
+        "interval": [
+          71067,
+          72033
+        ]
+      },
+      {
+        "name": "Stand - 2",
+        "interval": [
+          73067,
+          76400
+        ]
+      },
+      {
+        "name": "Stand Victory",
+        "interval": [
+          77067,
+          78400
+        ]
+      },
+      {
+        "name": "Stand - 3",
+        "interval": [
+          79067,
+          80500
+        ]
+      },
+      {
+        "name": "Spell",
+        "interval": [
+          87733,
+          89167
+        ]
+      },
+      {
+        "name": "Stand Ready",
+        "interval": [
+          93067,
+          94033
+        ]
+      },
+      {
+        "name": "Decay Bone",
+        "interval": [
+          141067,
+          201067
+        ]
+      }
+    ],
+    "center": [
+      1.6436004638671875,
+      -11.432050704956055,
+      75.55030107498169
+    ],
+    "radius": 118.39058980245807
+  },
+  "animations": {
+    "idle": {
+      "source": "Stand - 1",
+      "duration": 3,
+      "frames": [
+        "idle-000.png",
+        "idle-001.png",
+        "idle-002.png",
+        "idle-003.png",
+        "idle-004.png",
+        "idle-005.png",
+        "idle-006.png",
+        "idle-007.png",
+        "idle-008.png",
+        "idle-009.png",
+        "idle-010.png",
+        "idle-011.png",
+        "idle-012.png",
+        "idle-013.png",
+        "idle-014.png",
+        "idle-015.png",
+        "idle-016.png",
+        "idle-017.png",
+        "idle-018.png",
+        "idle-019.png",
+        "idle-020.png",
+        "idle-021.png",
+        "idle-022.png",
+        "idle-023.png",
+        "idle-024.png",
+        "idle-025.png",
+        "idle-026.png",
+        "idle-027.png",
+        "idle-028.png",
+        "idle-029.png",
+        "idle-030.png",
+        "idle-031.png",
+        "idle-032.png",
+        "idle-033.png",
+        "idle-034.png",
+        "idle-035.png"
+      ]
+    },
+    "run": {
+      "source": "walk",
+      "duration": 0.666,
+      "frames": [
+        "run-000.png",
+        "run-001.png",
+        "run-002.png",
+        "run-003.png",
+        "run-004.png",
+        "run-005.png",
+        "run-006.png",
+        "run-007.png"
+      ]
+    },
+    "skill1": {
+      "source": "Attack - 1",
+      "duration": 0.967,
+      "frames": [
+        "skill1-000.png",
+        "skill1-001.png",
+        "skill1-002.png",
+        "skill1-003.png",
+        "skill1-004.png",
+        "skill1-005.png",
+        "skill1-006.png",
+        "skill1-007.png",
+        "skill1-008.png",
+        "skill1-009.png",
+        "skill1-010.png",
+        "skill1-011.png"
+      ]
+    },
+    "skill2": {
+      "source": "Spell",
+      "duration": 1.434,
+      "frames": [
+        "skill2-000.png",
+        "skill2-001.png",
+        "skill2-002.png",
+        "skill2-003.png",
+        "skill2-004.png",
+        "skill2-005.png",
+        "skill2-006.png",
+        "skill2-007.png",
+        "skill2-008.png",
+        "skill2-009.png",
+        "skill2-010.png",
+        "skill2-011.png",
+        "skill2-012.png",
+        "skill2-013.png",
+        "skill2-014.png",
+        "skill2-015.png",
+        "skill2-016.png",
+        "skill2-017.png"
+      ]
+    },
+    "dead": {
+      "source": "Death",
+      "duration": 1.567,
+      "frames": [
+        "dead-000.png",
+        "dead-001.png",
+        "dead-002.png",
+        "dead-003.png",
+        "dead-004.png",
+        "dead-005.png",
+        "dead-006.png",
+        "dead-007.png",
+        "dead-008.png",
+        "dead-009.png",
+        "dead-010.png",
+        "dead-011.png",
+        "dead-012.png",
+        "dead-013.png",
+        "dead-014.png",
+        "dead-015.png",
+        "dead-016.png",
+        "dead-017.png",
+        "dead-018.png"
+      ]
+    },
+    "hit": {
+      "source": "Stand Ready",
+      "duration": 0.966,
+      "frames": [
+        "hit-000.png",
+        "hit-001.png",
+        "hit-002.png",
+        "hit-003.png",
+        "hit-004.png",
+        "hit-005.png",
+        "hit-006.png",
+        "hit-007.png",
+        "hit-008.png",
+        "hit-009.png",
+        "hit-010.png",
+        "hit-011.png"
+      ]
+    },
+    "win": {
+      "source": "Stand Victory",
+      "duration": 1.333,
+      "frames": [
+        "win-000.png",
+        "win-001.png",
+        "win-002.png",
+        "win-003.png",
+        "win-004.png",
+        "win-005.png",
+        "win-006.png",
+        "win-007.png",
+        "win-008.png",
+        "win-009.png",
+        "win-010.png",
+        "win-011.png",
+        "win-012.png",
+        "win-013.png",
+        "win-014.png",
+        "win-015.png"
+      ]
+    }
+  },
+  "config": {
+    "rendererHome": "D:/Tools/wc3-mdx-screenshotter",
+    "browser": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+    "sourceRoot": "D:/Games/Warcraft3/ExtractedAssets/Maps/真三国无双3_1_9dai版无CD无限蓝/自定义单位模型/模型与贴图",
+    "teamResources": "D:/Games/Warcraft3/ExtractedAssets/三地图去重预览_20260929/补充依赖/9",
+    "splatResources": "D:/Games/Warcraft3/ExtractedAssets/技能特效补充_20260929/遗失的记忆v1.7.22-U9[1.24]/模型图片预览/renderer-assets",
+    "model": "units/orc/Grunt/Grunt.mdx",
+    "frameSize": 256,
+    "fps": 12,
+    "omitTeamGlow": true,
+    "portrait": {
+      "center": [
+        0,
+        0,
+        75
+      ],
+      "distance": 200,
+      "width": 768,
+      "height": 1024
+    },
+    "avatar": {
+      "center": [
+        0,
+        0,
+        110
+      ],
+      "distance": 105,
+      "width": 512,
+      "height": 512
+    },
+    "cameraDirection": [
+      1,
+      1.8,
+      0.9
+    ],
+    "distanceFactor": 1.35,
+    "actions": {
+      "idle": "Stand - 1",
+      "run": "walk",
+      "skill1": "Attack - 1",
+      "skill2": "Spell",
+      "dead": "Death",
+      "hit": "Stand Ready",
+      "win": "Stand Victory"
+    },
+    "assetKey": "zhangfei",
+    "omitSceneEvents": true
+  },
+  "dependencies": {
+    "units/orc/Grunt/Grunt.mdx": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\Units\\Orc\\Grunt\\Grunt.mdx",
+      "sha256": "d16ef262d319a46a819657d3d522788d8420974dd5b313d50652ee5fa85baa34"
+    },
+    "units/Orc/Grunt/Grunt.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\Units\\Orc\\Grunt\\Grunt.blp",
+      "sha256": "59b00fdf9fba44f8eeb221519073dad717671a0cc9ddcd93423b824c724aa742"
+    },
+    "Textures/Shockwave_Ice1.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\Textures\\Shockwave_Ice1.blp",
+      "sha256": "f9bd15552bc93816cab331de864d6df39b51250dae0da483e4f859a58c52f00b"
+    },
+    "Textures/gutz.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\Textures\\gutz.blp",
+      "sha256": "e60d550b8f426f2740159cafc1844c648556d1983914b2c72dfbd4843449490c"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
+      "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamGlow\\TeamGlow00.blp",
+      "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor01.blp",
+      "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow01.blp",
+      "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor02.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor02.blp",
+      "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamGlow\\TeamGlow02.blp",
+      "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor03.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor03.blp",
+      "sha256": "879d401e6b8dd2005054688c295d6554c47b914dce0795440ddb676724a2ef91"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow03.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow03.blp",
+      "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor04.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor04.blp",
+      "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow04.blp",
+      "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor05.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor05.blp",
+      "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow05.blp",
+      "sha256": "a4f7b72f5d530eb52cabd56f64ebf8e9020a00a9d993a55a2a422e3470adbfd6"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor06.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor06.blp",
+      "sha256": "d799d93194182a56cd8cec408e11214ff5b965fee850bed72a2ec90331dddc98"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow06.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow06.blp",
+      "sha256": "487161ac56e96ecf5bf0aa92bf2c2fa48afb7f0c0ee9ceec996b8b5e17dee03d"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor07.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor07.blp",
+      "sha256": "1ae0931f626db4ac9659d1331e9ca92d09c2b7407d47531fb40c74d008f28587"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow07.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow07.blp",
+      "sha256": "cce904c52af44078128e109f05d5efffe0a9b71339d40644957e6ad6af159237"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor08.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor08.blp",
+      "sha256": "eb9faf6de202dc6ed81f38d01a2b9fe26b51aa49b02d7470f65cab577ac957fa"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow08.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow08.blp",
+      "sha256": "2af22a9de078166f22c3e615832414ec53d99e5186fae50070fda4fc009afd47"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor09.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor09.blp",
+      "sha256": "0acbcedbde39d7fc1ea4752482648c0402b2a906135eab911a5bffc25858e9a6"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow09.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow09.blp",
+      "sha256": "7b493a1b976c0d07c60e1521d58dba4829be8af03650fee4249e1e055371820c"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor10.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor10.blp",
+      "sha256": "1349b880e72ba8c3dbbcc3629a43b689e19ed2fcceaf282c58f094e45e43770d"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow10.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow10.blp",
+      "sha256": "22b0c58ce32a9299b9a632ebadc6a07b628a92c040d4e6ee65e5dab6e111d4e0"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor11.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor11.blp",
+      "sha256": "71456b84e06b13c4b2bd3ab9a72ed8bb41d117af15521516e6d88a836a3c7ddd"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow11.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow11.blp",
+      "sha256": "9135d0a7b72345eb85eb0f094abc5916d1c8f56315472240010e32823051154d"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor12.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor12.blp",
+      "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow12.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow12.blp",
+      "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor13.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor13.blp",
+      "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow13.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow13.blp",
+      "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor14.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor14.blp",
+      "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow14.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow14.blp",
+      "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor15.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor15.blp",
+      "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow15.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow15.blp",
+      "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+    }
+  }
+}

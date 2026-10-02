@@ -1,0 +1,1 @@
+return Promise.all(roster.map(async hero=>{const data=await sample.assets.skeleton(hero.id);return {id:hero.id,name:data.name,animations:data.getRuntimeData().animations.map(a=>a.name),textures:data.textures.map(t=>({width:t.width,height:t.height}))};})).then(heroes=>({heroes,denied:sample.denied,ready:sample.ready}));

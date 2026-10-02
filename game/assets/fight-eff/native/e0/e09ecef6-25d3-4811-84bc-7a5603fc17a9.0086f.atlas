@@ -1,0 +1,279 @@
+
+bone40.png
+size: 1359,213
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+00002
+  rotate: false
+  xy: 1077, 4
+  size: 93, 88
+  orig: 105, 103
+  offset: 10, 8
+  index: -1
+shouji/xc/xc_0004
+  rotate: true
+  xy: 711, 84
+  size: 127, 58
+  orig: 180, 63
+  offset: 19, 3
+  index: -1
+shouji/xc/xc_0005
+  rotate: true
+  xy: 771, 84
+  size: 127, 58
+  orig: 180, 63
+  offset: 19, 3
+  index: -1
+shouji/xc/xc_0006
+  rotate: true
+  xy: 650, 84
+  size: 127, 59
+  orig: 180, 63
+  offset: 19, 3
+  index: -1
+shouji/xc/xc_0007
+  rotate: true
+  xy: 831, 84
+  size: 127, 58
+  orig: 180, 63
+  offset: 19, 3
+  index: -1
+shouji/xc/xc_0008
+  rotate: true
+  xy: 891, 85
+  size: 126, 51
+  orig: 180, 63
+  offset: 23, 7
+  index: -1
+shouji/xc/xc_0009
+  rotate: true
+  xy: 597, 79
+  size: 132, 51
+  orig: 180, 63
+  offset: 22, 7
+  index: -1
+shouji/xc/xc_0010
+  rotate: true
+  xy: 542, 74
+  size: 137, 53
+  orig: 180, 63
+  offset: 19, 5
+  index: -1
+shouji/xc/xc_0011
+  rotate: true
+  xy: 315, 47
+  size: 164, 59
+  orig: 180, 63
+  offset: 10, 0
+  index: -1
+shouji/xc/xc_0012
+  rotate: true
+  xy: 129, 47
+  size: 164, 60
+  orig: 180, 63
+  offset: 10, 0
+  index: -1
+shouji/xc/xc_0013
+  rotate: true
+  xy: 191, 47
+  size: 164, 60
+  orig: 180, 63
+  offset: 10, 0
+  index: -1
+shouji/xc/xc_0014
+  rotate: true
+  xy: 66, 47
+  size: 164, 61
+  orig: 180, 63
+  offset: 10, 0
+  index: -1
+shouji/xc/xc_0015
+  rotate: true
+  xy: 2, 47
+  size: 164, 62
+  orig: 180, 63
+  offset: 10, 0
+  index: -1
+shouji/xc/xc_0016
+  rotate: true
+  xy: 253, 47
+  size: 164, 60
+  orig: 180, 63
+  offset: 10, 0
+  index: -1
+shouji/xc/xc_0017
+  rotate: true
+  xy: 376, 47
+  size: 164, 59
+  orig: 180, 63
+  offset: 10, 0
+  index: -1
+shouji/xc/xc_0018
+  rotate: true
+  xy: 437, 47
+  size: 164, 53
+  orig: 180, 63
+  offset: 10, 0
+  index: -1
+shouji/xc/xc_0019
+  rotate: true
+  xy: 492, 72
+  size: 139, 48
+  orig: 180, 63
+  offset: 17, 5
+  index: -1
+shouji/xc/xc_0020
+  rotate: false
+  xy: 2, 4
+  size: 136, 41
+  orig: 180, 63
+  offset: 16, 8
+  index: -1
+shouji/xc/xc_0021
+  rotate: true
+  xy: 944, 85
+  size: 126, 39
+  orig: 180, 63
+  offset: 18, 10
+  index: -1
+shouji/xc/xc_0022
+  rotate: true
+  xy: 985, 88
+  size: 123, 38
+  orig: 180, 63
+  offset: 19, 12
+  index: -1
+shouji/xc/xc_0023
+  rotate: false
+  xy: 1244, 176
+  size: 113, 35
+  orig: 180, 63
+  offset: 21, 15
+  index: -1
+shouji/xc/xc_0024
+  rotate: true
+  xy: 606, 6
+  size: 71, 26
+  orig: 180, 63
+  offset: 49, 17
+  index: -1
+stone
+  rotate: false
+  xy: 534, 6
+  size: 70, 64
+  orig: 70, 68
+  offset: 0, 1
+  index: -1
+zadi_00022
+  rotate: false
+  xy: 455, 5
+  size: 77, 40
+  orig: 120, 85
+  offset: 12, 5
+  index: -1
+zadi_00023
+  rotate: false
+  xy: 634, 7
+  size: 108, 70
+  orig: 120, 85
+  offset: 0, 2
+  index: -1
+zadi_00024
+  rotate: false
+  xy: 1244, 97
+  size: 103, 77
+  orig: 120, 85
+  offset: 0, 3
+  index: -1
+zadi_00025
+  rotate: false
+  xy: 967, 4
+  size: 108, 79
+  orig: 120, 85
+  offset: 0, 2
+  index: -1
+zadi_00026
+  rotate: false
+  xy: 856, 3
+  size: 109, 79
+  orig: 120, 85
+  offset: 1, 2
+  index: -1
+zadi_00027
+  rotate: false
+  xy: 744, 2
+  size: 110, 80
+  orig: 120, 85
+  offset: 1, 2
+  index: -1
+zadi_00028
+  rotate: true
+  xy: 1186, 96
+  size: 115, 56
+  orig: 120, 85
+  offset: 0, 1
+  index: -1
+zadi_00029
+  rotate: true
+  xy: 1025, 94
+  size: 117, 55
+  orig: 120, 85
+  offset: 0, 2
+  index: -1
+zadi_00030
+  rotate: true
+  xy: 1082, 95
+  size: 116, 51
+  orig: 120, 85
+  offset: 1, 5
+  index: -1
+zadi_00031
+  rotate: true
+  xy: 1135, 95
+  size: 116, 49
+  orig: 120, 85
+  offset: 1, 5
+  index: -1
+zadi_00032
+  rotate: false
+  xy: 242, 5
+  size: 105, 40
+  orig: 120, 85
+  offset: 1, 5
+  index: -1
+zadi_00033
+  rotate: false
+  xy: 349, 5
+  size: 104, 40
+  orig: 120, 85
+  offset: 1, 5
+  index: -1
+zadi_00034
+  rotate: false
+  xy: 140, 4
+  size: 100, 41
+  orig: 120, 85
+  offset: 5, 6
+  index: -1
+zadi_00035
+  rotate: true
+  xy: 1248, 12
+  size: 83, 34
+  orig: 120, 85
+  offset: 22, 13
+  index: -1
+zadi_00036
+  rotate: true
+  xy: 1172, 10
+  size: 83, 36
+  orig: 120, 85
+  offset: 22, 13
+  index: -1
+zadi_00037
+  rotate: true
+  xy: 1210, 11
+  size: 83, 36
+  orig: 120, 85
+  offset: 22, 13
+  index: -1

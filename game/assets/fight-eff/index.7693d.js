@@ -1,0 +1,1 @@
+"use strict";var e,t;System.register("chunks:///fight-eff.js",[],(function(){return{execute:function(){}}})),e="virtual:///prerequisite-imports/fight-eff",t="chunks:///fight-eff.js",System.register(e,[t],(function(e,t){return{setters:[function(t){var r={};for(var f in t)"default"!==f&&"__esModule"!==f&&(r[f]=t[f]);e(r)}],execute:function(){}}}));

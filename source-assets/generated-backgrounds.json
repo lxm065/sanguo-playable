@@ -1,0 +1,15 @@
+{
+  "generator": "image_gen",
+  "date": "2026-10-01",
+  "assets": [
+    {
+      "file": "game/skin-assets/campaign-map.png",
+      "prompt": "Use case: stylized-concept. Asset type: production background texture for a portrait Chinese Three Kingdoms strategy mobile game. Create a richly hand-painted ancient Chinese military campaign map on aged warm parchment, portrait 2:3. Bird's eye ink cartography, elegant muted ochre plains, delicate ink mountain ranges, blue-grey rivers, ancient Han dynasty walled cities and small camps, sparse vermilion military route marks. Central and upper-middle areas must remain quiet enough for overlay chapter title and a mission button. Bottom center has a curving river. Chinese historical landscape not European fantasy. Premium traditional Chinese game aesthetic, readable moderate contrast, intricate edges but spacious center. Absolutely NO letters, NO labels, NO text, NO buttons, NO UI panels, NO character portraits, NO watermark. Full bleed flat texture without external border. It will replace the home campaign map while preserving existing UI layout."
+    },
+    {
+      "file": "game/skin-assets/battle-ground.png",
+      "prompt": "Use case: stylized-concept. Asset type: 2D game battle background, portrait 2:3. Premium hand painted Three Kingdoms Han dynasty military camp battlefield viewed from a high almost overhead isometric camera. Entire central 75 percent is unobstructed flat muted sandy ochre dirt with faint stone paving patches, subtle grass, enough open space for a 5x6 auto chess formation. Small low ancient wooden palisades, Chinese red army banners and rolled supply sacks confined to the outer left and right edges. Upper edge has misty ancient tiled gate and military tents, bottom edge subtle stones and grass. Natural warm daylight, readable low-contrast center and painted game art edge details. NO people, NO soldiers, NO characters, NO text, NO UI, NO hexes, NO drawn chess grid, NO large obstruction in central area, NO watermark. Full bleed, polished mobile game texture."
+    }
+  ],
+  "note": "背景为新生成美术；赵云头像、大图和213帧均渲染自本地实际MDX，非生成图。"
+}

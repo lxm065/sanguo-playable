@@ -1,0 +1,111 @@
+
+bone22.png
+size: 321,277
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ef/dd_4
+  rotate: false
+  xy: 277, 96
+  size: 42, 42
+  orig: 50, 50
+  offset: 4, 4
+  index: -1
+ef/guangxian04 (2)
+  rotate: false
+  xy: 168, 98
+  size: 46, 92
+  orig: 50, 100
+  offset: 2, 4
+  index: -1
+ef/quan2
+  rotate: false
+  xy: 2, 97
+  size: 164, 178
+  orig: 180, 180
+  offset: 15, 1
+  index: -1
+ef/yanchenl03
+  rotate: true
+  xy: 2, 2
+  size: 12, 25
+  orig: 128, 128
+  offset: 103, 67
+  index: -1
+ef/yanchenl04
+  rotate: false
+  xy: 277, 61
+  size: 29, 33
+  orig: 128, 128
+  offset: 87, 70
+  index: -1
+ef/yanchenl05
+  rotate: true
+  xy: 283, 215
+  size: 60, 36
+  orig: 128, 128
+  offset: 54, 74
+  index: -1
+ef/yanchenl06
+  rotate: false
+  xy: 230, 5
+  size: 76, 33
+  orig: 128, 128
+  offset: 35, 81
+  index: -1
+ef/yanchenl07
+  rotate: true
+  xy: 168, 192
+  size: 83, 58
+  orig: 128, 128
+  offset: 24, 60
+  index: -1
+ef/yanchenl08
+  rotate: true
+  xy: 157, 18
+  size: 77, 71
+  orig: 128, 128
+  offset: 22, 47
+  index: -1
+ef/yanchenl09
+  rotate: false
+  xy: 2, 16
+  size: 77, 79
+  orig: 128, 128
+  offset: 18, 38
+  index: -1
+ef/yanchenl10
+  rotate: false
+  xy: 81, 17
+  size: 74, 78
+  orig: 128, 128
+  offset: 18, 35
+  index: -1
+ef/yanchenl11
+  rotate: false
+  xy: 230, 40
+  size: 45, 76
+  orig: 128, 128
+  offset: 19, 35
+  index: -1
+ef/yanchenl12
+  rotate: false
+  xy: 216, 118
+  size: 50, 72
+  orig: 128, 128
+  offset: 18, 35
+  index: -1
+ef/yanchenl13
+  rotate: false
+  xy: 268, 140
+  size: 51, 67
+  orig: 128, 128
+  offset: 18, 36
+  index: -1
+ef/yanchenl14
+  rotate: false
+  xy: 228, 209
+  size: 53, 66
+  orig: 128, 128
+  offset: 17, 36
+  index: -1

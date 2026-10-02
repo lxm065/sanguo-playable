@@ -1,0 +1,160 @@
+
+bone37.png
+size: 482,266
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ef/bagua4
+  rotate: false
+  xy: 168, 144
+  size: 120, 120
+  orig: 120, 120
+  offset: 0, 0
+  index: -1
+ef/dd_4
+  rotate: false
+  xy: 434, 222
+  size: 42, 42
+  orig: 50, 50
+  offset: 4, 4
+  index: -1
+ef/quan2
+  rotate: false
+  xy: 2, 86
+  size: 164, 178
+  orig: 180, 180
+  offset: 15, 1
+  index: -1
+ef/tx_xbq02
+  rotate: true
+  xy: 168, 92
+  size: 50, 79
+  orig: 128, 128
+  offset: 36, 21
+  index: -1
+ef/tx_xbq03
+  rotate: true
+  xy: 357, 205
+  size: 59, 75
+  orig: 128, 128
+  offset: 33, 33
+  index: -1
+ef/tx_xbq04
+  rotate: false
+  xy: 290, 16
+  size: 64, 74
+  orig: 128, 128
+  offset: 33, 46
+  index: -1
+ef/tx_xbq05
+  rotate: false
+  xy: 290, 192
+  size: 65, 72
+  orig: 128, 128
+  offset: 33, 48
+  index: -1
+ef/tx_xbq06
+  rotate: false
+  xy: 356, 23
+  size: 64, 67
+  orig: 128, 128
+  offset: 33, 53
+  index: -1
+ef/tx_xbq07
+  rotate: false
+  xy: 422, 56
+  size: 58, 57
+  orig: 128, 128
+  offset: 34, 57
+  index: -1
+ef/tx_xbq08
+  rotate: false
+  xy: 356, 3
+  size: 27, 18
+  orig: 128, 128
+  offset: 45, 92
+  index: -1
+ef/yanchenl03
+  rotate: true
+  xy: 290, 2
+  size: 12, 25
+  orig: 128, 128
+  offset: 103, 67
+  index: -1
+ef/yanchenl04
+  rotate: false
+  xy: 422, 21
+  size: 29, 33
+  orig: 128, 128
+  offset: 87, 70
+  index: -1
+ef/yanchenl05
+  rotate: true
+  xy: 436, 160
+  size: 60, 36
+  orig: 128, 128
+  offset: 54, 74
+  index: -1
+ef/yanchenl06
+  rotate: false
+  xy: 392, 115
+  size: 76, 33
+  orig: 128, 128
+  offset: 35, 81
+  index: -1
+ef/yanchenl07
+  rotate: true
+  xy: 230, 7
+  size: 83, 58
+  orig: 128, 128
+  offset: 24, 60
+  index: -1
+ef/yanchenl08
+  rotate: true
+  xy: 157, 7
+  size: 77, 71
+  orig: 128, 128
+  offset: 22, 47
+  index: -1
+ef/yanchenl09
+  rotate: false
+  xy: 2, 5
+  size: 77, 79
+  orig: 128, 128
+  offset: 18, 38
+  index: -1
+ef/yanchenl10
+  rotate: false
+  xy: 81, 6
+  size: 74, 78
+  orig: 128, 128
+  offset: 18, 35
+  index: -1
+ef/yanchenl11
+  rotate: true
+  xy: 290, 145
+  size: 45, 76
+  orig: 128, 128
+  offset: 19, 35
+  index: -1
+ef/yanchenl12
+  rotate: true
+  xy: 249, 92
+  size: 50, 72
+  orig: 128, 128
+  offset: 18, 35
+  index: -1
+ef/yanchenl13
+  rotate: true
+  xy: 323, 92
+  size: 51, 67
+  orig: 128, 128
+  offset: 18, 36
+  index: -1
+ef/yanchenl14
+  rotate: true
+  xy: 368, 150
+  size: 53, 66
+  orig: 128, 128
+  offset: 17, 36
+  index: -1

@@ -1,0 +1,139 @@
+
+bone5.png
+size: 140,818
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+TX/TX_gx2_0000
+  rotate: true
+  xy: 98, 471
+  size: 76, 34
+  orig: 87, 39
+  offset: 6, 2
+  index: -1
+TX/TX_lgx_0000
+  rotate: true
+  xy: 62, 143
+  size: 73, 74
+  orig: 73, 74
+  offset: 0, 0
+  index: -1
+TX/TX_sj1_0000
+  rotate: true
+  xy: 2, 549
+  size: 84, 124
+  orig: 96, 151
+  offset: 9, 0
+  index: -1
+TX/TX_sj1_0001
+  rotate: true
+  xy: 2, 726
+  size: 90, 130
+  orig: 96, 151
+  offset: 2, 6
+  index: -1
+TX/TX_sj1_0002
+  rotate: true
+  xy: 2, 635
+  size: 89, 129
+  orig: 96, 151
+  offset: 2, 13
+  index: -1
+TX/TX_skill1_bing_0001
+  rotate: false
+  xy: 84, 321
+  size: 54, 61
+  orig: 56, 63
+  offset: 1, 1
+  index: -1
+TX/TX_skill1_bingsui_0001
+  rotate: true
+  xy: 2, 28
+  size: 87, 58
+  orig: 105, 90
+  offset: 3, 11
+  index: -1
+TX/TX_skill1_bingsui_0003
+  rotate: false
+  xy: 62, 2
+  size: 74, 64
+  orig: 105, 90
+  offset: 22, 8
+  index: -1
+TX/TX_skill1_bingsui_0005
+  rotate: true
+  xy: 62, 218
+  size: 79, 69
+  orig: 105, 90
+  offset: 19, 8
+  index: -1
+TX/TX_skill1_bingsui_0007
+  rotate: false
+  xy: 2, 309
+  size: 80, 73
+  orig: 105, 90
+  offset: 13, 9
+  index: -1
+TX/TX_skill1_bingsui_0009
+  rotate: false
+  xy: 2, 384
+  size: 90, 78
+  orig: 105, 90
+  offset: 7, 7
+  index: -1
+TX/TX_skill1_bingsui_0011
+  rotate: true
+  xy: 2, 117
+  size: 92, 58
+  orig: 105, 90
+  offset: 4, 14
+  index: -1
+TX/TX_skill1_bingsui_0013
+  rotate: true
+  xy: 2, 211
+  size: 96, 58
+  orig: 105, 90
+  offset: 2, 11
+  index: -1
+TX/TX_skill1_bingsui_0015
+  rotate: false
+  xy: 98, 421
+  size: 40, 48
+  orig: 105, 90
+  offset: 26, 24
+  index: -1
+TX/TX_skill1_bingsui_0017
+  rotate: true
+  xy: 84, 299
+  size: 20, 31
+  orig: 105, 90
+  offset: 23, 23
+  index: -1
+TX/TX_yan3
+  rotate: true
+  xy: 94, 384
+  size: 35, 36
+  orig: 38, 38
+  offset: 1, 1
+  index: -1
+TX/gaoguang
+  rotate: true
+  xy: 117, 303
+  size: 16, 18
+  orig: 18, 18
+  offset: 1, 0
+  index: -1
+TX/shi_1
+  rotate: true
+  xy: 2, 464
+  size: 83, 94
+  orig: 85, 95
+  offset: 1, 0
+  index: -1
+TX/shi_2
+  rotate: true
+  xy: 62, 68
+  size: 73, 74
+  orig: 74, 76
+  offset: 1, 0
+  index: -1

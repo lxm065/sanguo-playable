@@ -1,0 +1,1 @@
+"use strict";var e,r;System.register("chunks:///module_arena.js",[],(function(){return{execute:function(){}}})),e="virtual:///prerequisite-imports/module_arena",r="chunks:///module_arena.js",System.register(e,[r],(function(e,r){return{setters:[function(r){var t={};for(var u in r)"default"!==u&&"__esModule"!==u&&(t[u]=r[u]);e(t)}],execute:function(){}}}));

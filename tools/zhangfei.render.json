@@ -1,0 +1,48 @@
+{
+  "rendererHome": "D:/Tools/wc3-mdx-screenshotter",
+  "browser": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+  "sourceRoot": "D:/Games/Warcraft3/ExtractedAssets/Maps/真三国无双3_1_9dai版无CD无限蓝/自定义单位模型/模型与贴图",
+  "teamResources": "D:/Games/Warcraft3/ExtractedAssets/三地图去重预览_20260929/补充依赖/9",
+  "splatResources": "D:/Games/Warcraft3/ExtractedAssets/技能特效补充_20260929/遗失的记忆v1.7.22-U9[1.24]/模型图片预览/renderer-assets",
+  "model": "units/orc/Grunt/Grunt.mdx",
+  "frameSize": 256,
+  "fps": 12,
+  "omitTeamGlow": true,
+  "portrait": {
+    "center": [
+      0,
+      0,
+      75
+    ],
+    "distance": 200,
+    "width": 768,
+    "height": 1024
+  },
+  "avatar": {
+    "center": [
+      0,
+      0,
+      110
+    ],
+    "distance": 105,
+    "width": 512,
+    "height": 512
+  },
+  "cameraDirection": [
+    1,
+    1.8,
+    0.9
+  ],
+  "distanceFactor": 1.35,
+  "actions": {
+    "idle": "Stand - 1",
+    "run": "walk",
+    "skill1": "Attack - 1",
+    "skill2": "Spell",
+    "dead": "Death",
+    "hit": "Stand Ready",
+    "win": "Stand Victory"
+  },
+  "assetKey": "zhangfei",
+  "omitSceneEvents": true
+}

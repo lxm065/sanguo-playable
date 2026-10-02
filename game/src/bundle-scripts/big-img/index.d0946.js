@@ -1,0 +1,1 @@
+"use strict";var e,t;System.register("chunks:///big-img.js",[],(function(){return{execute:function(){}}})),e="virtual:///prerequisite-imports/big-img",t="chunks:///big-img.js",System.register(e,[t],(function(e,t){return{setters:[function(t){var i={};for(var r in t)"default"!==r&&"__esModule"!==r&&(i[r]=t[r]);e(i)}],execute:function(){}}}));

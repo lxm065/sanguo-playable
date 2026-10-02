@@ -1,0 +1,41 @@
+
+bone14.png
+size: 423,517
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+2_trai
+  rotate: true
+  xy: 364, 285
+  size: 230, 56
+  orig: 256, 64
+  offset: 26, 3
+  index: -1
+hn0001
+  rotate: false
+  xy: 2, 2
+  size: 239, 179
+  orig: 335, 179
+  offset: 0, 0
+  index: -1
+hn0003
+  rotate: true
+  xy: 183, 276
+  size: 239, 179
+  orig: 335, 179
+  offset: 0, 0
+  index: -1
+hn0005
+  rotate: true
+  xy: 2, 183
+  size: 332, 179
+  orig: 335, 179
+  offset: 0, 0
+  index: -1
+hn0007
+  rotate: true
+  xy: 243, 26
+  size: 248, 178
+  orig: 335, 179
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,111 @@
+
+bone39.png
+size: 1945,665
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect/dg201
+  rotate: true
+  xy: 1112, 6
+  size: 311, 314
+  orig: 744, 453
+  offset: 22, 28
+  index: -1
+effect/dg202
+  rotate: false
+  xy: 591, 289
+  size: 478, 374
+  orig: 744, 453
+  offset: 61, 49
+  index: -1
+effect/dg203
+  rotate: false
+  xy: 2, 88
+  size: 581, 283
+  orig: 744, 453
+  offset: 163, 39
+  index: -1
+effect/dg204
+  rotate: false
+  xy: 1071, 319
+  size: 457, 344
+  orig: 744, 453
+  offset: 147, 40
+  index: -1
+effect/dg205
+  rotate: false
+  xy: 2, 373
+  size: 587, 290
+  orig: 744, 453
+  offset: 95, 34
+  index: -1
+effect/dg206
+  rotate: false
+  xy: 1530, 436
+  size: 413, 227
+  orig: 744, 453
+  offset: 255, 43
+  index: -1
+effect/dg207
+  rotate: false
+  xy: 585, 105
+  size: 525, 182
+  orig: 744, 453
+  offset: 147, 42
+  index: -1
+effect/dg208
+  rotate: false
+  xy: 585, 10
+  size: 511, 93
+  orig: 744, 453
+  offset: 139, 47
+  index: -1
+effect/dg209
+  rotate: false
+  xy: 2, 2
+  size: 538, 84
+  orig: 744, 453
+  offset: 139, 50
+  index: -1
+effect/sj1
+  rotate: false
+  xy: 1553, 24
+  size: 197, 51
+  orig: 410, 135
+  offset: 115, 41
+  index: -1
+effect/sj2
+  rotate: false
+  xy: 1553, 102
+  size: 295, 118
+  orig: 410, 135
+  offset: 65, 13
+  index: -1
+effect/sj3
+  rotate: true
+  xy: 1428, 9
+  size: 308, 123
+  orig: 410, 135
+  offset: 63, 10
+  index: -1
+effect/sj4
+  rotate: false
+  xy: 1553, 222
+  size: 344, 103
+  orig: 410, 135
+  offset: 44, 5
+  index: -1
+effect/sj5
+  rotate: false
+  xy: 1530, 327
+  size: 397, 107
+  orig: 410, 135
+  offset: 7, 2
+  index: -1
+effect/sj6
+  rotate: false
+  xy: 1553, 77
+  size: 250, 23
+  orig: 410, 135
+  offset: 49, 59
+  index: -1

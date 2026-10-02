@@ -1,0 +1,5 @@
+'use strict';
+const assert=require('node:assert/strict'),{Campaign}=require('../game/play/campaign'),rules=require('../game/play/config'),roster=require('../game/play/roster');
+/** 多种阵容和种子验证不会死循环，验证失败状态也能继续可玩循环。 */
+function main(){const outcomes={win:0,loss:0,draw:0};let skills=0,moves=0;for(let seed=1;seed<=40;seed++){let saved=null;const model=new Campaign({...rules,startingSeed:seed,initialDeployment:[{index:0,slot:8},{index:1,slot:14}]},roster,{read:()=>saved,write:s=>{saved=structuredClone(s);}});model.state.stage=1+seed%12;for(const u of model.state.units)u.heroId=roster[(u.uid+seed)%roster.length].id;const battle=model.fight();outcomes[battle.result]++;skills+=battle.events.filter(e=>e.type==='attack'&&e.skill).length;moves+=battle.events.filter(e=>e.type==='move').length;assert.ok(battle.duration<=rules.maxBattleSeconds+.1);assert.ok(battle.final.every(u=>Number.isFinite(u.hp)&&u.hp>=0));model.claim();assert.equal(model.state.pending,null);assert.equal(model.state.battles,1);}assert.ok(outcomes.win>0&&outcomes.loss>0);console.log(JSON.stringify({status:'PASS',battles:40,outcomes,skills,moves},null,2));}
+main();

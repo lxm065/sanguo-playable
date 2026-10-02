@@ -1,0 +1,111 @@
+
+bone38.png
+size: 247,521
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tx/Attack1/00001
+  rotate: true
+  xy: 69, 15
+  size: 48, 84
+  orig: 140, 138
+  offset: 21, 32
+  index: -1
+tx/Attack1/00002
+  rotate: false
+  xy: 2, 146
+  size: 124, 118
+  orig: 140, 138
+  offset: 13, 11
+  index: -1
+tx/Attack1/00003
+  rotate: false
+  xy: 2, 266
+  size: 129, 115
+  orig: 140, 138
+  offset: 0, 13
+  index: -1
+tx/Attack1/00004
+  rotate: true
+  xy: 136, 368
+  size: 74, 109
+  orig: 140, 138
+  offset: 18, 16
+  index: -1
+tx/Attack1/00005
+  rotate: true
+  xy: 128, 166
+  size: 76, 117
+  orig: 140, 138
+  offset: 20, 11
+  index: -1
+tx/Attack1/00006
+  rotate: true
+  xy: 136, 444
+  size: 75, 109
+  orig: 140, 138
+  offset: 20, 16
+  index: -1
+tx/Attack1/00007
+  rotate: true
+  xy: 133, 299
+  size: 67, 111
+  orig: 140, 138
+  offset: 20, 15
+  index: -1
+tx/Attack1/00008
+  rotate: true
+  xy: 127, 65
+  size: 29, 105
+  orig: 140, 138
+  offset: 20, 20
+  index: -1
+tx/Attack1/1
+  rotate: true
+  xy: 46, 2
+  size: 61, 21
+  orig: 62, 23
+  offset: 0, 1
+  index: -1
+tx/skill1/00001
+  rotate: false
+  xy: 2, 449
+  size: 132, 70
+  orig: 134, 70
+  offset: 1, 0
+  index: -1
+tx/skill1/00002
+  rotate: false
+  xy: 2, 383
+  size: 132, 64
+  orig: 134, 70
+  offset: 1, 5
+  index: -1
+tx/skill1/00003
+  rotate: false
+  xy: 2, 78
+  size: 123, 66
+  orig: 134, 70
+  offset: 10, 3
+  index: -1
+tx/skill1/00004
+  rotate: false
+  xy: 128, 96
+  size: 115, 68
+  orig: 134, 70
+  offset: 16, 1
+  index: -1
+tx/skill1/00005
+  rotate: false
+  xy: 133, 244
+  size: 111, 53
+  orig: 134, 70
+  offset: 18, 10
+  index: -1
+tx/skill1/00006
+  rotate: true
+  xy: 2, 6
+  size: 70, 42
+  orig: 134, 70
+  offset: 36, 18
+  index: -1

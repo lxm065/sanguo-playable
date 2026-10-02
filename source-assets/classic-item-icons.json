@@ -1,0 +1,10 @@
+{
+  "root": "D:\\Games\\Warcraft3\\ExtractedAssets\\Textures\\ReplaceableTextures\\CommandButtons",
+  "icons": {
+    "5": "BTNPotionGreen.png",
+    "8": "BTNGoldRing.png",
+    "10": "BTNScrollOfHaste.png",
+    "7205": "BTNPeriapt.png",
+    "7211": "BTNRingJadeFalcon.png"
+  }
+}

@@ -1,0 +1,1 @@
+"use strict";var e,t;System.register("chunks:///module_foretell.js",[],(function(){return{execute:function(){}}})),e="virtual:///prerequisite-imports/module_foretell",t="chunks:///module_foretell.js",System.register(e,[t],(function(e,t){return{setters:[function(t){var r={};for(var u in t)"default"!==u&&"__esModule"!==u&&(r[u]=t[u]);e(r)}],execute:function(){}}}));

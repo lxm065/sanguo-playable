@@ -1,0 +1,153 @@
+
+bone20.png
+size: 1205,277
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+CF
+  rotate: false
+  xy: 2, 23
+  size: 246, 252
+  orig: 254, 254
+  offset: 4, 0
+  index: -1
+G
+  rotate: false
+  xy: 250, 76
+  size: 198, 199
+  orig: 200, 200
+  offset: 1, 0
+  index: -1
+JR
+  rotate: false
+  xy: 492, 4
+  size: 167, 106
+  orig: 168, 107
+  offset: 1, 1
+  index: -1
+JR2
+  rotate: true
+  xy: 1126, 143
+  size: 132, 77
+  orig: 133, 84
+  offset: 0, 1
+  index: -1
+X1
+  rotate: false
+  xy: 450, 85
+  size: 37, 25
+  orig: 39, 26
+  offset: 1, 0
+  index: -1
+X2
+  rotate: false
+  xy: 1039, 12
+  size: 92, 59
+  orig: 93, 59
+  offset: 0, 0
+  index: -1
+X3
+  rotate: true
+  xy: 1039, 73
+  size: 106, 65
+  orig: 106, 65
+  offset: 0, 0
+  index: -1
+X4
+  rotate: false
+  xy: 819, 61
+  size: 111, 69
+  orig: 111, 69
+  offset: 0, 0
+  index: -1
+X5
+  rotate: false
+  xy: 377, 4
+  size: 113, 70
+  orig: 113, 70
+  offset: 0, 0
+  index: -1
+XF1
+  rotate: false
+  xy: 661, 2
+  size: 156, 115
+  orig: 162, 118
+  offset: 3, 0
+  index: -1
+XF2
+  rotate: true
+  xy: 450, 112
+  size: 163, 120
+  orig: 163, 120
+  offset: 0, 0
+  index: -1
+XF3
+  rotate: true
+  xy: 572, 119
+  size: 156, 116
+  orig: 156, 116
+  offset: 0, 0
+  index: -1
+XF4
+  rotate: true
+  xy: 690, 136
+  size: 139, 112
+  orig: 139, 112
+  offset: 0, 0
+  index: -1
+XF_DG1
+  rotate: false
+  xy: 970, 181
+  size: 154, 94
+  orig: 155, 96
+  offset: 0, 2
+  index: -1
+XF_DG2
+  rotate: false
+  xy: 804, 181
+  size: 164, 94
+  orig: 164, 97
+  offset: 0, 1
+  index: -1
+XF_DG3
+  rotate: true
+  xy: 942, 18
+  size: 161, 95
+  orig: 161, 96
+  offset: 0, 1
+  index: -1
+XF_R1
+  rotate: false
+  xy: 250, 7
+  size: 125, 67
+  orig: 129, 72
+  offset: 2, 1
+  index: -1
+XF_R2
+  rotate: false
+  xy: 819, 10
+  size: 110, 49
+  orig: 114, 54
+  offset: 4, 2
+  index: -1
+XF_R3
+  rotate: false
+  xy: 1106, 88
+  size: 92, 53
+  orig: 96, 59
+  offset: 1, 2
+  index: -1
+XF_R4
+  rotate: false
+  xy: 1133, 47
+  size: 68, 39
+  orig: 73, 44
+  offset: 0, 2
+  index: -1
+jian
+  rotate: true
+  xy: 804, 132
+  size: 47, 136
+  orig: 50, 143
+  offset: 1, 1
+  index: -1

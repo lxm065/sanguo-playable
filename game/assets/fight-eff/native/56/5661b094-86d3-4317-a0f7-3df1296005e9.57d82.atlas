@@ -1,0 +1,118 @@
+
+bone24.png
+size: 149,794
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bing01
+  rotate: true
+  xy: 2, 636
+  size: 84, 116
+  orig: 90, 117
+  offset: 2, 0
+  index: -1
+bing02
+  rotate: true
+  xy: 2, 722
+  size: 70, 145
+  orig: 80, 150
+  offset: 6, 1
+  index: -1
+bing03
+  rotate: false
+  xy: 2, 357
+  size: 80, 89
+  orig: 90, 96
+  offset: 5, 2
+  index: -1
+bing04
+  rotate: false
+  xy: 2, 265
+  size: 73, 90
+  orig: 90, 96
+  offset: 7, 2
+  index: -1
+bing05
+  rotate: false
+  xy: 63, 68
+  size: 77, 71
+  orig: 90, 85
+  offset: 6, 7
+  index: -1
+bingbao0001
+  rotate: false
+  xy: 77, 230
+  size: 67, 94
+  orig: 112, 98
+  offset: 40, 1
+  index: -1
+bingbao0002
+  rotate: false
+  xy: 2, 170
+  size: 64, 93
+  orig: 112, 98
+  offset: 40, 2
+  index: -1
+bingbao0003
+  rotate: false
+  xy: 84, 326
+  size: 63, 87
+  orig: 112, 98
+  offset: 39, 8
+  index: -1
+bingbao0004
+  rotate: false
+  xy: 68, 141
+  size: 65, 87
+  orig: 112, 98
+  offset: 39, 9
+  index: -1
+bingbao0005
+  rotate: false
+  xy: 2, 448
+  size: 86, 93
+  orig: 112, 98
+  offset: 18, 4
+  index: -1
+bingbao0006
+  rotate: false
+  xy: 2, 543
+  size: 92, 91
+  orig: 112, 98
+  offset: 13, 6
+  index: -1
+bingbao0007
+  rotate: true
+  xy: 61, 2
+  size: 64, 68
+  orig: 112, 98
+  offset: 13, 9
+  index: -1
+bingbao0008
+  rotate: false
+  xy: 2, 87
+  size: 59, 81
+  orig: 112, 98
+  offset: 5, 8
+  index: -1
+bingbao0009
+  rotate: false
+  xy: 2, 7
+  size: 57, 78
+  orig: 112, 98
+  offset: 4, 12
+  index: -1
+fazhen02
+  rotate: true
+  xy: 96, 538
+  size: 96, 47
+  orig: 112, 55
+  offset: 8, 4
+  index: -1
+fazhen04
+  rotate: true
+  xy: 90, 415
+  size: 121, 56
+  orig: 128, 59
+  offset: 4, 1
+  index: -1

@@ -1,0 +1,1 @@
+"use strict";var e,r;System.register("chunks:///vip-res.js",[],(function(){return{execute:function(){}}})),e="virtual:///prerequisite-imports/vip-res",r="chunks:///vip-res.js",System.register(e,[r],(function(e,r){return{setters:[function(r){var t={};for(var s in r)"default"!==s&&"__esModule"!==s&&(t[s]=r[s]);e(t)}],execute:function(){}}}));

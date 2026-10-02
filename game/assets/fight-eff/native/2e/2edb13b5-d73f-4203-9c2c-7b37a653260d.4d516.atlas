@@ -1,0 +1,132 @@
+
+bone33.png
+size: 1698,284
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/ly/02812
+  rotate: true
+  xy: 1553, 4
+  size: 93, 103
+  orig: 198, 333
+  offset: 48, 230
+  index: -1
+images/ly/02813
+  rotate: false
+  xy: 1596, 132
+  size: 100, 150
+  orig: 198, 333
+  offset: 46, 183
+  index: -1
+images/ly/02814
+  rotate: false
+  xy: 1427, 89
+  size: 101, 193
+  orig: 198, 333
+  offset: 44, 140
+  index: -1
+images/ly/02815
+  rotate: false
+  xy: 969, 4
+  size: 100, 278
+  orig: 198, 333
+  offset: 45, 55
+  index: -1
+images/ly/02816
+  rotate: false
+  xy: 141, 2
+  size: 136, 280
+  orig: 198, 333
+  offset: 27, 53
+  index: -1
+images/ly/02817
+  rotate: false
+  xy: 279, 2
+  size: 134, 280
+  orig: 198, 333
+  offset: 29, 53
+  index: -1
+images/ly/02818
+  rotate: false
+  xy: 2, 2
+  size: 137, 280
+  orig: 198, 333
+  offset: 27, 53
+  index: -1
+images/ly/02819
+  rotate: false
+  xy: 736, 3
+  size: 127, 279
+  orig: 198, 333
+  offset: 25, 54
+  index: -1
+images/ly/02820
+  rotate: false
+  xy: 415, 2
+  size: 107, 280
+  orig: 198, 333
+  offset: 46, 53
+  index: -1
+images/ly/02821
+  rotate: false
+  xy: 524, 2
+  size: 107, 280
+  orig: 198, 333
+  offset: 48, 53
+  index: -1
+images/ly/02822
+  rotate: false
+  xy: 865, 4
+  size: 102, 278
+  orig: 198, 333
+  offset: 53, 54
+  index: -1
+images/ly/02823
+  rotate: false
+  xy: 1071, 5
+  size: 96, 277
+  orig: 198, 333
+  offset: 55, 53
+  index: -1
+images/ly/02824
+  rotate: false
+  xy: 633, 2
+  size: 101, 280
+  orig: 198, 333
+  offset: 56, 53
+  index: -1
+images/ly/02825
+  rotate: false
+  xy: 1169, 10
+  size: 99, 272
+  orig: 198, 333
+  offset: 58, 54
+  index: -1
+images/ly/02826
+  rotate: false
+  xy: 1270, 15
+  size: 80, 267
+  orig: 198, 333
+  offset: 58, 55
+  index: -1
+images/ly/02827
+  rotate: false
+  xy: 1352, 78
+  size: 73, 204
+  orig: 198, 333
+  offset: 63, 54
+  index: -1
+images/ly/02828
+  rotate: true
+  xy: 1352, 8
+  size: 68, 199
+  orig: 198, 333
+  offset: 63, 54
+  index: -1
+images/ly/02829
+  rotate: false
+  xy: 1530, 99
+  size: 64, 183
+  orig: 198, 333
+  offset: 68, 54
+  index: -1

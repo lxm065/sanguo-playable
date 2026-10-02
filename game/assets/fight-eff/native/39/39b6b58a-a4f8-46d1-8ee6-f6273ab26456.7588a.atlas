@@ -1,0 +1,139 @@
+
+bone50.png
+size: 393,914
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+tx/fj0001
+  rotate: true
+  xy: 310, 436
+  size: 88, 69
+  orig: 137, 116
+  offset: 31, 0
+  index: -1
+tx/fj0002
+  rotate: false
+  xy: 257, 10
+  size: 114, 95
+  orig: 137, 116
+  offset: 11, 0
+  index: -1
+tx/fj0003
+  rotate: false
+  xy: 140, 281
+  size: 130, 101
+  orig: 137, 116
+  offset: 0, 0
+  index: -1
+tx/fj0004
+  rotate: false
+  xy: 140, 189
+  size: 127, 90
+  orig: 137, 116
+  offset: 0, 12
+  index: -1
+tx/fj0005
+  rotate: false
+  xy: 2, 172
+  size: 126, 96
+  orig: 137, 116
+  offset: 0, 12
+  index: -1
+tx/fj0006
+  rotate: false
+  xy: 130, 102
+  size: 125, 85
+  orig: 137, 116
+  offset: 0, 19
+  index: -1
+tx/fj0007
+  rotate: false
+  xy: 269, 107
+  size: 122, 88
+  orig: 137, 116
+  offset: 0, 21
+  index: -1
+tx/fj0008
+  rotate: false
+  xy: 272, 296
+  size: 118, 86
+  orig: 137, 116
+  offset: 2, 27
+  index: -1
+tx/fj0009
+  rotate: false
+  xy: 2, 83
+  size: 120, 87
+  orig: 137, 116
+  offset: 2, 27
+  index: -1
+tx/shouji0001
+  rotate: true
+  xy: 272, 197
+  size: 97, 117
+  orig: 150, 150
+  offset: 26, 15
+  index: -1
+tx/shouji0002
+  rotate: true
+  xy: 244, 794
+  size: 118, 146
+  orig: 150, 150
+  offset: 17, 4
+  index: -1
+tx/shouji0003
+  rotate: true
+  xy: 244, 665
+  size: 127, 142
+  orig: 150, 150
+  offset: 11, 4
+  index: -1
+tx/shouji0004
+  rotate: false
+  xy: 2, 270
+  size: 136, 135
+  orig: 150, 150
+  offset: 6, 7
+  index: -1
+tx/shouji0005
+  rotate: false
+  xy: 168, 384
+  size: 140, 140
+  orig: 150, 150
+  offset: 3, 5
+  index: -1
+tx/shouji0006
+  rotate: true
+  xy: 124, 2
+  size: 98, 100
+  orig: 113, 113
+  offset: 6, 8
+  index: -1
+tx/suibing0001
+  rotate: false
+  xy: 2, 407
+  size: 164, 129
+  orig: 240, 193
+  offset: 40, 4
+  index: -1
+tx/suibing0003
+  rotate: false
+  xy: 211, 526
+  size: 172, 137
+  orig: 240, 193
+  offset: 31, 7
+  index: -1
+tx/suibing0005
+  rotate: false
+  xy: 2, 538
+  size: 207, 180
+  orig: 240, 193
+  offset: 10, 0
+  index: -1
+tx/suibing0007
+  rotate: false
+  xy: 2, 720
+  size: 240, 192
+  orig: 240, 193
+  offset: 0, 1
+  index: -1

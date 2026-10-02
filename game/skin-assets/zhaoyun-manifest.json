@@ -1,0 +1,55 @@
+{
+  "textures": [
+    "zhaoyun-0.png",
+    "zhaoyun-1.png",
+    "zhaoyun-2.png",
+    "zhaoyun-3.png"
+  ],
+  "frames": 213,
+  "actions": {
+    "idle": {
+      "source": "Stand - 1",
+      "duration": 3.334
+    },
+    "run": {
+      "source": "Walk",
+      "duration": 0.766
+    },
+    "skill1": {
+      "source": "Attack - 1",
+      "duration": 1
+    },
+    "skill2": {
+      "source": "Spell",
+      "duration": 2.167
+    },
+    "skill3": {
+      "source": "Attack - 2",
+      "duration": 1.166
+    },
+    "skill4": {
+      "source": "Spell",
+      "duration": 2.167
+    },
+    "skill5": {
+      "source": "Attack - 2",
+      "duration": 1.166
+    },
+    "dead": {
+      "source": "Death",
+      "duration": 1.5
+    },
+    "hit": {
+      "source": "Stand Hit",
+      "duration": 0.5
+    },
+    "born": {
+      "source": "Stand Ready",
+      "duration": 1
+    },
+    "win": {
+      "source": "Stand Victory",
+      "duration": 2.666
+    }
+  }
+}

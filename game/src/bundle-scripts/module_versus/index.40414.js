@@ -1,0 +1,1 @@
+"use strict";var e,u;System.register("chunks:///module_versus.js",[],(function(){return{execute:function(){}}})),e="virtual:///prerequisite-imports/module_versus",u="chunks:///module_versus.js",System.register(e,[u],(function(e,u){return{setters:[function(u){var r={};for(var s in u)"default"!==s&&"__esModule"!==s&&(r[s]=u[s]);e(r)}],execute:function(){}}}));

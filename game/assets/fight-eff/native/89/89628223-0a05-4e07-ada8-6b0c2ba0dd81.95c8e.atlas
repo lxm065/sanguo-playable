@@ -1,0 +1,76 @@
+
+bone12.png
+size: 542,542
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/sj1
+  rotate: false
+  xy: 2, 119
+  size: 207, 207
+  orig: 228, 225
+  offset: 14, 6
+  index: -1
+images/sj2
+  rotate: false
+  xy: 2, 328
+  size: 224, 212
+  orig: 228, 225
+  offset: 2, 8
+  index: -1
+images/sj3
+  rotate: false
+  xy: 228, 186
+  size: 191, 176
+  orig: 228, 225
+  offset: 19, 25
+  index: -1
+images/sj4
+  rotate: false
+  xy: 228, 364
+  size: 195, 176
+  orig: 228, 225
+  offset: 21, 28
+  index: -1
+images/sj5
+  rotate: false
+  xy: 211, 2
+  size: 186, 182
+  orig: 228, 225
+  offset: 36, 23
+  index: -1
+images/sj6
+  rotate: false
+  xy: 2, 6
+  size: 144, 111
+  orig: 228, 225
+  offset: 57, 51
+  index: -1
+images/sj7
+  rotate: false
+  xy: 425, 443
+  size: 113, 97
+  orig: 228, 225
+  offset: 57, 67
+  index: -1
+images/sj8
+  rotate: false
+  xy: 425, 370
+  size: 112, 71
+  orig: 228, 225
+  offset: 57, 71
+  index: -1
+images/sj9
+  rotate: true
+  xy: 148, 4
+  size: 113, 61
+  orig: 228, 225
+  offset: 57, 81
+  index: -1
+images/zidan2
+  rotate: true
+  xy: 399, 124
+  size: 60, 37
+  orig: 60, 50
+  offset: 0, 5
+  index: -1

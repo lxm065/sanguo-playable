@@ -1,0 +1,69 @@
+
+bone30.png
+size: 374,266
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+chuojibo
+  rotate: false
+  xy: 2, 162
+  size: 236, 102
+  orig: 238, 103
+  offset: 2, 1
+  index: -1
+dici
+  rotate: true
+  xy: 227, 38
+  size: 71, 142
+  orig: 142, 142
+  offset: 28, 0
+  index: -1
+dilie
+  rotate: false
+  xy: 2, 52
+  size: 223, 108
+  orig: 228, 111
+  offset: 1, 1
+  index: -1
+huichen
+  rotate: true
+  xy: 240, 111
+  size: 153, 87
+  orig: 157, 95
+  offset: 2, 5
+  index: -1
+yanchen-4
+  rotate: true
+  xy: 329, 165
+  size: 99, 43
+  orig: 101, 43
+  offset: 0, 0
+  index: -1
+yanchen-5
+  rotate: false
+  xy: 199, 15
+  size: 95, 21
+  orig: 95, 21
+  offset: 0, 0
+  index: -1
+yanchen-1
+  rotate: false
+  xy: 296, 9
+  size: 56, 27
+  orig: 57, 43
+  offset: 1, 1
+  index: -1
+yanchen-2
+  rotate: false
+  xy: 106, 3
+  size: 91, 47
+  orig: 91, 47
+  offset: 0, 0
+  index: -1
+yanchen-3
+  rotate: false
+  xy: 2, 2
+  size: 102, 48
+  orig: 102, 48
+  offset: 0, 0
+  index: -1

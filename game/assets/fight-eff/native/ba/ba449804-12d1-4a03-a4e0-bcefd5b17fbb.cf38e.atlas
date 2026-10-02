@@ -1,0 +1,76 @@
+
+bone28.png
+size: 275,540
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shifa/sf_0008
+  rotate: true
+  xy: 220, 411
+  size: 127, 40
+  orig: 300, 216
+  offset: 29, 28
+  index: -1
+shifa/sf_0009
+  rotate: false
+  xy: 2, 63
+  size: 194, 62
+  orig: 300, 216
+  offset: 58, 24
+  index: -1
+shifa/sf_0010
+  rotate: true
+  xy: 207, 257
+  size: 152, 66
+  orig: 300, 216
+  offset: 99, 28
+  index: -1
+shifa/sf_0011
+  rotate: false
+  xy: 2, 127
+  size: 172, 87
+  orig: 300, 216
+  offset: 99, 19
+  index: -1
+shifa/sf_0012
+  rotate: false
+  xy: 2, 321
+  size: 203, 106
+  orig: 300, 216
+  offset: 79, 8
+  index: -1
+shifa/sf_0013
+  rotate: false
+  xy: 2, 429
+  size: 216, 109
+  orig: 300, 216
+  offset: 74, 4
+  index: -1
+shifa/sf_0014
+  rotate: false
+  xy: 2, 216
+  size: 193, 103
+  orig: 300, 216
+  offset: 98, 5
+  index: -1
+shifa/sf_0015
+  rotate: false
+  xy: 2, 2
+  size: 131, 59
+  orig: 300, 216
+  offset: 97, 32
+  index: -1
+shifa/sf_0016
+  rotate: true
+  xy: 198, 123
+  size: 132, 55
+  orig: 300, 216
+  offset: 96, 30
+  index: -1
+shifa/sf_0017
+  rotate: false
+  xy: 135, 4
+  size: 131, 57
+  orig: 300, 216
+  offset: 96, 28
+  index: -1

@@ -1,0 +1,111 @@
+
+bone36.png
+size: 1563,580
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+atk_baozha_0001
+  rotate: false
+  xy: 1357, 43
+  size: 130, 137
+  orig: 255, 187
+  offset: 70, 10
+  index: -1
+atk_baozha_0003
+  rotate: true
+  xy: 1407, 402
+  size: 176, 154
+  orig: 255, 187
+  offset: 38, 24
+  index: -1
+atk_baozha_0005
+  rotate: true
+  xy: 979, 46
+  size: 224, 164
+  orig: 255, 187
+  offset: 16, 14
+  index: -1
+atk_baozha_0006
+  rotate: true
+  xy: 812, 26
+  size: 234, 165
+  orig: 255, 187
+  offset: 11, 13
+  index: -1
+atk_baozha_0008
+  rotate: true
+  xy: 2, 2
+  size: 244, 155
+  orig: 255, 187
+  offset: 10, 17
+  index: -1
+skl_shouji_0001
+  rotate: false
+  xy: 1357, 182
+  size: 203, 100
+  orig: 360, 304
+  offset: 85, 14
+  index: -1
+skl_shouji_0002
+  rotate: true
+  xy: 1145, 6
+  size: 276, 210
+  orig: 360, 304
+  offset: 45, 10
+  index: -1
+skl_shouji_0003
+  rotate: true
+  xy: 1129, 284
+  size: 294, 276
+  orig: 360, 304
+  offset: 36, 6
+  index: -1
+skl_shouji_0004
+  rotate: true
+  xy: 847, 272
+  size: 306, 280
+  orig: 360, 304
+  offset: 29, 10
+  index: -1
+skl_shouji_0005
+  rotate: true
+  xy: 555, 262
+  size: 316, 290
+  orig: 360, 304
+  offset: 25, 11
+  index: -1
+skl_shouji_0006
+  rotate: true
+  xy: 263, 252
+  size: 326, 290
+  orig: 360, 304
+  offset: 20, 11
+  index: -1
+skl_shouji_0007
+  rotate: true
+  xy: 2, 248
+  size: 330, 259
+  orig: 360, 304
+  offset: 18, 10
+  index: -1
+skl_shouji_0008
+  rotate: false
+  xy: 159, 4
+  size: 326, 242
+  orig: 360, 304
+  offset: 20, 9
+  index: -1
+skl_shouji_0009
+  rotate: true
+  xy: 487, 9
+  size: 241, 179
+  orig: 360, 304
+  offset: 67, 10
+  index: -1
+skl_shouji_0010
+  rotate: true
+  xy: 668, 24
+  size: 236, 142
+  orig: 360, 304
+  offset: 69, 13
+  index: -1

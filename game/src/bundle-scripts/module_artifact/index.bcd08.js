@@ -1,0 +1,1 @@
+"use strict";var t,e;System.register("chunks:///module_artifact.js",[],(function(){return{execute:function(){}}})),t="virtual:///prerequisite-imports/module_artifact",e="chunks:///module_artifact.js",System.register(t,[e],(function(t,e){return{setters:[function(e){var r={};for(var u in e)"default"!==u&&"__esModule"!==u&&(r[u]=e[u]);t(r)}],execute:function(){}}}));

@@ -1,0 +1,21 @@
+# 本机配置、账号录制与验收档不上传。
+tools/local.environment.json
+game/project.private.config.json
+game/replay-data/
+game/subpackages/main/game.js
+game/traffic-recordings/
+evidence/
+backup-before-classic/
+本地试玩验收.html
+本轮界面对比.html
+node_modules/
+__pycache__/
+*.pyc
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+dist/
+

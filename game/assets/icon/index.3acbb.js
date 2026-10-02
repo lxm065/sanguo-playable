@@ -1,0 +1,1 @@
+"use strict";var e,t;System.register("chunks:///icon.js",[],(function(){return{execute:function(){}}})),e="virtual:///prerequisite-imports/icon",t="chunks:///icon.js",System.register(e,[t],(function(e,t){return{setters:[function(t){var n={};for(var r in t)"default"!==r&&"__esModule"!==r&&(n[r]=t[r]);e(n)}],execute:function(){}}}));

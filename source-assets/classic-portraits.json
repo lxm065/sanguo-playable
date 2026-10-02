@@ -1,0 +1,40 @@
+{
+  "tool": "built-in image_gen",
+  "portraits": [
+    {
+      "id": "liubei",
+      "file": "game/skin-assets/classic/liubei.png",
+      "prompt": "Liu Bei, noble middle-aged lord, long earlobes, green and gold armor and robes. Vertical 2:3 collectible hero portrait, Three Kingdoms Chinese mobile strategy game, hand-painted heroic fantasy, clear expressive face, warm parchment palace background. No text, border or UI."
+    },
+    {
+      "id": "sunjian",
+      "file": "game/skin-assets/classic/sunjian.png",
+      "prompt": "Sun Jian, fierce middle-aged warlord, bronze tiger helmet, black and red armor. Vertical 2:3 collectible hero portrait, Three Kingdoms Chinese mobile strategy game, hand-painted heroic fantasy, clear expressive face, warm parchment palace background. No text, border or UI."
+    },
+    {
+      "id": "dongzhuo",
+      "file": "game/skin-assets/classic/dongzhuo.png",
+      "prompt": "Dong Zhuo, burly older tyrant, heavy beard, dark armor and gold crown. Vertical 2:3 collectible hero portrait, Three Kingdoms Chinese mobile strategy game, hand-painted heroic fantasy, clear expressive face, warm parchment palace background. No text, border or UI."
+    },
+    {
+      "id": "yuanshao",
+      "file": "game/skin-assets/classic/yuanshao.png",
+      "prompt": "Yuan Shao, aristocratic lord, gold armor and regal blue cloak. Vertical 2:3 collectible hero portrait, Three Kingdoms Chinese mobile strategy game, hand-painted heroic fantasy, clear expressive face, warm parchment palace background. No text, border or UI."
+    },
+    {
+      "id": "caocao",
+      "file": "game/skin-assets/classic/caocao.png",
+      "prompt": "Cao Cao, calculating statesman, neat beard, red and gold robes. Vertical 2:3 collectible hero portrait, Three Kingdoms Chinese mobile strategy game, hand-painted heroic fantasy, clear expressive face, warm parchment palace background. No text, border or UI."
+    },
+    {
+      "id": "sunquan",
+      "file": "game/skin-assets/classic/sunquan.png",
+      "prompt": "Sun Quan, reddish beard, purple and gold armor. Vertical 2:3 collectible hero portrait, Three Kingdoms Chinese mobile strategy game, hand-painted heroic fantasy, clear expressive face, warm parchment palace background. No text, border or UI."
+    },
+    {
+      "id": "liubiao",
+      "file": "game/skin-assets/classic/liubiao.png",
+      "prompt": "Liu Biao, elderly scholar lord, grey beard, pale blue and ivory robes. Vertical 2:3 collectible hero portrait, Three Kingdoms Chinese mobile strategy game, hand-painted heroic fantasy, clear expressive face, warm parchment palace background. No text, border or UI."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "textures": [
+    "guanyu-0.png",
+    "guanyu-1.png",
+    "guanyu-2.png"
+  ],
+  "frames": 131,
+  "actions": {
+    "idle": {
+      "source": "Stand",
+      "duration": 1.167
+    },
+    "run": {
+      "source": "Walk",
+      "duration": 0.733
+    },
+    "skill1": {
+      "source": "Attack",
+      "duration": 1.167
+    },
+    "skill2": {
+      "source": "Attack Slam",
+      "duration": 1.133
+    },
+    "dead": {
+      "source": "Death",
+      "duration": 1.9
+    },
+    "hit": {
+      "source": "Stand Ready",
+      "duration": 1.4
+    },
+    "win": {
+      "source": "Stand Victory",
+      "duration": 3.1
+    }
+  }
+}

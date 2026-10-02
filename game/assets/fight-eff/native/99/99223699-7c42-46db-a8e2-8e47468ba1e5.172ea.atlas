@@ -1,0 +1,27 @@
+
+bone27.png
+size: 214,219
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ef/TX_dl2
+  rotate: false
+  xy: 2, 2
+  size: 210, 72
+  orig: 220, 73
+  offset: 3, 1
+  index: -1
+ef/gq2
+  rotate: false
+  xy: 2, 76
+  size: 152, 141
+  orig: 156, 156
+  offset: 2, 2
+  index: -1
+ef/tx_guangdiand1
+  rotate: true
+  xy: 156, 170
+  size: 47, 49
+  orig: 50, 50
+  offset: 1, 0
+  index: -1

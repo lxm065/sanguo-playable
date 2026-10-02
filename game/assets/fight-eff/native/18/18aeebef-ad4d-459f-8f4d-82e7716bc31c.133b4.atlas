@@ -1,0 +1,195 @@
+
+bone8.png
+size: 1286,295
+format: RGBA4444
+filter: Linear,Linear
+repeat: none
+dici1
+  rotate: false
+  xy: 910, 11
+  size: 89, 117
+  orig: 89, 117
+  offset: 0, 0
+  index: -1
+dici2
+  rotate: true
+  xy: 1179, 236
+  size: 57, 102
+  orig: 57, 102
+  offset: 0, 0
+  index: -1
+effect/qiancengbaofa_00022
+  rotate: true
+  xy: 431, 9
+  size: 109, 86
+  orig: 173, 142
+  offset: 36, 11
+  index: -1
+effect/qiancengbaofa_00023
+  rotate: false
+  xy: 519, 12
+  size: 167, 106
+  orig: 173, 142
+  offset: 6, 0
+  index: -1
+effect/qiancengbaofa_00024
+  rotate: true
+  xy: 532, 126
+  size: 167, 142
+  orig: 173, 142
+  offset: 6, 0
+  index: -1
+effect/qiancengbaofa_00025
+  rotate: true
+  xy: 2, 120
+  size: 173, 142
+  orig: 173, 142
+  offset: 0, 0
+  index: -1
+effect/qiancengbaofa_00026
+  rotate: true
+  xy: 280, 120
+  size: 173, 124
+  orig: 173, 142
+  offset: 0, 3
+  index: -1
+effect/qiancengbaofa_00027
+  rotate: true
+  xy: 406, 120
+  size: 173, 124
+  orig: 173, 142
+  offset: 0, 6
+  index: -1
+effect/qiancengbaofa_00028
+  rotate: true
+  xy: 146, 120
+  size: 173, 132
+  orig: 173, 142
+  offset: 0, 5
+  index: -1
+effect/qiancengbaofa_00029
+  rotate: true
+  xy: 676, 129
+  size: 164, 137
+  orig: 173, 142
+  offset: 9, 5
+  index: -1
+effect/qiancengbaofa_00030
+  rotate: false
+  xy: 2, 7
+  size: 164, 111
+  orig: 173, 142
+  offset: 9, 5
+  index: -1
+effect/qiancengbaofa_00031
+  rotate: false
+  xy: 266, 8
+  size: 163, 110
+  orig: 173, 142
+  offset: 10, 5
+  index: -1
+effect/qiancengbaofa_00032
+  rotate: true
+  xy: 815, 130
+  size: 163, 94
+  orig: 173, 142
+  offset: 10, 5
+  index: -1
+effect/qiancengbaofa_00033
+  rotate: true
+  xy: 1001, 2
+  size: 134, 91
+  orig: 173, 142
+  offset: 30, 5
+  index: -1
+effect/qiancengbaofa_00035
+  rotate: true
+  xy: 1102, 158
+  size: 135, 75
+  orig: 173, 142
+  offset: 30, 4
+  index: -1
+effect/qiancengbaofa_00037
+  rotate: true
+  xy: 688, 2
+  size: 125, 70
+  orig: 173, 142
+  offset: 39, 11
+  index: -1
+effect/qiancengbaofa_00040
+  rotate: true
+  xy: 760, 5
+  size: 122, 72
+  orig: 173, 142
+  offset: 39, 10
+  index: -1
+effect/qiancengbaofa_00042
+  rotate: true
+  xy: 834, 8
+  size: 120, 74
+  orig: 173, 142
+  offset: 39, 9
+  index: -1
+effect/qiancengbaofa_00045
+  rotate: false
+  xy: 1149, 25
+  size: 99, 74
+  orig: 173, 142
+  offset: 39, 9
+  index: -1
+effect/qiancengbaofa_00046
+  rotate: false
+  xy: 1179, 159
+  size: 99, 75
+  orig: 173, 142
+  offset: 39, 9
+  index: -1
+zadi_00030
+  rotate: true
+  xy: 911, 137
+  size: 156, 67
+  orig: 160, 113
+  offset: 1, 7
+  index: -1
+zadi_00031
+  rotate: true
+  xy: 980, 138
+  size: 155, 65
+  orig: 160, 113
+  offset: 1, 7
+  index: -1
+zadi_00032
+  rotate: true
+  xy: 1047, 152
+  size: 141, 53
+  orig: 160, 113
+  offset: 1, 7
+  index: -1
+zadi_00033
+  rotate: true
+  xy: 1094, 11
+  size: 139, 53
+  orig: 160, 113
+  offset: 1, 7
+  index: -1
+zadi_00034
+  rotate: false
+  xy: 1149, 101
+  size: 135, 55
+  orig: 160, 113
+  offset: 5, 8
+  index: -1
+zadi_00035
+  rotate: true
+  xy: 218, 7
+  size: 111, 46
+  orig: 160, 113
+  offset: 29, 17
+  index: -1
+zadi_00036
+  rotate: true
+  xy: 168, 7
+  size: 111, 48
+  orig: 160, 113
+  offset: 29, 17
+  index: -1

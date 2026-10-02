@@ -1,0 +1,38 @@
+{
+  "textures": [
+    "huangzhong-0.png",
+    "huangzhong-1.png",
+    "huangzhong-2.png"
+  ],
+  "frames": 143,
+  "actions": {
+    "idle": {
+      "source": "Stand",
+      "duration": 1.166
+    },
+    "run": {
+      "source": "Walk",
+      "duration": 0.833
+    },
+    "skill1": {
+      "source": "Attack - 1",
+      "duration": 1.334
+    },
+    "skill2": {
+      "source": "Spell",
+      "duration": 1.333
+    },
+    "dead": {
+      "source": "Death",
+      "duration": 3.233
+    },
+    "hit": {
+      "source": "Stand Hit",
+      "duration": 0.034
+    },
+    "win": {
+      "source": "Stand Victory",
+      "duration": 3.734
+    }
+  }
+}

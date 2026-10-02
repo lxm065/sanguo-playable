@@ -1,0 +1,475 @@
+'use strict';
+/** 由可审阅的 classic.config.json 生成，供微信模块加载。 */
+module.exports={
+  "lords": [
+    {
+      "id": "1001",
+      "key": "liubei",
+      "name": "刘备",
+      "description": "心怀汉室、以仁义聚英才，愿与天下英雄共扶社稷。",
+      "hp": 3,
+      "coin": 0,
+      "chapter": 0,
+      "sign": 0,
+      "skillName": "仁德-1",
+      "skillDescription": "上阵单位+1",
+      "source": {
+        "id": "1001",
+        "hp": "3",
+        "coin": "0",
+        "unlock1": "0",
+        "unlock2": "0",
+        "unlock_dup": "20",
+        "upgrade_id": "10,11,12,13,14,15,16,17,18,19",
+        "piece_num": "30,50,80,120,160,200,300,500,700,1000",
+        "task_1": "1,2,3,4,5,6,7,8,9,10",
+        "task_2": "11,12,13,14,15,16,17,18,19,20",
+        "name": "骑士王子",
+        "des": "信奉圣光的骑士，人族王子，非常孝顺",
+        "skill_name1": "圣光-1",
+        "skill_name2": "圣光-2",
+        "skill_name3": "圣光-3",
+        "skill_des1": "上阵单位+1",
+        "skill_des2": "通关普通关选择单位时，有15%的概率刷出高1星的单位。",
+        "skill_des3": "通关普通关选择单位时，有35%的概率刷出高1星的单位。"
+      },
+      "portrait": "classic/liubei.png"
+    },
+    {
+      "id": "1002",
+      "key": "sunjian",
+      "name": "孙坚",
+      "description": "江东猛虎，勇冠三军，以传国之志率领江东子弟。",
+      "hp": 1,
+      "coin": 200,
+      "chapter": 35,
+      "sign": 0,
+      "skillName": "虎威-1",
+      "skillDescription": "开局赐予你女神赐福过的【装备】，该装备可以无限升级。",
+      "source": {
+        "id": "1002",
+        "hp": "1",
+        "coin": "200",
+        "unlock1": "0",
+        "unlock2": "35",
+        "unlock_dup": "360",
+        "upgrade_id": "20,21,22,23,24,25,26,27,28,29",
+        "piece_num": "30,50,80,120,160,200,300,500,700,1000",
+        "task_1": "11,12,13,14,15,16,17,18,19,20",
+        "task_2": "31,32,33,34,35,36,37,38,39,40",
+        "name": "精灵女神",
+        "des": "精灵族的圣女，月亮之神的祭祀。",
+        "skill_name1": "赐福-1",
+        "skill_name2": "赐福-2",
+        "skill_name3": "赐福-3",
+        "skill_des1": "开局赐予你女神赐福过的【装备】，该装备可以无限升级。",
+        "skill_des2": "商店关有20%概率刷出女神赐福的【装备】",
+        "skill_des3": "商店关和宝藏关都有20%概率刷出女神赐福的【装备】"
+      },
+      "portrait": "classic/sunjian.png"
+    },
+    {
+      "id": "1003",
+      "key": "dongzhuo",
+      "name": "董卓",
+      "description": "据西凉而入京师，拥重兵、聚珍宝，威震诸侯。",
+      "hp": 2,
+      "coin": 30,
+      "chapter": 8,
+      "sign": 0,
+      "skillName": "雄据-1",
+      "skillDescription": "每次进入BOSS关和商店时，会随机获得1件装备。",
+      "source": {
+        "id": "1003",
+        "hp": "2",
+        "coin": "30",
+        "unlock1": "0",
+        "unlock2": "8",
+        "unlock_dup": "360",
+        "upgrade_id": "30,31,32,33,34,35,36,37,38,39",
+        "piece_num": "30,50,80,120,160,200,300,500,700,1000",
+        "task_1": "41,42,43,44,45,46,47,48,49,50",
+        "task_2": "51,52,53,54,55,56,57,58,59,60",
+        "name": "地精工程师",
+        "des": "曾是伟大的工程师，现在是地精王国的大财阀。",
+        "skill_name1": "钞能力-1",
+        "skill_name2": "钞能力-2",
+        "skill_name3": "钞能力-3",
+        "skill_des1": "每次进入BOSS关和商店时，会随机获得1件装备。",
+        "skill_des2": "每次进入BOSS关和商店时，获得紫装的概率提高。",
+        "skill_des3": "发动究极钞能力，进入BOSS关和商店关时，都会获得紫装或3-4级单位。"
+      },
+      "portrait": "classic/dongzhuo.png"
+    },
+    {
+      "id": "1004",
+      "key": "yuanshao",
+      "name": "袁绍",
+      "description": "四世三公，门生故吏遍天下，凭声望广纳豪杰。",
+      "hp": 2,
+      "coin": 50,
+      "chapter": 2,
+      "sign": 0,
+      "skillName": "招揽-1",
+      "skillDescription": "每次战斗开始前，发动盗取技能，有概率获得一件装备。",
+      "source": {
+        "id": "1004",
+        "hp": "2",
+        "coin": "50",
+        "unlock1": "0",
+        "unlock2": "2",
+        "unlock_dup": "360",
+        "upgrade_id": "40,41,42,43,44,45,46,47,48,49",
+        "piece_num": "30,50,80,120,160,200,300,500,700,1000",
+        "task_1": "61,62,63,64,65,66,67,68,69,70",
+        "task_2": "71,72,73,74,75,76,77,78,79,80",
+        "name": "潜行盗贼",
+        "des": "首屈一指的潜行者，悬赏榜常客。请务必注意自己的钱包。",
+        "skill_name1": "偷盗-1",
+        "skill_name2": "偷盗-2",
+        "skill_name3": "偷盗-3",
+        "skill_des1": "每次战斗开始前，发动盗取技能，有概率获得一件装备。",
+        "skill_des2": "每次战斗开始前，发动盗取技能，有概率获得一件任意品质的装备。",
+        "skill_des3": "每次战斗开始前，【暗杀】敌方一个单位。"
+      },
+      "portrait": "classic/yuanshao.png"
+    },
+    {
+      "id": "1005",
+      "key": "caocao",
+      "name": "曹操",
+      "description": "唯才是举，广发求贤令，以雄才谋定天下。",
+      "hp": 3,
+      "coin": 0,
+      "chapter": 0,
+      "sign": 9,
+      "skillName": "求贤-1",
+      "skillDescription": "每次战斗开始前，都有1个1~2级单位加入。",
+      "source": {
+        "id": "1005",
+        "hp": "3",
+        "coin": "0",
+        "unlock1": "9",
+        "unlock2": "0",
+        "unlock_dup": "80",
+        "upgrade_id": "50,51,52,53,54,55,56,57,58,59",
+        "piece_num": "30,50,80,120,160,200,300,500,700,1000",
+        "task_1": "81,82,83,84,85,86,87,88,89,90",
+        "task_2": "91,92,93,94,95,96,97,98,99,100",
+        "name": "兽人酋长",
+        "des": "堪称艾泽拉斯最会摸鱼的传奇酋长",
+        "skill_name1": "征召-1",
+        "skill_name2": "征召-2",
+        "skill_name3": "征召-3",
+        "skill_des1": "每次战斗开始前，都有1个1~2级单位加入。",
+        "skill_des2": "每次战斗开始前，都有1个1~3级单位加入。",
+        "skill_des3": "每次战斗开始前，都有1个1~4级单位加入。"
+      },
+      "portrait": "classic/caocao.png"
+    },
+    {
+      "id": "1006",
+      "key": "sunquan",
+      "name": "孙权",
+      "description": "承父兄基业，任贤使能，统领江东群英。",
+      "hp": 2,
+      "coin": 60,
+      "chapter": 0,
+      "sign": 18,
+      "skillName": "制衡-1",
+      "skillDescription": "单位合成时，有概率返还1个单位。泉水也变得更强了！",
+      "source": {
+        "id": "1006",
+        "hp": "2",
+        "coin": "60",
+        "unlock1": "18",
+        "unlock2": "0",
+        "unlock_dup": "360",
+        "upgrade_id": "60,61,62,63,64,65,66,67,68,69",
+        "piece_num": "30,50,80,120,160,200,300,500,700,1000",
+        "task_1": "101,102,103,104,105,106,107,108,109,110",
+        "task_2": "111,112,113,114,115,116,117,118,119,120",
+        "name": "邪能术士",
+        "des": "曾是兽族的萨满祭祀，后用外貌与恶魔交易，获得邪能炼金术。",
+        "skill_name1": "炼金术-1",
+        "skill_name2": "炼金术-2",
+        "skill_name3": "炼金术-3",
+        "skill_des1": "单位合成时，有概率返还1个单位。泉水也变得更强了！",
+        "skill_des2": "单位合成时，有70%概率返还1个单位。泉水也可能多触发1次！",
+        "skill_des3": "单位合成时，必定返还1个单位。泉水额外触发1次！"
+      },
+      "portrait": "classic/sunquan.png"
+    },
+    {
+      "id": "1007",
+      "key": "liubiao",
+      "name": "刘表",
+      "description": "坐镇荆襄，礼贤下士，聚九郡物资以安一方。",
+      "hp": 3,
+      "coin": 100,
+      "chapter": 50,
+      "sign": 0,
+      "skillName": "文治-1",
+      "skillDescription": "给我2件蓝色装备，还你1件紫色装备",
+      "source": {
+        "id": "1007",
+        "hp": "3",
+        "coin": "100",
+        "unlock1": "0",
+        "unlock2": "50",
+        "unlock_dup": "360",
+        "upgrade_id": "70,71,72,73,74,75,76,77,78,79",
+        "piece_num": "30,50,80,120,160,200,300,500,700,1000",
+        "task_1": "121,122,123,124,125,126,127,128,129,130",
+        "task_2": "131,132,133,134,135,136,137,138,139,140",
+        "name": "铜须铁匠",
+        "des": "矮人国王，工匠宗师，传说任何废铁都能被他敲成神器。",
+        "skill_name1": "锻造-1",
+        "skill_name2": "锻造-2",
+        "skill_name3": "锻造-3",
+        "skill_des1": "给我2件蓝色装备，还你1件紫色装备",
+        "skill_des2": "合成紫装时，有较低的概率额外获得风剑",
+        "skill_des3": "合成紫装时，有更高的概率额外获得风剑"
+      },
+      "portrait": "classic/liubiao.png"
+    }
+  ],
+  "defaultLord": "1001",
+  "baseArmyLimit": 1,
+  "lordArmyBonus": {
+    "1001": 1
+  },
+  "tabs": [
+    [
+      "heroes",
+      "主公"
+    ],
+    [
+      "camp",
+      "要塞"
+    ],
+    [
+      "home",
+      "远征"
+    ],
+    [
+      "training",
+      "挑战"
+    ],
+    [
+      "rules",
+      "天赋"
+    ]
+  ],
+  "chapter": {
+    "id": 1,
+    "name": "黄巾之乱",
+    "place": "涿郡",
+    "sections": [
+      "1/5黄巾初起",
+      "2/5乡野危机",
+      "3/5义军集结",
+      "4/5讨伐乱军",
+      "5/5平定黄巾"
+    ],
+    "unlockHero": "zhangfei",
+    "unlockName": "张飞",
+    "bossStar": 2,
+    "layers": 10
+  },
+  "profile": {
+    "diamonds": 0,
+    "inventory": {
+      "5": 0,
+      "8": 0,
+      "10": 0
+    },
+    "unlockedUnits": [
+      "zhaoyun",
+      "guanyu",
+      "huangzhong",
+      "zhugeliang"
+    ]
+  },
+  "items": {
+    "1": {
+      "name": "钻石",
+      "original": "钻石",
+      "icon": "◆",
+      "description": "用于提升天赋等级"
+    },
+    "5": {
+      "name": "军略丹",
+      "original": "药剂",
+      "icon": "丹",
+      "description": "用于天赋强化，视频强化完成后可使用"
+    },
+    "8": {
+      "name": "招贤钱",
+      "original": "幸运币",
+      "icon": "钱",
+      "description": "用于战役内兵种刷新"
+    },
+    "10": {
+      "name": "神行令",
+      "original": "加速卡",
+      "icon": "令",
+      "description": "可以在远征和副本中用2倍速进行战斗"
+    },
+    "7205": {
+      "name": "赤魂玉",
+      "original": "灵魂石",
+      "icon": "玉",
+      "description": "装备碎片；合成对应装备，保留原装备属性与技能 ID。",
+      "source": {
+        "id": "7205",
+        "color": "2",
+        "ab_type1": "3",
+        "ab_prob1": "800",
+        "ab_type2": "109",
+        "ab_prob2": "1500",
+        "ab_type3": "0",
+        "ab_prob3": "0",
+        "ab_type4": "0",
+        "ab_prob4": "0",
+        "ab_type5": "0",
+        "ab_prob5": "0",
+        "name": "灵魂石",
+        "skill_1": "72051",
+        "skill_2": "0",
+        "skill_3": "0",
+        "skill_4": "0",
+        "grade_id": "98,53,28,68,80,37,148,157,81,234",
+        "unlock_type": "0",
+        "unlock_value": "0",
+        "desc": "一颗完美无瑕的红宝石",
+        "pic": "30005",
+        "recommend_1": "2",
+        "recommend_2": "5",
+        "recommend_3": "14",
+        "recommend_4": "20",
+        "recommend_5": "9",
+        "recommend_6": "21",
+        "recommend_7": "0",
+        "recommend_8": "0",
+        "recommend_9": "0",
+        "recommend_10": "0"
+      }
+    },
+    "7211": {
+      "name": "济世佩",
+      "original": "梅肯",
+      "icon": "佩",
+      "description": "装备碎片；合成对应装备，保留原装备属性与技能 ID。",
+      "source": {
+        "id": "7211",
+        "color": "2",
+        "ab_type1": "3",
+        "ab_prob1": "200",
+        "ab_type2": "2",
+        "ab_prob2": "30",
+        "ab_type3": "4",
+        "ab_prob3": "25",
+        "ab_type4": "6",
+        "ab_prob4": "20",
+        "ab_type5": "0",
+        "ab_prob5": "0",
+        "name": "梅肯",
+        "skill_1": "72111",
+        "skill_2": "72112",
+        "skill_3": "0",
+        "skill_4": "0",
+        "grade_id": "44,29,110,75,67,3,151,160,236,254",
+        "unlock_type": "0",
+        "unlock_value": "0",
+        "desc": "各种散件不知是怎样无暇地组合起来，形成的散发着光芒的珠宝",
+        "pic": "30011",
+        "recommend_1": "1",
+        "recommend_2": "13",
+        "recommend_3": "19",
+        "recommend_4": "9",
+        "recommend_5": "10",
+        "recommend_6": "21",
+        "recommend_7": "15",
+        "recommend_8": "16",
+        "recommend_9": "11",
+        "recommend_10": "12"
+      }
+    }
+  },
+  "chapterReward": {
+    "1": 2000,
+    "5": 100,
+    "8": 10
+  },
+  "shop": {
+    "dailyAdRefreshes": 5,
+    "offers": [
+      {
+        "item": "7205",
+        "count": 3,
+        "price": 2400,
+        "discount": 8
+      },
+      {
+        "item": "7211",
+        "count": 10,
+        "price": 0,
+        "discount": 5
+      },
+      {
+        "item": "7205",
+        "count": 6,
+        "price": 0,
+        "discount": 8
+      }
+    ],
+    "source": "2026-10-02 原版要塞实测当前三件商品；非全服完整商品池"
+  },
+  "mine": {
+    "chapter": 5,
+    "slots": 8,
+    "source": {
+      "id": "1",
+      "lv": "0",
+      "exp": "7500",
+      "time": "10800",
+      "max": "0",
+      "blue_prob": "0",
+      "purple_prob": "0",
+      "origin_prob": "0",
+      "red_prob": "0",
+      "chapter": "5"
+    }
+  },
+  "ads": {
+    "mode": "development",
+    "adUnitId": ""
+  },
+  "map": {
+    "rowSpacing": 205,
+    "laneX": [
+      -220,
+      0,
+      220
+    ],
+    "types": [
+      "battle",
+      "battle",
+      "elite",
+      "battle",
+      "spring",
+      "battle",
+      "treasure",
+      "elite",
+      "spring",
+      "boss"
+    ]
+  },
+  "portraitCrop": [
+    0.16,
+    0.04,
+    0.68,
+    0.46
+  ]
+};

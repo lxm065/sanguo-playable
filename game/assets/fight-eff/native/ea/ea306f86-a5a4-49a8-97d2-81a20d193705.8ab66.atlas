@@ -1,0 +1,111 @@
+
+bone1.png
+size: 419,1014
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1132-1
+  rotate: false
+  xy: 147, 207
+  size: 48, 63
+  orig: 63, 80
+  offset: 3, 14
+  index: -1
+1132-2
+  rotate: false
+  xy: 257, 2
+  size: 80, 114
+  orig: 91, 132
+  offset: 7, 9
+  index: -1
+1132-3
+  rotate: true
+  xy: 244, 896
+  size: 116, 164
+  orig: 123, 172
+  offset: 4, 2
+  index: -1
+1132-4
+  rotate: false
+  xy: 244, 689
+  size: 150, 205
+  orig: 153, 215
+  offset: 3, 3
+  index: -1
+1132-5
+  rotate: true
+  xy: 2, 414
+  size: 146, 208
+  orig: 154, 216
+  offset: 4, 5
+  index: -1
+1132-6
+  rotate: true
+  xy: 214, 547
+  size: 140, 203
+  orig: 152, 218
+  offset: 9, 11
+  index: -1
+1132-7
+  rotate: true
+  xy: 212, 405
+  size: 140, 203
+  orig: 152, 218
+  offset: 9, 11
+  index: -1
+1132-8
+  rotate: true
+  xy: 2, 272
+  size: 140, 203
+  orig: 152, 218
+  offset: 9, 11
+  index: -1
+1278-2
+  rotate: false
+  xy: 257, 118
+  size: 115, 85
+  orig: 116, 88
+  offset: 0, 1
+  index: -1
+6_6_shock_wave
+  rotate: false
+  xy: 2, 772
+  size: 240, 240
+  orig: 256, 256
+  offset: 8, 8
+  index: -1
+_shockwave_02
+  rotate: false
+  xy: 2, 3
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+dilie026
+  rotate: true
+  xy: 2, 133
+  size: 137, 143
+  orig: 150, 150
+  offset: 8, 7
+  index: -1
+elementclient0904
+  rotate: true
+  xy: 2, 562
+  size: 208, 210
+  orig: 256, 256
+  offset: 24, 22
+  index: -1
+glow
+  rotate: false
+  xy: 132, 7
+  size: 123, 124
+  orig: 128, 128
+  offset: 2, 1
+  index: -1
+quan29
+  rotate: false
+  xy: 207, 205
+  size: 198, 198
+  orig: 200, 200
+  offset: 1, 1
+  index: -1
