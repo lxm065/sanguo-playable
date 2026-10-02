@@ -4,6 +4,7 @@ const { ClassicView } = require("./classic-view"),
   policy = require("./expedition-config"),
   { stats, bonds } = require("./expedition-stats"),
   classic = require("./classic-config");
+const { BattleHud } = require("./battle-hud");
 /** 远征视图负责交互展示，奖励和装备事务交给领域服务。 */
 class ExpeditionView extends ClassicView {
   /** 保留战场领取后的阵容，通过前进按钮返回路线。 */
@@ -37,7 +38,7 @@ class ExpeditionView extends ClassicView {
       )
         n.destroy();
     u.box(this.root, "expedition-header", 0, 550, 720, 180, "#241F19");
-    u.portrait(
+    const lordAvatar = u.portrait(
       this.root,
       this.progress.lord().portrait,
       -290,
@@ -46,6 +47,11 @@ class ExpeditionView extends ClassicView {
       130,
       classic.portraitCrop,
     );
+    lordAvatar.name = "battle-lord-avatar";
+    lordAvatar.on(this.cc.Node.EventType.TOUCH_END, (event) => {
+      event.propagationStopped = true;
+      this.battleHud.lordDetails();
+    });
     u.text(this.root, "♥".repeat(m.hp), -140, 607, 32, "#E65441", 170);
     u.text(
       this.root,
@@ -126,49 +132,8 @@ class ExpeditionView extends ClassicView {
       const ticket = this.model.adTicket();
     }
     u.box(this.root, "expedition-footer", 0, -521, 720, 222, "#2B251F");
-    const active = bonds(
-      s.units.filter((x) => x.slot >= 0),
-      this.roster,
-    );
-    u.text(this.root, "羁绊", -309, -446, 26, "#7AB755", 98);
-    active
-      .filter((b) => b.count)
-      .forEach((b, i) =>
-        u.button(
-          this.root,
-          b.value + " " + b.count,
-          -209 + i * 73,
-          -446,
-          70,
-          () =>
-            this.notice(
-              b.name,
-              b.effect
-                .replace("{0}", b.values[0])
-                .replace("{1}", b.values[1])
-                .replace("{2}", b.values[2] || "") +
-                "\n不同武将：" +
-                b.count +
-                "，当前档位：" +
-                b.level,
-            ),
-          b.level ? "#53623B" : "#45413A",
-          43,
-        ),
-      );
-    u.text(this.root, "装备", -309, -532, 26, "#7AB755", 98);
-    u.button(
-      this.root,
-      "装备栏 (" +
-        s.expedition.equipment.filter((x) => x.owner === null).length +
-        ")",
-      -138,
-      -532,
-      224,
-      () => this.equipmentPanel(),
-      "#675134",
-      64,
-    );
+    this.battleHud = new BattleHud(this);
+    this.battleHud.render();
     u.button(
       this.root,
       m.activeNode ? "开始" : "前进",
@@ -196,44 +161,63 @@ class ExpeditionView extends ClassicView {
       "#524B3C",
       43,
     );
-    u.button(
-      this.root,
-      "武将详情",
-      -138,
-      -604,
-      224,
-      () =>
-        this.selected
-          ? this.details(this.model.unit(this.selected).heroId, this.selected)
-          : this.notice("提示", "点击武将查看详情；拖动武将进行布阵。"),
-      "#524B3C",
-      43,
-    );
     if (this.modal) this.modal.setSiblingIndex(this.root.children.length - 1);
   }
-  /** 轻触打开详情或可用合成，拖动继续复用已验证的交换布阵。 */
+  /** 单击直接显示武将详情；拖动只布阵，取消时恢复原位置。 */
   drawFriendly(unit, x, y, scale) {
-    const actor = super.drawFriendly(unit, x, y, scale);
-    let start;
-    actor.node.on(this.cc.Node.EventType.TOUCH_START, (e) => {
-      start = e.getUILocation();
+    const actor = this.ui.actor(this.root, unit, x, y, scale);
+    this.actors.set(unit.uid, actor);
+    const events = this.cc.Node.EventType;
+    let start = null,
+      moved = false;
+    actor.node.on(events.TOUCH_START, (event) => {
+      event.propagationStopped = true;
+      if (this.playing || this.model.state.pending) return;
+      start = event.getUILocation();
+      moved = false;
+      actor.node.setSiblingIndex(this.root.children.length - 1);
     });
-    actor.node.on(this.cc.Node.EventType.TOUCH_END, (e) => {
-      const p = e.getUILocation();
+    actor.node.on(events.TOUCH_MOVE, (event) => {
+      event.propagationStopped = true;
+      if (!start) return;
+      const p = event.getUILocation();
       if (
-        start &&
-        Math.hypot(p.x - start.x, p.y - start.y) <
-          this.config.layout.dragThreshold &&
-        !this.playing &&
-        !this.model.state.pending
-      ) {
-        const count = this.model.state.units.filter(
-          (v) => v.heroId === unit.heroId && v.star === unit.star,
-        ).length;
-        if (count >= this.config.mergeCount && unit.star < this.model.maxRank())
-          this.mergePanel(unit.uid);
-        else this.details(unit.heroId, unit.uid);
+        Math.hypot(p.x - start.x, p.y - start.y) >
+        this.config.layout.dragThreshold
+      )
+        moved = true;
+      if (moved) {
+        const q = this.root
+          .getComponent(this.cc.UITransform)
+          .convertToNodeSpaceAR(new this.cc.Vec3(p.x, p.y, 0));
+        actor.node.setPosition(q.x, q.y);
       }
+    });
+    actor.node.on(events.TOUCH_END, (event) => {
+      event.propagationStopped = true;
+      if (!start) return;
+      start = null;
+      if (this.playing || this.model.state.pending) return;
+      this.selected = unit.uid;
+      if (!moved) {
+        this.details(unit.heroId, unit.uid);
+        return;
+      }
+      const p = event.getUILocation(),
+        q = this.root
+          .getComponent(this.cc.UITransform)
+          .convertToNodeSpaceAR(new this.cc.Vec3(p.x, p.y, 0)),
+        slot = this.slotAt(q);
+      this.act(() => {
+        if (slot !== null) this.model.deploy(unit.uid, slot);
+        else if (q.y < -260 && q.y > -425) this.model.deploy(unit.uid, -1);
+        else throw Error("请放在己方棋盘或备战席");
+      });
+    });
+    actor.node.on(events.TOUCH_CANCEL, (event) => {
+      event.propagationStopped = true;
+      start = null;
+      if (!this.playing) this.render();
     });
     return actor;
   }
