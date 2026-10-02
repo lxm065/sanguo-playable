@@ -1,0 +1,1889 @@
+{
+  "version": 1,
+  "size": 512,
+  "background": "#554b39",
+  "scope": "静态头像；模型和动作未替换",
+  "entries": [
+    {
+      "id": "zhenji",
+      "type": "model-render",
+      "sourceRoot": "遗失的记忆v1.7.22-U9_1.24/自定义单位模型/模型与贴图",
+      "model": "zhenjipf.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.44,
+        "time": 400,
+        "center": [
+          0,
+          0,
+          105
+        ],
+        "crop": [
+          0.07,
+          0.03,
+          0.86
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "zhenjipf.mdx": {
+          "sha256": "a19fc1c69c28789a1cc117208c094d571db4274d95e786590ed8135471ae366a"
+        },
+        "HeroArchSorceressFZ1.blp": {
+          "sha256": "f81178ecbf61567a596efb2f0eaa688992eb4cae86d85368b5d270e99e394136"
+        },
+        "zhenji1.blp": {
+          "sha256": "ae34ac15918e516e90402248aa3de24f1dde5cc762df164cff7d315f00570d56"
+        },
+        "zhenji2.blp": {
+          "sha256": "951279ae3941bd0200aca66b856435c8fa6273a0b5ca5cd43850e1d8124fc531"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+          "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+          "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+          "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+          "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor02.blp": {
+          "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
+          "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor03.blp": {
+          "sha256": "879d401e6b8dd2005054688c295d6554c47b914dce0795440ddb676724a2ef91"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow03.blp": {
+          "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor04.blp": {
+          "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
+          "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor05.blp": {
+          "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
+          "sha256": "a4f7b72f5d530eb52cabd56f64ebf8e9020a00a9d993a55a2a422e3470adbfd6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor06.blp": {
+          "sha256": "d799d93194182a56cd8cec408e11214ff5b965fee850bed72a2ec90331dddc98"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow06.blp": {
+          "sha256": "487161ac56e96ecf5bf0aa92bf2c2fa48afb7f0c0ee9ceec996b8b5e17dee03d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor07.blp": {
+          "sha256": "1ae0931f626db4ac9659d1331e9ca92d09c2b7407d47531fb40c74d008f28587"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow07.blp": {
+          "sha256": "cce904c52af44078128e109f05d5efffe0a9b71339d40644957e6ad6af159237"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor08.blp": {
+          "sha256": "eb9faf6de202dc6ed81f38d01a2b9fe26b51aa49b02d7470f65cab577ac957fa"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow08.blp": {
+          "sha256": "2af22a9de078166f22c3e615832414ec53d99e5186fae50070fda4fc009afd47"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor09.blp": {
+          "sha256": "0acbcedbde39d7fc1ea4752482648c0402b2a906135eab911a5bffc25858e9a6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow09.blp": {
+          "sha256": "7b493a1b976c0d07c60e1521d58dba4829be8af03650fee4249e1e055371820c"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor10.blp": {
+          "sha256": "1349b880e72ba8c3dbbcc3629a43b689e19ed2fcceaf282c58f094e45e43770d"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow10.blp": {
+          "sha256": "22b0c58ce32a9299b9a632ebadc6a07b628a92c040d4e6ee65e5dab6e111d4e0"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor11.blp": {
+          "sha256": "71456b84e06b13c4b2bd3ab9a72ed8bb41d117af15521516e6d88a836a3c7ddd"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow11.blp": {
+          "sha256": "9135d0a7b72345eb85eb0f094abc5916d1c8f56315472240010e32823051154d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor12.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow12.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor13.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow13.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor14.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow14.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor15.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow15.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        }
+      },
+      "file": "handbook/zhenji.png",
+      "sha256": "8187ab553e29f848f22033287c88974371adb65337ef5a9e739dae2eadc42ed3"
+    },
+    {
+      "id": "xuchu",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/XuChu.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          0,
+          0,
+          107
+        ],
+        "crop": [
+          0,
+          0,
+          1
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "war3mapImported/XuChu.mdx": {
+          "sha256": "17d554dfe58c1396e911b475d250e12d6c01cbe45968c939ba0c061e73851167"
+        },
+        "XuChu.blp": {
+          "sha256": "3de3780980629a6f0ef24b4a2a8fd57d78df92eb5834ab2819b7aad655b3a885"
+        },
+        "Textures/star4.blp": {
+          "sha256": "226e4006f97c3a0e282eff2cd44c0336c541cf2f15e88ecfc3062c19ac6fe51b"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+          "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+        },
+        "XuChuWeapon.blp": {
+          "sha256": "8aea610e6ebff94ffa9832aff3eb1b0bec371b7ce3f937fa728b3f2cf1374805"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+          "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+          "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+          "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor02.blp": {
+          "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
+          "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor03.blp": {
+          "sha256": "879d401e6b8dd2005054688c295d6554c47b914dce0795440ddb676724a2ef91"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow03.blp": {
+          "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor04.blp": {
+          "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
+          "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor05.blp": {
+          "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
+          "sha256": "a4f7b72f5d530eb52cabd56f64ebf8e9020a00a9d993a55a2a422e3470adbfd6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor06.blp": {
+          "sha256": "d799d93194182a56cd8cec408e11214ff5b965fee850bed72a2ec90331dddc98"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow06.blp": {
+          "sha256": "487161ac56e96ecf5bf0aa92bf2c2fa48afb7f0c0ee9ceec996b8b5e17dee03d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor07.blp": {
+          "sha256": "1ae0931f626db4ac9659d1331e9ca92d09c2b7407d47531fb40c74d008f28587"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow07.blp": {
+          "sha256": "cce904c52af44078128e109f05d5efffe0a9b71339d40644957e6ad6af159237"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor08.blp": {
+          "sha256": "eb9faf6de202dc6ed81f38d01a2b9fe26b51aa49b02d7470f65cab577ac957fa"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow08.blp": {
+          "sha256": "2af22a9de078166f22c3e615832414ec53d99e5186fae50070fda4fc009afd47"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor09.blp": {
+          "sha256": "0acbcedbde39d7fc1ea4752482648c0402b2a906135eab911a5bffc25858e9a6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow09.blp": {
+          "sha256": "7b493a1b976c0d07c60e1521d58dba4829be8af03650fee4249e1e055371820c"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor10.blp": {
+          "sha256": "1349b880e72ba8c3dbbcc3629a43b689e19ed2fcceaf282c58f094e45e43770d"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow10.blp": {
+          "sha256": "22b0c58ce32a9299b9a632ebadc6a07b628a92c040d4e6ee65e5dab6e111d4e0"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor11.blp": {
+          "sha256": "71456b84e06b13c4b2bd3ab9a72ed8bb41d117af15521516e6d88a836a3c7ddd"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow11.blp": {
+          "sha256": "9135d0a7b72345eb85eb0f094abc5916d1c8f56315472240010e32823051154d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor12.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow12.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor13.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow13.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor14.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow14.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor15.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow15.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        }
+      },
+      "file": "handbook/xuchu.png",
+      "sha256": "2ee8f4b05e30a5ce7fad14df70723b3959684fd76e949785ec9b8ef9a1328545"
+    },
+    {
+      "id": "xiahouyuan",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/XHY.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          0,
+          0,
+          116
+        ],
+        "distance": 80,
+        "crop": [
+          0,
+          0,
+          1
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "war3mapImported/XHY.mdx": {
+          "sha256": "01e47a59aad6a1c428e1572681066805acb986e5957d7f16fa0867f7115f1e7d"
+        },
+        "Textures/RibbonBlur1.blp": {
+          "sha256": "4dcf7d2d6468f765277f84a7cfb1df4eb5995e6feb5e5ff43a6ed199841d96e8"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+          "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+        },
+        "Textures/Flame4.blp": {
+          "sha256": "26df51c4809a1d89511cef95064802745292070a38a8d2486fc6fbc3383d0f92"
+        },
+        "Textures/Tornado2b.blp": {
+          "sha256": "4b2cdcaf6f269f44fd50338cb22bef0d8507a03a1d4dbd8647e30e36e5e7fce3"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+          "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+        },
+        "Textures/Red_Glow3.blp": {
+          "sha256": "b05e048d80e56f51cd4741ce4c041b02bdc1fe8fd2eaf8f0aa8bd1d44683b64c"
+        },
+        "Textures/GenericGlow2c.blp": {
+          "sha256": "b13dbf0223cd16a0d3bb5f20a6d6d427980b467aa0343b3efbc1ea80145a9569"
+        },
+        "WY1.blp": {
+          "sha256": "b043b020fd3510bb74d0da16a92260c4eaadb3204035794d35bea5c69b0be0e6"
+        },
+        "WY2.blp": {
+          "sha256": "761022a3e577eb85a068cd0ec7ce7756e6b6206ff2f6222399f11c0f7e341802"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+          "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+          "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor02.blp": {
+          "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
+          "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor03.blp": {
+          "sha256": "879d401e6b8dd2005054688c295d6554c47b914dce0795440ddb676724a2ef91"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow03.blp": {
+          "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor04.blp": {
+          "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
+          "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor05.blp": {
+          "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
+          "sha256": "a4f7b72f5d530eb52cabd56f64ebf8e9020a00a9d993a55a2a422e3470adbfd6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor06.blp": {
+          "sha256": "d799d93194182a56cd8cec408e11214ff5b965fee850bed72a2ec90331dddc98"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow06.blp": {
+          "sha256": "487161ac56e96ecf5bf0aa92bf2c2fa48afb7f0c0ee9ceec996b8b5e17dee03d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor07.blp": {
+          "sha256": "1ae0931f626db4ac9659d1331e9ca92d09c2b7407d47531fb40c74d008f28587"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow07.blp": {
+          "sha256": "cce904c52af44078128e109f05d5efffe0a9b71339d40644957e6ad6af159237"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor08.blp": {
+          "sha256": "eb9faf6de202dc6ed81f38d01a2b9fe26b51aa49b02d7470f65cab577ac957fa"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow08.blp": {
+          "sha256": "2af22a9de078166f22c3e615832414ec53d99e5186fae50070fda4fc009afd47"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor09.blp": {
+          "sha256": "0acbcedbde39d7fc1ea4752482648c0402b2a906135eab911a5bffc25858e9a6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow09.blp": {
+          "sha256": "7b493a1b976c0d07c60e1521d58dba4829be8af03650fee4249e1e055371820c"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor10.blp": {
+          "sha256": "1349b880e72ba8c3dbbcc3629a43b689e19ed2fcceaf282c58f094e45e43770d"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow10.blp": {
+          "sha256": "22b0c58ce32a9299b9a632ebadc6a07b628a92c040d4e6ee65e5dab6e111d4e0"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor11.blp": {
+          "sha256": "71456b84e06b13c4b2bd3ab9a72ed8bb41d117af15521516e6d88a836a3c7ddd"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow11.blp": {
+          "sha256": "9135d0a7b72345eb85eb0f094abc5916d1c8f56315472240010e32823051154d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor12.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow12.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor13.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow13.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor14.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow14.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor15.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow15.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        }
+      },
+      "file": "handbook/xiahouyuan.png",
+      "sha256": "8ad04a26078b1049bb4a19ad29957b66651779cd9e1a9d2ed3b96d98ef524f23"
+    },
+    {
+      "id": "zhaoyun",
+      "type": "model-render",
+      "sourceRoot": "真三国无双3_1_9dai版无CD无限蓝/自定义单位模型/模型与贴图",
+      "model": "units/human/Arthas/Arthas.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          0,
+          0,
+          97
+        ],
+        "distance": 110,
+        "crop": [
+          0.1,
+          0.15,
+          0.8
+        ]
+      },
+      "sequence": "Stand - 1",
+      "dependencies": {
+        "units/human/Arthas/Arthas.mdx": {
+          "sha256": "33ae5a8a784622aa5b86145f5c8fd67b907613a2f9fb7c7d137b6f32aa933572"
+        },
+        "Textures/Arthas.blp": {
+          "sha256": "4ceff3b7ed2beeb16f2d65cba52e31ad644965566422898f652fe93f504b2f41"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+          "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+        },
+        "Textures/Yellow_Star_Dim.blp": {
+          "sha256": "45d936c52a8e92240851fbfdb0f81444efdacf5656c0588115f93702575659ec"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+          "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+        },
+        "Textures/RibbonBlur1.blp": {
+          "sha256": "4dcf7d2d6468f765277f84a7cfb1df4eb5995e6feb5e5ff43a6ed199841d96e8"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+          "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+          "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor02.blp": {
+          "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
+          "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor03.blp": {
+          "sha256": "879d401e6b8dd2005054688c295d6554c47b914dce0795440ddb676724a2ef91"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow03.blp": {
+          "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor04.blp": {
+          "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
+          "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor05.blp": {
+          "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
+          "sha256": "a4f7b72f5d530eb52cabd56f64ebf8e9020a00a9d993a55a2a422e3470adbfd6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor06.blp": {
+          "sha256": "d799d93194182a56cd8cec408e11214ff5b965fee850bed72a2ec90331dddc98"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow06.blp": {
+          "sha256": "487161ac56e96ecf5bf0aa92bf2c2fa48afb7f0c0ee9ceec996b8b5e17dee03d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor07.blp": {
+          "sha256": "1ae0931f626db4ac9659d1331e9ca92d09c2b7407d47531fb40c74d008f28587"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow07.blp": {
+          "sha256": "cce904c52af44078128e109f05d5efffe0a9b71339d40644957e6ad6af159237"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor08.blp": {
+          "sha256": "eb9faf6de202dc6ed81f38d01a2b9fe26b51aa49b02d7470f65cab577ac957fa"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow08.blp": {
+          "sha256": "2af22a9de078166f22c3e615832414ec53d99e5186fae50070fda4fc009afd47"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor09.blp": {
+          "sha256": "0acbcedbde39d7fc1ea4752482648c0402b2a906135eab911a5bffc25858e9a6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow09.blp": {
+          "sha256": "7b493a1b976c0d07c60e1521d58dba4829be8af03650fee4249e1e055371820c"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor10.blp": {
+          "sha256": "1349b880e72ba8c3dbbcc3629a43b689e19ed2fcceaf282c58f094e45e43770d"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow10.blp": {
+          "sha256": "22b0c58ce32a9299b9a632ebadc6a07b628a92c040d4e6ee65e5dab6e111d4e0"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor11.blp": {
+          "sha256": "71456b84e06b13c4b2bd3ab9a72ed8bb41d117af15521516e6d88a836a3c7ddd"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow11.blp": {
+          "sha256": "9135d0a7b72345eb85eb0f094abc5916d1c8f56315472240010e32823051154d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor12.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow12.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor13.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow13.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor14.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow14.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor15.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow15.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        }
+      },
+      "file": "handbook/zhaoyun.png",
+      "sha256": "8e02585974f53d4b44b2933f50b0bafbad242eee9f058e70af1bd85e175fffb9"
+    },
+    {
+      "id": "dianwei",
+      "type": "model-render",
+      "sourceRoot": "真三国无双3_1_9dai版无CD无限蓝/自定义单位模型/模型与贴图",
+      "model": "Units/Creeps/Beastmaster/Beastmaster.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          4,
+          5,
+          113
+        ],
+        "distance": 115,
+        "crop": [
+          0,
+          0,
+          1
+        ]
+      },
+      "sequence": "Stand - 1",
+      "dependencies": {
+        "Units/Creeps/Beastmaster/Beastmaster.mdx": {
+          "sha256": "81584858c90327571a53fbf0e74cf9c4fb671477001c49008fc3e429abf59031"
+        },
+        "Textures/BeastMaster.blp": {
+          "sha256": "75c2e4707629c0e41caccfca1235cd3e87c09181aab91df49ca34c84dac95b75"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+          "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+        },
+        "Textures/RibbonBlur1.blp": {
+          "sha256": "4dcf7d2d6468f765277f84a7cfb1df4eb5995e6feb5e5ff43a6ed199841d96e8"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+          "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+        },
+        "Textures/Yellow_Glow_Dim.blp": {
+          "sha256": "a3ba0717b66a310f1732088b75a27aec55fda1de06a745bcc2877feb9b5033dc"
+        },
+        "Textures/Clouds8x8.blp": {
+          "sha256": "0e07abf3289320564628e4359652e738c015cd7930d840b68e4d24b096ea88ea"
+        },
+        "Textures/Yellow_Star.blp": {
+          "sha256": "c65f2035a7af47228da6d16a2320256559dafeccbfb5b195486ad0cbc2905ce2"
+        },
+        "Textures/Yellow_Glow3.blp": {
+          "sha256": "a1b87bb8c1cd66c4f01e4edc601b81f12b26ba314a37f3fceaba9fea0581b44b"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+          "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+          "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor02.blp": {
+          "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
+          "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor03.blp": {
+          "sha256": "879d401e6b8dd2005054688c295d6554c47b914dce0795440ddb676724a2ef91"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow03.blp": {
+          "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor04.blp": {
+          "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
+          "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor05.blp": {
+          "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
+          "sha256": "a4f7b72f5d530eb52cabd56f64ebf8e9020a00a9d993a55a2a422e3470adbfd6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor06.blp": {
+          "sha256": "d799d93194182a56cd8cec408e11214ff5b965fee850bed72a2ec90331dddc98"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow06.blp": {
+          "sha256": "487161ac56e96ecf5bf0aa92bf2c2fa48afb7f0c0ee9ceec996b8b5e17dee03d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor07.blp": {
+          "sha256": "1ae0931f626db4ac9659d1331e9ca92d09c2b7407d47531fb40c74d008f28587"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow07.blp": {
+          "sha256": "cce904c52af44078128e109f05d5efffe0a9b71339d40644957e6ad6af159237"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor08.blp": {
+          "sha256": "eb9faf6de202dc6ed81f38d01a2b9fe26b51aa49b02d7470f65cab577ac957fa"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow08.blp": {
+          "sha256": "2af22a9de078166f22c3e615832414ec53d99e5186fae50070fda4fc009afd47"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor09.blp": {
+          "sha256": "0acbcedbde39d7fc1ea4752482648c0402b2a906135eab911a5bffc25858e9a6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow09.blp": {
+          "sha256": "7b493a1b976c0d07c60e1521d58dba4829be8af03650fee4249e1e055371820c"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor10.blp": {
+          "sha256": "1349b880e72ba8c3dbbcc3629a43b689e19ed2fcceaf282c58f094e45e43770d"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow10.blp": {
+          "sha256": "22b0c58ce32a9299b9a632ebadc6a07b628a92c040d4e6ee65e5dab6e111d4e0"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor11.blp": {
+          "sha256": "71456b84e06b13c4b2bd3ab9a72ed8bb41d117af15521516e6d88a836a3c7ddd"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow11.blp": {
+          "sha256": "9135d0a7b72345eb85eb0f094abc5916d1c8f56315472240010e32823051154d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor12.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow12.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor13.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow13.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor14.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow14.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor15.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow15.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        }
+      },
+      "file": "handbook/dianwei.png",
+      "sha256": "aa336e52aa9fd4fdc31aa7034388a49058ebb2040a8c6378177b2effdcb16f3f"
+    },
+    {
+      "id": "diaochan",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/DC.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          0,
+          0,
+          88
+        ],
+        "distance": 72,
+        "crop": [
+          0,
+          0,
+          1
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "war3mapImported/DC.mdx": {
+          "sha256": "a80614ab8c79b5d11c1539aaf49b1ccc2cd703d90cb4d9555e40b90b2073386b"
+        },
+        "DC.blp": {
+          "sha256": "8c9be9dfa8d7142918ff2d14bf4cdf24189d611f89315aeb7e60292b4b6ac6eb"
+        },
+        "DCF.blp": {
+          "sha256": "82d12ad1447d7f9b58ea6f00dcd0583541aa276a5e597fe2cb320d519834c760"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+          "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+        },
+        "kuwu.blp": {
+          "sha256": "760fee508fa14856e940f1b908cf0f98ed6ee266ec63aaafab89aa5593edf9bd"
+        },
+        "BS1.BLP": {
+          "sha256": "872128d85fa7fb418c8ceb47b71eba21de00cf5b3e152a29fc1b2adade9fb68d"
+        },
+        "BS2.BLP": {
+          "sha256": "9785d032d21fc67c27dfa8b58c7fdb507f6de6bbb911105775cda9453482e54e"
+        },
+        "BS3.BLP": {
+          "sha256": "eba04fde06d76a323dd68eaaf4ac27771c21d8db0ded47199c0d308f2f7259a6"
+        },
+        "BS4.BLP": {
+          "sha256": "e6579996059f96b380fd635c9b4d837d861e092ca892c45548ba0d331d6d15e2"
+        },
+        "BS5.BLP": {
+          "sha256": "85d9777553c9b6ce95cd635dcac6a6c354016dcd6afe9e165d602988aeddd465"
+        },
+        "BS6.BLP": {
+          "sha256": "7341b44680d6307b4a2d01a507237c1df7868f3870edaf759d1450ab53bd1591"
+        },
+        "ZFdaoguang.blp": {
+          "sha256": "56719212e609270e34a9de5402d9858c571c3f21d1e57689f50dfbd38271d3d5"
+        },
+        "ReplaceableTextures/Weather/Clouds8x8.blp": {
+          "sha256": "6ce87e14a5f129cf390531660803694f13e44fc25dba05ff2853c7a622f0fc56"
+        }
+      },
+      "file": "handbook/diaochan.png",
+      "sha256": "0e46acd26ee97228b112a03b41661263c1720e9e80ef0f9565f41be5184a285b"
+    },
+    {
+      "id": "huangzhong",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/moon_shin_HZ.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          10,
+          0,
+          91
+        ],
+        "distance": 75,
+        "crop": [
+          0.1,
+          0.15,
+          0.8
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "war3mapImported/moon_shin_HZ.mdx": {
+          "sha256": "e2c04974566809acca185ea03a355601dc6029cdd7559fa15844bb01e546c317"
+        },
+        "BS1.BLP": {
+          "sha256": "872128d85fa7fb418c8ceb47b71eba21de00cf5b3e152a29fc1b2adade9fb68d"
+        },
+        "dustwave.blp": {
+          "sha256": "656d622d5b9c400196e72105e35417cdaf7ce035e5bb11d9bd2457989c812920"
+        },
+        "HuangZhong_1.blp": {
+          "sha256": "34e7374f75c92bedfcd28abd70bc6ece53ec9c912cff7904b0e1231dcc28b8c8"
+        },
+        "hzBODY.blp": {
+          "sha256": "ce586229958ef3cbd40c22c291c917e073f08810b1124b073014c3dc72dcd48e"
+        },
+        "HZdao.blp": {
+          "sha256": "1eea9c1cebd179ca9b55788c692090c0bbb8707d6b79da0faa2bba5754cf6ab3"
+        },
+        "HZS.blp": {
+          "sha256": "674e1896134a969db7b8f0c7e2d3e1410dc65058df01784bbda35017fc54b51a"
+        },
+        "BS2.BLP": {
+          "sha256": "9785d032d21fc67c27dfa8b58c7fdb507f6de6bbb911105775cda9453482e54e"
+        },
+        "BS3.BLP": {
+          "sha256": "eba04fde06d76a323dd68eaaf4ac27771c21d8db0ded47199c0d308f2f7259a6"
+        },
+        "BS4.BLP": {
+          "sha256": "e6579996059f96b380fd635c9b4d837d861e092ca892c45548ba0d331d6d15e2"
+        },
+        "BS5.BLP": {
+          "sha256": "85d9777553c9b6ce95cd635dcac6a6c354016dcd6afe9e165d602988aeddd465"
+        },
+        "BS6.BLP": {
+          "sha256": "7341b44680d6307b4a2d01a507237c1df7868f3870edaf759d1450ab53bd1591"
+        },
+        "ZFdaoguang.blp": {
+          "sha256": "56719212e609270e34a9de5402d9858c571c3f21d1e57689f50dfbd38271d3d5"
+        }
+      },
+      "file": "handbook/huangzhong.png",
+      "sha256": "a152895d00a3af678b2de8748bfd952ce5ea0a0c6828643e024fb3324cb13a7e"
+    },
+    {
+      "id": "zhangfei",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/moon_shin_ZF.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          15,
+          0,
+          80
+        ],
+        "distance": 70,
+        "crop": [
+          0.1,
+          0.2,
+          0.7
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "war3mapImported/moon_shin_ZF.mdx": {
+          "sha256": "82380963c33d6400d27273111e1312bf421f92df6842058cfdf5a9d9b0620969"
+        },
+        "ZFbody.blp": {
+          "sha256": "0eded2dee9c93c889ceb43b8265774e5043d9587ae8ee67fee4deadf6bb288f3"
+        },
+        "ZFface.blp": {
+          "sha256": "89da27c39339602bd3b5bf3c97a85a53cc20aee449e4f2061f32d46a00ea5ab6"
+        },
+        "ZFYF.blp": {
+          "sha256": "211b47bcb0d1cb848df0f0672fa93ed1b844eadb72e18b32b5651f26eff64c2e"
+        },
+        "ZhangFeiWeapon.BLP": {
+          "sha256": "af36e33667271beabcd48dced8a5ded8d6608d057540fc3b4021ecf01e26a0d8"
+        },
+        "BS1.BLP": {
+          "sha256": "872128d85fa7fb418c8ceb47b71eba21de00cf5b3e152a29fc1b2adade9fb68d"
+        },
+        "BS2.BLP": {
+          "sha256": "9785d032d21fc67c27dfa8b58c7fdb507f6de6bbb911105775cda9453482e54e"
+        },
+        "BS3.BLP": {
+          "sha256": "eba04fde06d76a323dd68eaaf4ac27771c21d8db0ded47199c0d308f2f7259a6"
+        },
+        "SL.blp": {
+          "sha256": "4cf58e9255d05b7566a16b1a8f0fc51e4fc8abdae7ced8567f725bfaf4a48fbf"
+        },
+        "BS4.BLP": {
+          "sha256": "e6579996059f96b380fd635c9b4d837d861e092ca892c45548ba0d331d6d15e2"
+        },
+        "BS5.BLP": {
+          "sha256": "85d9777553c9b6ce95cd635dcac6a6c354016dcd6afe9e165d602988aeddd465"
+        },
+        "BS6.BLP": {
+          "sha256": "7341b44680d6307b4a2d01a507237c1df7868f3870edaf759d1450ab53bd1591"
+        },
+        "ReplaceableTextures/Weather/Clouds8x8.blp": {
+          "sha256": "6ce87e14a5f129cf390531660803694f13e44fc25dba05ff2853c7a622f0fc56"
+        },
+        "baozha.blp": {
+          "sha256": "8c3d15a792be279a4cb18f01e657e7b3a772fb02e6ac8a96ffc2e42e6a3cb693"
+        },
+        "dizhen.blp": {
+          "sha256": "c6c5c3af61600ee9c657ba04dee4788c7c5734be447124cd46840fd6c847be5e"
+        },
+        "ZFdaoguang.blp": {
+          "sha256": "56719212e609270e34a9de5402d9858c571c3f21d1e57689f50dfbd38271d3d5"
+        }
+      },
+      "file": "handbook/zhangfei.png",
+      "sha256": "a753c2196990eff4bb32e69fba4d5fdbee15c76d1ed708d47b186daa0ae00cb9"
+    },
+    {
+      "id": "xiaoqiao",
+      "type": "model-render",
+      "sourceRoot": "守卫剑阁降龙伏虎3.0T资源/守卫剑阁-降龙伏虎3.0T(C)1.24EMM版/模型与贴图",
+      "model": "q2.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          0,
+          0,
+          108
+        ],
+        "distance": 85,
+        "crop": [
+          0.1,
+          0.18,
+          0.75
+        ]
+      },
+      "sequence": "Stand Ready",
+      "dependencies": {
+        "q2.mdx": {
+          "sha256": "0f1409660aaa7a9c9a1137dc0477a647b24d266687a0be440689368038976f63"
+        },
+        "qiaojia.blp": {
+          "sha256": "cc5a13dfb252131c58b22f652dc96d62046f882a0c8312e5c41b6d85924677b2"
+        },
+        "xxiaoqiao.blp": {
+          "sha256": "0aaa7f2d1ca367f8c096d92fdd42840bcc1a8297cb9e2f5eff3788dd88e2d1e6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+          "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+          "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+          "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+          "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor02.blp": {
+          "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
+          "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor03.blp": {
+          "sha256": "879d401e6b8dd2005054688c295d6554c47b914dce0795440ddb676724a2ef91"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow03.blp": {
+          "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor04.blp": {
+          "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
+          "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor05.blp": {
+          "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
+          "sha256": "a4f7b72f5d530eb52cabd56f64ebf8e9020a00a9d993a55a2a422e3470adbfd6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor06.blp": {
+          "sha256": "d799d93194182a56cd8cec408e11214ff5b965fee850bed72a2ec90331dddc98"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow06.blp": {
+          "sha256": "487161ac56e96ecf5bf0aa92bf2c2fa48afb7f0c0ee9ceec996b8b5e17dee03d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor07.blp": {
+          "sha256": "1ae0931f626db4ac9659d1331e9ca92d09c2b7407d47531fb40c74d008f28587"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow07.blp": {
+          "sha256": "cce904c52af44078128e109f05d5efffe0a9b71339d40644957e6ad6af159237"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor08.blp": {
+          "sha256": "eb9faf6de202dc6ed81f38d01a2b9fe26b51aa49b02d7470f65cab577ac957fa"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow08.blp": {
+          "sha256": "2af22a9de078166f22c3e615832414ec53d99e5186fae50070fda4fc009afd47"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor09.blp": {
+          "sha256": "0acbcedbde39d7fc1ea4752482648c0402b2a906135eab911a5bffc25858e9a6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow09.blp": {
+          "sha256": "7b493a1b976c0d07c60e1521d58dba4829be8af03650fee4249e1e055371820c"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor10.blp": {
+          "sha256": "1349b880e72ba8c3dbbcc3629a43b689e19ed2fcceaf282c58f094e45e43770d"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow10.blp": {
+          "sha256": "22b0c58ce32a9299b9a632ebadc6a07b628a92c040d4e6ee65e5dab6e111d4e0"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor11.blp": {
+          "sha256": "71456b84e06b13c4b2bd3ab9a72ed8bb41d117af15521516e6d88a836a3c7ddd"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow11.blp": {
+          "sha256": "9135d0a7b72345eb85eb0f094abc5916d1c8f56315472240010e32823051154d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor12.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow12.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor13.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow13.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor14.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow14.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor15.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow15.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        }
+      },
+      "file": "handbook/xiaoqiao.png",
+      "sha256": "6e9ddb3670f9904c7f09a06d53e40bf51d886793ed807b1a7f5d6831fbfa8755"
+    },
+    {
+      "id": "zhangliao",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/moon_shin_ZL21.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          0,
+          0,
+          94
+        ],
+        "distance": 85,
+        "crop": [
+          0.1,
+          0.16,
+          0.74
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "war3mapImported/moon_shin_ZL21.mdx": {
+          "sha256": "9b9a7c785989d9a7f8d7d46db06f5437677dab27ead57c6503197e180985b55a"
+        },
+        "BS1.BLP": {
+          "sha256": "872128d85fa7fb418c8ceb47b71eba21de00cf5b3e152a29fc1b2adade9fb68d"
+        },
+        "BS2.BLP": {
+          "sha256": "9785d032d21fc67c27dfa8b58c7fdb507f6de6bbb911105775cda9453482e54e"
+        },
+        "BS3.BLP": {
+          "sha256": "eba04fde06d76a323dd68eaaf4ac27771c21d8db0ded47199c0d308f2f7259a6"
+        },
+        "BS4.BLP": {
+          "sha256": "e6579996059f96b380fd635c9b4d837d861e092ca892c45548ba0d331d6d15e2"
+        },
+        "BS5.BLP": {
+          "sha256": "85d9777553c9b6ce95cd635dcac6a6c354016dcd6afe9e165d602988aeddd465"
+        },
+        "BS6.BLP": {
+          "sha256": "7341b44680d6307b4a2d01a507237c1df7868f3870edaf759d1450ab53bd1591"
+        },
+        "ZLbody.blp": {
+          "sha256": "8b71a29debf280fc793078c8ce90a0d71b3cb574c67859d6608668eba6121d2f"
+        },
+        "zhangliao1.blp": {
+          "sha256": "b69ee12fb6f3c239478f34af57c8efc41a0ec6fc2e56c3c2a33cd48512ed89dd"
+        },
+        "Textures/HeroBladeMaster.blp": {
+          "sha256": "bef42b0db92c8a77967465e31382fe53c978649beed279316361cdbd57759dc8"
+        },
+        "ZLt.blp": {
+          "sha256": "7a96e85018d2fdc061e307cd1d579c3e60ae2e27ea94aba658a43186df3040be"
+        },
+        "Textures/Zap1.blp": {
+          "sha256": "eee0fa72bdc07c8c64d74afdf8f8dc1b7232f226d2b78f0307cb46dd7cef38fa"
+        },
+        "ReplaceableTextures/Weather/Clouds8x8.blp": {
+          "sha256": "6ce87e14a5f129cf390531660803694f13e44fc25dba05ff2853c7a622f0fc56"
+        },
+        "ZFdaoguang.blp": {
+          "sha256": "56719212e609270e34a9de5402d9858c571c3f21d1e57689f50dfbd38271d3d5"
+        },
+        "Textures/Knife_spinningBlade.blp": {
+          "sha256": "8af6a55adfcc3652abd340ed54d5387eab62edf12409e4b3d9a4683208faddf6"
+        }
+      },
+      "file": "handbook/zhangliao.png",
+      "sha256": "e92e925700902641483f03efcb601c6e8fa1733554c5ae0294bf90f78eef8cb4"
+    },
+    {
+      "id": "zhouyu",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/ZhouYu.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          18,
+          0,
+          110
+        ],
+        "distance": 93,
+        "crop": [
+          0,
+          0,
+          1
+        ]
+      },
+      "sequence": "Stand Ready",
+      "dependencies": {
+        "war3mapImported/ZhouYu.mdx": {
+          "sha256": "6b545d5eb957280a95a8dfd4ff048c33df1beba510b298c7d07f4a3db284a52c"
+        },
+        "ZhouYu.blp": {
+          "sha256": "1df484a5a26ef05cf3e0fa8fd01bd52dbdce54c3c347cfc6fc39f16efdb7fd46"
+        },
+        "ZhouYuJ.blp": {
+          "sha256": "ecb1b5cdd2adde6cf9f9136eb96636ff36fff2ba2ca3f58ce8137d0d8a8f8818"
+        }
+      },
+      "file": "handbook/zhouyu.png",
+      "sha256": "08e94ffc3448127a7d213114e6f0abb74b850b3df03a545f946f00275fa7f232"
+    },
+    {
+      "id": "guanyu",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/GY.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          10,
+          0,
+          118
+        ],
+        "distance": 85,
+        "crop": [
+          0,
+          0,
+          1
+        ]
+      },
+      "sequence": "Stand Ready",
+      "dependencies": {
+        "war3mapImported/GY.mdx": {
+          "sha256": "17efbfcbb52f7d5d2edac1cc3e41357ad20ccf5c6b6f37fe8397a7806ea5670a"
+        },
+        "GY.blp": {
+          "sha256": "fa9e117e26e0bade9795ad02f9b3a9b4cb8264cd38e912e07f6ffeaf503b01b5"
+        },
+        "Textures/RibbonNE1.blp": {
+          "sha256": "130f1a89f565b8eeb8676941b34ba00e8088b83473a2c8c68963d58a2a460ada"
+        }
+      },
+      "file": "handbook/guanyu.png",
+      "sha256": "fcd03f695a8a7ff2b44d180a7ad7a1d7d7848a241b1783df393e327ceb67249f"
+    },
+    {
+      "id": "machao",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/moon_shin_MC.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          12,
+          0,
+          88
+        ],
+        "distance": 77,
+        "crop": [
+          0.1,
+          0.15,
+          0.8
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "war3mapImported/moon_shin_MC.mdx": {
+          "sha256": "44128d4a1cebdf80f833a09f0c7aa84fc8fe202479aff2e3dafa370155880eb0"
+        },
+        "MCbody.BLP": {
+          "sha256": "d5d2d64ec83eef2d6b1b42fa34121488b2f95b8c27c42c784252707de0a046ea"
+        },
+        "BS1.BLP": {
+          "sha256": "872128d85fa7fb418c8ceb47b71eba21de00cf5b3e152a29fc1b2adade9fb68d"
+        },
+        "BS2.BLP": {
+          "sha256": "9785d032d21fc67c27dfa8b58c7fdb507f6de6bbb911105775cda9453482e54e"
+        },
+        "BS3.BLP": {
+          "sha256": "eba04fde06d76a323dd68eaaf4ac27771c21d8db0ded47199c0d308f2f7259a6"
+        },
+        "BS4.BLP": {
+          "sha256": "e6579996059f96b380fd635c9b4d837d861e092ca892c45548ba0d331d6d15e2"
+        },
+        "BS5.BLP": {
+          "sha256": "85d9777553c9b6ce95cd635dcac6a6c354016dcd6afe9e165d602988aeddd465"
+        },
+        "BS6.BLP": {
+          "sha256": "7341b44680d6307b4a2d01a507237c1df7868f3870edaf759d1450ab53bd1591"
+        },
+        "ReplaceableTextures/Weather/Clouds8x8.blp": {
+          "sha256": "6ce87e14a5f129cf390531660803694f13e44fc25dba05ff2853c7a622f0fc56"
+        },
+        "Textures/Yellow_Star_Dim.blp": {
+          "sha256": "45d936c52a8e92240851fbfdb0f81444efdacf5656c0588115f93702575659ec"
+        },
+        "baozha.blp": {
+          "sha256": "8c3d15a792be279a4cb18f01e657e7b3a772fb02e6ac8a96ffc2e42e6a3cb693"
+        },
+        "dizhen.blp": {
+          "sha256": "c6c5c3af61600ee9c657ba04dee4788c7c5734be447124cd46840fd6c847be5e"
+        },
+        "ZFdaoguang.blp": {
+          "sha256": "56719212e609270e34a9de5402d9858c571c3f21d1e57689f50dfbd38271d3d5"
+        },
+        "MCPF.BLP": {
+          "sha256": "ebcd8e5f453987fc730fa8b109fd594cae0a9e59bc404753ab6dd4d7d63dac44"
+        },
+        "MCFACE.BLP": {
+          "sha256": "fc6234a7f96d4421a11feea4c3a1f8adec7dcb3aa2de53f109b448773791a6b0"
+        },
+        "MCFOOT.BLP": {
+          "sha256": "f6157c7287d10bb017a7a520870e22dc7071279e099ad92f5760a3c7eab7f464"
+        }
+      },
+      "file": "handbook/machao.png",
+      "sha256": "33cce73e1d4cf35e95e9005ece4b8cd8d3712fcc4ccdbd925cee4437c9210c14"
+    },
+    {
+      "id": "sunshangxiang",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/SSX12.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          33,
+          0,
+          97
+        ],
+        "distance": 80,
+        "crop": [
+          0,
+          0,
+          1
+        ]
+      },
+      "sequence": "Stand Channel",
+      "dependencies": {
+        "war3mapImported/SSX12.mdx": {
+          "sha256": "aa41c06d05ae7a07205a7cf1291b02d8af1e2fbb3b3d6a66faa83c0e3975219e"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+          "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+          "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+        },
+        "Textures/Star8.blp": {
+          "sha256": "9e873b349d63091da0fc42041e8b00276c5a914f272257c166c7de0fb1e0b79a"
+        },
+        "Textures/RibbonBlur1.blp": {
+          "sha256": "4dcf7d2d6468f765277f84a7cfb1df4eb5995e6feb5e5ff43a6ed199841d96e8"
+        },
+        "25c93eb0.blp": {
+          "sha256": "d58800ca7ac74f4f3c284e1a7f53e5771a6b8fbcf20257def0d189a279cd8885"
+        },
+        "25c943d0.blp": {
+          "sha256": "01bea31d22f8948b22e451d246956a30b43f1dab0c3c3723e095686ed0a51be3"
+        },
+        "25c95230.blp": {
+          "sha256": "fef810ff03a5211a442789f1a43e8c6b26bd984c5b2401ac1bb7d4a5a095e895"
+        },
+        "head.blp": {
+          "sha256": "a6b0f7354fec4250b46015a4a36cebae28a5461ebb923c0db1dd95085f0770a2"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+          "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+          "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor02.blp": {
+          "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
+          "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor03.blp": {
+          "sha256": "879d401e6b8dd2005054688c295d6554c47b914dce0795440ddb676724a2ef91"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow03.blp": {
+          "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor04.blp": {
+          "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
+          "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor05.blp": {
+          "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
+          "sha256": "a4f7b72f5d530eb52cabd56f64ebf8e9020a00a9d993a55a2a422e3470adbfd6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor06.blp": {
+          "sha256": "d799d93194182a56cd8cec408e11214ff5b965fee850bed72a2ec90331dddc98"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow06.blp": {
+          "sha256": "487161ac56e96ecf5bf0aa92bf2c2fa48afb7f0c0ee9ceec996b8b5e17dee03d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor07.blp": {
+          "sha256": "1ae0931f626db4ac9659d1331e9ca92d09c2b7407d47531fb40c74d008f28587"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow07.blp": {
+          "sha256": "cce904c52af44078128e109f05d5efffe0a9b71339d40644957e6ad6af159237"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor08.blp": {
+          "sha256": "eb9faf6de202dc6ed81f38d01a2b9fe26b51aa49b02d7470f65cab577ac957fa"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow08.blp": {
+          "sha256": "2af22a9de078166f22c3e615832414ec53d99e5186fae50070fda4fc009afd47"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor09.blp": {
+          "sha256": "0acbcedbde39d7fc1ea4752482648c0402b2a906135eab911a5bffc25858e9a6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow09.blp": {
+          "sha256": "7b493a1b976c0d07c60e1521d58dba4829be8af03650fee4249e1e055371820c"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor10.blp": {
+          "sha256": "1349b880e72ba8c3dbbcc3629a43b689e19ed2fcceaf282c58f094e45e43770d"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow10.blp": {
+          "sha256": "22b0c58ce32a9299b9a632ebadc6a07b628a92c040d4e6ee65e5dab6e111d4e0"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor11.blp": {
+          "sha256": "71456b84e06b13c4b2bd3ab9a72ed8bb41d117af15521516e6d88a836a3c7ddd"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow11.blp": {
+          "sha256": "9135d0a7b72345eb85eb0f094abc5916d1c8f56315472240010e32823051154d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor12.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow12.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor13.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow13.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor14.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow14.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor15.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow15.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        }
+      },
+      "file": "handbook/sunshangxiang.png",
+      "sha256": "1cb2951f20e7283df13ff301c07f9d1eeb3b5f58a27c86f49008749c38e2ae8c"
+    },
+    {
+      "id": "huangyueying",
+      "type": "model-render",
+      "sourceRoot": "真三国无双3_1_9dai版无CD无限蓝/自定义单位模型/模型与贴图",
+      "model": "units/nightelf/Runner/Runner.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          0,
+          0,
+          87
+        ],
+        "distance": 80,
+        "crop": [
+          0.1,
+          0.12,
+          0.8
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "units/nightelf/Runner/Runner.mdx": {
+          "sha256": "ef76cbc43880ed4fe74fbdbbe0758beb9bc660c6b218f2187bcae3f036520da9"
+        },
+        "Textures/Watcher.blp": {
+          "sha256": "f556760753057672a5da9386ad37a7c4017bfe52cef7c78667d8e0ecc12a2cb0"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+          "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+        },
+        "Textures/gutz.blp": {
+          "sha256": "e60d550b8f426f2740159cafc1844c648556d1983914b2c72dfbd4843449490c"
+        },
+        "Textures/Yellow_Star_Dim.blp": {
+          "sha256": "45d936c52a8e92240851fbfdb0f81444efdacf5656c0588115f93702575659ec"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+          "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+          "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+          "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor02.blp": {
+          "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
+          "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor03.blp": {
+          "sha256": "879d401e6b8dd2005054688c295d6554c47b914dce0795440ddb676724a2ef91"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow03.blp": {
+          "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor04.blp": {
+          "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
+          "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor05.blp": {
+          "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
+          "sha256": "a4f7b72f5d530eb52cabd56f64ebf8e9020a00a9d993a55a2a422e3470adbfd6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor06.blp": {
+          "sha256": "d799d93194182a56cd8cec408e11214ff5b965fee850bed72a2ec90331dddc98"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow06.blp": {
+          "sha256": "487161ac56e96ecf5bf0aa92bf2c2fa48afb7f0c0ee9ceec996b8b5e17dee03d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor07.blp": {
+          "sha256": "1ae0931f626db4ac9659d1331e9ca92d09c2b7407d47531fb40c74d008f28587"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow07.blp": {
+          "sha256": "cce904c52af44078128e109f05d5efffe0a9b71339d40644957e6ad6af159237"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor08.blp": {
+          "sha256": "eb9faf6de202dc6ed81f38d01a2b9fe26b51aa49b02d7470f65cab577ac957fa"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow08.blp": {
+          "sha256": "2af22a9de078166f22c3e615832414ec53d99e5186fae50070fda4fc009afd47"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor09.blp": {
+          "sha256": "0acbcedbde39d7fc1ea4752482648c0402b2a906135eab911a5bffc25858e9a6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow09.blp": {
+          "sha256": "7b493a1b976c0d07c60e1521d58dba4829be8af03650fee4249e1e055371820c"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor10.blp": {
+          "sha256": "1349b880e72ba8c3dbbcc3629a43b689e19ed2fcceaf282c58f094e45e43770d"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow10.blp": {
+          "sha256": "22b0c58ce32a9299b9a632ebadc6a07b628a92c040d4e6ee65e5dab6e111d4e0"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor11.blp": {
+          "sha256": "71456b84e06b13c4b2bd3ab9a72ed8bb41d117af15521516e6d88a836a3c7ddd"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow11.blp": {
+          "sha256": "9135d0a7b72345eb85eb0f094abc5916d1c8f56315472240010e32823051154d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor12.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow12.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor13.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow13.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor14.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow14.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor15.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow15.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        }
+      },
+      "file": "handbook/huangyueying.png",
+      "sha256": "f58741793d81e520bd8429557cb812397110f894744e405c87bab10318713393"
+    },
+    {
+      "id": "zhurong",
+      "type": "model-render",
+      "sourceRoot": "真三国无双3_1_9dai版无CD无限蓝/自定义单位模型/模型与贴图",
+      "model": "units/nightelf/Huntress/Huntress.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          0,
+          -4,
+          104
+        ],
+        "distance": 80,
+        "crop": [
+          0.1,
+          0.1,
+          0.85
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "units/nightelf/Huntress/Huntress.mdx": {
+          "sha256": "eaf5e4ee77a8a1aceed1706443471288a27df060caacb40569bdd1c8a7df4118"
+        },
+        "Textures/Sentinel.blp": {
+          "sha256": "493268c0b04e554ae5c9262a23e5f6468a3cfda86f1a6aec3ed6d9cce54334b2"
+        },
+        "Textures/Dust3x.blp": {
+          "sha256": "31ad76beabea1edcf55dafda4d65ae7dad747354c99634b0d35aa1f88e540c69"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+          "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
+        },
+        "Textures/gutz.blp": {
+          "sha256": "e60d550b8f426f2740159cafc1844c648556d1983914b2c72dfbd4843449490c"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+          "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+          "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+          "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor02.blp": {
+          "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
+          "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor03.blp": {
+          "sha256": "879d401e6b8dd2005054688c295d6554c47b914dce0795440ddb676724a2ef91"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow03.blp": {
+          "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor04.blp": {
+          "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
+          "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor05.blp": {
+          "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
+          "sha256": "a4f7b72f5d530eb52cabd56f64ebf8e9020a00a9d993a55a2a422e3470adbfd6"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor06.blp": {
+          "sha256": "d799d93194182a56cd8cec408e11214ff5b965fee850bed72a2ec90331dddc98"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow06.blp": {
+          "sha256": "487161ac56e96ecf5bf0aa92bf2c2fa48afb7f0c0ee9ceec996b8b5e17dee03d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor07.blp": {
+          "sha256": "1ae0931f626db4ac9659d1331e9ca92d09c2b7407d47531fb40c74d008f28587"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow07.blp": {
+          "sha256": "cce904c52af44078128e109f05d5efffe0a9b71339d40644957e6ad6af159237"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor08.blp": {
+          "sha256": "eb9faf6de202dc6ed81f38d01a2b9fe26b51aa49b02d7470f65cab577ac957fa"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow08.blp": {
+          "sha256": "2af22a9de078166f22c3e615832414ec53d99e5186fae50070fda4fc009afd47"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor09.blp": {
+          "sha256": "0acbcedbde39d7fc1ea4752482648c0402b2a906135eab911a5bffc25858e9a6"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow09.blp": {
+          "sha256": "7b493a1b976c0d07c60e1521d58dba4829be8af03650fee4249e1e055371820c"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor10.blp": {
+          "sha256": "1349b880e72ba8c3dbbcc3629a43b689e19ed2fcceaf282c58f094e45e43770d"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow10.blp": {
+          "sha256": "22b0c58ce32a9299b9a632ebadc6a07b628a92c040d4e6ee65e5dab6e111d4e0"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor11.blp": {
+          "sha256": "71456b84e06b13c4b2bd3ab9a72ed8bb41d117af15521516e6d88a836a3c7ddd"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow11.blp": {
+          "sha256": "9135d0a7b72345eb85eb0f094abc5916d1c8f56315472240010e32823051154d"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor12.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow12.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor13.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow13.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor14.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow14.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        },
+        "ReplaceableTextures/TeamColor/TeamColor15.blp": {
+          "sha256": "02ae9b33df5e996d3ded9de3d515fb6aa60720912e309885c495ba289afeb48a"
+        },
+        "ReplaceableTextures/TeamGlow/TeamGlow15.blp": {
+          "sha256": "0f341c3be7b6c43214c54c033d4f62e3947ca6fb027d878e61ff103bb9415cd5"
+        }
+      },
+      "file": "handbook/zhurong.png",
+      "sha256": "dee2685665e8660da11c727b06e3dc35ab6f9d0f1d6611a0575ae8ecbba48f73"
+    },
+    {
+      "id": "lvbu",
+      "type": "model-render",
+      "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
+      "model": "war3mapImported/moon_shin_LB.mdx",
+      "camera": {
+        "direction": [
+          1,
+          0.25,
+          0.04
+        ],
+        "height": 0.83,
+        "span": 0.48,
+        "time": 400,
+        "center": [
+          12,
+          0,
+          86
+        ],
+        "distance": 80,
+        "crop": [
+          0.12,
+          0.15,
+          0.7
+        ]
+      },
+      "sequence": "Stand",
+      "dependencies": {
+        "war3mapImported/moon_shin_LB.mdx": {
+          "sha256": "d4b7cab21fadf824ec8ae3ebd9918a6ef01bf19dc88eb07aaf4f8678f013f6d7"
+        },
+        "BS1.BLP": {
+          "sha256": "872128d85fa7fb418c8ceb47b71eba21de00cf5b3e152a29fc1b2adade9fb68d"
+        },
+        "BS2.BLP": {
+          "sha256": "9785d032d21fc67c27dfa8b58c7fdb507f6de6bbb911105775cda9453482e54e"
+        },
+        "BS3.BLP": {
+          "sha256": "eba04fde06d76a323dd68eaaf4ac27771c21d8db0ded47199c0d308f2f7259a6"
+        },
+        "jiangjun(1).blp": {
+          "sha256": "18cab0f84cfec2488e65adb3a6f6c5aea1bcb92710444ed49f3cbb0f55db415f"
+        },
+        "jiangjun(2).blp": {
+          "sha256": "591e0c72573261b49ef0c844a81da95d0e9d6344e6fdb327135bb8fb882350ef"
+        },
+        "lb.blp": {
+          "sha256": "62070ad9c091809e333441d3738f4bba03d7a2883990977f5e644df70399784f"
+        },
+        "FTHJ1.blp": {
+          "sha256": "6d4145ed5693e7022c3de129be8ee1d13ceb725f70f714b773034717bca75408"
+        },
+        "BS4.BLP": {
+          "sha256": "e6579996059f96b380fd635c9b4d837d861e092ca892c45548ba0d331d6d15e2"
+        },
+        "BS5.BLP": {
+          "sha256": "85d9777553c9b6ce95cd635dcac6a6c354016dcd6afe9e165d602988aeddd465"
+        },
+        "BS6.BLP": {
+          "sha256": "7341b44680d6307b4a2d01a507237c1df7868f3870edaf759d1450ab53bd1591"
+        },
+        "dustwave.blp": {
+          "sha256": "656d622d5b9c400196e72105e35417cdaf7ce035e5bb11d9bd2457989c812920"
+        },
+        "ZFdaoguang.blp": {
+          "sha256": "56719212e609270e34a9de5402d9858c571c3f21d1e57689f50dfbd38271d3d5"
+        }
+      },
+      "file": "handbook/lvbu.png",
+      "sha256": "6b5e41c7e9b291b241211692869aeb24fa02b2bdb6b269b0a11275cc47ab7c61"
+    },
+    {
+      "id": "taishici",
+      "type": "concept",
+      "modelPending": true,
+      "note": "外观方案，模型待制作",
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-8cd8238e-55a3-4511-871b-bf2f5cf0b8b3.png",
+      "sourceSha256": "d576b9c4479d937d785424a990e3ce03ce99225619286f2ac1de29015da6ec6d",
+      "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 太史慈：成熟东汉男性弓将，方正脸，浓眉，短胡须，铜金色头盔配短白羽，暗红皮甲与铜色肩甲，肩后露出一小段弓。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
+      "references": [
+        "evidence/portrait-candidates/xuchu.png",
+        "evidence/portrait-candidates/huangyueying.png"
+      ],
+      "file": "handbook/taishici.png",
+      "sha256": "4569e6bfe3a6d3a6a3d88a403c8088296503b9e36ccdd077e192f234600697b9"
+    },
+    {
+      "id": "ganning",
+      "type": "concept",
+      "modelPending": true,
+      "note": "外观方案，模型待制作",
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-c191a46a-c164-4390-92b5-c373b0b24460.png",
+      "sourceSha256": "715696030457657a4ed94804ae3d46ec113c94d6bea587666ffd6819887cb909",
+      "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 甘宁：年轻精壮东汉男性锦帆武将，独立方脸，黑色短须，深青色头巾与金属额饰，蓝绿色无袖轻甲，肩上少量铜铃，洒脱神情。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
+      "references": [
+        "evidence/portrait-candidates/xuchu.png",
+        "evidence/portrait-candidates/huangyueying.png"
+      ],
+      "file": "handbook/ganning.png",
+      "sha256": "d20cb71e7b5dbee5fda73950ee161ec480fbaf9f004b08bd61ccbf235252ce48"
+    },
+    {
+      "id": "zhangjiao",
+      "type": "concept",
+      "modelPending": true,
+      "note": "外观方案，模型待制作",
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-6760c842-0900-43b1-b2e0-9783044949bf.png",
+      "sourceSha256": "3caa1f9996a4704a5a4f2282e1d29e99c57533a5e28da6bd845d8dcb456325ce",
+      "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 张角：年长东汉男性道士，瘦长脸，长灰黑胡须，黄色道巾，土黄色与暗棕色道袍，木质法杖上端在肩边，威严神情。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
+      "references": [
+        "evidence/portrait-candidates/xuchu.png",
+        "evidence/portrait-candidates/huangyueying.png"
+      ],
+      "file": "handbook/zhangjiao.png",
+      "sha256": "c7e03aa546fcf474214c0853c5429a1b27c69ce038732e8199aa2a80150fd54a"
+    },
+    {
+      "id": "yanliang",
+      "type": "concept",
+      "modelPending": true,
+      "note": "外观方案，模型待制作",
+      "tool": "built-in imagegen",
+      "sourceImage": "exec-5018b4e4-2401-4c6e-a4bc-d81065c4a5d0.png",
+      "sourceSha256": "fae9c0fcfec4740bc80cf12ff05061efee9585610b5c2d3949e05d5499699b06",
+      "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 颜良：壮硕东汉男性重甲猛将，宽脸，黑色络腮胡，暗铁色头盔配短紫色缨，紫黑色铠甲，宽肩，凶悍神情，与许褚长相不同。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
+      "references": [
+        "evidence/portrait-candidates/xuchu.png",
+        "evidence/portrait-candidates/huangyueying.png"
+      ],
+      "file": "handbook/yanliang.png",
+      "sha256": "f9075ddfd2304e3e92a008e33598dc4ed0877cf2062b575c1edf709afea5cd31"
+    }
+  ]
+}

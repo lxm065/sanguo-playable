@@ -23,10 +23,9 @@ const rows=[
  ['1421','潮汐','zhurong','祝融','群','神射',4,14,'女'],
  ['1425','大圣','lvbu','吕布','群','猛将',4,60,'男'],
 ];
-const reused=['zhaoyun','huangzhong','zhangfei','guanyu'];
-const portraitRegions={zhaoyun:[0.25,0.22,0.64,0.48],huangzhong:[0.18,0.29,0.64,0.48],zhangfei:[0.20,0.33,0.60,0.45],guanyu:[0.23,0.13,0.65,0.4875]};
+const {portraitFile}=require('./portraits');
 module.exports={
- heroes:rows.map(([sourceId,sourceName,id,name,faction,role,tier,chapter,gender])=>({sourceId,sourceName,id,name,faction,role,tier,chapter,gender,unlock:id==='zhangfei'?'boss':chapter?'chapter':'initial',portrait:reused.includes(id)?id+'-drawing.png':'handbook/'+id+'.png',portraitRegion:portraitRegions[id]})),
+ heroes:rows.map(([sourceId,sourceName,id,name,faction,role,tier,chapter,gender])=>({sourceId,sourceName,id,name,faction,role,tier,chapter,gender,unlock:id==='zhangfei'?'boss':chapter?'chapter':'initial',portrait:portraitFile(id)})),
  excluded:['刘备','孙坚','袁绍','董卓','曹操','孙权','刘表'],
  bonds:[
   {id:'wei',kind:'faction',value:'魏',name:'魏·铁壁',effect:'魏将物理防御＋{0}／＋{1}',values:[5,15]},

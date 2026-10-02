@@ -1,0 +1,42 @@
+[
+  {
+    "id": "taishici",
+    "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 太史慈：成熟东汉男性弓将，方正脸，浓眉，短胡须，铜金色头盔配短白羽，暗红皮甲与铜色肩甲，肩后露出一小段弓。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
+    "tool": "built-in imagegen",
+    "source": "D:\\codex\\generated_images\\01a0f5e1-702f-7e00-b060-8258f9170cdf\\exec-8cd8238e-55a3-4511-871b-bf2f5cf0b8b3.png",
+    "references": [
+      "evidence/portrait-candidates/xuchu.png",
+      "evidence/portrait-candidates/huangyueying.png"
+    ]
+  },
+  {
+    "id": "ganning",
+    "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 甘宁：年轻精壮东汉男性锦帆武将，独立方脸，黑色短须，深青色头巾与金属额饰，蓝绿色无袖轻甲，肩上少量铜铃，洒脱神情。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
+    "tool": "built-in imagegen",
+    "source": "D:\\codex\\generated_images\\01a0f5e1-702f-7e00-b060-8258f9170cdf\\exec-c191a46a-c164-4390-92b5-c373b0b24460.png",
+    "references": [
+      "evidence/portrait-candidates/xuchu.png",
+      "evidence/portrait-candidates/huangyueying.png"
+    ]
+  },
+  {
+    "id": "zhangjiao",
+    "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 张角：年长东汉男性道士，瘦长脸，长灰黑胡须，黄色道巾，土黄色与暗棕色道袍，木质法杖上端在肩边，威严神情。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
+    "tool": "built-in imagegen",
+    "source": "D:\\codex\\generated_images\\01a0f5e1-702f-7e00-b060-8258f9170cdf\\exec-6760c842-0900-43b1-b2e0-9783044949bf.png",
+    "references": [
+      "evidence/portrait-candidates/xuchu.png",
+      "evidence/portrait-candidates/huangyueying.png"
+    ]
+  },
+  {
+    "id": "yanliang",
+    "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 颜良：壮硕东汉男性重甲猛将，宽脸，黑色络腮胡，暗铁色头盔配短紫色缨，紫黑色铠甲，宽肩，凶悍神情，与许褚长相不同。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
+    "tool": "built-in imagegen",
+    "source": "D:\\codex\\generated_images\\01a0f5e1-702f-7e00-b060-8258f9170cdf\\exec-5018b4e4-2401-4c6e-a4bc-d81065c4a5d0.png",
+    "references": [
+      "evidence/portrait-candidates/xuchu.png",
+      "evidence/portrait-candidates/huangyueying.png"
+    ]
+  }
+]

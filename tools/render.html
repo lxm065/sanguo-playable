@@ -15,6 +15,8 @@ async function initialize(config){
  parser=new MV.parsers.mdlx.Model();parser.load(await(await fetch(solve(cfg.model))).arrayBuffer());
  // 场景出生物、脚印与声音事件不属于角色纹理；本地战场自行处理命中表现。
  if(cfg.omitSceneEvents)parser.eventObjects=[];
+ // 头像专用静帧允许关闭装饰粒子；默认行为仍保留战斗渲染效果。
+ if(cfg.portraitOnly){parser.particleEmitters=[];parser.particleEmitters2=[];parser.ribbonEmitters=[];}
  // 队伍地面光圈属于魔兽场景装饰，不烘焙进角色的透明精灵。
  if(cfg.omitTeamGlow)for(const material of parser.materials)for(const layer of material.layers){if(parser.textures[layer.textureId]?.replaceableId===2){layer.alpha=0;layer.animations=[];}}
  model=await viewer.load(parser,solve);
