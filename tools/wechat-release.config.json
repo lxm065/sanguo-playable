@@ -1,0 +1,13 @@
+{
+  "output": "dist/wechat",
+  "version": "0.1.1",
+  "description": "三国自走棋：主公、章节地图、布阵合成、自动战斗与本地存档。",
+  "copy": ["@babel", "cocos-js", "play", "subpackages/internal", "web-adapter.js", "engine-adapter.js", "game.json", "project.config.json", "src/import-map.c87de.js", "src/offline-settings.json", "src/polyfills.bundle.43263.js", "src/system.bundle.f45da.js", "src/effect.bin", "src/chunks"],
+  "assetDirectory": "skin-assets",
+  "assetPackage": "skins",
+  "pngquant": "pngquant",
+  "pngQuality": "65-85",
+  "pngSpeed": 3,
+  "maxMainBytes": 4194304,
+  "maxTotalBytes": 31457280
+}

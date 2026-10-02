@@ -19,3 +19,4 @@ __pycache__/
 *.key
 dist/
 
+.DS_Store

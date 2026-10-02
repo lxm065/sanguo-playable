@@ -4,6 +4,8 @@ const config=require('./config'),roster=require('./roster');
 function report(error){console.error('[sanguo-playable]',error);globalThis.__sanguoPlayError=String(error.stack||error);wx.showModal({title:'本地版启动失败',content:error.message||String(error),showCancel:false});}
 /** 初始化本地引擎和画布；不加载原登录、广告、协议或账号 SDK。 */
 async function boot(){
+ const release=require('./release-config');
+ if(release.assetPackage)await new Promise((resolve,reject)=>wx.loadSubpackage({name:release.assetPackage,success:resolve,fail:error=>reject(new Error(error.errMsg||'资源分包加载失败'))}));
  const denied=[];
  for(const method of ['request','downloadFile','connectSocket']){
   const original=wx[method];
