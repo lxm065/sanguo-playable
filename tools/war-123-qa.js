@@ -1,0 +1,1 @@
+const req=GameGlobal[0].require,m=view.model;req('play/war-order.js').claim(m,0,'free');req('play/war-order-view.js').open(view);return {count:req('play/war-order.js').state(m).count,labels:view.modal.getComponentsInChildren(cc.Label).map(l=>l.string)};

@@ -11,7 +11,7 @@ module.exports={
       "coin": 0,
       "chapter": 0,
       "sign": 0,
-      "skillName": "仁德-1",
+      "skillName": "仁德 +1",
       "skillDescription": "上阵单位+1",
       "source": {
         "id": "1001",
@@ -44,7 +44,7 @@ module.exports={
       "coin": 200,
       "chapter": 35,
       "sign": 0,
-      "skillName": "虎威-1",
+      "skillName": "虎威 Lv.1",
       "skillDescription": "开局赐予你女神赐福过的【装备】，该装备可以无限升级。",
       "source": {
         "id": "1002",
@@ -77,7 +77,7 @@ module.exports={
       "coin": 30,
       "chapter": 8,
       "sign": 0,
-      "skillName": "雄据-1",
+      "skillName": "雄据 Lv.1",
       "skillDescription": "每次进入BOSS关和商店时，会随机获得1件装备。",
       "source": {
         "id": "1003",
@@ -110,7 +110,7 @@ module.exports={
       "coin": 50,
       "chapter": 2,
       "sign": 0,
-      "skillName": "招揽-1",
+      "skillName": "招揽 Lv.1",
       "skillDescription": "每次战斗开始前，发动盗取技能，有概率获得一件装备。",
       "source": {
         "id": "1004",
@@ -143,7 +143,7 @@ module.exports={
       "coin": 0,
       "chapter": 0,
       "sign": 9,
-      "skillName": "求贤-1",
+      "skillName": "求贤 Lv.1",
       "skillDescription": "每次战斗开始前，都有1个1~2级单位加入。",
       "source": {
         "id": "1005",
@@ -176,7 +176,7 @@ module.exports={
       "coin": 60,
       "chapter": 0,
       "sign": 18,
-      "skillName": "制衡-1",
+      "skillName": "制衡 Lv.1",
       "skillDescription": "单位合成时，有概率返还1个单位。泉水也变得更强了！",
       "source": {
         "id": "1006",
@@ -209,7 +209,7 @@ module.exports={
       "coin": 100,
       "chapter": 50,
       "sign": 0,
-      "skillName": "文治-1",
+      "skillName": "文治 Lv.1",
       "skillDescription": "给我2件蓝色装备，还你1件紫色装备",
       "source": {
         "id": "1007",
@@ -267,7 +267,7 @@ module.exports={
     "place": "涿郡",
     "sections": [
       "1/5黄巾初起",
-      "2/5乡野危机",
+      "2/5黄巾袭村",
       "3/5义军集结",
       "4/5讨伐乱军",
       "5/5平定黄巾"
@@ -295,7 +295,7 @@ module.exports={
     "1": {
       "name": "钻石",
       "original": "钻石",
-      "icon": "◆",
+      "icon": "classic/diamond.png",
       "description": "用于提升天赋等级"
     },
     "5": {
@@ -473,3 +473,6 @@ module.exports={
     0.46
   ]
 };
+
+/** 装备碎片在黑市与仓库使用统一的三国名称。 */
+for(const [id,item] of Object.entries(module.exports.items)){const theme=require('./equipment-theme')[id];if(theme){item.name=theme.name+'碎片';item.description='用于'+theme.name+'进阶。';}}

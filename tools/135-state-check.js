@@ -1,0 +1,1 @@
+return {fixture:!!sample.talentQA,isolated:view.model!==sample.model,model:{chapter:sample.model.state.meta.chapter,section:sample.model.state.meta.section,diamonds:sample.model.state.meta.diamonds,sweep:sample.model.state.meta.sweep},view:{chapter:view.model.state.meta.chapter,diamonds:view.model.state.meta.diamonds},storageKeys:GameGlobal[0].wx.getStorageInfoSync().keys};

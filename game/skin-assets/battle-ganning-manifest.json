@@ -1,0 +1,223 @@
+{
+  "textures": [
+    "battle-ganning-packed-0.png",
+    "battle-ganning-packed-1.png",
+    "battle-ganning-packed-2.png",
+    "battle-ganning-packed-3.png"
+  ],
+  "frames": 360,
+  "actions": {
+    "idle-s": {
+      "source": "M2 animation 26",
+      "duration": 1
+    },
+    "run-s": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-s": {
+      "source": "M2 animation 17",
+      "duration": 1
+    },
+    "skill2-s": {
+      "source": "M2 animation 88",
+      "duration": 1
+    },
+    "dead-s": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-se": {
+      "source": "M2 animation 26",
+      "duration": 1
+    },
+    "run-se": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-se": {
+      "source": "M2 animation 17",
+      "duration": 1
+    },
+    "skill2-se": {
+      "source": "M2 animation 88",
+      "duration": 1
+    },
+    "dead-se": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-e": {
+      "source": "M2 animation 26",
+      "duration": 1
+    },
+    "run-e": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-e": {
+      "source": "M2 animation 17",
+      "duration": 1
+    },
+    "skill2-e": {
+      "source": "M2 animation 88",
+      "duration": 1
+    },
+    "dead-e": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-ne": {
+      "source": "M2 animation 26",
+      "duration": 1
+    },
+    "run-ne": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-ne": {
+      "source": "M2 animation 17",
+      "duration": 1
+    },
+    "skill2-ne": {
+      "source": "M2 animation 88",
+      "duration": 1
+    },
+    "dead-ne": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-n": {
+      "source": "M2 animation 26",
+      "duration": 1
+    },
+    "run-n": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-n": {
+      "source": "M2 animation 17",
+      "duration": 1
+    },
+    "skill2-n": {
+      "source": "M2 animation 88",
+      "duration": 1
+    },
+    "dead-n": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    }
+  },
+  "directions": [
+    "s",
+    "se",
+    "e",
+    "ne",
+    "n"
+  ],
+  "scale": 1.0185185185185186,
+  "anchors": {
+    "s": {
+      "left": 89,
+      "top": 91,
+      "right": 151,
+      "bottom": 181,
+      "width": 63,
+      "height": 91
+    },
+    "se": {
+      "left": 91,
+      "top": 91,
+      "right": 157,
+      "bottom": 172,
+      "width": 67,
+      "height": 82
+    },
+    "e": {
+      "left": 93,
+      "top": 86,
+      "right": 161,
+      "bottom": 180,
+      "width": 69,
+      "height": 95
+    },
+    "ne": {
+      "left": 98,
+      "top": 81,
+      "right": 167,
+      "bottom": 188,
+      "width": 70,
+      "height": 108
+    },
+    "n": {
+      "left": 104,
+      "top": 79,
+      "right": 166,
+      "bottom": 186,
+      "width": 63,
+      "height": 108
+    }
+  },
+  "model": "source-assets/wow-models/ganning.glb",
+  "sourceModel": "creature/humanmalepirateswashbuckler/humanmalepirateswashbuckler.m2",
+  "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+  "dependencies": {
+    "creature/humanmalepirateswashbuckler/humanmalepirateswashbuckler.m2": {
+      "fdid": 124533,
+      "bytes": 336370,
+      "sha256": "bbe93f9133c5233126c10f2882bace8c80d5e60cd0f0b92cc967fc8a501e403e"
+    },
+    "creature/humanmalepirateswashbuckler/humanmalepirateswashbuckler00.skin": {
+      "fdid": 476827,
+      "bytes": 8816,
+      "sha256": "815bb7adb52e672f6b555c3a97803606c12e8c0eb17e4b92974da9bb7c0d952c"
+    },
+    "creature/humanmalepirateswashbuckler/swashbuckler02.blp": {
+      "fdid": 124537,
+      "bytes": 44876,
+      "sha256": "8c4410ef77964e91186ed85c201f028c3b9cf5f311bbcaace8fb49df5e65139f"
+    },
+    "item/objectcomponents/weapon/sword_1h_horde_a_02.m2": {
+      "fdid": 147872,
+      "bytes": 8794,
+      "sha256": "9cb1c2997c91b22e828a068d21df945d2595dcf4659a8556f6518c44c66b3fb3"
+    },
+    "item/objectcomponents/weapon/sword_1h_horde_a_0200.skin": {
+      "fdid": 491218,
+      "bytes": 1744,
+      "sha256": "ff96ecb4a26b2773d3bdb1052613a8e3f50958f009df1878702ac9f556bbf063"
+    },
+    "item/objectcomponents/weapon/sword_1h_horde_a_02blue.blp": {
+      "fdid": 147873,
+      "bytes": 12095,
+      "sha256": "209102a5fa33aa53dff7bb9cb245b982be14fd6d7c5ebf7192734fc76a9e69d5"
+    }
+  },
+  "sha256": "e850caa4145a32498efd349b606b83b2a2d1bcdf75a45d7969db00c729926155",
+  "fps": 12,
+  "frameSize": 256,
+  "nativeWow": true,
+  "bones": 71,
+  "movements": {
+    "idle": 0.07013881364078667,
+    "run": 0.35987653311125534,
+    "skill1": 1.6456324574042653,
+    "skill2": 1.1059052376225733,
+    "dead": 1.1015839812345543
+  },
+  "camera": {
+    "span": 4.802925833754621,
+    "height": 1.8243272760578317,
+    "center": [
+      0.1439682390665536,
+      0.910328001185046,
+      0.115296599530534
+    ]
+  },
+  "rendering": "本地魔兽M2原生蒙皮与骨骼动作、武器附件烘焙",
+  "compacted": {
+    "beforeBytes": 94371840,
+    "afterBytes": 14237696,
+    "boundaryFrames": 0
+  }
+}

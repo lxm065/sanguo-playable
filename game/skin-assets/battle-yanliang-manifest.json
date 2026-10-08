@@ -1,0 +1,223 @@
+{
+  "textures": [
+    "battle-yanliang-packed-0.png",
+    "battle-yanliang-packed-1.png",
+    "battle-yanliang-packed-2.png",
+    "battle-yanliang-packed-3.png"
+  ],
+  "frames": 360,
+  "actions": {
+    "idle-s": {
+      "source": "M2 animation 28",
+      "duration": 1
+    },
+    "run-s": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-s": {
+      "source": "M2 animation 19",
+      "duration": 1
+    },
+    "skill2-s": {
+      "source": "M2 animation 59",
+      "duration": 1
+    },
+    "dead-s": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-se": {
+      "source": "M2 animation 28",
+      "duration": 1
+    },
+    "run-se": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-se": {
+      "source": "M2 animation 19",
+      "duration": 1
+    },
+    "skill2-se": {
+      "source": "M2 animation 59",
+      "duration": 1
+    },
+    "dead-se": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-e": {
+      "source": "M2 animation 28",
+      "duration": 1
+    },
+    "run-e": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-e": {
+      "source": "M2 animation 19",
+      "duration": 1
+    },
+    "skill2-e": {
+      "source": "M2 animation 59",
+      "duration": 1
+    },
+    "dead-e": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-ne": {
+      "source": "M2 animation 28",
+      "duration": 1
+    },
+    "run-ne": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-ne": {
+      "source": "M2 animation 19",
+      "duration": 1
+    },
+    "skill2-ne": {
+      "source": "M2 animation 59",
+      "duration": 1
+    },
+    "dead-ne": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-n": {
+      "source": "M2 animation 28",
+      "duration": 1
+    },
+    "run-n": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-n": {
+      "source": "M2 animation 19",
+      "duration": 1
+    },
+    "skill2-n": {
+      "source": "M2 animation 59",
+      "duration": 1
+    },
+    "dead-n": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    }
+  },
+  "directions": [
+    "s",
+    "se",
+    "e",
+    "ne",
+    "n"
+  ],
+  "scale": 0.9565217391304348,
+  "anchors": {
+    "s": {
+      "left": 69,
+      "top": 66,
+      "right": 150,
+      "bottom": 180,
+      "width": 82,
+      "height": 115
+    },
+    "se": {
+      "left": 63,
+      "top": 87,
+      "right": 156,
+      "bottom": 172,
+      "width": 94,
+      "height": 86
+    },
+    "e": {
+      "left": 92,
+      "top": 86,
+      "right": 163,
+      "bottom": 179,
+      "width": 72,
+      "height": 94
+    },
+    "ne": {
+      "left": 103,
+      "top": 84,
+      "right": 155,
+      "bottom": 189,
+      "width": 53,
+      "height": 106
+    },
+    "n": {
+      "left": 105,
+      "top": 83,
+      "right": 187,
+      "bottom": 188,
+      "width": 83,
+      "height": 106
+    }
+  },
+  "model": "source-assets/wow-models/yanliang.glb",
+  "sourceModel": "creature/humanmalewarriorheavy/humanmalewarriorheavy.m2",
+  "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+  "dependencies": {
+    "creature/humanmalewarriorheavy/humanmalewarriorheavy.m2": {
+      "fdid": 124540,
+      "bytes": 307986,
+      "sha256": "ba3f5d1992cf83ff91ab834fbe329fea7a9a4b166570ed8dcf18a40e6ea44d64"
+    },
+    "creature/humanmalewarriorheavy/humanmalewarriorheavy00.skin": {
+      "fdid": 476837,
+      "bytes": 11904,
+      "sha256": "2f15e06e6be0e6663455428de3578d8931d9d75695cba7edd0075867afe16740"
+    },
+    "creature/humanmalewarriorheavy/humanmalewarriorheavy_skin02.blp": {
+      "fdid": 124543,
+      "bytes": 44876,
+      "sha256": "a2c58dced2178d75be6566f39a05fccd2111cc45b2e91a6727cd73ea1bd9c8ab"
+    },
+    "item/objectcomponents/weapon/polearm_2h_bladed_b_01.m2": {
+      "fdid": 147216,
+      "bytes": 4762,
+      "sha256": "794800870871c06ee6075ffa3600efed6a014986af490da1d3531799df279bc0"
+    },
+    "item/objectcomponents/weapon/polearm_2h_bladed_b_0100.skin": {
+      "fdid": 491154,
+      "bytes": 976,
+      "sha256": "d4dd9861c9ab58b2b6600eb0f8bf7486f495d09c3740b8bc5fb7e5cb0bef06a4"
+    },
+    "item/objectcomponents/weapon/polearm_2h_bladed_b_01purple.blp": {
+      "fdid": 147218,
+      "bytes": 6652,
+      "sha256": "9279a60e6deaf5d7da25183afb1269f13899199524ee06e78d5c60d911f340f0"
+    }
+  },
+  "sha256": "500c735f19ee77b7cd681cee650b632b6d159d892268a639822e06e1b5b35e42",
+  "fps": 12,
+  "frameSize": 256,
+  "nativeWow": true,
+  "bones": 56,
+  "movements": {
+    "idle": 0.08206644625892251,
+    "run": 0.3989477365120869,
+    "skill1": 1.3180907521468457,
+    "skill2": 1.992870789965224,
+    "dead": 1.184189540640925
+  },
+  "camera": {
+    "span": 5.001528940201322,
+    "height": 1.9340215874503084,
+    "center": [
+      0.21772405436263095,
+      0.9659893871892709,
+      0.05898740663511004
+    ]
+  },
+  "rendering": "本地魔兽M2原生蒙皮与骨骼动作、武器附件烘焙",
+  "compacted": {
+    "beforeBytes": 94371840,
+    "afterBytes": 14872576,
+    "boundaryFrames": 0
+  }
+}

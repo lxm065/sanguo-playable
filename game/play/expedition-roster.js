@@ -5,9 +5,11 @@ const data = require("./expedition-data"),
 /** 从最低阶属性生成运行名册；旧存档诸葛亮只作兼容，不加入获取池。 */
 module.exports = data.heroes
   .map((h) => {
-    const t = h.tiers.find((t) => t.star === h.tier);
+    const override=require('./hero-combat-config').rangeOverrides[h.id],tiers=h.tiers.map(t=>({...require("./skill-timing").tier(t),...(override===undefined?{}:{range:override})}));
+    const t = tiers.find((t) => t.star === h.tier);
     return {
       ...h,
+      tiers,
       ...t,
       id: h.id,
       interval: policy.localCombat.interval,

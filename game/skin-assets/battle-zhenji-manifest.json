@@ -1,7 +1,11 @@
 {
   "textures": [
     "battle-zhenji-packed-0.png",
-    "battle-zhenji-packed-1.png"
+    "battle-zhenji-packed-1.png",
+    "battle-zhenji-packed-2.png",
+    "battle-zhenji-packed-3.png",
+    "battle-zhenji-packed-4.png",
+    "battle-zhenji-packed-5.png"
   ],
   "frames": 375,
   "actions": {
@@ -113,50 +117,52 @@
     "ne",
     "n"
   ],
-  "scale": 1.75,
+  "scale": 0.875,
   "anchors": {
     "s": {
-      "left": 72,
-      "top": 67,
-      "right": 118,
-      "bottom": 123,
-      "width": 47,
-      "height": 57
+      "left": 145,
+      "top": 134,
+      "right": 237,
+      "bottom": 247,
+      "width": 93,
+      "height": 114
     },
     "se": {
-      "left": 83,
-      "top": 67,
-      "right": 107,
-      "bottom": 122,
-      "width": 25,
-      "height": 56
+      "left": 163,
+      "top": 135,
+      "right": 217,
+      "bottom": 246,
+      "width": 55,
+      "height": 112
     },
     "e": {
-      "left": 78,
-      "top": 68,
-      "right": 112,
-      "bottom": 123,
-      "width": 35,
-      "height": 56
+      "left": 158,
+      "top": 135,
+      "right": 226,
+      "bottom": 247,
+      "width": 69,
+      "height": 113
     },
     "ne": {
-      "left": 68,
-      "top": 68,
-      "right": 123,
-      "bottom": 121,
-      "width": 56,
-      "height": 54
+      "left": 137,
+      "top": 138,
+      "right": 248,
+      "bottom": 244,
+      "width": 112,
+      "height": 107
     },
     "n": {
-      "left": 72,
-      "top": 68,
-      "right": 120,
-      "bottom": 122,
-      "width": 49,
-      "height": 55
+      "left": 142,
+      "top": 135,
+      "right": 241,
+      "bottom": 246,
+      "width": 100,
+      "height": 112
     }
   },
   "model": "zhenjipf.mdx",
+  "frameSize": 384,
+  "qualityFactor": 2,
   "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图",
   "dependencies": {
     "zhenjipf.mdx": {
@@ -171,10 +177,6 @@
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\zhenji1.blp",
       "sha256": "ae34ac15918e516e90402248aa3de24f1dde5cc762df164cff7d315f00570d56"
     },
-    "zhenji2.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\zhenji2.blp",
-      "sha256": "951279ae3941bd0200aca66b856435c8fa6273a0b5ca5cd43850e1d8124fc531"
-    },
     "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamGlow\\TeamGlow00.blp",
       "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
@@ -183,13 +185,17 @@
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
       "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
     },
-    "ReplaceableTextures/TeamColor/TeamColor01.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor01.blp",
-      "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
-    },
     "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow01.blp",
       "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
+    },
+    "zhenji2.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\zhenji2.blp",
+      "sha256": "951279ae3941bd0200aca66b856435c8fa6273a0b5ca5cd43850e1d8124fc531"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor01.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor01.blp",
+      "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
     },
     "ReplaceableTextures/TeamColor/TeamColor02.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor02.blp",
@@ -308,16 +314,16 @@
     "center": [
       -0.75,
       -4.5,
-      63.678951018780936
+      63.67892658064375
     ],
-    "height": 127.81415593030397,
+    "height": 127.81518283311743,
     "span": 303.7025683131442
   },
   "uniformZoom": 1.9599999999999997,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 55443456,
-    "afterBytes": 6455296,
+    "beforeBytes": 221773824,
+    "afterBytes": 22982656,
     "boundaryFrames": 0
   }
 }

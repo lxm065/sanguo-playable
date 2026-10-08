@@ -36,7 +36,8 @@ async function main() {
     out = path.resolve(__dirname, "../game/skin-assets/equipment"),
     manifest = [];
   fs.mkdirSync(out, { recursive: true });
-  for (const item of policy.equipment) {
+  const sign=require('../game/play/sign-config'),ids=[...new Set([...policy.equipment.map(x=>x.id),...sign.days.map(r=>r.item),...sign.bluePool].filter(id=>id&&items[id]))];
+  for (const item of ids.map(id=>({id}))) {
     const pic = items[item.id].pic,
       index = Object.entries(config.paths).find(
         ([k, v]) => v[0] === "equip/" + pic,
@@ -60,7 +61,7 @@ async function main() {
     JSON.stringify(manifest, null, 2),
   );
 }
-main().catch((e) => {
+main().then(()=>require('./build-equipment-art.cjs').main()).catch((e) => {
   console.error(e);
   process.exitCode = 1;
 });

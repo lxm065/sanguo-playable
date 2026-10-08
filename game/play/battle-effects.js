@@ -1,0 +1,19 @@
+'use strict';
+const c=require('./battle-effects-config');
+/** 每名角色的特效风格稳定映射；旧兼容武将使用金色物理风格。 */
+function profile(hero){return c.profiles[c.heroes[hero]||'metal'];}
+/** 战前预热六张小图，共用资源缓存；首次请求失败不阻断战斗。 */
+function warm(v){require('./original-zhangfei-effects').warm(v);require("./native-effects").warm(v);if(v.effectsWarmed)return;v.effectsWarmed=true;Promise.all(c.textures.map(f=>v.assets.sprite('effects/'+f+'.png'))).catch(()=>{v.effectsWarmed=false;});}
+/** 页面离开、战斗结束清理表现节点及补间，不更改战斗状态。 */
+function clear(v){require('./original-zhangfei-effects').clear(v);require('./zhouyu-effects').clear(v);require('./skill-status-view').clear(v);v.skillBeamTimes={};v.blizzardCasts=new Map();require("./whirl-motion").clear(v);require("./native-effects").clear(v);for(const n of v.effectNodes||[]){v.cc.Tween.stopAllByTarget(n);if(n.isValid){const opacity=n.getComponent(v.cc.UIOpacity);if(opacity)v.cc.Tween.stopAllByTarget(opacity);n.destroy();}}v.effectNodes=[];v.effectHealTimes={};}
+/** 有上限的短生命周期特效；效果速度跟随回放速度，透明渐隐避免突兀消失。 */
+function sprite(v,file,x,y,size,color,{life=c.life,flat=1,angle=0,travel=null,grow=1.35}={}){const cc=v.cc;v.effectNodes=(v.effectNodes||[]).filter(n=>n.isValid);while(v.effectNodes.length>=c.maxNodes){const old=v.effectNodes.shift();cc.Tween.stopAllByTarget(old);old.destroy();}const n=v.ui.image(v.root,'effects/'+file+'.png',x,y,size,size*flat);n.name='battle-effect-'+file;n.getComponent(cc.Sprite).color=new cc.Color(color);n.angle=angle;n.setScale(.5,.5,1);const opacity=n.addComponent(cc.UIOpacity),duration=life/v.speed;v.effectNodes.push(n);const destination={scale:new cc.Vec3(grow,grow,1)};if(travel)destination.position=new cc.Vec3(travel.x,travel.y,0);cc.tween(n).to(duration,destination).call(()=>{if(n.isValid)n.destroy();}).start();cc.tween(opacity).delay(duration*.25).to(duration*.75,{opacity:0}).start();return n;}
+/** 技能发动显示施法环和聚光，只有真实技能事件才触发。 */
+function cast(v,a,event){require("./hero-vfx").attack(v,a,event);}
+/** 命中特效沿攻击方向布置；范围技能对实际受伤目标分别呈现，不添加额外伤害。 */
+function hit(v,source,target,event){if(!target?.node?.isValid)return;if(require('./zhouyu-effects').hit(v,source,target,event))return;if(event.effect==='blizzard'){require('./blizzard-view').wave(v,source,target,event);return;}if(['freeze','whirl'].includes(event.effect))return;if(require('./skill-presentation-config').beams[event.effect]){const key=event.actor+':'+event.effect;if(!v.skillBeamTimes)v.skillBeamTimes={};if(v.skillBeamTimes[key]!==event.t){v.skillBeamTimes[key]=event.t;require('./skill-trajectories').beam(v,source,target,event.effect);}}if(event.effect){require('./skill-effects').paint(v,target,event.effect,source);return;}if(require('./hero-vfx').hit(v,source,target,event))return;const pos=target.node.position;require('./native-effects').play(v,source?.unit.magic?'mana':'cleave',v.root,pos.x,pos.y+c.offsetY,{size:c.hitSize,duration:c.life});}
+/** 治疗只对实际生命恢复事件展示，连续恢复节流且不遮挡血条。 */
+function heal(v,target){const times=v.effectHealTimes||(v.effectHealTimes={}),now=Date.now(),id=target.unit.uid;if(now-(times[id]||0)<c.healThrottleMs)return;times[id]=now;const p=target.node.position;require('./native-effects').play(v,'heal',v.root,p.x,p.y+c.offsetY,{size:c.healSize,duration:c.healLife});}
+/** 弹道从出手点飞向实际目标，法术球与物理箭光使用独立外观。 */
+function projectile(v,a,b,skill){if(require('./hero-vfx').projectile(v,a,b))return;if(['taishici','xiahouyuan','huangzhong'].includes(a.unit.heroId)){require('./skill-effects').arrow(v,a,b);return;}const p=profile(a.unit.heroId),start=a.node.position,end=b.node.position,angle=Math.atan2(end.y-start.y,end.x-start.x)*180/Math.PI;sprite(v,a.unit.magic?p.texture:'spark',start.x,start.y+c.offsetY,skill?c.projectileSize*1.5:c.projectileSize,p.color,{life:v.config.attackDelay,flat:a.unit.magic?1:.35,angle,grow:1,travel:{x:end.x,y:end.y+c.offsetY}});}
+module.exports={profile,warm,clear,sprite,cast,hit,heal,projectile};

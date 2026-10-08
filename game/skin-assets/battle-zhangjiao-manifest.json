@@ -1,0 +1,226 @@
+{
+  "textures": [
+    "battle-zhangjiao-packed-0.png",
+    "battle-zhangjiao-packed-1.png",
+    "battle-zhangjiao-packed-2.png",
+    "battle-zhangjiao-packed-3.png",
+    "battle-zhangjiao-packed-4.png",
+    "battle-zhangjiao-packed-5.png",
+    "battle-zhangjiao-packed-6.png"
+  ],
+  "frames": 420,
+  "actions": {
+    "idle-s": {
+      "source": "M2 animation 0",
+      "duration": 2
+    },
+    "run-s": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-s": {
+      "source": "M2 animation 53",
+      "duration": 1
+    },
+    "skill2-s": {
+      "source": "M2 animation 54",
+      "duration": 1
+    },
+    "dead-s": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-se": {
+      "source": "M2 animation 0",
+      "duration": 2
+    },
+    "run-se": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-se": {
+      "source": "M2 animation 53",
+      "duration": 1
+    },
+    "skill2-se": {
+      "source": "M2 animation 54",
+      "duration": 1
+    },
+    "dead-se": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-e": {
+      "source": "M2 animation 0",
+      "duration": 2
+    },
+    "run-e": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-e": {
+      "source": "M2 animation 53",
+      "duration": 1
+    },
+    "skill2-e": {
+      "source": "M2 animation 54",
+      "duration": 1
+    },
+    "dead-e": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-ne": {
+      "source": "M2 animation 0",
+      "duration": 2
+    },
+    "run-ne": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-ne": {
+      "source": "M2 animation 53",
+      "duration": 1
+    },
+    "skill2-ne": {
+      "source": "M2 animation 54",
+      "duration": 1
+    },
+    "dead-ne": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-n": {
+      "source": "M2 animation 0",
+      "duration": 2
+    },
+    "run-n": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-n": {
+      "source": "M2 animation 53",
+      "duration": 1
+    },
+    "skill2-n": {
+      "source": "M2 animation 54",
+      "duration": 1
+    },
+    "dead-n": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    }
+  },
+  "directions": [
+    "s",
+    "se",
+    "e",
+    "ne",
+    "n"
+  ],
+  "scale": 0.7777777777777778,
+  "anchors": {
+    "s": {
+      "left": 93,
+      "top": 71,
+      "right": 162,
+      "bottom": 197,
+      "width": 70,
+      "height": 127
+    },
+    "se": {
+      "left": 60,
+      "top": 71,
+      "right": 161,
+      "bottom": 194,
+      "width": 102,
+      "height": 124
+    },
+    "e": {
+      "left": 51,
+      "top": 67,
+      "right": 176,
+      "bottom": 193,
+      "width": 126,
+      "height": 127
+    },
+    "ne": {
+      "left": 87,
+      "top": 69,
+      "right": 181,
+      "bottom": 195,
+      "width": 95,
+      "height": 127
+    },
+    "n": {
+      "left": 93,
+      "top": 70,
+      "right": 162,
+      "bottom": 196,
+      "width": 70,
+      "height": 127
+    }
+  },
+  "model": "source-assets/wow-models/zhangjiao.glb",
+  "sourceModel": "creature/humanmalecaster/humanmalecaster.m2",
+  "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+  "dependencies": {
+    "creature/humanmalecaster/humanmalecaster.m2": {
+      "fdid": 124485,
+      "bytes": 520706,
+      "sha256": "96662804efef7404f21f03f14e4a3c7d2d97819b05f0f5a0f148139e45d2edd1"
+    },
+    "creature/humanmalecaster/humanmalecaster00.skin": {
+      "fdid": 476683,
+      "bytes": 10816,
+      "sha256": "30cd2185f0af3f30badda82fc862e7712d246f212eea511cb8df39177631e9cf"
+    },
+    "creature/humanmalecaster/humanmalecaster_skinpriest.blp": {
+      "fdid": 124488,
+      "bytes": 88580,
+      "sha256": "273834e754a8c7979d8dd6704ca9537914346bc20dfee5f7b418930bf70e1182"
+    },
+    "item/objectcomponents/weapon/stave_2h_jeweled_b_01.m2": {
+      "fdid": 147517,
+      "bytes": 7882,
+      "sha256": "34d7fffc921498954851bba7b4af459b3fb7318057575ae414c516deb30be244"
+    },
+    "item/objectcomponents/weapon/stave_2h_jeweled_b_0100.skin": {
+      "fdid": 491679,
+      "bytes": 1536,
+      "sha256": "0d01692ca7523d83ed21de4e7288be382db15d61a038966377d8f2b04d036d92"
+    },
+    "item/objectcomponents/weapon/stave_2h_jeweled_b_01white.blp": {
+      "fdid": 147520,
+      "bytes": 6652,
+      "sha256": "9739986999e8593719c357cb3af879454f6cd9592dbdb64be20edf299385fdd6"
+    }
+  },
+  "sha256": "10f2a00eb431da6363afd98da60387ecf6fd3903122a4a12380a046a8a5323c8",
+  "fps": 12,
+  "frameSize": 256,
+  "nativeWow": true,
+  "bones": 84,
+  "movements": {
+    "idle": 0.048647495475234746,
+    "run": 0.4435688093266404,
+    "skill1": 1.7372363637444284,
+    "skill2": 1.7560491069883057,
+    "dead": 1.1181575143205824
+  },
+  "camera": {
+    "span": 3.7610496436024916,
+    "height": 1.9947456019320045,
+    "center": [
+      0.04616342023321093,
+      0.9966217958804645,
+      0.0008647209371402953
+    ]
+  },
+  "rendering": "本地魔兽M2原生蒙皮与骨骼动作、武器附件烘焙",
+  "compacted": {
+    "beforeBytes": 111149056,
+    "afterBytes": 26304512,
+    "boundaryFrames": 0
+  }
+}

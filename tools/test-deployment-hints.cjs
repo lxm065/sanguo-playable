@@ -1,0 +1,6 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),{Expedition}=require('../game/play/expedition'),{attach}=require('../game/play/classic-hooks'),rules={...require('../game/play/config'),maxStar:5,startingRoster:require('../game/play/expedition-config').initialRoster},roster=require('../game/play/expedition-roster'),{query}=require('../game/play/deployment-view');
+/** 内存战役用于验证推荐不修改实际站位或资源。 */
+function fixture(){const m=new Expedition(rules,roster,{read:()=>null,write:()=>{}});attach(m,roster);return m;}
+test('近战优先前排，远射优先后排，推荐查询不改变存档',()=>{const m=fixture(),before=JSON.stringify(m.state),melee=m.state.units[0],archer={uid:99,heroId:'xiahouyuan',star:1,slot:-1};assert(query(m,melee).filter(x=>x.recommended).every(x=>x.row===rules.rows-1));assert(query(m,archer).filter(x=>x.recommended).every(x=>x.row===0));assert.equal(JSON.stringify(m.state),before);});
+test('推荐跳过占用格，前排满时使用次选排；人数满只允许换位',()=>{const m=fixture();m.state.expedition.level=10;for(let i=0;i<rules.columns;i++)m.state.units.push({uid:10+i,heroId:'xuchu',star:1,slot:(rules.rows-1)*rules.columns+i});const result=query(m,m.state.units[0]);assert(result.filter(x=>x.recommended).every(x=>x.row===1));m.state.expedition.level=1;const full=query(m,m.state.units[0]);assert(full.filter(x=>x.legal).every(x=>!x.empty));assert(!full.some(x=>x.recommended));});

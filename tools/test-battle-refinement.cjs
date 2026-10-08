@@ -109,14 +109,9 @@ test("近战远程法系普通攻击均遵守各阶实际射程", () => {
   assert(ranges.size >= 3);
   assert.equal(magic.size, 2);
 });
-test("17名对应模型和4名待制作严格分离，每套具备五方向完整动作", () => {
-  assert.equal(Object.keys(appearance.models).length, 17);
-  assert.deepEqual(appearance.pending, [
-    "taishici",
-    "ganning",
-    "zhangjiao",
-    "yanliang",
-  ]);
+test("21名武将模型齐全，每套具备五方向完整动作", () => {
+  assert.deepEqual(Object.keys(appearance.models).sort(),require('../game/play/handbook-config').heroes.map(h=>h.id).sort());
+  assert.deepEqual(appearance.pending, []);
   for (const [id, entry] of Object.entries(appearance.models)) {
     assert(!appearance.pending.includes(id));
     const dir = path.resolve(__dirname, "../game/skin-assets"),
@@ -151,6 +146,7 @@ test("新局三人上阵后切换低人口主公可正常完成，超额武将�
     m.state.meta.cleared = 60;
     m.state.meta.signs = 20;
   });
+  m.state.units.forEach((u,i)=>m.deploy(u.uid,i));
   const lord = lords.lords.find((l) => !lords.lordArmyBonus[l.id]);
   m.progression.select(lord.id);
   assert.equal(m.state.units.length, 3);

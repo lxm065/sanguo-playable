@@ -1,0 +1,4 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),{speech}=require('../game/play/boss-map-view'),{sections}=require('../game/play/section-policy');
+test('不同BOSS台词各有性格，同一武将轮换且不更改解锁数据',()=>{const meta={unlocked:[]},before=JSON.stringify(meta),bosses=[...new Map(sections.map(s=>[s.boss,s])).values()];assert.equal(new Set(bosses.map(s=>speech(s,meta))).size,bosses.length);for(const s of bosses){assert.notEqual(speech(s,meta,0),speech(s,meta,1));const unlocked={unlocked:[s.unlock]};assert(!/跟你走|与你并肩|助你出征/.test(speech(s,unlocked)));}assert.equal(JSON.stringify(meta),before);});
+test('未知BOSS和缺省收录列表安全回退',()=>{const target={boss:'future',unlock:'future'};assert.equal(typeof speech(target,{}),'string');assert.notEqual(speech(target,{}),speech(target,{unlocked:['future']}));});

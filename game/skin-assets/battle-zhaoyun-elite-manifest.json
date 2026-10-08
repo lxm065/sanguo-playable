@@ -1,0 +1,180 @@
+{
+  "textures": [
+    "battle-zhaoyun-elite-packed-0.png",
+    "battle-zhaoyun-elite-packed-1.png",
+    "battle-zhaoyun-elite-packed-2.png",
+    "battle-zhaoyun-elite-packed-3.png",
+    "battle-zhaoyun-elite-packed-4.png",
+    "battle-zhaoyun-elite-packed-5.png",
+    "battle-zhaoyun-elite-packed-6.png",
+    "battle-zhaoyun-elite-packed-7.png",
+    "battle-zhaoyun-elite-packed-8.png"
+  ],
+  "frames": 305,
+  "actions": {
+    "idle-s": {
+      "source": "idlebase",
+      "duration": 1.2
+    },
+    "run-s": {
+      "source": "runbase",
+      "duration": 0.8666667342185974
+    },
+    "skill1-s": {
+      "source": "attack_aa_03",
+      "duration": 1.2
+    },
+    "skill2-s": {
+      "source": "spell1_aa_03",
+      "duration": 1.2
+    },
+    "dead-s": {
+      "source": "death",
+      "duration": 1.6
+    },
+    "idle-se": {
+      "source": "idlebase",
+      "duration": 1.2
+    },
+    "run-se": {
+      "source": "runbase",
+      "duration": 0.8666667342185974
+    },
+    "skill1-se": {
+      "source": "attack_aa_03",
+      "duration": 1.2
+    },
+    "skill2-se": {
+      "source": "spell1_aa_03",
+      "duration": 1.2
+    },
+    "dead-se": {
+      "source": "death",
+      "duration": 1.6
+    },
+    "idle-e": {
+      "source": "idlebase",
+      "duration": 1.2
+    },
+    "run-e": {
+      "source": "runbase",
+      "duration": 0.8666667342185974
+    },
+    "skill1-e": {
+      "source": "attack_aa_03",
+      "duration": 1.2
+    },
+    "skill2-e": {
+      "source": "spell1_aa_03",
+      "duration": 1.2
+    },
+    "dead-e": {
+      "source": "death",
+      "duration": 1.6
+    },
+    "idle-ne": {
+      "source": "idlebase",
+      "duration": 1.2
+    },
+    "run-ne": {
+      "source": "runbase",
+      "duration": 0.8666667342185974
+    },
+    "skill1-ne": {
+      "source": "attack_aa_03",
+      "duration": 1.2
+    },
+    "skill2-ne": {
+      "source": "spell1_aa_03",
+      "duration": 1.2
+    },
+    "dead-ne": {
+      "source": "death",
+      "duration": 1.6
+    },
+    "idle-n": {
+      "source": "idlebase",
+      "duration": 1.2
+    },
+    "run-n": {
+      "source": "runbase",
+      "duration": 0.8666667342185974
+    },
+    "skill1-n": {
+      "source": "attack_aa_03",
+      "duration": 1.2
+    },
+    "skill2-n": {
+      "source": "spell1_aa_03",
+      "duration": 1.2
+    },
+    "dead-n": {
+      "source": "death",
+      "duration": 1.6
+    }
+  },
+  "directions": [
+    "s",
+    "se",
+    "e",
+    "ne",
+    "n"
+  ],
+  "scale": 0.4666666666666667,
+  "anchors": {
+    "s": {
+      "left": 286,
+      "top": 335,
+      "right": 400,
+      "bottom": 491,
+      "width": 115,
+      "height": 157
+    },
+    "se": {
+      "left": 330,
+      "top": 302,
+      "right": 432,
+      "bottom": 474,
+      "width": 103,
+      "height": 173
+    },
+    "e": {
+      "left": 322,
+      "top": 288,
+      "right": 504,
+      "bottom": 423,
+      "width": 183,
+      "height": 136
+    },
+    "ne": {
+      "left": 264,
+      "top": 279,
+      "right": 473,
+      "bottom": 407,
+      "width": 210,
+      "height": 129
+    },
+    "n": {
+      "left": 239,
+      "top": 280,
+      "right": 353,
+      "bottom": 419,
+      "width": 115,
+      "height": 140
+    }
+  },
+  "frameSize": 640,
+  "fps": 10,
+  "model": "F:\\LoL-Asset-Library\\converted\\XinZhao\\Characters_XinZhao_Skins_Skin12.glb",
+  "sourceRoot": "F:/LoL-Asset-Library/converted/XinZhao",
+  "sourceType": "lol-glb",
+  "sha256": "59f1c8e409f0cc3b4bf4064bfa280ef77d13468fe312d2096b638dd2513a19ec",
+  "rendering": "赵信赵云皮肤原生蒙皮动画",
+  "sharedAnimationKey": "battle-zhaoyun",
+  "compacted": {
+    "beforeBytes": 511180800,
+    "afterBytes": 35819520,
+    "boundaryFrames": 0
+  },
+  "coordinatePrecision": 3
+}

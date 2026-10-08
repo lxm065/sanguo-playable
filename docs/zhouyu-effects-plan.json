@@ -1,0 +1,93 @@
+{
+  "style": "沿用三国写实，技能适度华丽",
+  "scope": [
+    "13131 火柱：施法预兆，真实伤害时喷发，一次范围施法只显示一个主火柱",
+    "13132 龙破：施法时发射火浪，在原判定时刻到达目标，受伤目标播放局部命中",
+    "13134 神灭：蓄光，真实命中时播放电弧和落雷"
+  ],
+  "preserve": [
+    "伤害倍率",
+    "选择目标",
+    "范围判定",
+    "眩晕时长",
+    "冷却",
+    "存档"
+  ],
+  "tasks": [
+    {
+      "id": "asset",
+      "status": "done"
+    },
+    {
+      "id": "events",
+      "status": "done"
+    },
+    {
+      "id": "tests",
+      "status": "done"
+    },
+    {
+      "id": "runtime",
+      "status": "done"
+    }
+  ],
+  "designNotes": [
+    "专用表现模块仅消费战报事件，不在视图计算伤害或复制技能规则",
+    "现有龙破判定覆盖目标同排或同列；本轮不改判定，局部反馈跟随所有真实受伤目标",
+    "技能中断/目标失效时不伪造命中，离场统一清理"
+  ],
+  "validation": {
+    "testsPassed": 30,
+    "simulator": {
+      "finished": true,
+      "eventIndex": 242,
+      "eventCount": 242,
+      "restored": true,
+      "unchanged": true,
+      "remainingEffects": 0,
+      "seen": {
+        "status": 9,
+        "move": 12,
+        "attack": 60,
+        "damage": 77,
+        "ability": 18,
+        "heal": 63,
+        "death": 3
+      },
+      "effects": [
+        "flameWave",
+        "firePillar",
+        "lightning"
+      ],
+      "keyframeRestore": {
+        "restored": true,
+        "unchanged": true
+      }
+    },
+    "capture": {
+      "video": "evidence/zhouyu-three-skills/battle-review.mp4",
+      "note": "低帧率模拟器截图按实际间隔编码；另有真实技能触发后冻结的关键帧，用于核对位置、方向与尺寸"
+    },
+    "assetReceipt": "source-assets/zhouyu-effects.json",
+    "deviceVerified": false
+  },
+  "architecture": "表现模块仅消费ability和damage，施法快照按来源/技能隔离；统一原生播放器支持目标跟随和渐隐。后续将更多技能接入声明式表现配置时，复用同一事件与生命周期接口。",
+  "release": {
+    "version": "1.0.58",
+    "appid": "wx7a597ac02546773f",
+    "developmentUploadConfirmed": true,
+    "uploadedAt": "2026-10-07 20:36:38",
+    "uploadedBytes": 30885747,
+    "testsPassed": 30,
+    "simulatorBattleEvents": 242,
+    "originalSaveUnchanged": true,
+    "skills": [
+      "火柱",
+      "龙破",
+      "神灭"
+    ],
+    "webConsoleVerified": false,
+    "deviceVerified": false,
+    "productionPublished": false
+  }
+}

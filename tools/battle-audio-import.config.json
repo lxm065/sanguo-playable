@@ -1,0 +1,15 @@
+{
+  "sourceRoot": "F:/LoL-Asset-Library/audio",
+  "ffmpeg": "D:/AI/vits/ffmpeg-master-latest-win64-gpl/bin/ffmpeg.exe",
+  "bitrate": "64k",
+  "sampleRate": 32000,
+  "clips": {
+    "first_blood": "835992869",
+    "double_kill": "655441407",
+    "triple_kill": "457215657",
+    "quadra_kill": "688775583",
+    "penta_kill": "963502603",
+    "victory": "139054080",
+    "defeat": "741535347"
+  }
+}

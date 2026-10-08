@@ -1,0 +1,63 @@
+'use strict';
+/** 写实战斗表现配置；武器外观与伤害类型分离，不改变原技能语义。 */
+module.exports = {
+  enabled: true,
+  offsetY: 30,
+  criticalScale: 1.18,
+  trail: { id: 'bladeSweep', size: 112, duration: .2, contactRatio: .72, reachRatio: .45 },
+  profiles: {
+    spear: { impact: 'bladeSweep', size: 78, duration: .22, directional: true, widthRatio: 1.25, heightRatio: .55, color: '#DDE5EC' },
+    blade: { impact: 'bladeSweep', size: 96, duration: .26, directional: true, widthRatio: 1.15, heightRatio: .8, color: '#E5DEBF' },
+    heavy: { impact: 'earthImpact', size: 94, duration: .32, directional: false, color: '#D5BD96', offsetY: 8 },
+    bow: { impact: 'bladeSweep', size: 58, duration: .18, directional: true, color: '#E4DAC0', projectile: 'arrow', projectileSize: 100 },
+    frost: { impact: 'iceNova', size: 66, duration: .3, directional: false, color: '#B9D9E1', projectile: 'coldArrow', projectileSize: 86 },
+    fire: { impact: 'flameWave', size: 66, duration: .28, directional: true, color: '#F4C5A0', projectile: 'emberBolt', projectileSize: 112 },
+    water: { impact: 'iceNova', size: 63, duration: .3, directional: false, color: '#AACCD5', projectile: 'waterBolt', projectileSize: 94 },
+    poison: { impact: 'decay', size: 62, duration: .28, directional: false, color: '#B0C293', projectile: 'venomBolt', projectileSize: 92 },
+    spirit: { impact: 'mana', size: 63, duration: .26, directional: false, color: '#D8CCE2', projectile: 'spiritBolt', projectileSize: 84 }
+  },
+  heroes: {
+    zhaoyun: { profile: 'spear', color: '#D2DDE8' },
+    guanyu: { profile: 'blade', color: '#CCDAC0', size: 106 },
+    zhangfei: { profile: 'spear', color: '#D5C4A9', size: 96 },
+    xuchu: { profile: 'blade', size: 112, color: '#DCC9A7' },
+    dianwei: { profile: 'heavy', size: 108 },
+    machao: { profile: 'spear', color: '#E8DEBC', size: 86 },
+    lvbu: { profile: 'blade', color: '#DFC0AA', size: 118 },
+    yanliang: { profile: 'heavy', size: 100 },
+    huangzhong: { profile: 'bow', projectileSize: 114 },
+    xiahouyuan: { profile: 'frost', projectileSize: 106 },
+    taishici: { profile: 'fire', projectile: 'fireArrow', projectileSize: 108 },
+    sunshangxiang: { profile: 'bow', projectile: 'arrow', color: '#DADAB8' },
+    zhenji: { profile: 'frost', projectile: 'waterBolt', color: '#C7E0E8' },
+    xiaoqiao: { profile: 'frost', projectile: 'spiritBolt', color: '#D1DDE8' },
+    ganning: { profile: 'water' },
+    zhangliao: { profile: 'poison' },
+    zhouyu: { profile: 'fire', projectileSize: 118 },
+    huangyueying: { profile: 'fire', projectileSize: 100, color: '#E6C9A0' },
+    diaochan: { profile: 'spirit', color: '#D9BCCF' },
+    zhangjiao: { profile: 'spirit', color: '#D6C99F', projectileSize: 104 },
+    zhurong: { profile: 'water', projectileSize: 105 },
+    zhugeliang: { profile: 'spirit', color: '#C8D9DE' }
+  },
+  skills: {
+    manaBreak: { size: 100, duration: .3 },
+    blinkStrike: { size: 134, duration: .35 },
+    void: { size: 190, duration: .6 },
+    execute: { id: 'bladeSweep', size: 148, duration: .3, directional: true },
+    bleed: { size: 62, duration: .24 },
+    rend: { size: 66, duration: .24 },
+    fury: { id: 'bladeSweep', size: 103, duration: .22, directional: true },
+    headshot: { id: 'bladeSweep', size: 90, duration: .22, directional: true },
+    slam: { size: 200, duration: .52 },
+    shrapnel: { size: 146, duration: .6 },
+    firePillar: { size: 196, duration: .75 },
+    flameWave: { size: 120, duration: .42, directional: true },
+    lightning: { size: 124, duration: .32 },
+    blast: { size: 146, duration: .45 },
+    iceNova: { size: 210, duration: .72 },
+    fireArrow: { size: 78, duration: .24 },
+    iceArrow: { size: 65, duration: .24 },
+    volley: { size: 65, duration: .22 }
+  }
+};

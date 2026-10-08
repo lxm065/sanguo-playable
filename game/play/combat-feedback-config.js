@@ -1,0 +1,3 @@
+"use strict";
+/** 击杀横幅、合成提示与攻击音效均可独立调参，不影响战斗结果。 */
+module.exports={banner:{y:300,width:560,height:168,portraitX:202,portraitSize:78,frameSize:94,textWidth:270,textHeight:88,enter:0.16,settle:0.1,hold:1.25,fade:0.25,maxCount:5},merge:{width:105,height:116,y:12,arrowY:104,font:28,arrow:'⬆',label:'可合成',color:'#87FF45',outline:'#214514',pulse:0.5,bounce:12,fill:'#8DFB4525',line:'#B5FF45'},sound:{enabled:true,volume:0.28,obeyMuteSwitch:true,poolSize:3,minGapMs:120,root:'skin-assets/feedback/',files:{melee:'melee.mp3',ranged:'ranged.mp3',magic:'magic.mp3',ice:'ice.mp3',merge:'merge.mp3'},heroes:{zhenji:{skill:'ice'}}}};

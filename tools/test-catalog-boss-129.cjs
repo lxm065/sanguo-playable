@@ -1,0 +1,4 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),catalog=require('../game/play/equipment-catalog'),discovery=require('../game/play/equipment-discovery');
+test('获得龙鳞战铠立即收录，30章进阶限制独立保留',()=>{const state={meta:{cleared:0,inventory:{},diamonds:10000},expedition:{equipment:[{id:'7213'}]}};const item=catalog.query('7213',state);assert(item.revealed);assert(!item.canUpgrade);assert.match(item.reason,/30章/);state.meta.equipmentSeen=discovery.known(state);state.expedition.equipment=[];assert(catalog.query('7213',state).revealed);assert(!catalog.query('7213',{meta:{inventory:{}}}).revealed);assert(catalog.query('7213',{meta:{inventory:{'7213':1}}}).revealed);});
+test('BOSS招募台词只用于尚未解锁的对应武将',()=>{const s=require('../game/play/boss-map-view').speech,target=require('../game/play/section-policy').sections[0];assert.match(s(target,{unlocked:[]}),/跟你走/);assert.notEqual(s(target,{unlocked:[]}),s(target,{unlocked:['zhangfei']}));});

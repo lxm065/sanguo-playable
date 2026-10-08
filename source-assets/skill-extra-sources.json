@@ -1,0 +1,17 @@
+{
+  "wowBlood": {
+    "source": "F:/WoW-Assets/classic-titan/raw/spells/textures/blood2.blp",
+    "sha256": "b984bd0720f7906896430f2e2ee53546f5d5b7fabc27efe93af68bd746cf161e",
+    "conversion": "magenta"
+  },
+  "lightningStrip": {
+    "source": "D:/Games/Warcraft3/ExtractedAssets/技能特效补充_20260929/决战江湖1.63正式版+(1)/资源根目录/ReplaceableTextures/Weather/Lightning.blp",
+    "sha256": "671549a9993e188ab63c735fddb75ea4a5825da5fdb23bea47c5f0791da52909",
+    "conversion": "additive"
+  },
+  "hookCable": {
+    "source": "F:\\LoL-Asset-Library\\textures\\Blitzcrank\\3c49d51602ff775dad02.png",
+    "sha256": "899f29e5e248c8e901e2a0d69bdd91d23fd95643c145bdc67a14c262042bb88d",
+    "conversion": "original texture copy"
+  }
+}

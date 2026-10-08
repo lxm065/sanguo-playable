@@ -1,0 +1,5 @@
+'use strict';
+const c=require('./enemy-growth-config');
+/** 分解章节经济及永久培养倍率，供战斗与详情共同使用，不消耗随机种子。 */
+function breakdown(state){const meta=state.meta||{},chapter=meta.chapter||1;if(chapter<c.fromChapter)return {factor:1,chapter:1,talent:1,equipment:1};const gold=require('./battle-gold-config'),increase=Math.max(0,chapter-gold.fromChapter)*gold.perChapter/gold.base.battle,chapterFactor=1+(chapter-c.fromChapter)*c.chapterStep+increase*c.economyWeight,t=meta.activities?.talent||{},points=Object.values(t.tree?.levels||{}).reduce((n,x)=>n+Math.max(0,x||0),0),talent=1+Math.min(c.talent.maxBonus,(t.level||0)*c.talent.perLevel+points*c.talent.perNodeLevel),grades=Object.values(meta.equipmentGrades||{}),average=grades.length?grades.reduce((n,x)=>n+x,0)/Math.max(1,Object.keys(require('./equipment-upgrade-config').entries).length):0,equipment=1+Math.min(c.equipment.maxBonus,average*c.equipment.perAverageGrade);return {factor:chapterFactor*talent*equipment,chapter:chapterFactor,talent,equipment};}
+module.exports={breakdown};

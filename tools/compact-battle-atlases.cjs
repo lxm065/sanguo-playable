@@ -180,6 +180,10 @@ async function compact(key) {
     ),
     boundaryFrames: clipped,
   };
+  if (Number.isInteger(manifest.coordinatePrecision)) {
+    for (const a of Object.values(skeleton.skins[0].attachments.body))
+      for (const k of ["x", "y", "width", "height"]) if (typeof a[k] === "number") a[k] = Number(a[k].toFixed(manifest.coordinatePrecision));
+  }
   fs.writeFileSync(file(key + ".json"), JSON.stringify(skeleton));
   fs.writeFileSync(file(key + ".atlas"), atlas);
   fs.writeFileSync(
@@ -205,7 +209,7 @@ async function compact(key) {
 }
 /** 仅整理本轮生成图集，不接触原始模型和已有角色头像。 */
 async function main() {
-  for (const { assetKey } of Object.values(config.models))
+  for (const assetKey of (process.argv.slice(2).length ? process.argv.slice(2) : require("../game/play/appearance-policy").entries(config).map(([,e])=>e.assetKey)))
     await compact(assetKey);
 }
 main().catch((e) => {

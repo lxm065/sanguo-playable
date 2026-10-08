@@ -1,0 +1,1 @@
+const req=GameGlobal[0].require;req('play/talent-tree-view.js').close(view);view.page='home';view.render();view.act(()=>view.model.claimNovice(view.model.adTicket()));return {celebration:!!view.modal?.getChildByName('unlock-rays')};

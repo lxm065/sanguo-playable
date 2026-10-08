@@ -1,6 +1,9 @@
 {
   "textures": [
-    "battle-lvbu-packed-0.png"
+    "battle-lvbu-packed-0.png",
+    "battle-lvbu-packed-1.png",
+    "battle-lvbu-packed-2.png",
+    "battle-lvbu-packed-3.png"
   ],
   "frames": 305,
   "actions": {
@@ -112,50 +115,52 @@
     "ne",
     "n"
   ],
-  "scale": 1.7818181818181817,
+  "scale": 0.875,
   "anchors": {
     "s": {
-      "left": 84,
-      "top": 68,
-      "right": 107,
-      "bottom": 121,
-      "width": 24,
-      "height": 54
+      "left": 169,
+      "top": 135,
+      "right": 213,
+      "bottom": 239,
+      "width": 45,
+      "height": 105
     },
     "se": {
-      "left": 77,
-      "top": 68,
-      "right": 113,
-      "bottom": 121,
-      "width": 37,
-      "height": 54
+      "left": 154,
+      "top": 136,
+      "right": 228,
+      "bottom": 245,
+      "width": 75,
+      "height": 110
     },
     "e": {
-      "left": 69,
-      "top": 74,
-      "right": 123,
-      "bottom": 118,
-      "width": 55,
-      "height": 45
+      "left": 137,
+      "top": 148,
+      "right": 248,
+      "bottom": 236,
+      "width": 112,
+      "height": 89
     },
     "ne": {
-      "left": 70,
-      "top": 72,
-      "right": 124,
-      "bottom": 119,
-      "width": 55,
-      "height": 48
+      "left": 140,
+      "top": 144,
+      "right": 248,
+      "bottom": 239,
+      "width": 109,
+      "height": 96
     },
     "n": {
-      "left": 80,
-      "top": 69,
-      "right": 111,
-      "bottom": 122,
-      "width": 32,
-      "height": 54
+      "left": 160,
+      "top": 136,
+      "right": 221,
+      "bottom": 245,
+      "width": 62,
+      "height": 110
     }
   },
   "model": "war3mapImported/moon_shin_LB.mdx",
+  "frameSize": 384,
+  "qualityFactor": 2,
   "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
   "dependencies": {
     "war3mapImported/moon_shin_LB.mdx": {
@@ -213,18 +218,18 @@
   },
   "camera": {
     "center": [
-      18.59483526519034,
-      -11.590464655077085,
-      52.915298325169715
+      18.595149863744155,
+      -11.592285109509248,
+      52.91622306515637
     ],
-    "height": 107.84668539525592,
-    "span": 150.73519781279353
+    "height": 107.84853487522923,
+    "span": 150.72319394569436
   },
   "uniformZoom": 1.9599999999999997,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 46006272,
-    "afterBytes": 3530752,
+    "beforeBytes": 184025088,
+    "afterBytes": 13062144,
     "boundaryFrames": 0
   }
 }

@@ -1,12 +1,14 @@
 {
-  "rendering": "原始MDX骨骼动作烘焙为Spine附件序列，不是实时3D模型加载",
-  "totalTextureFileBytes": 6626372,
-  "totalTextureMemoryBytes": 106041344,
+  "rendering": "源模型骨骼动作烘焙为Spine附件序列；逐项记录MDX、魔兽M2或原创GLB来源，不是实时3D模型加载",
+  "totalTextureFileBytes": 29290743,
+  "totalTextureMemoryBytes": 550629376,
   "models": [
     {
       "id": "zhenji",
       "name": "甄姬",
+      "assetKey": "battle-zhenji",
       "model": "zhenjipf.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -31,15 +33,17 @@
         }
       },
       "frames": 375,
-      "textures": 2,
-      "bytes": 369148,
-      "textureBytes": 6455296,
+      "textures": 6,
+      "bytes": 1204238,
+      "textureBytes": 22982656,
       "boundaryFrames": 0
     },
     {
       "id": "xuchu",
       "name": "许褚",
+      "assetKey": "battle-xuchu",
       "model": "war3mapImported/XuChu.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -64,15 +68,17 @@
         }
       },
       "frames": 325,
-      "textures": 2,
-      "bytes": 358899,
-      "textureBytes": 5095424,
+      "textures": 5,
+      "bytes": 1246931,
+      "textureBytes": 19251200,
       "boundaryFrames": 0
     },
     {
       "id": "xiahouyuan",
       "name": "夏侯渊",
+      "assetKey": "battle-xiahouyuan",
       "model": "war3mapImported/XHY.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -97,48 +103,89 @@
         }
       },
       "frames": 320,
-      "textures": 2,
-      "bytes": 376624,
-      "textureBytes": 8171520,
+      "textures": 8,
+      "bytes": 1332641,
+      "textureBytes": 29581312,
       "boundaryFrames": 0
     },
     {
       "id": "zhaoyun",
       "name": "赵云",
-      "model": "units/human/Arthas/Arthas.mdx",
-      "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图",
+      "assetKey": "battle-zhaoyun",
+      "model": "F:\\LoL-Asset-Library\\converted\\XinZhao\\Characters_XinZhao_Skins_Skin11.glb",
+      "sourceType": "lol-glb",
+      "sourceRoot": "F:/LoL-Asset-Library/converted/XinZhao",
       "animationSources": {
         "idle-s": {
-          "source": "Stand - 1",
-          "duration": 2
+          "source": "idlebase",
+          "duration": 1.2
         },
         "run-s": {
-          "source": "Walk",
-          "duration": 0.766
+          "source": "runbase",
+          "duration": 0.8666667342185974
         },
         "skill1-s": {
-          "source": "Attack - 1",
-          "duration": 1
+          "source": "attack_aa_03",
+          "duration": 1.2
         },
         "skill2-s": {
-          "source": "Spell",
-          "duration": 2.167
+          "source": "spell1_aa_03",
+          "duration": 1.2
         },
         "dead-s": {
-          "source": "Death",
-          "duration": 1.5
+          "source": "death",
+          "duration": 1.6
         }
       },
-      "frames": 375,
-      "textures": 3,
-      "bytes": 654638,
-      "textureBytes": 9273344,
+      "frames": 305,
+      "textures": 9,
+      "bytes": 1492912,
+      "textureBytes": 35819520,
+      "boundaryFrames": 0
+    },
+    {
+      "id": "zhaoyun",
+      "name": "赵云",
+      "assetKey": "battle-zhaoyun-elite",
+      "minStar": 3,
+      "sharedAnimationKey": "battle-zhaoyun",
+      "model": "F:\\LoL-Asset-Library\\converted\\XinZhao\\Characters_XinZhao_Skins_Skin12.glb",
+      "sourceType": "lol-glb",
+      "sourceRoot": "F:/LoL-Asset-Library/converted/XinZhao",
+      "animationSources": {
+        "idle-s": {
+          "source": "idlebase",
+          "duration": 1.2
+        },
+        "run-s": {
+          "source": "runbase",
+          "duration": 0.8666667342185974
+        },
+        "skill1-s": {
+          "source": "attack_aa_03",
+          "duration": 1.2
+        },
+        "skill2-s": {
+          "source": "spell1_aa_03",
+          "duration": 1.2
+        },
+        "dead-s": {
+          "source": "death",
+          "duration": 1.6
+        }
+      },
+      "frames": 305,
+      "textures": 9,
+      "bytes": 1488191,
+      "textureBytes": 35819520,
       "boundaryFrames": 0
     },
     {
       "id": "dianwei",
       "name": "典韦",
+      "assetKey": "battle-dianwei",
       "model": "Units/Creeps/Beastmaster/Beastmaster.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -163,15 +210,17 @@
         }
       },
       "frames": 470,
-      "textures": 2,
-      "bytes": 719762,
-      "textureBytes": 8065024,
+      "textures": 8,
+      "bytes": 2495860,
+      "textureBytes": 30126080,
       "boundaryFrames": 0
     },
     {
       "id": "diaochan",
       "name": "貂蝉",
+      "assetKey": "battle-diaochan",
       "model": "war3mapImported/DC.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -196,15 +245,17 @@
         }
       },
       "frames": 250,
-      "textures": 2,
-      "bytes": 274685,
-      "textureBytes": 5287936,
+      "textures": 6,
+      "bytes": 874637,
+      "textureBytes": 20107264,
       "boundaryFrames": 0
     },
     {
       "id": "huangzhong",
       "name": "黄忠",
+      "assetKey": "battle-huangzhong",
       "model": "war3mapImported/moon_shin_HZ.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -229,15 +280,17 @@
         }
       },
       "frames": 220,
-      "textures": 2,
-      "bytes": 342058,
-      "textureBytes": 6733824,
+      "textures": 3,
+      "bytes": 651612,
+      "textureBytes": 11997184,
       "boundaryFrames": 0
     },
     {
       "id": "zhangfei",
       "name": "张飞",
+      "assetKey": "battle-zhangfei",
       "model": "war3mapImported/moon_shin_ZF.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -262,15 +315,17 @@
         }
       },
       "frames": 230,
-      "textures": 2,
-      "bytes": 273948,
-      "textureBytes": 6275072,
+      "textures": 6,
+      "bytes": 841406,
+      "textureBytes": 21995520,
       "boundaryFrames": 0
     },
     {
       "id": "xiaoqiao",
       "name": "小乔",
+      "assetKey": "battle-xiaoqiao",
       "model": "q2.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\守卫剑阁降龙伏虎3.0T资源\\守卫剑阁-降龙伏虎3.0T(C)1.24EMM版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -295,15 +350,17 @@
         }
       },
       "frames": 365,
-      "textures": 2,
-      "bytes": 450589,
-      "textureBytes": 6557696,
+      "textures": 7,
+      "bytes": 1591517,
+      "textureBytes": 24408064,
       "boundaryFrames": 0
     },
     {
       "id": "zhangliao",
       "name": "张辽",
+      "assetKey": "battle-zhangliao",
       "model": "war3mapImported/moon_shin_ZL21.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -328,15 +385,17 @@
         }
       },
       "frames": 230,
-      "textures": 2,
-      "bytes": 263701,
-      "textureBytes": 6266880,
+      "textures": 7,
+      "bytes": 863579,
+      "textureBytes": 24088576,
       "boundaryFrames": 0
     },
     {
       "id": "zhouyu",
       "name": "周瑜",
+      "assetKey": "battle-zhouyu",
       "model": "war3mapImported/ZhouYu.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -361,15 +420,17 @@
         }
       },
       "frames": 290,
-      "textures": 1,
-      "bytes": 264181,
-      "textureBytes": 4177920,
+      "textures": 4,
+      "bytes": 929639,
+      "textureBytes": 15355904,
       "boundaryFrames": 0
     },
     {
       "id": "guanyu",
       "name": "关羽",
+      "assetKey": "battle-guanyu",
       "model": "war3mapImported/GY.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -394,15 +455,17 @@
         }
       },
       "frames": 325,
-      "textures": 2,
-      "bytes": 279109,
-      "textureBytes": 5873664,
+      "textures": 22,
+      "bytes": 2932356,
+      "textureBytes": 77180928,
       "boundaryFrames": 0
     },
     {
       "id": "machao",
       "name": "马超",
+      "assetKey": "battle-machao",
       "model": "war3mapImported/moon_shin_MC.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -427,15 +490,17 @@
         }
       },
       "frames": 265,
-      "textures": 2,
-      "bytes": 364934,
-      "textureBytes": 6799360,
+      "textures": 7,
+      "bytes": 1195758,
+      "textureBytes": 25931776,
       "boundaryFrames": 0
     },
     {
       "id": "sunshangxiang",
       "name": "孙尚香",
+      "assetKey": "battle-sunshangxiang",
       "model": "war3mapImported/SSX12.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -460,15 +525,17 @@
         }
       },
       "frames": 270,
-      "textures": 1,
-      "bytes": 197384,
-      "textureBytes": 2985984,
+      "textures": 3,
+      "bytes": 644691,
+      "textureBytes": 11235328,
       "boundaryFrames": 0
     },
     {
       "id": "huangyueying",
       "name": "黄月英",
+      "assetKey": "battle-huangyueying",
       "model": "units/nightelf/Runner/Runner.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -493,15 +560,17 @@
         }
       },
       "frames": 330,
-      "textures": 2,
-      "bytes": 560306,
-      "textureBytes": 6742016,
+      "textures": 7,
+      "bytes": 1970244,
+      "textureBytes": 25698304,
       "boundaryFrames": 0
     },
     {
       "id": "zhurong",
       "name": "祝融",
+      "assetKey": "battle-zhurong",
       "model": "units/nightelf/Huntress/Huntress.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -526,15 +595,17 @@
         }
       },
       "frames": 290,
-      "textures": 2,
-      "bytes": 649521,
-      "textureBytes": 7749632,
+      "textures": 8,
+      "bytes": 2409187,
+      "textureBytes": 29659136,
       "boundaryFrames": 0
     },
     {
       "id": "lvbu",
       "name": "吕布",
+      "assetKey": "battle-lvbu",
       "model": "war3mapImported/moon_shin_LB.mdx",
+      "sourceType": "warcraft-mdx",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
       "animationSources": {
         "idle-s": {
@@ -559,32 +630,151 @@
         }
       },
       "frames": 305,
-      "textures": 1,
-      "bytes": 226885,
-      "textureBytes": 3530752,
+      "textures": 4,
+      "bytes": 809889,
+      "textureBytes": 13062144,
       "boundaryFrames": 0
-    }
-  ],
-  "pending": [
+    },
     {
       "id": "taishici",
       "name": "太史慈",
-      "status": "头像保留，模型待制作"
+      "assetKey": "battle-taishici",
+      "model": "source-assets/wow-models/taishici.glb",
+      "sourceType": "wow-m2",
+      "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+      "animationSources": {
+        "idle-s": {
+          "source": "M2 animation 29",
+          "duration": 1
+        },
+        "run-s": {
+          "source": "M2 animation 5",
+          "duration": 0.667
+        },
+        "skill1-s": {
+          "source": "M2 animation 46",
+          "duration": 1
+        },
+        "skill2-s": {
+          "source": "M2 animation 107",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "M2 animation 1",
+          "duration": 2.233
+        }
+      },
+      "frames": 360,
+      "textures": 6,
+      "bytes": 1081911,
+      "textureBytes": 20914176,
+      "boundaryFrames": 0
     },
     {
       "id": "ganning",
       "name": "甘宁",
-      "status": "头像保留，模型待制作"
+      "assetKey": "battle-ganning",
+      "model": "source-assets/wow-models/ganning.glb",
+      "sourceType": "wow-m2",
+      "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+      "animationSources": {
+        "idle-s": {
+          "source": "M2 animation 26",
+          "duration": 1
+        },
+        "run-s": {
+          "source": "M2 animation 5",
+          "duration": 0.667
+        },
+        "skill1-s": {
+          "source": "M2 animation 17",
+          "duration": 1
+        },
+        "skill2-s": {
+          "source": "M2 animation 88",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "M2 animation 1",
+          "duration": 2.233
+        }
+      },
+      "frames": 360,
+      "textures": 4,
+      "bytes": 792225,
+      "textureBytes": 14237696,
+      "boundaryFrames": 0
     },
     {
       "id": "zhangjiao",
       "name": "张角",
-      "status": "头像保留，模型待制作"
+      "assetKey": "battle-zhangjiao",
+      "model": "source-assets/wow-models/zhangjiao.glb",
+      "sourceType": "wow-m2",
+      "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+      "animationSources": {
+        "idle-s": {
+          "source": "M2 animation 0",
+          "duration": 2
+        },
+        "run-s": {
+          "source": "M2 animation 5",
+          "duration": 0.667
+        },
+        "skill1-s": {
+          "source": "M2 animation 53",
+          "duration": 1
+        },
+        "skill2-s": {
+          "source": "M2 animation 54",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "M2 animation 1",
+          "duration": 2.233
+        }
+      },
+      "frames": 420,
+      "textures": 7,
+      "bytes": 1563945,
+      "textureBytes": 26304512,
+      "boundaryFrames": 0
     },
     {
       "id": "yanliang",
       "name": "颜良",
-      "status": "头像保留，模型待制作"
+      "assetKey": "battle-yanliang",
+      "model": "source-assets/wow-models/yanliang.glb",
+      "sourceType": "wow-m2",
+      "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+      "animationSources": {
+        "idle-s": {
+          "source": "M2 animation 28",
+          "duration": 1
+        },
+        "run-s": {
+          "source": "M2 animation 5",
+          "duration": 0.667
+        },
+        "skill1-s": {
+          "source": "M2 animation 19",
+          "duration": 1
+        },
+        "skill2-s": {
+          "source": "M2 animation 59",
+          "duration": 1
+        },
+        "dead-s": {
+          "source": "M2 animation 1",
+          "duration": 2.233
+        }
+      },
+      "frames": 360,
+      "textures": 4,
+      "bytes": 877374,
+      "textureBytes": 14872576,
+      "boundaryFrames": 0
     }
-  ]
+  ],
+  "pending": []
 }

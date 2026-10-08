@@ -9,7 +9,7 @@
       "coin": 0,
       "chapter": 0,
       "sign": 0,
-      "skillName": "仁德-1",
+      "skillName": "仁德 +1",
       "skillDescription": "上阵单位+1",
       "source": {
         "id": "1001",
@@ -42,7 +42,7 @@
       "coin": 200,
       "chapter": 35,
       "sign": 0,
-      "skillName": "虎威-1",
+      "skillName": "虎威 Lv.1",
       "skillDescription": "开局赐予你女神赐福过的【装备】，该装备可以无限升级。",
       "source": {
         "id": "1002",
@@ -75,7 +75,7 @@
       "coin": 30,
       "chapter": 8,
       "sign": 0,
-      "skillName": "雄据-1",
+      "skillName": "雄据 Lv.1",
       "skillDescription": "每次进入BOSS关和商店时，会随机获得1件装备。",
       "source": {
         "id": "1003",
@@ -108,7 +108,7 @@
       "coin": 50,
       "chapter": 2,
       "sign": 0,
-      "skillName": "招揽-1",
+      "skillName": "招揽 Lv.1",
       "skillDescription": "每次战斗开始前，发动盗取技能，有概率获得一件装备。",
       "source": {
         "id": "1004",
@@ -141,7 +141,7 @@
       "coin": 0,
       "chapter": 0,
       "sign": 9,
-      "skillName": "求贤-1",
+      "skillName": "求贤 Lv.1",
       "skillDescription": "每次战斗开始前，都有1个1~2级单位加入。",
       "source": {
         "id": "1005",
@@ -174,7 +174,7 @@
       "coin": 60,
       "chapter": 0,
       "sign": 18,
-      "skillName": "制衡-1",
+      "skillName": "制衡 Lv.1",
       "skillDescription": "单位合成时，有概率返还1个单位。泉水也变得更强了！",
       "source": {
         "id": "1006",
@@ -207,7 +207,7 @@
       "coin": 100,
       "chapter": 50,
       "sign": 0,
-      "skillName": "文治-1",
+      "skillName": "文治 Lv.1",
       "skillDescription": "给我2件蓝色装备，还你1件紫色装备",
       "source": {
         "id": "1007",
@@ -265,7 +265,7 @@
     "place": "涿郡",
     "sections": [
       "1/5黄巾初起",
-      "2/5乡野危机",
+      "2/5黄巾袭村",
       "3/5义军集结",
       "4/5讨伐乱军",
       "5/5平定黄巾"
@@ -293,7 +293,7 @@
     "1": {
       "name": "钻石",
       "original": "钻石",
-      "icon": "◆",
+      "icon": "classic/diamond.png",
       "description": "用于提升天赋等级"
     },
     "5": {
@@ -315,10 +315,10 @@
       "description": "可以在远征和副本中用2倍速进行战斗"
     },
     "7205": {
-      "name": "赤魂玉",
+      "name": "镇魂玉碎片",
       "original": "灵魂石",
       "icon": "玉",
-      "description": "装备碎片；合成对应装备，保留原装备属性与技能 ID。",
+      "description": "用于镇魂玉进阶。",
       "source": {
         "id": "7205",
         "color": "2",
@@ -355,10 +355,10 @@
       }
     },
     "7211": {
-      "name": "济世佩",
+      "name": "青囊医书碎片",
       "original": "梅肯",
       "icon": "佩",
-      "description": "装备碎片；合成对应装备，保留原装备属性与技能 ID。",
+      "description": "用于青囊医书进阶。",
       "source": {
         "id": "7211",
         "color": "2",

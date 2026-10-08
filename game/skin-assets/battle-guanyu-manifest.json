@@ -1,7 +1,27 @@
 {
   "textures": [
     "battle-guanyu-packed-0.png",
-    "battle-guanyu-packed-1.png"
+    "battle-guanyu-packed-1.png",
+    "battle-guanyu-packed-2.png",
+    "battle-guanyu-packed-3.png",
+    "battle-guanyu-packed-4.png",
+    "battle-guanyu-packed-5.png",
+    "battle-guanyu-packed-6.png",
+    "battle-guanyu-packed-7.png",
+    "battle-guanyu-packed-8.png",
+    "battle-guanyu-packed-9.png",
+    "battle-guanyu-packed-10.png",
+    "battle-guanyu-packed-11.png",
+    "battle-guanyu-packed-12.png",
+    "battle-guanyu-packed-13.png",
+    "battle-guanyu-packed-14.png",
+    "battle-guanyu-packed-15.png",
+    "battle-guanyu-packed-16.png",
+    "battle-guanyu-packed-17.png",
+    "battle-guanyu-packed-18.png",
+    "battle-guanyu-packed-19.png",
+    "battle-guanyu-packed-20.png",
+    "battle-guanyu-packed-21.png"
   ],
   "frames": 325,
   "actions": {
@@ -113,50 +133,52 @@
     "ne",
     "n"
   ],
-  "scale": 1.7818181818181817,
+  "scale": 0.44954128440366975,
   "anchors": {
     "s": {
-      "left": 72,
-      "top": 74,
-      "right": 123,
-      "bottom": 121,
-      "width": 52,
-      "height": 48
+      "left": 280,
+      "top": 289,
+      "right": 495,
+      "bottom": 486,
+      "width": 216,
+      "height": 198
     },
     "se": {
-      "left": 73,
-      "top": 78,
-      "right": 123,
-      "bottom": 114,
-      "width": 51,
-      "height": 37
+      "left": 290,
+      "top": 311,
+      "right": 498,
+      "bottom": 459,
+      "width": 209,
+      "height": 149
     },
     "e": {
-      "left": 81,
-      "top": 67,
-      "right": 111,
-      "bottom": 123,
-      "width": 31,
-      "height": 57
+      "left": 323,
+      "top": 270,
+      "right": 445,
+      "bottom": 496,
+      "width": 123,
+      "height": 227
     },
     "ne": {
-      "left": 67,
-      "top": 72,
-      "right": 119,
-      "bottom": 120,
-      "width": 53,
-      "height": 49
+      "left": 270,
+      "top": 289,
+      "right": 478,
+      "bottom": 481,
+      "width": 209,
+      "height": 193
     },
     "n": {
-      "left": 67,
-      "top": 72,
-      "right": 121,
-      "bottom": 120,
-      "width": 55,
-      "height": 49
+      "left": 268,
+      "top": 288,
+      "right": 485,
+      "bottom": 486,
+      "width": 218,
+      "height": 199
     }
   },
   "model": "war3mapImported/GY.mdx",
+  "frameSize": 768,
+  "qualityFactor": 4,
   "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
   "dependencies": {
     "war3mapImported/GY.mdx": {
@@ -184,8 +206,8 @@
   "uniformZoom": 1.9599999999999997,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 48365568,
-    "afterBytes": 5873664,
+    "beforeBytes": 773849088,
+    "afterBytes": 77180928,
     "boundaryFrames": 0
   }
 }

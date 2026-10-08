@@ -186,7 +186,7 @@ module.exports={
           "skills": [
             {
               "id": "11021",
-              "name": "反旋",
+              "name": "旋风斩",
               "cooldown": 0,
               "description": "受攻击时，有35%概率发动螺旋反击，对附近1格敌方造成35%伤害。（被动）"
             }
@@ -204,7 +204,7 @@ module.exports={
           "skills": [
             {
               "id": "11021",
-              "name": "反旋",
+              "name": "旋风斩",
               "cooldown": 0,
               "description": "受攻击时，有35%概率发动螺旋反击，对附近1格敌方造成35%伤害。（被动）"
             },
@@ -228,7 +228,7 @@ module.exports={
           "skills": [
             {
               "id": "11021",
-              "name": "反旋",
+              "name": "旋风斩",
               "cooldown": 0,
               "description": "受攻击时，有35%概率发动螺旋反击，对附近1格敌方造成35%伤害。（被动）"
             },
@@ -258,7 +258,7 @@ module.exports={
           "skills": [
             {
               "id": "11021",
-              "name": "反旋",
+              "name": "旋风斩",
               "cooldown": 0,
               "description": "受攻击时，有35%概率发动螺旋反击，对附近1格敌方造成35%伤害。（被动）"
             },
@@ -294,7 +294,7 @@ module.exports={
           "skills": [
             {
               "id": "11021",
-              "name": "反旋",
+              "name": "旋风斩",
               "cooldown": 0,
               "description": "受攻击时，有35%概率发动螺旋反击，对附近1格敌方造成35%伤害。（被动）"
             },
@@ -1920,7 +1920,7 @@ module.exports={
       "tier": 3,
       "chapter": 0,
       "gender": "男",
-      "unlock": "initial",
+      "unlock": "boss",
       "portrait": "handbook/zhouyu.png",
       "tiers": [
         {

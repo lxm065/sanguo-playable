@@ -1,0 +1,2 @@
+if(!sample.talentQA||view.model===sample.model)throw Error('隔离验收已失效，禁止操作玩家模型');
+view.page='home';view.model.transact(()=>{Object.assign(view.model.state.meta,{chapter:2,section:1,layer:0,cleared:1,sectionReward:null,runReward:null,sweep:null});});view.render();return {sites:GameGlobal[0].require('play/home-march-view.js').sites(view.progress.state),entry:!!view.root.getChildByName('home-march').getChildByName('chapter-2')};

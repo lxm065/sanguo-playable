@@ -1,0 +1,1 @@
+const manager=GameGlobal[0].wx.createPageManager(),c=GameGlobal[0].require('play/game-club-config.js');return manager.load({openlink:c.openlink}).then(()=>manager.show()).then(()=>({opened:true}),e=>({opened:false,errCode:e.errCode,code:e.code,message:e.message,errMsg:e.errMsg,errInfo:e.errInfo})).finally(()=>manager.destroy());

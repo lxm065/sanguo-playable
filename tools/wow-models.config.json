@@ -1,0 +1,142 @@
+{
+  "assetRoot": "F:/WoW-Assets/classic-titan/raw",
+  "readerHome": "F:/WoW-Assets/classic-titan/preview",
+  "threeHome": "F:/WoW-Assets/classic-titan/preview/node_modules/three",
+  "puppeteerHome": "D:/Tools/wc3-mdx-screenshotter/node_modules/puppeteer-core",
+  "browser": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "output": "source-assets/wow-models",
+  "camera": {
+    "elevation": 0.7,
+    "margin": 1.12,
+    "portraitElevation": 0.08,
+    "portraitSpanRatio": 0.52
+  },
+  "lighting": {
+    "ambient": 2,
+    "key": 2.1,
+    "rim": 0.7
+  },
+  "fps": 12,
+  "frameSize": 256,
+  "portraitSize": 512,
+  "previewDirection": -35,
+  "portraitDirection": -12,
+  "previewSize": 640,
+  "maxDuration": {
+    "idle": 2,
+    "run": 1.5
+  },
+  "heroes": {
+    "taishici": {
+      "name": "太史慈",
+      "model": "creature/humanmalewarriorlight/humanmalewarriorlight.m2",
+      "texture": "creature/humanmalewarriorlight/humanmalewarriorlight_skin02.blp",
+      "actions": {
+        "idle": 29,
+        "run": 5,
+        "skill1": 46,
+        "skill2": 107,
+        "dead": 1
+      },
+      "weapons": [
+        {
+          "model": "item/objectcomponents/weapon/bow_1h_blood_c_01.m2",
+          "attachment": 2,
+          "scale": 1,
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "texture": "item/objectcomponents/weapon/bow_1h_blood_c_01red.blp"
+        }
+      ]
+    },
+    "ganning": {
+      "name": "甘宁",
+      "model": "creature/humanmalepirateswashbuckler/humanmalepirateswashbuckler.m2",
+      "texture": "creature/humanmalepirateswashbuckler/swashbuckler02.blp",
+      "actions": {
+        "idle": 26,
+        "run": 5,
+        "skill1": 17,
+        "skill2": 88,
+        "dead": 1
+      },
+      "weapons": [
+        {
+          "model": "item/objectcomponents/weapon/sword_1h_horde_a_02.m2",
+          "attachment": 1,
+          "scale": 0.85,
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "texture": "item/objectcomponents/weapon/sword_1h_horde_a_02blue.blp"
+        },
+        {
+          "model": "item/objectcomponents/weapon/sword_1h_horde_a_02.m2",
+          "attachment": 2,
+          "scale": 0.85,
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "texture": "item/objectcomponents/weapon/sword_1h_horde_a_02blue.blp"
+        }
+      ]
+    },
+    "zhangjiao": {
+      "name": "张角",
+      "model": "creature/humanmalecaster/humanmalecaster.m2",
+      "texture": "creature/humanmalecaster/humanmalecaster_skinpriest.blp",
+      "actions": {
+        "idle": 0,
+        "run": 5,
+        "skill1": 53,
+        "skill2": 54,
+        "dead": 1
+      },
+      "weapons": [
+        {
+          "model": "item/objectcomponents/weapon/stave_2h_jeweled_b_01.m2",
+          "attachment": 1,
+          "scale": 0.85,
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "texture": "item/objectcomponents/weapon/stave_2h_jeweled_b_01white.blp"
+        }
+      ]
+    },
+    "yanliang": {
+      "name": "颜良",
+      "model": "creature/humanmalewarriorheavy/humanmalewarriorheavy.m2",
+      "texture": "creature/humanmalewarriorheavy/humanmalewarriorheavy_skin02.blp",
+      "actions": {
+        "idle": 28,
+        "run": 5,
+        "skill1": 19,
+        "skill2": 59,
+        "dead": 1
+      },
+      "weapons": [
+        {
+          "model": "item/objectcomponents/weapon/polearm_2h_bladed_b_01.m2",
+          "attachment": 1,
+          "scale": 0.88,
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "texture": "item/objectcomponents/weapon/polearm_2h_bladed_b_01purple.blp"
+        }
+      ]
+    }
+  }
+}

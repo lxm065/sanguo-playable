@@ -1,0 +1,7 @@
+'use strict';
+const c=require('./run-settlement-config'),service=require('./run-settlement');
+/** 结算按钮采用原版红金分层，并屏蔽底部首页点击。 */
+function button(v,p,text,x,action,color){const n=v.ui.node(p,text,x,c.buttonY,c.buttonWidth,c.buttonHeight);v.ui.image(n,'classic/button-'+color+'.png',0,0,c.buttonWidth,c.buttonHeight);require('./button-content').draw(v.ui,n,text,34,'#FFE260',c.buttonWidth-12,c.buttonHeight);n.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;action();});}
+/** 远征首页上展示投降原因和持久化奖励，重启仍能继续领取。 */
+function show(v){const r=v.progress.state.runReward;if(!r)return;const m=v.overlay(),u=v.ui;u.box(m,'surrender-panel',0,c.panelY,c.width,c.height,'#14333EF2',false);u.text(m,'失败',0,c.titleY,66,'#78BDF0',450,95);u.text(m,'你认输了',0,c.reasonY,40,'#9CD4FF',600,70);u.text(m,'获得',-95,c.rewardY,34,'#FFFFFF',160,60);u.image(m,'classic/diamond.png',37,c.rewardY,44,48);u.text(m,require('./vip').diamonds(v.model,r.diamonds),105,c.rewardY,36,'#FFFFFF',150,60);if(require('./novice-rewards').current(v.model).offer)u.text(m,'领取新人福利【关羽】，能大幅提升实力！',0,c.hintY,28,'#FF6965',680,70);button(v,m,'确定',r.diamonds>0?-c.buttonOffset:0,()=>v.act(()=>service.claim(v.progress,r.id)),'red');if(r.diamonds>0){const ticket=v.model.adTicket();button(v,m,'▶ 双倍领取',c.buttonOffset,()=>v.ad(()=>service.claim(v.progress,r.id,ticket)),'gold');}u.button(m,'分享本局',0,c.shareY,420,()=>{try{v.shareService.open('menu');}catch(e){v.notice('分享',e.message);}},'#816425',65);}
+module.exports={show};

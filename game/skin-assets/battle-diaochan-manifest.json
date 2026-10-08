@@ -1,7 +1,11 @@
 {
   "textures": [
     "battle-diaochan-packed-0.png",
-    "battle-diaochan-packed-1.png"
+    "battle-diaochan-packed-1.png",
+    "battle-diaochan-packed-2.png",
+    "battle-diaochan-packed-3.png",
+    "battle-diaochan-packed-4.png",
+    "battle-diaochan-packed-5.png"
   ],
   "frames": 250,
   "actions": {
@@ -113,50 +117,52 @@
     "ne",
     "n"
   ],
-  "scale": 1.2564102564102564,
+  "scale": 0.6405228758169934,
   "anchors": {
     "s": {
-      "left": 71,
-      "top": 55,
-      "right": 121,
-      "bottom": 134,
-      "width": 51,
-      "height": 80
+      "left": 141,
+      "top": 111,
+      "right": 243,
+      "bottom": 270,
+      "width": 103,
+      "height": 160
     },
     "se": {
-      "left": 72,
-      "top": 56,
-      "right": 120,
-      "bottom": 134,
-      "width": 49,
-      "height": 79
+      "left": 143,
+      "top": 111,
+      "right": 238,
+      "bottom": 269,
+      "width": 96,
+      "height": 159
     },
     "e": {
-      "left": 57,
-      "top": 56,
-      "right": 134,
-      "bottom": 134,
-      "width": 78,
-      "height": 79
+      "left": 115,
+      "top": 113,
+      "right": 267,
+      "bottom": 270,
+      "width": 153,
+      "height": 158
     },
     "ne": {
-      "left": 60,
-      "top": 58,
-      "right": 134,
-      "bottom": 131,
-      "width": 75,
-      "height": 74
+      "left": 119,
+      "top": 118,
+      "right": 268,
+      "bottom": 263,
+      "width": 150,
+      "height": 146
     },
     "n": {
-      "left": 66,
-      "top": 57,
-      "right": 126,
-      "bottom": 133,
-      "width": 61,
-      "height": 77
+      "left": 135,
+      "top": 113,
+      "right": 255,
+      "bottom": 268,
+      "width": 121,
+      "height": 156
     }
   },
   "model": "war3mapImported/DC.mdx",
+  "frameSize": 384,
+  "qualityFactor": 2,
   "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
   "dependencies": {
     "war3mapImported/DC.mdx": {
@@ -175,17 +181,17 @@
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
       "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
     },
-    "BS2.BLP": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS2.BLP",
-      "sha256": "9785d032d21fc67c27dfa8b58c7fdb507f6de6bbb911105775cda9453482e54e"
+    "kuwu.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\kuwu.blp",
+      "sha256": "760fee508fa14856e940f1b908cf0f98ed6ee266ec63aaafab89aa5593edf9bd"
     },
     "BS1.BLP": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS1.BLP",
       "sha256": "872128d85fa7fb418c8ceb47b71eba21de00cf5b3e152a29fc1b2adade9fb68d"
     },
-    "kuwu.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\kuwu.blp",
-      "sha256": "760fee508fa14856e940f1b908cf0f98ed6ee266ec63aaafab89aa5593edf9bd"
+    "BS2.BLP": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS2.BLP",
+      "sha256": "9785d032d21fc67c27dfa8b58c7fdb507f6de6bbb911105775cda9453482e54e"
     },
     "BS3.BLP": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS3.BLP",
@@ -214,18 +220,18 @@
   },
   "camera": {
     "center": [
-      7.232480720907915,
-      15.4588838275522,
-      58.26219350809697
+      7.2185097288456745,
+      15.441699128597975,
+      58.26045727121527
     ],
-    "height": 116.607745683752,
-    "span": 160.4215986626226
+    "height": 116.60624456586083,
+    "span": 160.4125305883641
   },
   "uniformZoom": 1.4,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 37748736,
-    "afterBytes": 5287936,
+    "beforeBytes": 150994944,
+    "afterBytes": 20107264,
     "boundaryFrames": 0
   }
 }

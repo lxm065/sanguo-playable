@@ -25,7 +25,7 @@ const rows=[
 ];
 const {portraitFile}=require('./portraits');
 module.exports={
- heroes:rows.map(([sourceId,sourceName,id,name,faction,role,tier,chapter,gender])=>({sourceId,sourceName,id,name,faction,role,tier,chapter,gender,unlock:id==='zhangfei'?'boss':chapter?'chapter':'initial',portrait:portraitFile(id)})),
+ heroes:rows.map(([sourceId,sourceName,id,name,faction,role,tier,chapter,gender])=>({sourceId,sourceName,id,name,faction,role,tier,chapter,gender,unlock:require('./section-policy').requirement(id)?'boss':chapter?'chapter':'initial',portrait:portraitFile(id)})),
  excluded:['刘备','孙坚','袁绍','董卓','曹操','孙权','刘表'],
  bonds:[
   {id:'wei',kind:'faction',value:'魏',name:'魏·铁壁',effect:'魏将物理防御＋{0}／＋{1}',values:[5,15]},
@@ -35,10 +35,10 @@ module.exports={
   {id:'warrior',kind:'role',value:'猛将',name:'猛将',effect:'猛将最大生命值＋{0}%／＋{1}%',values:[8,16]},
   {id:'archer',kind:'role',value:'神射',name:'神射',effect:'神射攻击力＋{0}%／＋{1}%',values:[10,20]},
   {id:'strategist',kind:'role',value:'谋士',name:'谋士',effect:'全体敌人魔法防御－{0}／－{1}',values:[5,15]},
-  {id:'vanguard',kind:'role',value:'先锋',name:'先锋',effect:'先锋暴击率＋{0}%／＋{1}%，暴击伤害＋{2}%',values:[15,30,50]},
+  ...require('./bond-activation-config').entries.map(e=>({...e,kind:'role',value:e.name})),
  ],
  thresholds:[2,4],fiveStarChapter:18,
  tabs:[['heroes','武将'],['equipment','装备'],['bonds','羁绊']],
- text:{title:'图鉴',preview:'羁绊规则 · 按不同上阵武将计算',equipment:'装备图鉴暂未开放',initial:'初始收录',chapter:'通关第{0}章',boss:'击败首个BOSS并完成结算解锁',unimplemented:'仅图鉴展示，尚未接入招募',available:'已接入本地阵容',unavailable:'已接入本地阵容，尚未解锁',close:'点击空白处关闭',back:'返回图鉴',fiveStar:'通关第{0}章，全体单位可升5星',rules:'同名不同阶只计一次，主公不参与',detail:'图鉴定位与当前战斗规则分别维护。'},
- layout:{width:690,height:990,titleY:439,tabY:-426,viewportY:28,viewportHeight:716,viewportWidth:632,padding:12,columns:3,cellWidth:196,cellHeight:195,portrait:108,tierHeader:58,bondHeight:330,bondColumns:3,bondPortrait:76,bondRow:108,dragThreshold:14,font:25,smallFont:22,titleFont:34,colors:['#24903A','#3278C8','#924EC2','#C58020'],paper:'#E5D2AA',ink:'#593E2C',muted:'#816849',gold:'#D5A635'},
+ text:{title:'图鉴',preview:'羁绊规则 · 按不同上阵武将计算',initial:'',chapter:'通关第{0}章',bossShort:'第{0}章第{1}节解锁',boss:'击败首个BOSS并完成结算解锁',unimplemented:'仅图鉴展示，尚未接入招募',available:'已接入本地阵容',unavailable:'已接入本地阵容，尚未解锁',close:'点击空白处关闭',back:'返回图鉴',fiveStar:'通关第{0}章，全体单位可升5星',rules:'',detail:'图鉴定位与当前战斗规则分别维护。'},
+ layout:{width:690,height:990,titleY:439,tabY:-426,viewportY:28,viewportHeight:716,viewportWidth:632,padding:12,columns:3,cellWidth:196,cellHeight:172,portrait:108,tierHeader:58,bondHeight:330,bondColumns:3,bondPortrait:76,bondRow:108,dragThreshold:14,font:25,smallFont:22,titleFont:34,colors:['#24903A','#3278C8','#924EC2','#C58020'],paper:'#E5D2AA',ink:'#593E2C',muted:'#816849',gold:'#D5A635'},
 };

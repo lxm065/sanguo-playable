@@ -1,6 +1,8 @@
 "use strict";
 const appearance = require("./battle-appearance"),
   motion = require("./model-animation");
+const unitConfig = require("./battle-hud-config").unit;
+const { unitLayout } = require("./unit-layout");
 class Widgets {
   /** 基础画布控件只负责渲染，不接触战役数据。 */
   constructor(cc, assets, colors) {
@@ -54,7 +56,7 @@ class Widgets {
   /** 创建带阻挡冒泡的按钮，防止模态操作误点下层棋盘。 */
   button(parent, text, x, y, w, callback, color = this.colors.red, h = 62) {
     const n = this.box(parent, text, x, y, w, h, color);
-    this.text(n, text, 0, 0, 24, this.colors.paper, w - 12, h);
+    require('./button-content').draw(this,n,text,24,this.colors.paper,w-12,h);
     n.on(this.cc.Node.EventType.TOUCH_END, (event) => {
       event.propagationStopped = true;
       callback();
@@ -102,27 +104,39 @@ class Widgets {
   }
   /** 显示一个实际 Spine 单位，返回可重用的动画与血条句柄。 */
   actor(parent, unit, x, y, scale = 1, showBars = true) {
-    const n = this.node(parent, "unit-" + unit.uid, x, y, 100, 120),
+    const c = unitConfig,
+      n = this.node(parent, "unit-" + unit.uid, x, y, c.hitWidth, c.hitHeight),
       body = this.node(n, "body");
-    n.getComponent(this.cc.UITransform).setAnchorPoint(0.5, 0);
     body.setScale(scale, scale, 1);
-    const sp = body.addComponent(this.cc.sp.Skeleton);
-    const hp = this.node(n, "hp", 0, 126 * scale, 84, 7),
+    const sp = body.addComponent(this.cc.sp.Skeleton),
+      status = this.node(n, "unit-status"),
+      hp = this.node(status, "hp", c.barX, 0, c.barWidth, c.barHeight),
       graphic = hp.addComponent(this.cc.Graphics);
-    hp.active = showBars;
-    const label = this.text(
-      n,
-      "★".repeat(unit.star),
+    status.active = showBars;
+    const badge = this.box(
+      status,
+      "rank",
+      c.rankX,
       0,
-      145 * scale,
-      16,
-      this.colors.gold,
-      100,
-      28,
+      c.rankSize,
+      c.rankSize,
+      c.rankColors[unit.star - 1] || c.rankColors[0],
+      false,
     );
-    label.node.active = showBars;
+    const label = this.text(
+      badge,
+      unit.star,
+      0,
+      0,
+      c.rankFont,
+      "#FFFFFF",
+      c.rankSize,
+      c.rankSize + 4,
+    );
     const state = {
       node: n,
+      status,
+      centered: showBars,
       body,
       sp,
       hp: graphic,
@@ -134,16 +148,32 @@ class Widgets {
       baseScale: scale,
       directional: !!appearance.models[unit.heroId]?.directional,
       facing:
-        appearance.defaultDirection[unit.side || (showBars ? "ally" : "enemy")],
+        motion.sourceDirection(unit.heroId,appearance.defaultDirection[unit.side || (showBars ? "ally" : "enemy")]),
     };
+    state.updateLayout = () => {
+      const layout = unitLayout(
+        state.manifest,
+        state.facing,
+        scale,
+        showBars,
+        unit.heroId,
+      );
+      body.setPosition(layout.bodyX, layout.bodyY);
+      const sign =
+        state.directional && appearance.mirrored[state.facing] ? -1 : 1;
+      body.setScale(layout.modelScale * sign, layout.modelScale, 1);
+      status.setPosition(0, layout.headY);
+    };
+    state.updateLayout();
     if (this.assets.hasModel(unit.heroId))
       this.assets
-        .skeleton(unit.heroId)
-        .then((data) => {
+        .skeleton(unit.heroId, unit.star)
+        .then((data) => this.assets.assembly.run(() => {
           if (!n.isValid) return;
           sp.premultipliedAlpha = false;
           sp.skeletonData = data;
           state.manifest = data.battleManifest;
+          state.updateLayout();
           const action = state.currentAnimation;
           motion.animate(
             state,
@@ -151,7 +181,7 @@ class Widgets {
             action?.loop ?? true,
             action?.options || {},
           );
-        })
+        }))
         .catch(console.error);
     else {
       const f = appearance.fallback;
@@ -167,12 +197,24 @@ class Widgets {
     const g = actor.hp;
     g.clear();
     g.fillColor = new this.cc.Color("#34251F");
-    g.rect(-42, -3.5, 84, 7);
+    const c = unitConfig;
+    g.roundRect(
+      -c.barWidth / 2 - c.border,
+      -c.barHeight / 2 - c.border,
+      c.barWidth + 2 * c.border,
+      c.barHeight + 2 * c.border,
+      2,
+    );
     g.fill();
     g.fillColor = new this.cc.Color(
       hp > 0 ? (actor.side === "enemy" ? "#D96750" : "#78C86D") : "#8E352B",
     );
-    g.rect(-42, -3.5, (84 * Math.max(0, hp)) / actor.maxHp, 7);
+    g.rect(
+      -c.barWidth / 2,
+      -c.barHeight / 2,
+      c.barWidth * Math.min(1, Math.max(0, hp) / actor.maxHp),
+      c.barHeight,
+    );
     g.fill();
   }
   /** 非死亡动作结束回到待机；死亡停留末帧。 */

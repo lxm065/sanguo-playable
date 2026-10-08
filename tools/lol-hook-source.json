@@ -1,0 +1,8 @@
+{
+  "root": "F:\\LoL-Asset-Library",
+  "mesh": "converted/Blitzcrank/aa526e2011b185ffc4cf.glb",
+  "texture": "textures/Blitzcrank/8dd638adbc44681febd3.png",
+  "cable": "textures/Blitzcrank/3c49d51602ff775dad02.png",
+  "effect": "Blitzcrank_Base_Q_mis",
+  "source": "raw/Blitzcrank/data/characters/blitzcrank/skins/skin0.bin"
+}

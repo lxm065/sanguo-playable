@@ -1,0 +1,3 @@
+'use strict';
+/** 战败反馈和视频祝福配置：截图中的祝福赠送一名2级武将。 */
+module.exports={title:'所有单位全部阵亡',panelY:60,panelHeight:320,titleY:245,titleFont:49,portraitX:-245,portraitY:105,portraitWidth:112,portraitHeight:146,levelY:13,heartsY:-36,bubbleX:88,bubbleY:107,bubbleWidth:442,bubbleHeight:172,bubbleFill:'#E9CEA3',bubbleBorder:'#B47B37',font:30,advice:'帮我点一下天赋和黄点，我还可以再强化一下。',hint:'天赋树加点，能大幅提升实力！',hintY:-66,buttonY:-190,buttonX:170,buttonWidth:290,buttonHeight:86,rewardY:-260,npc:'zhenji',npcX:-263,npcY:-435,npcScale:1.65,guideX:63,guideY:-402,guideWidth:500,guideHeight:125,guide:'英雄受伤了！\n后面的战斗要更小心哦！',continue:'继续战斗',blessing:'▶ 强化祝福'};

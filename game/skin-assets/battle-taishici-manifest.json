@@ -1,0 +1,225 @@
+{
+  "textures": [
+    "battle-taishici-packed-0.png",
+    "battle-taishici-packed-1.png",
+    "battle-taishici-packed-2.png",
+    "battle-taishici-packed-3.png",
+    "battle-taishici-packed-4.png",
+    "battle-taishici-packed-5.png"
+  ],
+  "frames": 360,
+  "actions": {
+    "idle-s": {
+      "source": "M2 animation 29",
+      "duration": 1
+    },
+    "run-s": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-s": {
+      "source": "M2 animation 46",
+      "duration": 1
+    },
+    "skill2-s": {
+      "source": "M2 animation 107",
+      "duration": 1
+    },
+    "dead-s": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-se": {
+      "source": "M2 animation 29",
+      "duration": 1
+    },
+    "run-se": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-se": {
+      "source": "M2 animation 46",
+      "duration": 1
+    },
+    "skill2-se": {
+      "source": "M2 animation 107",
+      "duration": 1
+    },
+    "dead-se": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-e": {
+      "source": "M2 animation 29",
+      "duration": 1
+    },
+    "run-e": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-e": {
+      "source": "M2 animation 46",
+      "duration": 1
+    },
+    "skill2-e": {
+      "source": "M2 animation 107",
+      "duration": 1
+    },
+    "dead-e": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-ne": {
+      "source": "M2 animation 29",
+      "duration": 1
+    },
+    "run-ne": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-ne": {
+      "source": "M2 animation 46",
+      "duration": 1
+    },
+    "skill2-ne": {
+      "source": "M2 animation 107",
+      "duration": 1
+    },
+    "dead-ne": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    },
+    "idle-n": {
+      "source": "M2 animation 29",
+      "duration": 1
+    },
+    "run-n": {
+      "source": "M2 animation 5",
+      "duration": 0.667
+    },
+    "skill1-n": {
+      "source": "M2 animation 46",
+      "duration": 1
+    },
+    "skill2-n": {
+      "source": "M2 animation 107",
+      "duration": 1
+    },
+    "dead-n": {
+      "source": "M2 animation 1",
+      "duration": 2.233
+    }
+  },
+  "directions": [
+    "s",
+    "se",
+    "e",
+    "ne",
+    "n"
+  ],
+  "scale": 0.6285714285714286,
+  "anchors": {
+    "s": {
+      "left": 113,
+      "top": 52,
+      "right": 146,
+      "bottom": 185,
+      "width": 34,
+      "height": 134
+    },
+    "se": {
+      "left": 94,
+      "top": 49,
+      "right": 184,
+      "bottom": 183,
+      "width": 91,
+      "height": 135
+    },
+    "e": {
+      "left": 89,
+      "top": 39,
+      "right": 196,
+      "bottom": 179,
+      "width": 108,
+      "height": 141
+    },
+    "ne": {
+      "left": 98,
+      "top": 24,
+      "right": 168,
+      "bottom": 188,
+      "width": 71,
+      "height": 165
+    },
+    "n": {
+      "left": 109,
+      "top": 15,
+      "right": 142,
+      "bottom": 189,
+      "width": 34,
+      "height": 175
+    }
+  },
+  "model": "source-assets/wow-models/taishici.glb",
+  "sourceModel": "creature/humanmalewarriorlight/humanmalewarriorlight.m2",
+  "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+  "dependencies": {
+    "creature/humanmalewarriorlight/humanmalewarriorlight.m2": {
+      "fdid": 124544,
+      "bytes": 321890,
+      "sha256": "f902cbdba3b73469d85f3d7cd2fc8c93f0a8b2c2b547297068d76bee57be0068"
+    },
+    "creature/humanmalewarriorlight/humanmalewarriorlight00.skin": {
+      "fdid": 476850,
+      "bytes": 12304,
+      "sha256": "c7285a61998c8b27f3c513d333ef60a61af028a461ef3d483fd022ea042dba7c"
+    },
+    "creature/humanmalewarriorlight/humanmalewarriorlight_skin02.blp": {
+      "fdid": 124546,
+      "bytes": 88580,
+      "sha256": "14f01c46f15d1db4a36ab51c98ca450e64a9a7ccbbe1be9ffca213a97d470076"
+    },
+    "item/objectcomponents/weapon/bow_1h_blood_c_01.m2": {
+      "fdid": 144986,
+      "bytes": 18784,
+      "sha256": "034001c70a78bf0de6ab7f48620c4e9b8aa0d51d3b50f978d7fd6b85da638a69"
+    },
+    "item/objectcomponents/weapon/bow_1h_blood_c_0100.skin": {
+      "fdid": 490878,
+      "bytes": 4064,
+      "sha256": "742fc4f4262e0fb52eda1d20745948393336d17059ee772a8d176cfb261c6993"
+    },
+    "item/objectcomponents/weapon/bow_1h_blood_c_01red.blp": {
+      "fdid": 144989,
+      "bytes": 44900,
+      "sha256": "0dc0e06cd27c7e12ee8fbd06bc89eab76e269fab6a39a4807d541e4de9e46832"
+    }
+  },
+  "sha256": "77ddfecd14a281edc2cf318805e8d5d1cd0c9b58ac582af3fab2ace68983ed0b",
+  "fps": 12,
+  "frameSize": 256,
+  "nativeWow": true,
+  "bones": 60,
+  "movements": {
+    "idle": 0.02369951759453453,
+    "run": 0.38393197274916946,
+    "skill1": 0.8171743103504767,
+    "skill2": 1.5328006500856866,
+    "dead": 1.109756831731566
+  },
+  "camera": {
+    "span": 4.562866742967705,
+    "height": 1.9319218153236704,
+    "center": [
+      -0.04648679078084772,
+      0.9652153023521106,
+      0.020995777949120442
+    ]
+  },
+  "rendering": "本地魔兽M2原生蒙皮与骨骼动作、武器附件烘焙",
+  "compacted": {
+    "beforeBytes": 94371840,
+    "afterBytes": 20914176,
+    "boundaryFrames": 0
+  }
+}

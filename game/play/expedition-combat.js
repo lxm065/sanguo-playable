@@ -5,12 +5,13 @@ const { random, distance, nextStep } = require("./combat"),
 /** 创建独立战斗快照；旧低阶角色继续可用，面板属性由共用查询层计算。 */
 function prepare(units, side, roster, rules, scale, equipment) {
   return units.map((u) => {
-    const h = stats(u, units, roster, equipment, rules),
+    const h = stats(u, units, roster, equipment, side === "ally" ? rules : {...rules,playerBonds:undefined,playerEquipmentGrades:{},playerTalentTree:{},playerVip:null }),
       hp = Math.round(h.hp * scale);
     return {
       ...h,
       ...u,
       side,
+      talent:side==="ally"?(rules.playerTalent||{}):{},
       hp,
       maxHp: hp,
       attack: h.attack * scale,
@@ -33,24 +34,27 @@ function prepare(units, side, roster, rules, scale, equipment) {
 function prepareBattle(allies, enemies, roster, rules, scale, equipment = []) {
   const units = [
     ...prepare(allies, "ally", roster, rules, 1, equipment),
-    ...prepare(enemies, "enemy", roster, rules, scale, []),
+    ...prepare(enemies, "enemy", roster, rules, scale, require("./enemy-equipment").collect(enemies)),
   ];
   for (const side of ["ally", "enemy"])
-    for (const b of bonds(side === "ally" ? allies : enemies, roster)) {
+    for (const b of bonds(side === "ally" ? allies : enemies, roster,side==="ally"?rules.playerBonds:undefined)) {
       if (!b.level) continue;
       for (const u of units.filter((u) => u.side !== side)) {
         if (b.id === "qun") u.armor -= b.amount;
         if (b.id === "strategist") u.magicArmor -= b.amount;
       }
     }
+  require("./talent-effects").enemies(units,rules.playerTalentTree);
   return units;
 }
-/** 本地确定性演算；主技能使用恢复的倍率，服务端时序与次级技能尚未完整恢复。 */
+/** 本地确定性演算；前两章技能按独立规则调度，其他武将保留主技能兼容流程。 */
 function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
   const units = prepareBattle(allies, enemies, roster, rules, scale, equipment),
     rng = random(seed),
     events = [],
     hits = [];
+  const skills = require('./hero-skills'),talents=require('./talent-effects');
+  skills.initialize(units,events);
   const initial = JSON.parse(JSON.stringify(units));
   let result = "draw",
     elapsed = 0;
@@ -71,11 +75,15 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
     skill = false,
     critical = false,
     reflect = true,
+    effect = null,
   ) {
-    const actual = Math.max(
+    const up=(a.talent?.[a.magic?"magicUp":"physicalUp"]||0)+(a.talent?.[skill?"skillUp":"attackUp"]||0),down=(u.talent?.[a.magic?"magicDown":"physicalDown"]||0)+(u.talent?.[skill?"skillDown":"attackDown"]||0);
+    amount*= (1+up)*(1-Math.min(require("./activity-config").talent.damageReductionCap,down));
+    let actual = Math.max(
       rules.minDamage,
       Math.round((amount - u.block) * (1 - Math.min(0.9, u.reduction))),
     );
+    actual=Math.max(0,Math.round(talents.damage(a,u,actual,critical,rng)));
     u.hp = Math.max(0, u.hp - actual);
     events.push({
       type: "damage",
@@ -86,8 +94,10 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
       hp: u.hp,
       skill,
       critical,
+      effect,
     });
-    if (!u.hp) events.push({ type: "death", t, uid: u.uid });
+    if (!u.hp) {events.push({ type: "death", t, uid: u.uid, actor: a.uid });skills.onDeath(u,units,t,hits,heal,events);talents.death(u,units,t,heal);}
+    talents.hit(a,u,actual,t,skill,critical,reflect,rng,heal,damage);
     if (reflect && !a.magic && u.reflect && a.hp > 0)
       damage(u, a, actual * u.reflect, t, false, false, false);
     if (!a.magic && a.leech) heal(a, actual * a.leech, t);
@@ -107,24 +117,33 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
       }
       hits.splice(i, 1);
       const { a, u, s } = hit;
-      if (u.hp <= 0) continue;
-      const armor = s.trueDamage ? 0 : a.magic ? u.magicArmor : u.armor;
+      if (u.hp <= 0 || (hit.channel && (a.hp<=0 || a.stunnedUntil>t || a.silencedUntil>t || a.channelInterruptedAt>=hit.channelStart))) continue;
+      if(hit.healPower){if(a.hp>0)heal(u,a.attack*hit.healPower,t);continue;}
+      if(!hit.skill&&!s.undodgeable&&u.bondDodge&&rng()<u.bondDodge){talents.onEvade(u,t,heal);events.push({type:'evade',t,target:u.uid});continue;}
+      if(!hit.skill&&!s.undodgeable&&talents.evade(u,rng,t,heal)){events.push({type:'evade',t,target:u.uid});continue;}
+      if(!hit.skill && !s.undodgeable && u.dodgeUntil>t && rng()<u.skillDodge){talents.onEvade(u,t,heal);events.push({type:'evade',t,target:u.uid});continue;}
+      const armor = s.trueDamage ? 0 : a.magic ? u.magicArmor-(a.magicPen||0) : u.armor;
       damage(
         a,
         u,
-        (hit.power * a.attack * rules.armorScale) /
-          (rules.armorScale + Math.max(policy.localCombat.armorFloor, armor)),
+        (hit.flatDamage || ((hit.power * a.attack + (!hit.skill?Object.values(u.rends||{}).filter(r=>r.until>t).reduce((sum,r)=>sum+r.value,0):0)) * rules.armorScale) /
+          (rules.armorScale + Math.max(policy.localCombat.armorFloor, armor))),
         t,
         hit.skill,
         hit.critical,
+        true,
+        hit.effect,
       );
+      skills.onHit(a,u,hit,t,events);
+      if(!hit.skill&&u.hp>0)for(const rule of a.equipmentHits||[]){if(rule.stun){if(rng()<(a.range>1?rule.rangedChance:rule.meleeChance)&&!talents.resists(u,rng))u.stunnedUntil=Math.max(u.stunnedUntil,t+rule.stun);}else{const values={};for(const key of ['armor','magicArmor','attack','cooldownFactor'])if(rule[key])values[key]=rule[key];skills.buff(u,'equipment-'+rule.id,values,t+rule.duration);}}
+
       if (u.hp > 0) {
-        if (s.stun) u.stunnedUntil = Math.max(u.stunnedUntil, t + s.stun);
-        if (s.slow) {
+        if (s.stun&&!talents.resists(u,rng)) u.stunnedUntil = Math.max(u.stunnedUntil, t + s.stun);
+        if (s.slow&&!talents.resists(u,rng)) {
           u.slow = s.slow;
           u.slowUntil = t + s.duration;
         }
-        if (s.delay) u.nextSkill += s.delay;
+        if (s.delay) {u.nextSkill += s.delay;for(const id of Object.keys(u.skillTimers||{}))u.skillTimers[id]+=s.delay;}
         if (s.armorBreak) {
           u.armor += (u.restoreArmor?.value || 0) - s.armorBreak;
           u.restoreArmor = { at: t + s.duration, value: s.armorBreak };
@@ -161,13 +180,15 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
         }
       }
       if (s.drain) heal(a, a.attack * hit.power, t);
-      const counter = policy.primarySkills[u.heroId];
-      if (u.hp > 0 && counter?.passive === "counter" && rng() < counter.chance)
+      const counter = skills.managed(u)?skills.passive(u,"counter"):policy.primarySkills[u.heroId];
+      if (u.hp > 0 && (counter?.passive === "counter"||counter?.kind === "counter") && rng() < counter.chance) {
+        events.push({type:"ability",t,uid:u.uid,target:u.uid,effect:"whirl"});
         for (const v of units.filter(
           (v) =>
             v.side !== u.side && v.hp > 0 && distance(v, u) <= counter.radius,
         ))
-          damage(u, v, u.attack * counter.power, t, true, false, false);
+          damage(u, v, u.attack * counter.power, t, true, false, false,counter.effect);
+      }
     }
     const alive = (side) => units.some((u) => u.side === side && u.hp > 0);
     if (!alive("ally") || !alive("enemy")) {
@@ -175,6 +196,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
       break;
     }
     for (const a of units) {
+      skills.tick(a,units,t,hits,events);talents.tick(a,t);
       if (a.hp <= 0) continue;
       if (a.restoreArmor?.at <= t) {
         a.armor += a.restoreArmor.value;
@@ -190,9 +212,9 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
           heal(a, a.healPulse, t);
         a.nextRegen++;
       }
-      if (a.nextAction > t || a.stunnedUntil > t) continue;
+      if (a.nextAction > t || a.stunnedUntil > t || a.channelUntil>t) continue;
       const spec =
-          policy.primarySkills[a.heroId] ||
+          (skills.managed(a)?skills.attackSpec(a,rng):policy.primarySkills[a.heroId]) ||
           (a.legacy
             ? { power: a.skillPower, radius: a.skill === "cleave" ? 1 : 0 }
             : {}),
@@ -200,9 +222,13 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
           .filter((u) => u.side !== a.side && u.hp > 0)
           .sort((a1, b) => distance(a, a1) - distance(a, b) || a1.uid - b.uid);
       let target = targets[0];
+      if(a.tauntUntil>t)target=targets.find(u=>u.uid===a.tauntUid)||target;
+      if(!target)continue;
+      if(skills.activate(a,target,units,t,hits,events,heal,rules,rng)){talents.cast(a,t);continue;}
+
       const skill = a.legacy
         ? (a.attacks + 1) % a.skillEvery === 0
-        : !spec.passive && a.nextSkill <= t;
+        : !skills.managed(a) && !spec.passive && a.nextSkill <= t;
       if (skill && spec.heal) {
         for (const u of units.filter((u) => u.side === a.side))
           heal(u, a.attack * spec.heal, t);
@@ -236,17 +262,18 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
             duration: rules.moveSeconds,
           });
         }
-        a.nextAction = t + rules.moveSeconds;
+        a.nextAction = t + rules.moveSeconds/(Math.max(.1,1-(a.treeSpeedDown||0))*(1+(a.treeSpeedUp||0)));
         continue;
       }
       let s = skill ? spec : spec.passive ? spec : {},
         power = skill ? s.power || 1 : 1;
       if (s.passive === "bonus") power = s.power;
       if (s.passive === "bash") {
-        if (rng() < s.chance) power = s.power;
+        if (skills.managed(a)||rng() < s.chance) power = s.power;
         else s = {};
       }
       if (s.passive === "counter") s = {};
+      if(!skill&&a.disarmedUntil>t)continue;
       const critical = rng() < rules.criticalChance + a.critical;
       if (critical) power *= rules.criticalMultiplier + a.criticalBonus;
       a.attacks++;
@@ -266,6 +293,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
         skill,
         skillName: a.skills?.[0]?.name || a.skillName,
         ranged: a.range > 1,
+        effect: spec.effect || (!skills.managed(a)?require("./hero-skill-config").primaryEffects[a.heroId]:null) || null,
       });
       for (const u of affected)
         hits.push({
@@ -276,11 +304,14 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
           power,
           skill,
           critical,
+          effect: spec.effect || (!skills.managed(a)?require("./hero-skill-config").primaryEffects[a.heroId]:null) || null,
         });
-      a.nextAction = t + a.interval / (a.slowUntil > t ? 1 - a.slow : 1);
+      skills.afterAttack(a,units,t,events,rng,rules);
+      a.nextAction = t + a.interval / ((1-Math.max(a.slowUntil>t?a.slow:0,a.auraSlow||0))*(1+(a.skillHaste||0)));
+      if(skill)talents.cast(a,t);
       if (skill)
         a.nextSkill =
-          t + (a.skills?.[0]?.cooldown || policy.localCombat.interval);
+          t + (a.skills?.[0]?.cooldown || policy.localCombat.interval)*(a.cooldownFactor||1);
     }
   }
   return {

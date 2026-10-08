@@ -17,6 +17,7 @@ class BattleHud {
   }
   /** 建立无溢出的羁绊徽章和直接可拖动的装备图标。 */
   render() {
+    require("./team-equipment-buffs").render(this.view);
     this.renderBonds();
     this.renderEquipment();
     for (const unit of this.view.model.state.units) this.renderEquipped(unit);
@@ -26,14 +27,14 @@ class BattleHud {
     const v = this.view,
       u = v.ui,
       c = config.bonds;
-    u.text(v.root, "羁绊", -309, c.y, 26, "#7AB755", 98);
+    const title=u.node(v.root,"bond-entry",-309,c.y,98,55);u.text(title,"羁绊",0,0,26,"#7AB755",98);require("./merge-notification").show(v,title);
     bonds(
       v.model.state.units.filter((x) => x.slot >= 0),
-      v.roster,
+      v.roster,require("./bond-activation").state(v.model),
     )
       .filter((b) => b.count)
       .forEach((b, i) => {
-        const [symbol, color] = c.symbols[b.id],
+        const [symbol, color] = c.symbols[b.id]||[b.symbol,b.color],
           n = u.box(
             v.root,
             "bond-" + b.id,
@@ -49,17 +50,7 @@ class BattleHud {
         n.on(v.cc.Node.EventType.TOUCH_END, (e) => {
           e.propagationStopped = true;
           if (v.playing) return;
-          v.notice(
-            b.name,
-            b.effect
-              .replace("{0}", b.values[0])
-              .replace("{1}", b.values[1])
-              .replace("{2}", b.values[2] || "") +
-              "\n不同武将：" +
-              b.count +
-              "，当前档位：" +
-              b.level,
-          );
+          require('./bond-detail-view').show(v,b);
         });
       });
   }
@@ -73,13 +64,16 @@ class BattleHud {
       ),
       capacity = c.columns * c.rows,
       pages = Math.max(1, Math.ceil(items.length / capacity));
+    const previous = v.root.getChildByName("equipment-inventory");
+    if (previous) { previous.removeFromParent(); previous.destroy(); }
+    const panel = u.node(v.root, "equipment-inventory");
     v.equipmentPage = Math.min(v.equipmentPage || 0, pages - 1);
-    u.text(v.root, "装备", -309, c.y, 26, "#7AB755", 98);
+    const title=u.node(panel,"equipment-entry",-309,c.y,98,55);u.text(title,"装备",0,0,26,"#7AB755",98);require("./notification-view").badge(v,title,"equipment",38,20);title.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;v.openHandbook();v.handbook.tab="equipment";v.handbook.render();});
     items
       .slice(v.equipmentPage * capacity, (v.equipmentPage + 1) * capacity)
       .forEach((item, i) => {
         const n = u.box(
-          v.root,
+          panel,
           "equipment-drag-" + item.uid,
           c.x + (i % c.columns) * c.gap,
           c.y - Math.floor(i / c.columns) * c.rowGap,
@@ -97,45 +91,31 @@ class BattleHud {
         );
         this.bindEquipment(n, item);
       });
-    if (pages > 1)
-      u.button(
-        v.root,
-        "›",
-        c.pageX,
-        c.pageY,
-        c.pageWidth,
-        () => {
-          v.equipmentPage = (v.equipmentPage + 1) % pages;
-          v.render();
-        },
-        "#665039",
-        44,
-      );
+    v.equipmentPager={pages,refresh:()=>this.renderEquipment()};
+    const hit=u.node(panel,'equipment-swipe-area',c.x+(c.columns-1)*c.gap/2,c.y-(c.rows-1)*c.rowGap/2,c.columns*c.gap,c.rows*c.rowGap);hit.setSiblingIndex(0);require('./equipment-swipe').bind(v,hit,e=>this.point(e));
   }
-  /** 在己方单位血条上方显示其三件装备，与详情共用同一归属。 */
+  /** 在敌我单位血条上方显示其三件装备，与详情共用同一归属。 */
   renderEquipped(unit) {
     const v = this.view,
       actor = v.actors.get(unit.uid);
     if (!actor) return;
-    const c = config.targeting,
-      items = v.model.state.expedition.equipment.filter(
+    const c = config.unit,
+      items = unit.uid < 0 ? (unit.equipment || []) : v.model.state.expedition.equipment.filter(
         (e) => e.owner === unit.uid,
-      ),
-      scale =
-        unit.slot >= 0
-          ? v.config.layout.modelScale
-          : v.config.layout.benchScale;
+      );
+    const row = v.ui.node(actor.status, "equipped-icons", 0, c.equipmentY);
     items.forEach((item, i) =>
       v.ui.image(
-        actor.node,
+        row,
         "equipment/" + item.id + ".png",
-        (i - (items.length - 1) / 2) * c.equippedGap,
-        c.equippedY * scale,
-        c.equippedSize,
-        c.equippedSize,
+        (i - (items.length - 1) / 2) * c.equipmentGap,
+        0,
+        c.equipmentSize,
+        c.equipmentSize,
       ),
     );
   }
+
   /** 将触摸坐标换算到战场，供浮动图标和命中检测共用。 */
   point(event) {
     const v = this.view,
@@ -169,12 +149,13 @@ class BattleHud {
     const v = this.view,
       events = v.cc.Node.EventType;
     let start = null,
-      moved = false;
+      moved = false,
+      swipe = false;
     node.on(events.TOUCH_START, (e) => {
       e.propagationStopped = true;
       if (v.playing || v.model.state.pending) return;
       start = this.point(e);
-      moved = false;
+      moved = false;swipe=false;
     });
     node.on(events.TOUCH_MOVE, (e) => {
       e.propagationStopped = true;
@@ -184,8 +165,9 @@ class BattleHud {
         !moved &&
         Math.hypot(p.x - start.x, p.y - start.y) > v.config.layout.dragThreshold
       ) {
-        moved = true;
-        this.beginDrag(item, node);
+        const intent=require('./equipment-swipe').intent(start,p,v.equipmentPager?.pages||1);if(!intent)return;
+        moved = true;swipe=intent==='page';
+        if(!swipe)this.beginDrag(item, node);
       }
       if (this.drag) this.drag.ghost.setPosition(p.x, p.y);
     });
@@ -193,12 +175,15 @@ class BattleHud {
     const release = (e) => {
       e.propagationStopped = true;
       if (!start) return;
-      start = null;
-      const target = equipmentTarget(this.point(e), this.positions());
+      const origin=start;start = null;
+      const point=this.point(e);
+      if(swipe){this.clearDrag();require('./equipment-swipe').turn(v,origin,point);return;}
+      const target = equipmentTarget(point, this.positions());
       this.clearDrag();
       if (v.playing || v.model.state.pending) return;
       if (moved) {
-        if (target !== null) v.act(() => v.model.equip(item.uid, target));
+        if(require("./node-event-view").saleHit(v,point)){v.act(()=>v.model.nodeEvents.sell("equipment",item.uid));return;}
+        if (target !== null) require("./equipment-refresh").equip(v,item.uid,target);
       } else v.equipmentDetails(item);
     };
     node.on(events.TOUCH_END, release);
@@ -217,36 +202,8 @@ class BattleHud {
     this.clearDrag();
     const v = this.view,
       c = config.targeting,
-      markers = [],
-      ids = recommendedUnits(
-        item,
-        v.model.state.units,
-        v.model.state.expedition.equipment,
-      );
-    for (const uid of ids) {
-      const a = v.actors.get(uid);
-      if (!a) continue;
-      const n = v.ui.box(
-        a.node,
-        "equipment-recommended",
-        0,
-        c.recommendY,
-        c.recommendWidth,
-        c.recommendHeight,
-        "#393017",
-      );
-      v.ui.text(
-        n,
-        "推荐",
-        0,
-        0,
-        c.recommendFont,
-        "#FFE343",
-        c.recommendWidth - 6,
-        c.recommendHeight,
-      );
-      markers.push(n);
-    }
+      markers = [];
+    markers.push(...require('./equipment-recommendation-view').show(v,item,v.model.state.units,v.model.state.expedition.equipment));
     const ghost = v.ui.image(
       v.root,
       "equipment/" + item.id + ".png",

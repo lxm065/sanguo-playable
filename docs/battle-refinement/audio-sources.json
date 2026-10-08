@@ -1,0 +1,73 @@
+[
+  {
+    "name": "first_blood",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\835992869.wav",
+    "events": [
+      "Play_vo_Announcer_Female1_FirstBloodHeroBlue",
+      "Play_vo_Announcer_Female1_FirstBloodHeroEnemyTeam",
+      "Play_vo_Announcer_Female1_FirstBloodHeroRed",
+      "Play_vo_Announcer_Female1_FirstBloodHeroYourTeam",
+      "Play_vo_Announcer_Female1_FirstBloodYouYourTeam"
+    ],
+    "sourceSha256": "04866584faff88ddb06123180eb314a5d27e5c5a12ffa6f18dd7be707e347346",
+    "bytes": 17612
+  },
+  {
+    "name": "double_kill",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\655441407.wav",
+    "events": [
+      "Play_vo_Announcer_Female1_DoubleKillHeroYourTeam",
+      "Play_vo_Announcer_Female1_DoubleKillYouYourTeam"
+    ],
+    "sourceSha256": "a6e6a4b5e4170c9f06dcfad7e6069857eb192dcd818ffae2ee0e169cdde5251b",
+    "bytes": 12716
+  },
+  {
+    "name": "triple_kill",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\457215657.wav",
+    "events": [
+      "Play_vo_Announcer_Female1_TripleKillHeroYourTeam",
+      "Play_vo_Announcer_Female1_TripleKillYouYourTeam"
+    ],
+    "sourceSha256": "654b67b6ee94f218286f60d06948f0f9c0360fc26e28d1998927c603f8558e3e",
+    "bytes": 15596
+  },
+  {
+    "name": "quadra_kill",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\688775583.wav",
+    "events": [
+      "Play_vo_Announcer_Female1_QuadraKillHeroYourTeam",
+      "Play_vo_Announcer_Female1_QuadraKillYouYourTeam"
+    ],
+    "sourceSha256": "ff47c9b26c3b70be2ca68d12fcd95abb7ca9a87440cc2f25da96698066d4867c",
+    "bytes": 17900
+  },
+  {
+    "name": "penta_kill",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\963502603.wav",
+    "events": [
+      "Play_vo_Announcer_Female1_PentaKillHeroYourTeam",
+      "Play_vo_Announcer_Female1_PentaKillYouYourTeam"
+    ],
+    "sourceSha256": "4ac46721472862f4007116a58d7a96fbde11291b9298d70e207d9340d293e383",
+    "bytes": 18476
+  },
+  {
+    "name": "victory",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\139054080.wav",
+    "events": [
+      "Play_vo_Announcer_Global_Female1_OnVictory"
+    ],
+    "sourceSha256": "284844eae0fb788492decb851f47be22ae7ec9e4922bfaad455626783e9212da",
+    "bytes": 14732
+  },
+  {
+    "name": "defeat",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\741535347.wav",
+    "events": [
+      "Play_vo_Announcer_Global_Female1_OnDefeat"
+    ],
+    "sourceSha256": "f66598381f816ecc2576d4250a57b844304eff2b9389a3ac5f7c7466de889161",
+    "bytes": 10988
+  }
+]

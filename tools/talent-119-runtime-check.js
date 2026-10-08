@@ -1,0 +1,10 @@
+const req=GameGlobal[0].require,tree=req('play/talent-tree.js'),ui=req('play/talent-tree-view.js'),m=view.model,results={};
+for(const page of [0,1,2]){ui.open(view,page);const list=view.talentTreeModal.getComponentsInChildren(cc.Label).map(l=>l.string);results['page'+page]=!!view.talentTreeModal.getChildByName('talent-tree-panel').getChildByName('talent-tree-scroll').getChildByName('talent-tree-content').getChildByName('talent-node-'+((page+1)*1000+1));}
+ui.open(view,0);ui.detail(view,'1001');
+const panel=view.talentTreeModal.getChildByName('talent-node-detail-shade').getChildByName('talent-node-detail');panel.getChildByName('升级').emit(cc.Node.EventType.TOUCH_END,{});
+results.rank=tree.query(m,'1001').rank;results.points=m.activities.state.talent.points;results.refreshed=view.talentTreeModal.getComponentsInChildren(cc.Label).some(l=>l.string==='残忍 1/3');
+ui.close(view);m.activities.state.talent.level=0;m.activities.state.talent.levels.fill(1);view.render();const button=view.root.children.find(n=>n.name.startsWith('突破'));results.breakCentered=button?.position.x===0;
+results.dailyDot=view.root.getComponentsInChildren(cc.UITransform).some(t=>t.node.name==='red-dot-daily'&&t.node.active);
+view.page='map';view.render();results.mapDaily=!!view.root.children.find(n=>n.name==='日常');results.mapBookDot=view.root.getComponentsInChildren(cc.UITransform).some(t=>t.node.name==='red-dot-catalog'&&t.node.active);
+view.page='rules';m.activities.state.talent.level=2;view.render();ui.open(view,0);const viewport=view.talentTreeModal.getChildByName('talent-tree-panel').getChildByName('talent-tree-scroll');viewport.emit(cc.Node.EventType.TOUCH_START,{getUILocation:()=>({x:0,y:0})});viewport.emit(cc.Node.EventType.TOUCH_MOVE,{getUILocation:()=>({x:0,y:900})});results.scroll=viewport.getChildByName('talent-tree-content').position.y;viewport.emit(cc.Node.EventType.TOUCH_END,{});
+if(!results.page0||!results.page1||!results.page2||results.rank!==1||!results.refreshed||!results.breakCentered||!results.mapDaily||!results.mapBookDot||results.scroll<=0)throw Error(JSON.stringify(results));return results;

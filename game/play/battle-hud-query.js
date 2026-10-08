@@ -21,13 +21,13 @@ function equipmentTarget(point, positions) {
       .filter(
         (p) =>
           Math.abs(point.x - p.x) <= c.halfWidth &&
-          point.y >= p.y + c.minY &&
+          point.y >= p.y + c.minY * p.scale &&
           point.y <= p.y + c.maxY * p.scale,
       )
       .sort(
         (a, b) =>
-          Math.hypot(point.x - a.x, point.y - a.y - (c.maxY * a.scale) / 2) -
-          Math.hypot(point.x - b.x, point.y - b.y - (c.maxY * b.scale) / 2),
+          Math.hypot(point.x - a.x, point.y - a.y) -
+          Math.hypot(point.x - b.x, point.y - b.y),
       )[0]?.uid ?? null
   );
 }
@@ -37,7 +37,7 @@ function lordSummary(model) {
   return {
     level: e.level,
     experience: e.experience,
-    nextExperience: rules.experience.thresholds[e.level - 1] ?? null,
+    nextExperience: require('./level-progression').cost(e.level),
     limit: model.limit(),
     ranks: layout.rankRows.map((star) => ({
       star,

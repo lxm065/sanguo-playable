@@ -9,20 +9,24 @@ class Expedition extends Campaign {
     if (this.transactionDepth) return operation();
     this.transactionDepth = 1;
     try {
-      return super.transact(operation);
+      const acquisition=require('./hero-acquisition'),before=acquisition.known(this),run=this.state.expedition,discovery=require('./equipment-discovery'),seen=discovery.known(this.state);
+      return super.transact(()=>{const rank=require('./friend-rank-metric');rank.record(this.state);const result=operation();acquisition.record(this,before,run);discovery.record(this,seen);rank.record(this.state);return result;});
     } finally {
       this.transactionDepth = 0;
     }
   }
   /** 兼容旧存档，仅补充缺失的装备与福利字段。 */
   constructor(rules, roster, storage) {
-    super(rules, roster, storage);
+    let migrated=false;
+    super(rules, roster, {read:()=>{const saved=require('./challenge-storage').snapshot(storage.read()),next=require('./population').migrate(saved,rules);migrated=next!==saved;return next;},write:s=>storage.write(require("./challenge-storage").snapshot(s))});
+    if(migrated)this.transact(()=>{});
+    this.nodeEvents=new (require("./node-events").NodeEvents)(this);
     if (!this.state.expedition)
       this.transact(() => {
         this.state.expedition = {
           equipment: [],
           nextEquipment: 1,
-          novice: 0,
+          novice: policy.noviceStart,
           adSerial: 0,
         };
       });
@@ -45,26 +49,17 @@ class Expedition extends Campaign {
     s.expedition = {
       equipment: [],
       nextEquipment: 1,
-      novice: this.state?.expedition?.novice || 0,
-      adSerial: this.state?.expedition?.adSerial || 0,
+      novice: policy.noviceStart,
+      adSerial: this.state?.expedition ? this.state.expedition.adSerial + 1 : 0,
       level: 1,
+      populationVersion: policy.population.version,
       experience: 0,
     };
     return s;
   }
   /** 等级只影响人数，不将上阵校验绑定到胜场数。 */
   validationLimit(s) {
-    const level =
-        s.expedition?.level ||
-        1 + Math.floor(s.wins / this.rules.limitEveryWins),
-      c = require("./classic-config");
-    return Math.min(
-      this.rules.maxDeployedLimit,
-      policy.baseArmyLimit +
-        (c.lordArmyBonus[s.meta?.lord || c.defaultLord] || 0) +
-        level -
-        1,
-    );
+    return require('./population').limit(s,this.rules);
   }
   /** 面板与领域校验使用同一个人数上限。 */
   limit() {
@@ -80,7 +75,8 @@ class Expedition extends Campaign {
   }
   /** 验证装备归属、上限和选择奖励，兼容历史待领取战报。 */
   valid(s) {
-    if (!super.valid(s)) return false;
+    if (!require('./challenge').valid(s.meta?.challenge,this.roster,this.rules)) return false;
+    if (!require("./talent-tree").valid(s.meta?.activities?.talent?.tree)||!super.valid(s)||!require("./equipment-upgrades").valid(s.meta?.equipmentGrades)) return false;
     const e = s.expedition;
     if (!e) return true;
     const p = s.pending;
@@ -129,7 +125,7 @@ class Expedition extends Campaign {
     const m = this.state.meta;
     return this.roster.filter(
       (h) =>
-        !h.legacy &&
+        !h.legacy && require("./section-policy").eligible(h.id,m) &&
         (h.unlock === "initial" ||
           (h.unlock === "boss" && m?.unlocked.includes(h.id)) ||
           (h.unlock === "chapter" && (m?.cleared || 0) >= h.chapter)),
@@ -154,7 +150,7 @@ class Expedition extends Campaign {
     if (!pool.length) throw Error("该阶没有可获取武将");
     return Array.from(
       { length: policy.choiceCount },
-      () => pool[Math.floor(rng() * pool.length)].id,
+      () => require("./talent-economy").pick(this,pool,rng).id,
     );
   }
   /** 招募列表只出售一阶单位；高阶由合成与关卡福利获得。 */
@@ -196,17 +192,19 @@ class Expedition extends Campaign {
       const pool = this.pool(unit.star + 1);
       if (mode === "random") {
         const rng = random(this.state.seed++);
-        target = pool[Math.floor(rng() * pool.length)].id;
+        target = require("./talent-economy").pick(this,pool,rng).id;
       }
       if (unit.slot < 0) unit.slot = group.find((u) => u.slot >= 0)?.slot ?? -1;
       for (const item of this.state.expedition.equipment)
         if (group.some((u) => u.uid === item.owner && u.uid !== uid))
           item.owner = null;
       unit.star++;
+      if(unit.star===4)this.activities?.record("merge4");
       if (mode !== "same") unit.heroId = target;
       this.state.units = this.state.units.filter(
         (u) => u === unit || !group.includes(u),
       );
+      if(this.state.expedition.talentReserve?.length)require("./talent-economy").deliver(this);
       return uid;
     });
   }
@@ -232,38 +230,46 @@ class Expedition extends Campaign {
   }
   /** 普通敌阵仅取当前开放武将，BOSS仍使用章节策略的固定配置。 */
   enemies() {
+    const cached=require("./enemy-budget").cached(this.state);if(cached)return cached;
     const configured = this.hooks?.enemies?.();
-    if (configured) return configured;
+    const type=this.progression?.nodes().find(n=>n.id===this.state.meta?.activeNode)?.type||'battle';
+    const difficulty=require('./chapter-difficulty');
+    const prepare=units=>require('./enemy-budget').decorate(require('./enemy-equipment').equip(require('./enemy-formation').arrange(units.map(u=>({...u,star:Math.max(u.star,difficulty.minimum(this.state))})),this.roster,this.rules),difficulty.equipmentState(this.state),this.roster,type),this.state,this.rules,this.roster);
+    if (configured) return prepare(type==='boss'?difficulty.reinforce(this.state,this.rules,configured):configured);
     const r = this.rules,
       rng = random(this.state.stage * 997),
       rank = Math.min(
         this.maxRank(),
         1 + Math.floor((this.state.stage - 1) / policy.enemyRankEveryStages),
       ),
-      pool = this.availableRoster().filter((h) => h.tier <= rank),
+      chapterPool = require('./journey-config').enemyPools[this.state.meta?.chapter],
+      pool = difficulty.pool(this.state,this.roster,rank) || (chapterPool ? this.roster.filter(h=>chapterPool.includes(h.id)&&h.tier<=rank) : this.availableRoster().filter((h) => h.tier <= rank)),
       count = Math.min(
-        r.maxDeployedLimit,
+        r.enemyMaxDeployedLimit || r.maxDeployedLimit,
         r.enemyStartCount +
           Math.floor((this.state.stage - 1) / r.enemyEveryStages),
       );
-    return Array.from({ length: count }, (_, i) => {
+    return prepare(Array.from({ length: difficulty.count(this.state,r,count) }, (_, i) => {
       const h = pool[Math.floor(rng() * pool.length)];
       return {
         uid: -i - 1,
         heroId: h.id,
-        star: h.tier,
+        star: difficulty.star(this.state,h),
         slot: r.enemyColumns[i % r.enemyColumns.length],
       };
-    });
+    }));
   }
   /** 普通战果生成兵种候选；精英战果只生成装备，不自动放入背包。 */
   fight(training = false) {
     return this.transact(() => {
+      if(!training&&this.state.meta?.sectionReward)throw Error('请先领取通关奖励');
+      require("./talent-economy").beforeFight(this,training);
       const battle = super.fight(training),
         p = this.state.pending,
         node = this.progression
           ?.nodes()
           .find((n) => n.id === this.state.meta.activeNode);
+      p.gold=require("./battle-gold").reward(this.state,node,p);
       p.rewardKind =
         !training && battle.result === "win"
           ? node?.type === "elite"
@@ -286,18 +292,22 @@ class Expedition extends Campaign {
       } else if (p.rewardKind === "heroes")
         p.choices = this.picks(p.rewardStar);
       else p.choices = [];
+      if(!training&&battle.result==="win")p.experience+=require("./vip").perks(this).data_6;
+      require("./talent-economy").settlePreview(this,p,node);
       return battle;
     });
   }
   /** 完整观看刷新为二阶三选一，结果先保存再显示。 */
-  refreshReward(ticket) {
+  refreshReward(ticket=null,expected=null) {
     return this.transact(() => {
       const p = this.state.pending;
       if (!p || p.rewardKind !== "heroes") throw Error("当前没有兵种奖励");
-      this.consumeAd(ticket);
+      if(expected&&(p.id!==expected.id||(p.coinRefreshes||0)!==expected.coins||p.refreshes!==expected.ads))throw Error('刷新结果已变化');
+      const c=require('./reward-refresh-config'),bag=this.state.meta.inventory;
+      if((bag[c.item]||0)>=c.cost){bag[c.item]-=c.cost;p.coinRefreshes=(p.coinRefreshes||0)+1;this.state.expedition.adSerial++;}
+      else {if(p.refreshes>=require('./vip').perks(this).data_1)throw Error('本场视频换一批次数已用完');this.consumeAd(ticket);p.refreshes++;}
       p.rewardStar = policy.refreshRank;
       p.choices = this.picks(p.rewardStar);
-      p.refreshes++;
     });
   }
   /** 发放唯一装备实例，尚未穿戴时放入本局装备栏。 */
@@ -306,6 +316,7 @@ class Expedition extends Campaign {
     if (!policy.equipment.some((x) => x.id === id)) throw Error("未知装备");
     const item = { uid: e.nextEquipment++, id, owner: null };
     e.equipment.push(item);
+    this.activities?.record("equipment");
     return item.uid;
   }
   /** 同一事务完成选将、装备与推进，任何错误均保留待领取战果。 */
@@ -318,7 +329,7 @@ class Expedition extends Campaign {
       if (index !== null) {
         if (!Number.isInteger(index) || !p.choices[index])
           throw Error("无效奖励");
-        if (this.state.units.length >= this.rules.capacity)
+        if (require('./reserve-policy').full(this.rules,this.state.units.length))
           throw Error("备战席已满，请先腾出位置");
         this.state.units.push({
           uid: this.state.nextUid++,
@@ -328,23 +339,20 @@ class Expedition extends Campaign {
         });
       }
       if (p.rewardKind === "equipment") this.addEquipment(p.equipmentId);
+      if(p.talentLoot?.length||this.state.expedition.talentReserve?.length)require("./talent-economy").deliver(this,p.talentLoot);
       this.hooks?.settle?.(p);
       this.state.gold += p.gold;
       const e = this.state.expedition;
       e.experience += p.experience || 0;
-      while (
-        e.level <= policy.experience.thresholds.length &&
-        e.experience >= policy.experience.thresholds[e.level - 1]
-      ) {
-        e.experience -= policy.experience.thresholds[e.level - 1];
-        e.level++;
-      }
+      require('./level-progression').advance(e);
       this.state.battles++;
       if (!p.training && p.battle.result === "win") {
         this.state.stage++;
         this.state.wins++;
+        this.activities?.record("wins");
       }
       this.state.pending = null;
+      this.state.expedition.vipSpeedActive=false;
       if (!p.training) this.roll();
       return true;
     });
@@ -354,11 +362,11 @@ class Expedition extends Campaign {
     return this.transact(() => {
       this.editable();
       const e = this.state.expedition,
-        offer = policy.novice[e.novice];
+        {index,offer} = require('./novice-rewards').current(this);
       if (!offer) throw Error("福利已全部领取");
       if (
         offer.kind === "hero" &&
-        this.state.units.length >= this.rules.capacity
+        require('./reserve-policy').full(this.rules,this.state.units.length)
       )
         throw Error("备战席已满");
       this.consumeAd(ticket);
@@ -370,8 +378,8 @@ class Expedition extends Campaign {
           slot: -1,
         });
       else if (offer.kind === "equipment") this.addEquipment(offer.id);
-      else this.state.meta.diamonds += offer.count;
-      e.novice++;
+      else this.progression.add('1',offer.count);
+      require('./novice-rewards').mark(this,index);e.novice=index+1;
     });
   }
   /** 装备转移及卸下不复制物品，第四件必须先卸下已有装备。 */
@@ -399,7 +407,7 @@ class Expedition extends Campaign {
     return this.transact(() => {
       for (const item of this.state.expedition.equipment)
         if (item.owner === uid) item.owner = null;
-      return super.sell(uid);
+      const result=super.sell(uid);if(this.state.expedition.talentReserve?.length)require("./talent-economy").deliver(this);return result;
     });
   }
 }

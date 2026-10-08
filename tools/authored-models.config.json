@@ -1,0 +1,15 @@
+{
+  "threeHome": "D:/Tools/wc3-mdx-screenshotter/node_modules/three",
+  "puppeteerHome": "D:/Tools/wc3-mdx-screenshotter/node_modules/puppeteer-core",
+  "browser": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+  "camera": { "span": 4.6, "targetY": 1.25, "elevation": 0.7, "distance": 8 },
+  "portrait": { "size": 512, "span": 1.62, "targetY": 2.02, "angle": 0.18, "background": "#554b39" },
+  "mesh": { "radialSegments": 8, "headSegments": 10, "armorRows": 3, "armorColumns": 5 },
+  "motion": { "idle": 2, "run": 0.8, "skill1": 1, "skill2": 1.4, "dead": 1.2, "breath": 0.018, "stride": 0.7, "armSwing": 0.65 },
+  "heroes": {
+    "taishici": { "name": "太史慈", "weapon": "bow", "width": 1, "armor": "#803631", "metal": "#b89551", "trim": "#dfc788", "cloth": "#6b252a", "skin": "#bc8b66", "hair": "#30251f", "plume": "#e3d9bc", "beard": 0.12, "cape": true },
+    "ganning": { "name": "甘宁", "weapon": "sabers", "width": 0.96, "armor": "#246568", "metal": "#647c80", "trim": "#d4af62", "cloth": "#17454f", "skin": "#bd8a60", "hair": "#27252a", "plume": "#347c80", "beard": 0.08, "cape": false },
+    "zhangjiao": { "name": "张角", "weapon": "staff", "width": 0.87, "armor": "#b89737", "metal": "#785334", "trim": "#f0d57a", "cloth": "#70502c", "skin": "#b99573", "hair": "#6f6a5d", "plume": "#d7b14a", "beard": 0.4, "cape": false },
+    "yanliang": { "name": "颜良", "weapon": "glaive", "width": 1.2, "armor": "#4c395f", "metal": "#4b5364", "trim": "#aca4be", "cloth": "#33243f", "skin": "#af805f", "hair": "#262126", "plume": "#77558c", "beard": 0.2, "cape": true }
+  }
+}

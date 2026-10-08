@@ -2,6 +2,7 @@
 /** 多朝向模型烘焙参数；源模型与头像沿用同一身份映射。 */
 module.exports = {
   frameSize: 192,
+  quality: { defaultFactor: 2, factors: { guanyu: 4 }, palette: false },
   fps: 10,
   targetBodyHeight: 110,
   maxBodyWidth: 98,
@@ -18,5 +19,5 @@ module.exports = {
     dead: "^Death",
   },
   loopingLimits: { idle: 2, run: 1.6 },
-  overrides: { zhaoyun: { padding: 1.12 }, zhouyu: { idle: "Stand Ready" } },
+  overrides: { zhangfei: { padding: 1.04 }, zhaoyun: { padding: 1.12 }, zhouyu: { idle: "Stand Ready" } },
 };

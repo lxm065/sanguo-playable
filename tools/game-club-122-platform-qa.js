@@ -1,0 +1,2 @@
+const Service=GameGlobal[0].require('play/game-club-service.js').GameClubService,service=new Service(GameGlobal[0].wx);let timer;
+return Promise.race([service.open().then(()=>({opened:true}),error=>({opened:false,error:error.message})),new Promise(resolve=>timer=setTimeout(()=>resolve({opened:false,error:'模拟器原生页面调用等待超时'}),8000))]).then(result=>{clearTimeout(timer);try{service.manager?.destroy?.();}catch(_){}return result;});

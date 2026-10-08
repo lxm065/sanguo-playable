@@ -1,0 +1,347 @@
+[
+  {
+    "target": "mark.png",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\module_battle\\native\\1e\\1efe8eca6.ffd6a.png",
+    "frame": {
+      "name": "mark_kill",
+      "rect": {
+        "x": 3,
+        "y": 962,
+        "width": 113,
+        "height": 27
+      },
+      "offset": {
+        "x": 0.5,
+        "y": -0.5
+      },
+      "originalSize": {
+        "width": 116,
+        "height": 30
+      },
+      "rotated": false,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "packable": true,
+      "pixelsToUnit": 100,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "meshType": 0
+    }
+  },
+  {
+    "target": "attacker.png",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\module_battle\\native\\1e\\1efe8eca6.ffd6a.png",
+    "frame": {
+      "name": "bg_atker",
+      "rect": {
+        "x": 143,
+        "y": 819,
+        "width": 88,
+        "height": 89
+      },
+      "offset": {
+        "x": 0,
+        "y": 0.5
+      },
+      "originalSize": {
+        "width": 90,
+        "height": 90
+      },
+      "rotated": true,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "packable": true,
+      "pixelsToUnit": 100,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "meshType": 0
+    }
+  },
+  {
+    "target": "4.png",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\module_battle\\native\\1e\\1efe8eca6.ffd6a.png",
+    "frame": {
+      "name": "",
+      "rect": {
+        "x": 73,
+        "y": 350,
+        "width": 198,
+        "height": 64
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalSize": {
+        "width": 198,
+        "height": 64
+      },
+      "rotated": true,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "packable": true,
+      "pixelsToUnit": 100,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "meshType": 0
+    }
+  },
+  {
+    "target": "1.png",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\module_battle\\native\\1e\\1efe8eca6.ffd6a.png",
+    "frame": {
+      "name": "",
+      "rect": {
+        "x": 143,
+        "y": 411,
+        "width": 198,
+        "height": 64
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalSize": {
+        "width": 198,
+        "height": 64
+      },
+      "rotated": true,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "packable": true,
+      "pixelsToUnit": 100,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "meshType": 0
+    }
+  },
+  {
+    "target": "2.png",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\module_battle\\native\\1e\\1efe8eca6.ffd6a.png",
+    "frame": {
+      "name": "",
+      "rect": {
+        "x": 3,
+        "y": 554,
+        "width": 198,
+        "height": 64
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalSize": {
+        "width": 198,
+        "height": 64
+      },
+      "rotated": true,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "packable": true,
+      "pixelsToUnit": 100,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "meshType": 0
+    }
+  },
+  {
+    "target": "3.png",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\module_battle\\native\\1e\\1efe8eca6.ffd6a.png",
+    "frame": {
+      "name": "",
+      "rect": {
+        "x": 3,
+        "y": 758,
+        "width": 198,
+        "height": 64
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalSize": {
+        "width": 198,
+        "height": 64
+      },
+      "rotated": true,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "packable": true,
+      "pixelsToUnit": 100,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "meshType": 0
+    }
+  },
+  {
+    "target": "5.png",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\module_battle\\native\\1e\\1efe8eca6.ffd6a.png",
+    "frame": {
+      "name": "",
+      "rect": {
+        "x": 73,
+        "y": 758,
+        "width": 198,
+        "height": 64
+      },
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "originalSize": {
+        "width": 198,
+        "height": 64
+      },
+      "rotated": true,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "packable": true,
+      "pixelsToUnit": 100,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "meshType": 0
+    }
+  },
+  {
+    "target": "victim.png",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\module_battle\\native\\1e\\1efe8eca6.ffd6a.png",
+    "frame": {
+      "name": "bg_defer",
+      "rect": {
+        "x": 143,
+        "y": 913,
+        "width": 88,
+        "height": 89
+      },
+      "offset": {
+        "x": 0,
+        "y": 0.5
+      },
+      "originalSize": {
+        "width": 90,
+        "height": 90
+      },
+      "rotated": true,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "packable": true,
+      "pixelsToUnit": 100,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "meshType": 0
+    }
+  },
+  {
+    "target": "background.png",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\module_battle\\native\\1e\\1efe8eca6.ffd6a.png",
+    "frame": {
+      "name": "bg_kill",
+      "rect": {
+        "x": 3,
+        "y": 3,
+        "width": 341,
+        "height": 142
+      },
+      "offset": {
+        "x": 0,
+        "y": -0.5
+      },
+      "originalSize": {
+        "width": 371,
+        "height": 143
+      },
+      "rotated": true,
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "packable": true,
+      "pixelsToUnit": 100,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "meshType": 0
+    }
+  },
+  {
+    "target": "melee.mp3",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\audio\\native\\68\\687e465a-9592-4519-ad36-c4f9496e50fc.5a931.mp3",
+    "event": "hero/102D",
+    "sha256": "69abd832920e7725db41eb359f88a0e0dbf8b08259014ac2ac50c5b6fcf2dcff"
+  },
+  {
+    "target": "ranged.mp3",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\audio\\native\\7f\\7f009d88-1d93-4a10-a3b0-280a25d97d18.262c8.mp3",
+    "event": "hero/103D",
+    "sha256": "2b7c95f504b8ad5b6b2ee3e3cf28cd4eaf8eefc19aeaf0facaf1831b4ff03f8a"
+  },
+  {
+    "target": "magic.mp3",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\audio\\native\\f1\\f13c0476-d6c2-4107-806f-ea4f8cd5389d.b2cde.mp3",
+    "event": "hero/101D",
+    "sha256": "2c0f351dfee2b81d7ed31be222df99cc3fb6a768c324902f8711744f44e92b3c"
+  },
+  {
+    "target": "ice.mp3",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\audio\\native\\48\\48a40047-9685-4fb8-9963-9506c06bc05b.ad8fe.mp3",
+    "event": "hero/101D_1",
+    "sha256": "209ffea0f70382ed80c4c4ecf3d705d4fbc519fb8e2ad1819b1bfcff48c9c37e"
+  },
+  {
+    "target": "merge.mp3",
+    "source": "F:\\game\\wow-zzq\\sanguo-sample\\game\\remote\\audio\\native\\7d\\7d00e2a9-f726-4e52-8914-a0b32f9eeffd.95502.mp3",
+    "event": "effect/star_up",
+    "sha256": "77eb591b837ac3b06e800b9bcaf980347aa69a56758a4ddd19d9d98d3edcd52b"
+  }
+]

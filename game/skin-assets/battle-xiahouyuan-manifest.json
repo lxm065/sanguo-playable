@@ -1,7 +1,13 @@
 {
   "textures": [
     "battle-xiahouyuan-packed-0.png",
-    "battle-xiahouyuan-packed-1.png"
+    "battle-xiahouyuan-packed-1.png",
+    "battle-xiahouyuan-packed-2.png",
+    "battle-xiahouyuan-packed-3.png",
+    "battle-xiahouyuan-packed-4.png",
+    "battle-xiahouyuan-packed-5.png",
+    "battle-xiahouyuan-packed-6.png",
+    "battle-xiahouyuan-packed-7.png"
   ],
   "frames": 320,
   "actions": {
@@ -113,50 +119,52 @@
     "ne",
     "n"
   ],
-  "scale": 1.2564102564102564,
+  "scale": 0.620253164556962,
   "anchors": {
     "s": {
-      "left": 84,
-      "top": 57,
-      "right": 108,
-      "bottom": 134,
-      "width": 25,
-      "height": 78
+      "left": 167,
+      "top": 114,
+      "right": 216,
+      "bottom": 270,
+      "width": 50,
+      "height": 157
     },
     "se": {
-      "left": 57,
-      "top": 65,
-      "right": 134,
-      "bottom": 126,
-      "width": 78,
-      "height": 62
+      "left": 113,
+      "top": 129,
+      "right": 270,
+      "bottom": 255,
+      "width": 158,
+      "height": 127
     },
     "e": {
-      "left": 58,
-      "top": 73,
-      "right": 134,
-      "bottom": 119,
-      "width": 77,
-      "height": 47
+      "left": 116,
+      "top": 147,
+      "right": 269,
+      "bottom": 239,
+      "width": 154,
+      "height": 93
     },
     "ne": {
-      "left": 62,
-      "top": 57,
-      "right": 131,
-      "bottom": 135,
-      "width": 70,
-      "height": 79
+      "left": 125,
+      "top": 115,
+      "right": 260,
+      "bottom": 269,
+      "width": 136,
+      "height": 155
     },
     "n": {
-      "left": 81,
-      "top": 57,
-      "right": 109,
-      "bottom": 134,
-      "width": 29,
-      "height": 78
+      "left": 162,
+      "top": 113,
+      "right": 218,
+      "bottom": 270,
+      "width": 57,
+      "height": 158
     }
   },
   "model": "war3mapImported/XHY.mdx",
+  "frameSize": 384,
+  "qualityFactor": 2,
   "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
   "dependencies": {
     "war3mapImported/XHY.mdx": {
@@ -167,9 +175,17 @@
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\Textures\\RibbonBlur1.blp",
       "sha256": "4dcf7d2d6468f765277f84a7cfb1df4eb5995e6feb5e5ff43a6ed199841d96e8"
     },
+    "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ReplaceableTextures\\TeamGlow\\TeamGlow00.blp",
+      "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+    },
     "Textures/Flame4.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\Textures\\Flame4.blp",
       "sha256": "26df51c4809a1d89511cef95064802745292070a38a8d2486fc6fbc3383d0f92"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
+      "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
     },
     "Textures/Tornado2b.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\Textures\\Tornado2b.blp",
@@ -178,14 +194,6 @@
     "Textures/Red_Glow3.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\Textures\\Red_Glow3.blp",
       "sha256": "b05e048d80e56f51cd4741ce4c041b02bdc1fe8fd2eaf8f0aa8bd1d44683b64c"
-    },
-    "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ReplaceableTextures\\TeamGlow\\TeamGlow00.blp",
-      "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
-    },
-    "ReplaceableTextures/TeamColor/TeamColor00.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
-      "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
     },
     "Textures/GenericGlow2c.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\Textures\\GenericGlow2c.blp",
@@ -322,18 +330,18 @@
   },
   "camera": {
     "center": [
-      4.8311133198440075,
-      -6.208234229066875,
-      66.88582734158263
+      4.822090722620487,
+      -6.214367335138377,
+      66.88282378262375
     ],
-    "height": 143.48078508954495,
-    "span": 201.37605976411288
+    "height": 143.4787998527754,
+    "span": 201.37633187679995
   },
   "uniformZoom": 1.4,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 47185920,
-    "afterBytes": 8171520,
+    "beforeBytes": 188743680,
+    "afterBytes": 29581312,
     "boundaryFrames": 0
   }
 }

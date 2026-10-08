@@ -1,0 +1,10 @@
+'use strict';
+const test=require('node:test'),a=require('node:assert/strict'),{Expedition}=require('../game/play/expedition'),rules=require('../game/play/config'),roster=require('../game/play/expedition-roster'),{attach}=require('../game/play/classic-hooks'),skills=require('../game/play/lord-skills');
+/** 内存档和可注入概率验证保底边界，不依赖随机碰巧命中。 */
+function fixture(saved=null){let stored;const m=new Expedition({...rules},roster,{read:()=>saved,write:s=>stored=structuredClone(s)});attach(m,roster);m.state.meta.lord='1004';m.state.expedition.lordSkillActivated={'1004':true};return {m,saved:()=>stored};}
+/** 通过真实事务保存计数和奖励，沿用正式装备池及保底间隔。 */
+function trigger(m,chance){const policy={skills:{'1004':{...require('../game/play/lord-skill-config').skills['1004'],chance}}};return m.transact(()=>skills.beforeFight(m,false,policy));}
+test('袁绍连续两次未中，重载后第三次必得装备并清零；下一次重新抽取',()=>{const f=fixture(),m=f.m;a.equal(trigger(m,0).kind,'miss');a.equal(trigger(m,0).kind,'miss');a.equal(m.state.meta.lordSkillMisses['1004'],2);const loaded=fixture(f.saved()).m;const hit=trigger(loaded,0);a.equal(hit.kind,'equipment');a.equal(hit.guaranteed,true);a.equal(loaded.state.expedition.equipment.length,1);a.equal(loaded.state.meta.lordSkillMisses['1004'],0);a.equal(trigger(loaded,0).kind,'miss');});
+test('随机提前命中清零；演武不消耗保底；写盘失败计数与奖励一起回滚',()=>{const {m}=fixture();trigger(m,0);a.equal(trigger(m,1).kind,'equipment');a.equal(m.state.meta.lordSkillMisses['1004'],0);trigger(m,0);const before=JSON.stringify(m.state);a.equal(skills.beforeFight(m,true),null);a.equal(JSON.stringify(m.state),before);m.storage.write=()=>{throw Error('disk');};a.throws(()=>trigger(m,1),/disk/);a.equal(JSON.stringify(m.state),before);});
+test('不同种子连续开战无三个未中，配置仍保留单次1/3基础概率',()=>{const {m}=fixture();a.equal(require('../game/play/lord-skill-config').skills['1004'].chance,1/3);let streak=0;for(let i=0;i<300;i++){const r=m.transact(()=>skills.beforeFight(m));streak=r.kind==='miss'?streak+1:0;a(streak<3);}});
+test('远征与挑战共享倍速配置，上限为2',()=>{a.deepEqual(rules.speedOptions,[1,2]);});

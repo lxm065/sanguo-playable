@@ -1,0 +1,105 @@
+{
+  "style": "用户确认：三国写实，利落、有力度，技能适度华丽",
+  "runtime": "现有 Cocos 微信小游戏；GameFactory 的 UE/Unity VFX API 不适用，保留本项目公开表现接口及 MDX 序列帧烘焙流程",
+  "scope": "21名武将及兼容诸葛亮的普攻、真实技能事件的表现配置；不改伤害、冷却、目标、技能语义、进度和存档",
+  "baseline": "main；开始时694项未提交记录；相关文件备份在 evidence/vfx-realism-20261007-baseline",
+  "tasks": [
+    {
+      "id": "VFX-01",
+      "task": "确认实际武将、技能事件、已有资源及风格",
+      "status": "done"
+    },
+    {
+      "id": "VFX-02",
+      "task": "完成水弹、火弹、毒箭、灵弹、扬尘、刀光共6组原始模型衍生序列帧",
+      "status": "done"
+    },
+    {
+      "id": "VFX-03",
+      "task": "配置武器命中、远程弹道、技能尺寸与方向；复用统一播放生命周期",
+      "status": "done"
+    },
+    {
+      "id": "VFX-04",
+      "task": "回归真实事件映射、方向、倍速、清理、兼容技能与包体",
+      "status": "done"
+    },
+    {
+      "id": "VFX-05",
+      "task": "模拟器运行及动态预览复核；记录验收范围和未验证项",
+      "status": "done"
+    }
+  ],
+  "acceptance": [
+    "普攻低占屏、短尾迹，技能有清晰轮廓",
+    "出手/命中/状态按原事件触发",
+    "方向从源到目标推导",
+    "参数集中配置",
+    "停止/离场清理",
+    "不以截图或离线测试冒充真机验证"
+  ],
+  "libraries": [
+    {
+      "path": "D:/Games/Warcraft3/ExtractedAssets",
+      "use": "已有MDX粒子与拖尾，新增烘焙候选"
+    },
+    {
+      "path": "F:/WoW-Assets/classic-titan/preview",
+      "use": "现有命中贴图与人物预览参考"
+    },
+    {
+      "path": "F:/LoL-Asset-Library",
+      "use": "现有钩头模型与特效节奏参考；复杂粒子不能当完整可用动画"
+    }
+  ],
+  "validation": {
+    "tests": {
+      "passed": 37,
+      "scope": "特效、技能语义、回放、方向、兼容与资源契约"
+    },
+    "cocosRuntimeProfiles": 22,
+    "simulator": {
+      "heroes": [
+        "赵云",
+        "周瑜",
+        "黄忠",
+        "许褚",
+        "甄姬",
+        "关羽"
+      ],
+      "battleEvents": 242,
+      "finished": true,
+      "originalStateAndStorageUnchanged": true,
+      "remainingEffects": 0
+    },
+    "build": {
+      "version": "1.0.55",
+      "files": 781,
+      "mainBytes": 2523770,
+      "totalBytes": 30755351,
+      "pngCount": 388,
+      "omittedInactiveModelFiles": 24
+    },
+    "evidence": "evidence/vfx-realism-20261007",
+    "video": "evidence/vfx-realism-20261007/battle-review.mp4",
+    "videoLimit": "模拟器截图接口生成低帧率记录，按真实采集间隔编码；可复核流程及大体轮廓，不作为高帧率节奏或真机性能证据",
+    "device": "未执行",
+    "upload": "未上传，独立本地审阅构建，保留1.0.55标识"
+  },
+  "coverage": {
+    "normalAttack": "21名当前武将及旧存档兼容诸葛亮",
+    "skill": "保留已有44项技能规则与原始事件；其中18项效果调整命中轮廓/尺度/时长，持续状态维持原语义",
+    "excluded": "其余10名武将尚未独立实现的40项技能，不伪造技能功能"
+  },
+  "assets": {
+    "sourceManifest": "source-assets/hero-vfx-realism.json",
+    "addedAtlasBytes": 365438,
+    "addedDecodedTextureBytes": 7077888,
+    "existing28ManifestEntriesPreserved": true
+  },
+  "futureArchitecture": [
+    "把attack/ability/damage/status的表现路由合并为可配置事件描述，逐步替代effect名称分支；保持战斗模拟器只产事件。",
+    "为序列帧缓存增加共享引用与场景释放机制，按出战武将预热，避免全图集常驻；实施前测量真机峰值内存和纹理解码耗时。",
+    "资源索引应按来源库与模型使用命名空间，避免同名贴图跨地图覆盖；当前每组资源已记录实际依赖哈希。"
+  ]
+}

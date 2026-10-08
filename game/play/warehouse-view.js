@@ -1,0 +1,7 @@
+'use strict';
+const c=require('./warehouse-config');
+/** 仅分页有库存的条目；夹紧过期页码，始终不改动玩家库存。 */
+function page(inventory,index=0){const entries=Object.entries(inventory).filter(([,count])=>count>0),size=c.columns*c.rows,pages=Math.max(1,Math.ceil(entries.length/size)),current=Math.max(0,Math.min(pages-1,Number.isInteger(index)?index:0));return {entries:entries.slice(current*size,(current+1)*size),pages,current,total:entries.length};}
+/** 只重建仓库内容，保留要塞位置，遮罩兜底限制图标在框内。 */
+function render(v,bag){const old=bag.getChildByName('warehouse-content');if(old){old.removeFromParent();old.destroy();}const u=v.ui,p=u.node(bag,'warehouse-content'),s=page(v.progress.state.inventory,v.warehousePage);v.warehousePage=s.current;const viewport=u.node(p,'warehouse-items',0,c.viewportY,c.viewportWidth,c.viewportHeight);viewport.addComponent(v.cc.Mask);s.entries.forEach(([id,n],i)=>v.item(viewport,id,n,c.firstX+(i%c.columns)*c.gapX,c.firstY-Math.floor(i/c.columns)*c.gapY-c.viewportY,()=>!v.fortDragged));if(!s.total)u.text(viewport,'仓库暂无物品',0,0,c.font,'#796044',500,60);u.text(p,(s.current+1)+' / '+s.pages,0,c.controlsY,c.font,'#674322',180,c.buttonHeight);for(const [label,delta]of [['上一页',-1],['下一页',1]]){const enabled=s.current+delta>=0&&s.current+delta<s.pages;u.button(p,label,delta*c.buttonX,c.controlsY,c.buttonWidth,()=>{if(!enabled||v.fortDragged)return;v.warehousePage=s.current+delta;render(v,bag);},enabled?'#89612D':'#AAA08A',c.buttonHeight);}}
+module.exports={page,render};

@@ -1,0 +1,1 @@
+GameGlobal[0].require('play/talent-tree-view.js').close(view);view.model.transact(()=>{view.model.state.meta.diamonds=19740;});view.page='home';view.render();const badges=view.root.children.flatMap(n=>n.children).filter(n=>n.name.startsWith('home-badge'));return {badges:badges.map(n=>({name:n.name,masked:!!n.getComponent(cc.Mask)}))};

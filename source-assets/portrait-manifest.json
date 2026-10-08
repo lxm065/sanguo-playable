@@ -1,8 +1,8 @@
 {
-  "version": 1,
+  "version": 2,
   "size": 512,
   "background": "#554b39",
-  "scope": "静态头像；模型和动作未替换",
+  "scope": "武将头像来源清单；魔兽资源头像与对应战斗模型一致",
   "entries": [
     {
       "id": "zhenji",
@@ -1823,67 +1823,195 @@
     },
     {
       "id": "taishici",
-      "type": "concept",
-      "modelPending": true,
-      "note": "外观方案，模型待制作",
-      "tool": "built-in imagegen",
-      "sourceImage": "exec-8cd8238e-55a3-4511-871b-bf2f5cf0b8b3.png",
-      "sourceSha256": "d576b9c4479d937d785424a990e3ce03ce99225619286f2ac1de29015da6ec6d",
-      "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 太史慈：成熟东汉男性弓将，方正脸，浓眉，短胡须，铜金色头盔配短白羽，暗红皮甲与铜色肩甲，肩后露出一小段弓。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
-      "references": [
-        "evidence/portrait-candidates/xuchu.png",
-        "evidence/portrait-candidates/huangyueying.png"
-      ],
+      "type": "wow-model-render",
+      "modelPending": false,
+      "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+      "model": "creature/humanmalewarriorlight/humanmalewarriorlight.m2",
+      "renderedModel": "source-assets/wow-models/taishici.glb",
+      "camera": {
+        "elevation": 0.7,
+        "margin": 1.12,
+        "portraitElevation": 0.08,
+        "portraitSpanRatio": 0.52
+      },
+      "dependencies": {
+        "creature/humanmalewarriorlight/humanmalewarriorlight.m2": {
+          "fdid": 124544,
+          "bytes": 321890,
+          "sha256": "f902cbdba3b73469d85f3d7cd2fc8c93f0a8b2c2b547297068d76bee57be0068"
+        },
+        "creature/humanmalewarriorlight/humanmalewarriorlight00.skin": {
+          "fdid": 476850,
+          "bytes": 12304,
+          "sha256": "c7285a61998c8b27f3c513d333ef60a61af028a461ef3d483fd022ea042dba7c"
+        },
+        "creature/humanmalewarriorlight/humanmalewarriorlight_skin02.blp": {
+          "fdid": 124546,
+          "bytes": 88580,
+          "sha256": "14f01c46f15d1db4a36ab51c98ca450e64a9a7ccbbe1be9ffca213a97d470076"
+        },
+        "item/objectcomponents/weapon/bow_1h_blood_c_01.m2": {
+          "fdid": 144986,
+          "bytes": 18784,
+          "sha256": "034001c70a78bf0de6ab7f48620c4e9b8aa0d51d3b50f978d7fd6b85da638a69"
+        },
+        "item/objectcomponents/weapon/bow_1h_blood_c_0100.skin": {
+          "fdid": 490878,
+          "bytes": 4064,
+          "sha256": "742fc4f4262e0fb52eda1d20745948393336d17059ee772a8d176cfb261c6993"
+        },
+        "item/objectcomponents/weapon/bow_1h_blood_c_01red.blp": {
+          "fdid": 144989,
+          "bytes": 44900,
+          "sha256": "0dc0e06cd27c7e12ee8fbd06bc89eab76e269fab6a39a4807d541e4de9e46832"
+        }
+      },
       "file": "handbook/taishici.png",
-      "sha256": "4569e6bfe3a6d3a6a3d88a403c8088296503b9e36ccdd077e192f234600697b9"
+      "sha256": "feacdaed1ac8e69e11b613a5d8b1bfb5c319e530c0a771252eb8b0cbfbfa3ad6"
     },
     {
       "id": "ganning",
-      "type": "concept",
-      "modelPending": true,
-      "note": "外观方案，模型待制作",
-      "tool": "built-in imagegen",
-      "sourceImage": "exec-c191a46a-c164-4390-92b5-c373b0b24460.png",
-      "sourceSha256": "715696030457657a4ed94804ae3d46ec113c94d6bea587666ffd6819887cb909",
-      "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 甘宁：年轻精壮东汉男性锦帆武将，独立方脸，黑色短须，深青色头巾与金属额饰，蓝绿色无袖轻甲，肩上少量铜铃，洒脱神情。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
-      "references": [
-        "evidence/portrait-candidates/xuchu.png",
-        "evidence/portrait-candidates/huangyueying.png"
-      ],
+      "type": "wow-model-render",
+      "modelPending": false,
+      "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+      "model": "creature/humanmalepirateswashbuckler/humanmalepirateswashbuckler.m2",
+      "renderedModel": "source-assets/wow-models/ganning.glb",
+      "camera": {
+        "elevation": 0.7,
+        "margin": 1.12,
+        "portraitElevation": 0.08,
+        "portraitSpanRatio": 0.52
+      },
+      "dependencies": {
+        "creature/humanmalepirateswashbuckler/humanmalepirateswashbuckler.m2": {
+          "fdid": 124533,
+          "bytes": 336370,
+          "sha256": "bbe93f9133c5233126c10f2882bace8c80d5e60cd0f0b92cc967fc8a501e403e"
+        },
+        "creature/humanmalepirateswashbuckler/humanmalepirateswashbuckler00.skin": {
+          "fdid": 476827,
+          "bytes": 8816,
+          "sha256": "815bb7adb52e672f6b555c3a97803606c12e8c0eb17e4b92974da9bb7c0d952c"
+        },
+        "creature/humanmalepirateswashbuckler/swashbuckler02.blp": {
+          "fdid": 124537,
+          "bytes": 44876,
+          "sha256": "8c4410ef77964e91186ed85c201f028c3b9cf5f311bbcaace8fb49df5e65139f"
+        },
+        "item/objectcomponents/weapon/sword_1h_horde_a_02.m2": {
+          "fdid": 147872,
+          "bytes": 8794,
+          "sha256": "9cb1c2997c91b22e828a068d21df945d2595dcf4659a8556f6518c44c66b3fb3"
+        },
+        "item/objectcomponents/weapon/sword_1h_horde_a_0200.skin": {
+          "fdid": 491218,
+          "bytes": 1744,
+          "sha256": "ff96ecb4a26b2773d3bdb1052613a8e3f50958f009df1878702ac9f556bbf063"
+        },
+        "item/objectcomponents/weapon/sword_1h_horde_a_02blue.blp": {
+          "fdid": 147873,
+          "bytes": 12095,
+          "sha256": "209102a5fa33aa53dff7bb9cb245b982be14fd6d7c5ebf7192734fc76a9e69d5"
+        }
+      },
       "file": "handbook/ganning.png",
-      "sha256": "d20cb71e7b5dbee5fda73950ee161ec480fbaf9f004b08bd61ccbf235252ce48"
+      "sha256": "20510f9608e2268f5fb526b6d62ab538d6c4e43c73a5a77e03d7e0c8bfec9292"
     },
     {
       "id": "zhangjiao",
-      "type": "concept",
-      "modelPending": true,
-      "note": "外观方案，模型待制作",
-      "tool": "built-in imagegen",
-      "sourceImage": "exec-6760c842-0900-43b1-b2e0-9783044949bf.png",
-      "sourceSha256": "3caa1f9996a4704a5a4f2282e1d29e99c57533a5e28da6bd845d8dcb456325ce",
-      "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 张角：年长东汉男性道士，瘦长脸，长灰黑胡须，黄色道巾，土黄色与暗棕色道袍，木质法杖上端在肩边，威严神情。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
-      "references": [
-        "evidence/portrait-candidates/xuchu.png",
-        "evidence/portrait-candidates/huangyueying.png"
-      ],
+      "type": "wow-model-render",
+      "modelPending": false,
+      "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+      "model": "creature/humanmalecaster/humanmalecaster.m2",
+      "renderedModel": "source-assets/wow-models/zhangjiao.glb",
+      "camera": {
+        "elevation": 0.7,
+        "margin": 1.12,
+        "portraitElevation": 0.08,
+        "portraitSpanRatio": 0.52
+      },
+      "dependencies": {
+        "creature/humanmalecaster/humanmalecaster.m2": {
+          "fdid": 124485,
+          "bytes": 520706,
+          "sha256": "96662804efef7404f21f03f14e4a3c7d2d97819b05f0f5a0f148139e45d2edd1"
+        },
+        "creature/humanmalecaster/humanmalecaster00.skin": {
+          "fdid": 476683,
+          "bytes": 10816,
+          "sha256": "30cd2185f0af3f30badda82fc862e7712d246f212eea511cb8df39177631e9cf"
+        },
+        "creature/humanmalecaster/humanmalecaster_skinpriest.blp": {
+          "fdid": 124488,
+          "bytes": 88580,
+          "sha256": "273834e754a8c7979d8dd6704ca9537914346bc20dfee5f7b418930bf70e1182"
+        },
+        "item/objectcomponents/weapon/stave_2h_jeweled_b_01.m2": {
+          "fdid": 147517,
+          "bytes": 7882,
+          "sha256": "34d7fffc921498954851bba7b4af459b3fb7318057575ae414c516deb30be244"
+        },
+        "item/objectcomponents/weapon/stave_2h_jeweled_b_0100.skin": {
+          "fdid": 491679,
+          "bytes": 1536,
+          "sha256": "0d01692ca7523d83ed21de4e7288be382db15d61a038966377d8f2b04d036d92"
+        },
+        "item/objectcomponents/weapon/stave_2h_jeweled_b_01white.blp": {
+          "fdid": 147520,
+          "bytes": 6652,
+          "sha256": "9739986999e8593719c357cb3af879454f6cd9592dbdb64be20edf299385fdd6"
+        }
+      },
       "file": "handbook/zhangjiao.png",
-      "sha256": "c7e03aa546fcf474214c0853c5429a1b27c69ce038732e8199aa2a80150fd54a"
+      "sha256": "164e95224e060136223e328f4db769a951fe940c83a7b7810c4be748a8696abc"
     },
     {
       "id": "yanliang",
-      "type": "concept",
-      "modelPending": true,
-      "note": "外观方案，模型待制作",
-      "tool": "built-in imagegen",
-      "sourceImage": "exec-5018b4e4-2401-4c6e-a4bc-d81065c4a5d0.png",
-      "sourceSha256": "fae9c0fcfec4740bc80cf12ff05061efee9585610b5c2d3949e05d5499699b06",
-      "prompt": "Use case: stylized-concept. Asset: ONE square 512x512 Three Kingdoms game portrait. 颜良：壮硕东汉男性重甲猛将，宽脸，黑色络腮胡，暗铁色头盔配短紫色缨，紫黑色铠甲，宽肩，凶悍神情，与许褚长相不同。 References are STYLE ONLY, not the subject: match their actual Warcraft III classic low-poly model screenshot aesthetic, angular polygonal face and armor, coarse painted diffuse texture, flat simple lighting, intentionally old 2003 RTS asset quality. Must look like a direct in-engine screenshot of a low-poly Chinese general model, NOT a beautiful illustration, NOT modern smooth PBR, NOT realistic, NOT painterly concept art, NOT chibi. Head and shoulders fill frame, complete helmet with generous top margin, face center slightly above middle, broad chest lower half. Camera nearly frontal with slight turn. Solid matte warm brown background RGB 85,75,57 (#554b39), no frame, no text, no labels, no props obscuring face. Distinct human identity, no orc ears. Static portrait concept only.",
-      "references": [
-        "evidence/portrait-candidates/xuchu.png",
-        "evidence/portrait-candidates/huangyueying.png"
-      ],
+      "type": "wow-model-render",
+      "modelPending": false,
+      "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
+      "model": "creature/humanmalewarriorheavy/humanmalewarriorheavy.m2",
+      "renderedModel": "source-assets/wow-models/yanliang.glb",
+      "camera": {
+        "elevation": 0.7,
+        "margin": 1.12,
+        "portraitElevation": 0.08,
+        "portraitSpanRatio": 0.52
+      },
+      "dependencies": {
+        "creature/humanmalewarriorheavy/humanmalewarriorheavy.m2": {
+          "fdid": 124540,
+          "bytes": 307986,
+          "sha256": "ba3f5d1992cf83ff91ab834fbe329fea7a9a4b166570ed8dcf18a40e6ea44d64"
+        },
+        "creature/humanmalewarriorheavy/humanmalewarriorheavy00.skin": {
+          "fdid": 476837,
+          "bytes": 11904,
+          "sha256": "2f15e06e6be0e6663455428de3578d8931d9d75695cba7edd0075867afe16740"
+        },
+        "creature/humanmalewarriorheavy/humanmalewarriorheavy_skin02.blp": {
+          "fdid": 124543,
+          "bytes": 44876,
+          "sha256": "a2c58dced2178d75be6566f39a05fccd2111cc45b2e91a6727cd73ea1bd9c8ab"
+        },
+        "item/objectcomponents/weapon/polearm_2h_bladed_b_01.m2": {
+          "fdid": 147216,
+          "bytes": 4762,
+          "sha256": "794800870871c06ee6075ffa3600efed6a014986af490da1d3531799df279bc0"
+        },
+        "item/objectcomponents/weapon/polearm_2h_bladed_b_0100.skin": {
+          "fdid": 491154,
+          "bytes": 976,
+          "sha256": "d4dd9861c9ab58b2b6600eb0f8bf7486f495d09c3740b8bc5fb7e5cb0bef06a4"
+        },
+        "item/objectcomponents/weapon/polearm_2h_bladed_b_01purple.blp": {
+          "fdid": 147218,
+          "bytes": 6652,
+          "sha256": "9279a60e6deaf5d7da25183afb1269f13899199524ee06e78d5c60d911f340f0"
+        }
+      },
       "file": "handbook/yanliang.png",
-      "sha256": "f9075ddfd2304e3e92a008e33598dc4ed0877cf2062b575c1edf709afea5cd31"
+      "sha256": "e4f944eaba757eb779c64856382ceea47846c59a69c62fa6c6d1194d3f7bdda3"
     }
   ]
 }

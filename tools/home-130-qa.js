@@ -1,0 +1,1 @@
+GameGlobal[0].require('play/talent-tree-view.js').close(view);view.page='home';view.render();return {badges:view.root.getComponentsInChildren(cc.Mask).filter(m=>m.node.name.startsWith('home-badge')).map(m=>m.node.name)};

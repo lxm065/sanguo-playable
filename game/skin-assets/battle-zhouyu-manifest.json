@@ -1,6 +1,9 @@
 {
   "textures": [
-    "battle-zhouyu-packed-0.png"
+    "battle-zhouyu-packed-0.png",
+    "battle-zhouyu-packed-1.png",
+    "battle-zhouyu-packed-2.png",
+    "battle-zhouyu-packed-3.png"
   ],
   "frames": 290,
   "actions": {
@@ -112,79 +115,81 @@
     "ne",
     "n"
   ],
-  "scale": 1.849056603773585,
+  "scale": 0.9245283018867925,
   "anchors": {
     "s": {
-      "left": 74,
-      "top": 70,
-      "right": 113,
-      "bottom": 124,
-      "width": 40,
-      "height": 55
+      "left": 149,
+      "top": 139,
+      "right": 226,
+      "bottom": 248,
+      "width": 78,
+      "height": 110
     },
     "se": {
-      "left": 68,
-      "top": 71,
-      "right": 120,
-      "bottom": 122,
-      "width": 53,
-      "height": 52
+      "left": 136,
+      "top": 142,
+      "right": 241,
+      "bottom": 245,
+      "width": 106,
+      "height": 104
     },
     "e": {
-      "left": 71,
-      "top": 68,
-      "right": 119,
-      "bottom": 124,
-      "width": 49,
-      "height": 57
+      "left": 142,
+      "top": 136,
+      "right": 239,
+      "bottom": 248,
+      "width": 98,
+      "height": 113
     },
     "ne": {
-      "left": 79,
-      "top": 67,
-      "right": 112,
-      "bottom": 123,
-      "width": 34,
-      "height": 57
+      "left": 157,
+      "top": 133,
+      "right": 226,
+      "bottom": 247,
+      "width": 70,
+      "height": 115
     },
     "n": {
-      "left": 82,
-      "top": 67,
-      "right": 110,
-      "bottom": 122,
-      "width": 29,
-      "height": 56
+      "left": 162,
+      "top": 134,
+      "right": 220,
+      "bottom": 246,
+      "width": 59,
+      "height": 113
     }
   },
   "model": "war3mapImported/ZhouYu.mdx",
+  "frameSize": 384,
+  "qualityFactor": 2,
   "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
   "dependencies": {
     "war3mapImported/ZhouYu.mdx": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\war3mapImported\\ZhouYu.mdx",
       "sha256": "6b545d5eb957280a95a8dfd4ff048c33df1beba510b298c7d07f4a3db284a52c"
     },
-    "ZhouYuJ.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ZhouYuJ.blp",
-      "sha256": "ecb1b5cdd2adde6cf9f9136eb96636ff36fff2ba2ca3f58ce8137d0d8a8f8818"
-    },
     "ZhouYu.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ZhouYu.blp",
       "sha256": "1df484a5a26ef05cf3e0fa8fd01bd52dbdce54c3c347cfc6fc39f16efdb7fd46"
+    },
+    "ZhouYuJ.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ZhouYuJ.blp",
+      "sha256": "ecb1b5cdd2adde6cf9f9136eb96636ff36fff2ba2ca3f58ce8137d0d8a8f8818"
     }
   },
   "camera": {
     "center": [
-      21.185958573623793,
-      0.8462580628693104,
-      66.22220313243452
+      21.20817586769408,
+      0.8286813944578171,
+      66.21782489708858
     ],
-    "height": 136.05678216175875,
-    "span": 149.51244194977664
+    "height": 136.04455204645637,
+    "span": 149.49793030535616
   },
   "uniformZoom": 1.9599999999999997,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 43646976,
-    "afterBytes": 4177920,
+    "beforeBytes": 174587904,
+    "afterBytes": 15355904,
     "boundaryFrames": 0
   }
 }

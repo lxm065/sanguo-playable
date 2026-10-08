@@ -1,0 +1,74 @@
+{
+  "output": "game/skin-assets/home-ui",
+  "edge": 144,
+  "quality": 78,
+  "pngColors": 128,
+  "icons": [
+    {
+      "name": "hero",
+      "source": "docs/ui-inputs/1.0.30/hero.png",
+      "format": "jpg",
+      "edge": 192
+    },
+    {
+      "name": "expedition",
+      "source": "docs/ui-inputs/1.0.30/expedition.png",
+      "format": "jpg",
+      "edge": 192
+    },
+    {
+      "name": "talent",
+      "source": "docs/ui-inputs/1.0.31/talent.png",
+      "format": "png"
+    },
+    {
+      "name": "fort",
+      "source": "docs/ui-inputs/1.0.31/fort.png",
+      "format": "png"
+    },
+    {
+      "name": "notice",
+      "source": "docs/ui-inputs/1.0.31/notice.png",
+      "format": "png"
+    },
+    {
+      "name": "invite",
+      "source": "docs/ui-inputs/1.0.31/invite.png",
+      "format": "png"
+    },
+    {
+      "name": "daily",
+      "source": "docs/ui-inputs/1.0.31/daily.png",
+      "format": "png"
+    },
+    {
+      "name": "challenge",
+      "source": "docs/ui-inputs/1.0.31/challenge.png",
+      "format": "png"
+    },
+    {
+      "name": "leaderboard",
+      "source": "docs/ui-inputs/1.0.49/leaderboard.png",
+      "format": "png",
+      "edge": 144
+    },
+    {
+      "name": "rank-iron",
+      "source": "docs/ui-inputs/1.0.49/iron.png",
+      "format": "png",
+      "edge": 128
+    },
+    {
+      "name": "rank-bronze",
+      "source": "docs/ui-inputs/1.0.49/bronze.png",
+      "format": "png",
+      "edge": 128
+    },
+    {
+      "name": "rank-silver",
+      "source": "docs/ui-inputs/1.0.49/silver.png",
+      "format": "png",
+      "edge": 128
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+[
+  {
+    "id": "7001",
+    "name": "青釭剑",
+    "shape": "sword",
+    "source": "source-assets/equipment-art/7001.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7001.png",
+    "sha256": "fed30cfe23c0d58b00350b53429343d070c6b09909e04f19ce1cf3667eb86a55"
+  },
+  {
+    "id": "7002",
+    "name": "破阵锤",
+    "shape": "hammer",
+    "source": "source-assets/equipment-art/7002.png",
+    "kind": "ai-generated",
+    "output": "game/skin-assets/equipment/7002.png",
+    "sha256": "7c5f1bd8c19ceb41f2f3480e2a3db5898b0aab7b46dd7fb2d678f61fc0b5c059"
+  },
+  {
+    "id": "7003",
+    "name": "青龙偃月刀",
+    "shape": "glaive",
+    "source": "source-assets/equipment-art/7003.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7003.png",
+    "sha256": "559eabf964e477c42ea7d60a1ae3c392dd09c6a7be5b33989171f89815d7995a"
+  },
+  {
+    "id": "7004",
+    "name": "虎贲护臂",
+    "shape": "bracer",
+    "source": "source-assets/equipment-art/7004.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7004.png",
+    "sha256": "c09cf84982b89da65653409c87e7a0719b9d8d496bdbd3a4c273e2590547e5cd"
+  },
+  {
+    "id": "7005",
+    "name": "雌雄双股剑",
+    "shape": "dual",
+    "source": "source-assets/equipment-art/7005.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7005.png",
+    "sha256": "205a8d142c7b4784a0825155da87aab9d47327ec133aed78c39aed63736bbbda"
+  },
+  {
+    "id": "7006",
+    "name": "神臂弩",
+    "shape": "crossbow",
+    "source": "source-assets/equipment-art/7006.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7006.png",
+    "sha256": "0e8af7b7973176b508622b1e01cc4db5c6588fb1514f08632208cdcfefbbfec1"
+  },
+  {
+    "id": "7007",
+    "name": "饕餮战戟",
+    "shape": "halberd",
+    "source": "source-assets/equipment-art/7007.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7007.png",
+    "sha256": "26284d7ea54956faa02213a5bda7d3054c890e6717df288f1de1da00a34fb525"
+  },
+  {
+    "id": "7008",
+    "name": "白羽弓",
+    "shape": "bow",
+    "source": "source-assets/equipment-art/7008.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7008.png",
+    "sha256": "36e2bd7c483bb9410411d09d3f0972da0277b9f80bb0c5c81637ca6f4011078c"
+  },
+  {
+    "id": "7009",
+    "name": "倚天剑",
+    "shape": "sword",
+    "source": "source-assets/equipment-art/7009.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7009.png",
+    "sha256": "51aa35fe7c2732fbaa0d84efb49e244b71f30e4bc4bc3107f97cf34b7f22b18d"
+  },
+  {
+    "id": "7010",
+    "name": "赤霄剑",
+    "shape": "sword",
+    "source": "source-assets/equipment-art/7010.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7010.png",
+    "sha256": "c9c81660199e24375cf7ee5c3177273a7a614a4645016877029df83b4c037ee8"
+  },
+  {
+    "id": "7101",
+    "name": "离魂羽扇",
+    "shape": "fan",
+    "source": "source-assets/equipment-art/7101.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7101.png",
+    "sha256": "e19bd5c1429a4254eef551a131634352e0ae70c6f5d2a76cb968abe699500048"
+  },
+  {
+    "id": "7102",
+    "name": "遁甲天书",
+    "shape": "scroll",
+    "source": "source-assets/equipment-art/7102.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7102.png",
+    "sha256": "88d3760739b9acd150ec4a5d732aa8d30ecfbfb4ac50f43ffea85a5f3b41fdc9"
+  },
+  {
+    "id": "7103",
+    "name": "七星杖",
+    "shape": "staff",
+    "source": "source-assets/equipment-art/7103.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7103.png",
+    "sha256": "953827a3287be063f73f2afdcf72915b323ec34ed164d8696c68003bca444a38"
+  },
+  {
+    "id": "7104",
+    "name": "破军令",
+    "shape": "talisman",
+    "source": "source-assets/equipment-art/7104.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7104.png",
+    "sha256": "3f9aacd3ae1d0ef5f95df148d7cef9aaf2a5cfed6d24ce0a01ef19a93e13616f"
+  },
+  {
+    "id": "7105",
+    "name": "长生玉佩",
+    "shape": "jade",
+    "source": "source-assets/equipment-art/7105.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7105.png",
+    "sha256": "1d07ecd9d19498c49e8c0747adfadc44748a490c774a1ceb6075b047450c6e48"
+  },
+  {
+    "id": "7106",
+    "name": "济世葫芦",
+    "shape": "gourd",
+    "source": "source-assets/equipment-art/7106.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7106.png",
+    "sha256": "6b21416196e034d151323fd47b3619bf7ec239a7baa70073c242f371a4ee918a"
+  },
+  {
+    "id": "7107",
+    "name": "寒魄珠",
+    "shape": "orb",
+    "source": "source-assets/equipment-art/7107.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7107.png",
+    "sha256": "93b73490b939a6559abe04d0c04c2b01b4f9fab07f1b894101bcadf0285024a6"
+  },
+  {
+    "id": "7108",
+    "name": "玄冰宝衣",
+    "shape": "armor",
+    "source": "source-assets/equipment-art/7108.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7108.png",
+    "sha256": "accd94f0082822f0b3a5e209071b555f7465fadd8b4a04cf8d9d7625f6fc87bd"
+  },
+  {
+    "id": "7109",
+    "name": "摄魂幡",
+    "shape": "banner",
+    "source": "source-assets/equipment-art/7109.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7109.png",
+    "sha256": "404e1d4f920b97edb31d306eb71f8cc8eaf391e7cb0e4da68d5c1bfb19a073e1"
+  },
+  {
+    "id": "7110",
+    "name": "朱雀羽扇",
+    "shape": "fan",
+    "source": "source-assets/equipment-art/7110.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7110.png",
+    "sha256": "af6cc2de105bee0ded996df186a64d4337d7b2eb3e060eca4f286bc82284daa2"
+  },
+  {
+    "id": "7111",
+    "name": "八阵图",
+    "shape": "scroll",
+    "source": "source-assets/equipment-art/7111.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7111.png",
+    "sha256": "678c2b22507b07e7cd6e6839cf7775ebe40bea6ee227075ec7c62fd0af5f2a74"
+  },
+  {
+    "id": "7112",
+    "name": "太平要术",
+    "shape": "scroll",
+    "source": "source-assets/equipment-art/7112.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7112.png",
+    "sha256": "2356709fadc0a60eb25bbb2941d168fdc7fd80a3646a3797bd7f0bb73c70bf55"
+  },
+  {
+    "id": "7113",
+    "name": "太乙拂尘",
+    "shape": "whisk",
+    "source": "source-assets/equipment-art/7113.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7113.png",
+    "sha256": "e05ba383edeeb3196716d02eae72bdbd2fe8f803c907e4227e3a25da680e1435"
+  },
+  {
+    "id": "7114",
+    "name": "雷公锤",
+    "shape": "hammer",
+    "source": "source-assets/equipment-art/7114.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7114.png",
+    "sha256": "d14c909972bbf0ce2a6414586decdf2baaca9ca52d9e2d725041e6e886f947a4"
+  },
+  {
+    "id": "7201",
+    "name": "玄铁棘甲",
+    "shape": "armor",
+    "source": "source-assets/equipment-art/7201.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7201.png",
+    "sha256": "c9764ac9081ecae053fde6c17f536f1b23fb20bc77d3118e1efe601e833954f8"
+  },
+  {
+    "id": "7202",
+    "name": "雷鸣战鼓",
+    "shape": "drum",
+    "source": "source-assets/equipment-art/7202.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7202.png",
+    "sha256": "e22755e7d1d305d5d296a49a92ed61542e97eed907e9e471f099b767d26eb48f"
+  },
+  {
+    "id": "7203",
+    "name": "歃血盟旗",
+    "shape": "banner",
+    "source": "source-assets/equipment-art/7203.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7203.png",
+    "sha256": "06b18d4d86e666cd39ba1b28799684d11c5c095ccc0e7d082d1de7b413b6a07a"
+  },
+  {
+    "id": "7204",
+    "name": "辟邪香炉",
+    "shape": "censer",
+    "source": "source-assets/equipment-art/7204.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7204.png",
+    "sha256": "1975d1574c60055ccea30769d62b0771554e315aea7ac6962a97666f8e480d63"
+  },
+  {
+    "id": "7205",
+    "name": "镇魂玉",
+    "shape": "jade",
+    "source": "source-assets/equipment-art/7205.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7205.png",
+    "sha256": "42b0d5a609ebfc1f058f1102b25b14cdc5f30c064fea74ca57a6a967ea530281"
+  },
+  {
+    "id": "7206",
+    "name": "虎卫坚盾",
+    "shape": "shield",
+    "source": "source-assets/equipment-art/7206.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7206.png",
+    "sha256": "45ef384306db77c0543c07a53ec8d32ab81cc4db08a6813b4e185e4ab5949d60"
+  },
+  {
+    "id": "7207",
+    "name": "青囊巾",
+    "shape": "cloth",
+    "source": "source-assets/equipment-art/7207.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7207.png",
+    "sha256": "285de7f17d78025059bf1902f63b9e0712c4ae276ecb90efbf3d423684176a9d"
+  },
+  {
+    "id": "7208",
+    "name": "修罗面甲",
+    "shape": "mask",
+    "source": "source-assets/equipment-art/7208.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7208.png",
+    "sha256": "eca2b487180fbd1858f7531d856413707ef1b73bf75aaa73538fa08ad62bff80"
+  },
+  {
+    "id": "7209",
+    "name": "疾风护腕",
+    "shape": "bracer",
+    "source": "source-assets/equipment-art/7209.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7209.png",
+    "sha256": "43a3de7385aa4d9fc5ef8411da96dfb050d4886b31a4fc30af4e5f032209193a"
+  },
+  {
+    "id": "7210",
+    "name": "聚宝金印",
+    "shape": "seal",
+    "source": "source-assets/equipment-art/7210.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7210.png",
+    "sha256": "1e8d9d4ba09b4b76b228eff3392c3c71a51ccc30691a4794b40f2575c9db8596"
+  },
+  {
+    "id": "7211",
+    "name": "青囊医书",
+    "shape": "scroll",
+    "source": "source-assets/equipment-art/7211.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7211.png",
+    "sha256": "6da2345445117a628a734366d4d7505a2d63823994fddb9401ca04f1907043eb"
+  },
+  {
+    "id": "7212",
+    "name": "应龙玉玺",
+    "shape": "seal",
+    "source": "source-assets/equipment-art/7212.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7212.png",
+    "sha256": "bccb06f5cdb6feb1aaf3400ea5af75338013986efcff9c905b130f82a4e7bbc2"
+  },
+  {
+    "id": "7213",
+    "name": "龙鳞战铠",
+    "shape": "armor",
+    "source": "source-assets/equipment-art/7213.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7213.png",
+    "sha256": "559404bf66b23812df2f7b52c25c083f23dea688dc4d9dc75726b9fb97ecc57c"
+  },
+  {
+    "id": "7214",
+    "name": "赤血宝珠",
+    "shape": "orb",
+    "source": "source-assets/equipment-art/7214.png",
+    "kind": "user-supplied",
+    "output": "game/skin-assets/equipment/7214.png",
+    "sha256": "874e7448e8de0c78a9ada3f76044ea7969587aad75150ebc4952162537f8b257"
+  }
+]

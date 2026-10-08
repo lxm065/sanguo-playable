@@ -1,5 +1,6 @@
 "use strict";
 const { resolvePortraitFile } = require("./portraits");
+const {FrameQueue}=require('./frame-queue'),loading=require('./loading-config');
 const appearance = require("./battle-appearance");
 /** 多武将资源仓库；所有图集和模型动画均来自包内文件。 */
 class Assets {
@@ -9,10 +10,13 @@ class Assets {
     this.wx = wxApi;
     this.config = config;
     this.cache = new Map();
+    this.assembly=new FrameQueue(loading.sliceDelay);
+    this.metrics={loads:[],attachments:[]};
   }
   /** 从本地图片装配 Cocos 纹理并持有进程级引用。 */
   texture(file) {
     file = resolvePortraitFile(file);
+    file = require("./release-config").assetAliases?.[file] || file;
     const key = "texture:" + file;
     if (!this.cache.has(key))
       this.cache.set(
@@ -20,7 +24,7 @@ class Assets {
         new Promise((resolve, reject) => {
           this.cc.assetManager.loadRemote(
             this.config.assetsRoot + file,
-            { ext: ".png" },
+            { ext: file.endsWith(".jpg") ? ".jpg" : ".png" },
             (error, image) => {
               if (error) return reject(error);
               const t = new this.cc.Texture2D();
@@ -49,34 +53,33 @@ class Assets {
     return this.cache.get(key);
   }
   /** 读取指定武将的 Spine 图集、动画和纹理，不包含网络回退。 */
-  skeleton(hero) {
-    const key = "skeleton:" + hero;
+  skeleton(hero, star = 1) {
+    const selected = require("./appearance-policy").resolve(appearance, hero, star);
+    const key = "skeleton:" + selected.assetKey;
     if (!this.cache.has(key))
       this.cache.set(
         key,
         (async () => {
           const fs = this.wx.getFileSystemManager(),
-            read = (file) =>
-              fs.readFileSync(this.config.assetsRoot + file, "utf8"),
-            key =
-              (appearance.models[hero] || appearance.legacy[hero])?.assetKey ||
-              hero,
-            manifest = JSON.parse(read(key + "-manifest.json")),
+            read = (file) => new Promise((resolve,reject)=>fs.readFile({filePath:this.config.assetsRoot+file,encoding:"utf8",success:r=>resolve(r.data),fail:reject})),
+            key = selected.assetKey,
+            manifest = JSON.parse(await read(key + "-manifest.json")),
             data = new this.cc.sp.SkeletonData();
           data.name = "sanguo:" + hero;
-          data.skeletonJson = JSON.parse(read(key + ".json"));
-          data.atlasText = read(key + ".atlas");
+          data.skeletonJson = JSON.parse(await read(key + ".json"));
+          if (selected.animationKey) data.skeletonJson.animations = JSON.parse(await read(selected.animationKey + ".json")).animations;
+          data.atlasText = await read(key + ".atlas");
           data.textures = await Promise.all(
             manifest.textures.map((file) => this.texture(file)),
           );
           data.textureNames = manifest.textures;
           data.battleManifest = manifest;
           data.addRef();
-          if (!data.getRuntimeData()) throw Error("无法解析武将动画 " + hero);
+          await this.assembly.run(()=>{const start=Date.now();if (!data.getRuntimeData()) throw Error("无法解析武将动画 " + hero);this.metrics.loads.push({hero,ms:Date.now()-start});});
           return data;
         })(),
       );
-    return this.cache.get(key);
+    return this.cache.get(key).catch(error=>{this.cache.delete(key);throw error;});
   }
   /** 按资源配置判断是否具有已制作的战斗模型。 */
   hasModel(id) {

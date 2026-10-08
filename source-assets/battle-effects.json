@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ring",
+    "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Textures\\Textures\\RingOFire.png",
+    "sha256": "64b97c55f6fd153dc87e6b4d73690a09e857c69d3d307be1c3ef7d84c1d28c51",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "id": "ice",
+    "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Textures\\Textures\\Shockwave_Ice1.png",
+    "sha256": "2d0dc0825ce20d4a363d4cb3e93d48687ae9e50f989c92a37489d395e47424fc",
+    "size": [
+      64,
+      64
+    ]
+  },
+  {
+    "id": "lightning",
+    "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Textures\\Textures\\LightningBall.png",
+    "sha256": "c4f4b4aec2ccee0790f7dd10b8eb972ebdcaa32f86c85094d9dd53bf8525d65c",
+    "size": [
+      64,
+      64
+    ]
+  },
+  {
+    "id": "frost",
+    "source": "F:\\WoW-Assets\\classic-titan\\raw\\spells\\frost2.blp",
+    "sha256": "dd2a1bcf93631b32a40f8865bfc1e9ac5a5bd7633611b85e000db1030e3ab00c",
+    "size": [
+      64,
+      64
+    ]
+  },
+  {
+    "id": "holy",
+    "source": "F:\\WoW-Assets\\classic-titan\\raw\\spells\\11fx_alphamask_holyfire_glow_light.blp",
+    "sha256": "d4f28903e4594484439cd7464c66173213d70df3062f060093b5da8d94c6cb5b",
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "id": "spark",
+    "source": "F:\\LoL-Asset-Library\\textures\\Lux\\a43e821b9d7c4e29ef64.png",
+    "sha256": "abc1a2395a4653b60894f619e7c04752bc8dd1ffc6b97d8de9a639c3e903d269",
+    "size": [
+      128,
+      128
+    ]
+  }
+]

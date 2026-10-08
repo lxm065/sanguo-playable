@@ -1,2287 +1,2407 @@
 
 battle-guanyu-packed-0.png
-size: 1024,969
+size: 1024,968
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 idle-s-000
   rotate: false
   xy: 2, 2
-  size: 54, 50
-  orig: 54, 50
+  size: 217, 199
+  orig: 217, 199
   offset: 0, 0
   index: -1
 idle-s-001
   rotate: false
-  xy: 58, 2
-  size: 54, 47
-  orig: 54, 47
+  xy: 221, 2
+  size: 222, 192
+  orig: 222, 192
   offset: 0, 0
   index: -1
 idle-s-002
   rotate: false
-  xy: 114, 2
-  size: 59, 47
-  orig: 59, 47
+  xy: 445, 2
+  size: 229, 182
+  orig: 229, 182
   offset: 0, 0
   index: -1
 idle-s-003
   rotate: false
-  xy: 175, 2
-  size: 59, 44
-  orig: 59, 44
+  xy: 676, 2
+  size: 231, 169
+  orig: 231, 169
   offset: 0, 0
   index: -1
 idle-s-004
   rotate: false
-  xy: 236, 2
-  size: 56, 39
-  orig: 56, 39
+  xy: 2, 203
+  size: 231, 159
+  orig: 231, 159
   offset: 0, 0
   index: -1
 idle-s-005
   rotate: false
-  xy: 294, 2
-  size: 59, 39
-  orig: 59, 39
+  xy: 235, 203
+  size: 231, 152
+  orig: 231, 152
   offset: 0, 0
   index: -1
 idle-s-006
   rotate: false
-  xy: 355, 2
-  size: 59, 39
-  orig: 59, 39
+  xy: 468, 203
+  size: 235, 154
+  orig: 235, 154
   offset: 0, 0
   index: -1
 idle-s-007
   rotate: false
-  xy: 416, 2
-  size: 57, 39
-  orig: 57, 39
+  xy: 705, 203
+  size: 236, 158
+  orig: 236, 158
   offset: 0, 0
   index: -1
 idle-s-008
   rotate: false
-  xy: 475, 2
-  size: 59, 43
-  orig: 59, 43
+  xy: 2, 364
+  size: 236, 169
+  orig: 236, 169
   offset: 0, 0
   index: -1
 idle-s-009
   rotate: false
-  xy: 536, 2
-  size: 57, 45
-  orig: 57, 45
+  xy: 240, 364
+  size: 229, 180
+  orig: 229, 180
   offset: 0, 0
   index: -1
 idle-s-010
   rotate: false
-  xy: 595, 2
-  size: 56, 49
-  orig: 56, 49
+  xy: 471, 364
+  size: 222, 192
+  orig: 222, 192
   offset: 0, 0
   index: -1
 idle-s-011
   rotate: false
-  xy: 653, 2
-  size: 55, 51
-  orig: 55, 51
+  xy: 695, 364
+  size: 218, 199
+  orig: 218, 199
   offset: 0, 0
   index: -1
 idle-s-012
   rotate: false
-  xy: 710, 2
-  size: 55, 51
-  orig: 55, 51
+  xy: 2, 565
+  size: 218, 200
+  orig: 218, 200
   offset: 0, 0
   index: -1
 idle-s-013
   rotate: false
-  xy: 767, 2
-  size: 55, 51
-  orig: 55, 51
+  xy: 222, 565
+  size: 218, 199
+  orig: 218, 199
   offset: 0, 0
   index: -1
 run-s-000
   rotate: false
-  xy: 824, 2
-  size: 22, 33
-  orig: 22, 33
+  xy: 442, 565
+  size: 85, 129
+  orig: 85, 129
   offset: 0, 0
   index: -1
 run-s-001
   rotate: false
-  xy: 848, 2
-  size: 41, 39
-  orig: 41, 39
+  xy: 529, 565
+  size: 159, 154
+  orig: 159, 154
   offset: 0, 0
   index: -1
 run-s-002
   rotate: false
-  xy: 891, 2
-  size: 42, 49
-  orig: 42, 49
+  xy: 690, 565
+  size: 167, 191
+  orig: 167, 191
   offset: 0, 0
   index: -1
 run-s-003
   rotate: false
-  xy: 935, 2
-  size: 23, 34
-  orig: 23, 34
+  xy: 859, 565
+  size: 92, 137
+  orig: 92, 137
   offset: 0, 0
   index: -1
 run-s-004
   rotate: false
-  xy: 960, 2
-  size: 22, 33
-  orig: 22, 33
+  xy: 2, 767
+  size: 85, 126
+  orig: 85, 126
   offset: 0, 0
   index: -1
 run-s-005
   rotate: false
-  xy: 984, 2
-  size: 23, 38
-  orig: 23, 38
+  xy: 89, 767
+  size: 90, 150
+  orig: 90, 150
   offset: 0, 0
   index: -1
 run-s-006
   rotate: false
-  xy: 2, 55
-  size: 23, 43
-  orig: 23, 43
+  xy: 181, 767
+  size: 91, 171
+  orig: 91, 171
   offset: 0, 0
   index: -1
 skill1-s-000
   rotate: false
-  xy: 27, 55
-  size: 54, 50
-  orig: 54, 50
+  xy: 274, 767
+  size: 217, 199
+  orig: 217, 199
   offset: 0, 0
   index: -1
 skill1-s-001
   rotate: false
-  xy: 83, 55
-  size: 60, 49
-  orig: 60, 49
+  xy: 493, 767
+  size: 246, 198
+  orig: 246, 198
   offset: 0, 0
   index: -1
 skill1-s-002
   rotate: false
-  xy: 145, 55
-  size: 57, 47
-  orig: 57, 47
-  offset: 0, 0
-  index: -1
-skill1-s-003
-  rotate: false
-  xy: 204, 55
-  size: 44, 46
-  orig: 44, 46
-  offset: 0, 0
-  index: -1
-skill1-s-004
-  rotate: false
-  xy: 250, 55
-  size: 34, 42
-  orig: 34, 42
-  offset: 0, 0
-  index: -1
-skill1-s-005
-  rotate: false
-  xy: 286, 55
-  size: 49, 31
-  orig: 49, 31
-  offset: 0, 0
-  index: -1
-skill1-s-006
-  rotate: false
-  xy: 337, 55
-  size: 27, 54
-  orig: 27, 54
-  offset: 0, 0
-  index: -1
-skill1-s-007
-  rotate: false
-  xy: 366, 55
-  size: 40, 35
-  orig: 40, 35
-  offset: 0, 0
-  index: -1
-skill1-s-008
-  rotate: false
-  xy: 408, 55
-  size: 35, 59
-  orig: 35, 59
-  offset: 0, 0
-  index: -1
-skill1-s-009
-  rotate: false
-  xy: 445, 55
-  size: 29, 65
-  orig: 29, 65
-  offset: 0, 0
-  index: -1
-skill1-s-010
-  rotate: false
-  xy: 476, 55
-  size: 24, 59
-  orig: 24, 59
-  offset: 0, 0
-  index: -1
-skill1-s-011
-  rotate: false
-  xy: 502, 55
-  size: 23, 54
-  orig: 23, 54
-  offset: 0, 0
-  index: -1
-skill1-s-012
-  rotate: false
-  xy: 527, 55
-  size: 44, 51
-  orig: 44, 51
-  offset: 0, 0
-  index: -1
-skill1-s-013
-  rotate: false
-  xy: 573, 55
-  size: 54, 51
-  orig: 54, 51
-  offset: 0, 0
-  index: -1
-skill2-s-000
-  rotate: false
-  xy: 629, 55
-  size: 27, 47
-  orig: 27, 47
-  offset: 0, 0
-  index: -1
-skill2-s-001
-  rotate: false
-  xy: 658, 55
-  size: 41, 41
-  orig: 41, 41
-  offset: 0, 0
-  index: -1
-skill2-s-002
-  rotate: false
-  xy: 701, 55
-  size: 28, 61
-  orig: 28, 61
-  offset: 0, 0
-  index: -1
-skill2-s-003
-  rotate: false
-  xy: 731, 55
-  size: 36, 60
-  orig: 36, 60
-  offset: 0, 0
-  index: -1
-skill2-s-004
-  rotate: false
-  xy: 769, 55
-  size: 33, 63
-  orig: 33, 63
-  offset: 0, 0
-  index: -1
-skill2-s-005
-  rotate: false
-  xy: 804, 55
-  size: 33, 66
-  orig: 33, 66
-  offset: 0, 0
-  index: -1
-skill2-s-006
-  rotate: false
-  xy: 839, 55
-  size: 35, 66
-  orig: 35, 66
-  offset: 0, 0
-  index: -1
-skill2-s-007
-  rotate: false
-  xy: 876, 55
-  size: 35, 66
-  orig: 35, 66
-  offset: 0, 0
-  index: -1
-skill2-s-008
-  rotate: false
-  xy: 913, 55
-  size: 32, 66
-  orig: 32, 66
-  offset: 0, 0
-  index: -1
-skill2-s-009
-  rotate: false
-  xy: 947, 55
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: -1
-dead-s-000
-  rotate: false
-  xy: 981, 55
-  size: 36, 41
-  orig: 36, 41
-  offset: 0, 0
-  index: -1
-dead-s-001
-  rotate: false
-  xy: 2, 123
-  size: 50, 30
-  orig: 50, 30
-  offset: 0, 0
-  index: -1
-dead-s-002
-  rotate: false
-  xy: 54, 123
-  size: 43, 42
-  orig: 43, 42
-  offset: 0, 0
-  index: -1
-dead-s-003
-  rotate: false
-  xy: 99, 123
-  size: 21, 39
-  orig: 21, 39
-  offset: 0, 0
-  index: -1
-dead-s-004
-  rotate: false
-  xy: 122, 123
-  size: 36, 37
-  orig: 36, 37
-  offset: 0, 0
-  index: -1
-dead-s-005
-  rotate: false
-  xy: 160, 123
-  size: 42, 36
-  orig: 42, 36
-  offset: 0, 0
-  index: -1
-dead-s-006
-  rotate: false
-  xy: 204, 123
-  size: 33, 36
-  orig: 33, 36
-  offset: 0, 0
-  index: -1
-dead-s-007
-  rotate: false
-  xy: 239, 123
-  size: 30, 36
-  orig: 30, 36
-  offset: 0, 0
-  index: -1
-dead-s-008
-  rotate: false
-  xy: 271, 123
-  size: 33, 36
-  orig: 33, 36
-  offset: 0, 0
-  index: -1
-dead-s-009
-  rotate: false
-  xy: 306, 123
-  size: 28, 43
-  orig: 28, 43
-  offset: 0, 0
-  index: -1
-dead-s-010
-  rotate: false
-  xy: 336, 123
-  size: 23, 48
-  orig: 23, 48
-  offset: 0, 0
-  index: -1
-dead-s-011
-  rotate: false
-  xy: 361, 123
-  size: 22, 43
-  orig: 22, 43
-  offset: 0, 0
-  index: -1
-dead-s-012
-  rotate: false
-  xy: 385, 123
-  size: 29, 37
-  orig: 29, 37
-  offset: 0, 0
-  index: -1
-dead-s-013
-  rotate: false
-  xy: 416, 123
-  size: 57, 31
-  orig: 57, 31
-  offset: 0, 0
-  index: -1
-dead-s-014
-  rotate: false
-  xy: 475, 123
-  size: 71, 25
-  orig: 71, 25
-  offset: 0, 0
-  index: -1
-dead-s-015
-  rotate: false
-  xy: 548, 123
-  size: 69, 20
-  orig: 69, 20
-  offset: 0, 0
-  index: -1
-dead-s-016
-  rotate: false
-  xy: 619, 123
-  size: 67, 32
-  orig: 67, 32
-  offset: 0, 0
-  index: -1
-dead-s-017
-  rotate: false
-  xy: 688, 123
-  size: 68, 36
-  orig: 68, 36
-  offset: 0, 0
-  index: -1
-dead-s-018
-  rotate: false
-  xy: 758, 123
-  size: 69, 30
-  orig: 69, 30
-  offset: 0, 0
-  index: -1
-dead-s-019
-  rotate: false
-  xy: 829, 123
-  size: 70, 26
-  orig: 70, 26
-  offset: 0, 0
-  index: -1
-idle-se-000
-  rotate: false
-  xy: 901, 123
-  size: 54, 38
-  orig: 54, 38
-  offset: 0, 0
-  index: -1
-idle-se-001
-  rotate: false
-  xy: 957, 123
-  size: 51, 39
-  orig: 51, 39
-  offset: 0, 0
-  index: -1
-idle-se-002
-  rotate: false
-  xy: 2, 173
-  size: 49, 39
-  orig: 49, 39
-  offset: 0, 0
-  index: -1
-idle-se-003
-  rotate: false
-  xy: 53, 173
-  size: 47, 39
-  orig: 47, 39
-  offset: 0, 0
-  index: -1
-idle-se-004
-  rotate: false
-  xy: 102, 173
-  size: 42, 39
-  orig: 42, 39
-  offset: 0, 0
-  index: -1
-idle-se-005
-  rotate: false
-  xy: 146, 173
-  size: 39, 38
-  orig: 39, 38
-  offset: 0, 0
-  index: -1
-idle-se-006
-  rotate: false
-  xy: 187, 173
-  size: 45, 38
-  orig: 45, 38
-  offset: 0, 0
-  index: -1
-idle-se-007
-  rotate: false
-  xy: 234, 173
-  size: 45, 38
-  orig: 45, 38
-  offset: 0, 0
-  index: -1
-idle-se-008
-  rotate: false
-  xy: 281, 173
-  size: 51, 37
-  orig: 51, 37
-  offset: 0, 0
-  index: -1
-idle-se-009
-  rotate: false
-  xy: 334, 173
-  size: 54, 37
-  orig: 54, 37
-  offset: 0, 0
-  index: -1
-idle-se-010
-  rotate: false
-  xy: 390, 173
-  size: 58, 37
-  orig: 58, 37
-  offset: 0, 0
-  index: -1
-idle-se-011
-  rotate: false
-  xy: 450, 173
-  size: 58, 37
-  orig: 58, 37
-  offset: 0, 0
-  index: -1
-idle-se-012
-  rotate: false
-  xy: 510, 173
-  size: 60, 38
-  orig: 60, 38
-  offset: 0, 0
-  index: -1
-idle-se-013
-  rotate: false
-  xy: 572, 173
-  size: 56, 38
-  orig: 56, 38
-  offset: 0, 0
-  index: -1
-run-se-000
-  rotate: false
-  xy: 630, 173
-  size: 67, 35
-  orig: 67, 35
-  offset: 0, 0
-  index: -1
-run-se-001
-  rotate: false
-  xy: 699, 173
-  size: 61, 58
-  orig: 61, 58
-  offset: 0, 0
-  index: -1
-run-se-002
-  rotate: false
-  xy: 762, 173
-  size: 58, 65
-  orig: 58, 65
-  offset: 0, 0
-  index: -1
-run-se-003
-  rotate: false
-  xy: 822, 173
-  size: 70, 36
-  orig: 70, 36
-  offset: 0, 0
-  index: -1
-run-se-004
-  rotate: false
-  xy: 894, 173
-  size: 66, 38
-  orig: 66, 38
-  offset: 0, 0
-  index: -1
-run-se-005
-  rotate: false
-  xy: 962, 173
-  size: 60, 41
-  orig: 60, 41
-  offset: 0, 0
-  index: -1
-run-se-006
-  rotate: false
-  xy: 2, 240
-  size: 62, 42
-  orig: 62, 42
-  offset: 0, 0
-  index: -1
-skill1-se-000
-  rotate: false
-  xy: 66, 240
-  size: 54, 38
-  orig: 54, 38
-  offset: 0, 0
-  index: -1
-skill1-se-001
-  rotate: false
-  xy: 122, 240
-  size: 71, 38
-  orig: 71, 38
-  offset: 0, 0
-  index: -1
-skill1-se-002
-  rotate: false
-  xy: 195, 240
-  size: 78, 37
-  orig: 78, 37
-  offset: 0, 0
-  index: -1
-skill1-se-003
-  rotate: false
-  xy: 275, 240
-  size: 75, 36
-  orig: 75, 36
-  offset: 0, 0
-  index: -1
-skill1-se-004
-  rotate: false
-  xy: 352, 240
-  size: 68, 35
-  orig: 68, 35
-  offset: 0, 0
-  index: -1
-skill1-se-005
-  rotate: false
-  xy: 422, 240
-  size: 74, 38
-  orig: 74, 38
-  offset: 0, 0
-  index: -1
-skill1-se-006
-  rotate: false
-  xy: 498, 240
-  size: 58, 56
-  orig: 58, 56
-  offset: 0, 0
-  index: -1
-skill1-se-007
-  rotate: false
-  xy: 558, 240
-  size: 76, 45
-  orig: 76, 45
-  offset: 0, 0
-  index: -1
-skill1-se-008
-  rotate: false
-  xy: 636, 240
-  size: 45, 78
-  orig: 45, 78
-  offset: 0, 0
-  index: -1
-skill1-se-009
-  rotate: false
-  xy: 683, 240
-  size: 35, 78
-  orig: 35, 78
-  offset: 0, 0
-  index: -1
-skill1-se-010
-  rotate: false
-  xy: 720, 240
-  size: 37, 73
-  orig: 37, 73
-  offset: 0, 0
-  index: -1
-skill1-se-011
-  rotate: false
-  xy: 759, 240
-  size: 32, 62
-  orig: 32, 62
-  offset: 0, 0
-  index: -1
-skill1-se-012
-  rotate: false
-  xy: 793, 240
-  size: 32, 49
-  orig: 32, 49
-  offset: 0, 0
-  index: -1
-skill1-se-013
-  rotate: false
-  xy: 827, 240
-  size: 53, 38
-  orig: 53, 38
-  offset: 0, 0
-  index: -1
-skill2-se-000
-  rotate: false
-  xy: 882, 240
-  size: 38, 54
-  orig: 38, 54
-  offset: 0, 0
-  index: -1
-skill2-se-001
-  rotate: false
-  xy: 922, 240
-  size: 59, 55
-  orig: 59, 55
-  offset: 0, 0
-  index: -1
-skill2-se-002
-  rotate: false
-  xy: 983, 240
-  size: 32, 64
-  orig: 32, 64
-  offset: 0, 0
-  index: -1
-skill2-se-003
-  rotate: false
-  xy: 2, 320
-  size: 36, 59
-  orig: 36, 59
-  offset: 0, 0
-  index: -1
-skill2-se-004
-  rotate: false
-  xy: 40, 320
-  size: 36, 65
-  orig: 36, 65
-  offset: 0, 0
-  index: -1
-skill2-se-005
-  rotate: false
-  xy: 78, 320
-  size: 38, 67
-  orig: 38, 67
-  offset: 0, 0
-  index: -1
-skill2-se-006
-  rotate: false
-  xy: 118, 320
-  size: 40, 67
-  orig: 40, 67
-  offset: 0, 0
-  index: -1
-skill2-se-007
-  rotate: false
-  xy: 160, 320
-  size: 42, 66
-  orig: 42, 66
-  offset: 0, 0
-  index: -1
-skill2-se-008
-  rotate: false
-  xy: 204, 320
-  size: 41, 66
-  orig: 41, 66
-  offset: 0, 0
-  index: -1
-skill2-se-009
-  rotate: false
-  xy: 247, 320
-  size: 39, 64
-  orig: 39, 64
-  offset: 0, 0
-  index: -1
-dead-se-000
-  rotate: false
-  xy: 288, 320
-  size: 43, 52
-  orig: 43, 52
-  offset: 0, 0
-  index: -1
-dead-se-001
-  rotate: false
-  xy: 333, 320
-  size: 66, 46
-  orig: 66, 46
-  offset: 0, 0
-  index: -1
-dead-se-002
-  rotate: false
-  xy: 401, 320
-  size: 49, 63
-  orig: 49, 63
-  offset: 0, 0
-  index: -1
-dead-se-003
-  rotate: false
-  xy: 452, 320
-  size: 32, 47
-  orig: 32, 47
-  offset: 0, 0
-  index: -1
-dead-se-004
-  rotate: false
-  xy: 486, 320
-  size: 28, 39
-  orig: 28, 39
-  offset: 0, 0
-  index: -1
-dead-se-005
-  rotate: false
-  xy: 516, 320
-  size: 27, 39
-  orig: 27, 39
-  offset: 0, 0
-  index: -1
-dead-se-006
-  rotate: false
-  xy: 545, 320
-  size: 40, 40
-  orig: 40, 40
-  offset: 0, 0
-  index: -1
-dead-se-007
-  rotate: false
-  xy: 587, 320
-  size: 61, 40
-  orig: 61, 40
-  offset: 0, 0
-  index: -1
-dead-se-008
-  rotate: false
-  xy: 650, 320
-  size: 69, 38
-  orig: 69, 38
-  offset: 0, 0
-  index: -1
-dead-se-009
-  rotate: false
-  xy: 721, 320
-  size: 73, 37
-  orig: 73, 37
-  offset: 0, 0
-  index: -1
-dead-se-010
-  rotate: false
-  xy: 796, 320
-  size: 66, 44
-  orig: 66, 44
-  offset: 0, 0
-  index: -1
-dead-se-011
-  rotate: false
-  xy: 864, 320
-  size: 63, 40
-  orig: 63, 40
-  offset: 0, 0
-  index: -1
-dead-se-012
-  rotate: false
-  xy: 929, 320
-  size: 53, 42
-  orig: 53, 42
-  offset: 0, 0
-  index: -1
-dead-se-013
-  rotate: false
-  xy: 2, 389
-  size: 39, 51
-  orig: 39, 51
-  offset: 0, 0
-  index: -1
-dead-se-014
-  rotate: false
-  xy: 43, 389
-  size: 55, 46
-  orig: 55, 46
-  offset: 0, 0
-  index: -1
-dead-se-015
-  rotate: false
-  xy: 100, 389
-  size: 53, 34
-  orig: 53, 34
-  offset: 0, 0
-  index: -1
-dead-se-016
-  rotate: false
-  xy: 155, 389
-  size: 47, 60
-  orig: 47, 60
-  offset: 0, 0
-  index: -1
-dead-se-017
-  rotate: false
-  xy: 204, 389
-  size: 49, 67
-  orig: 49, 67
-  offset: 0, 0
-  index: -1
-dead-se-018
-  rotate: false
-  xy: 255, 389
-  size: 49, 58
-  orig: 49, 58
-  offset: 0, 0
-  index: -1
-dead-se-019
-  rotate: false
-  xy: 306, 389
-  size: 53, 54
-  orig: 53, 54
-  offset: 0, 0
-  index: -1
-idle-e-000
-  rotate: false
-  xy: 361, 389
-  size: 32, 58
-  orig: 32, 58
-  offset: 0, 0
-  index: -1
-idle-e-001
-  rotate: false
-  xy: 395, 389
-  size: 31, 58
-  orig: 31, 58
-  offset: 0, 0
-  index: -1
-idle-e-002
-  rotate: false
-  xy: 428, 389
-  size: 34, 58
-  orig: 34, 58
-  offset: 0, 0
-  index: -1
-idle-e-003
-  rotate: false
-  xy: 464, 389
-  size: 39, 57
-  orig: 39, 57
-  offset: 0, 0
-  index: -1
-idle-e-004
-  rotate: false
-  xy: 505, 389
-  size: 45, 57
-  orig: 45, 57
-  offset: 0, 0
-  index: -1
-idle-e-005
-  rotate: false
-  xy: 552, 389
-  size: 48, 57
-  orig: 48, 57
-  offset: 0, 0
-  index: -1
-idle-e-006
-  rotate: false
-  xy: 602, 389
-  size: 45, 57
-  orig: 45, 57
-  offset: 0, 0
-  index: -1
-idle-e-007
-  rotate: false
-  xy: 649, 389
-  size: 41, 56
-  orig: 41, 56
-  offset: 0, 0
-  index: -1
-idle-e-008
-  rotate: false
-  xy: 692, 389
-  size: 39, 56
-  orig: 39, 56
-  offset: 0, 0
-  index: -1
-idle-e-009
-  rotate: false
-  xy: 733, 389
-  size: 38, 56
-  orig: 38, 56
-  offset: 0, 0
-  index: -1
-idle-e-010
-  rotate: false
-  xy: 773, 389
-  size: 41, 57
-  orig: 41, 57
-  offset: 0, 0
-  index: -1
-idle-e-011
-  rotate: false
-  xy: 816, 389
-  size: 39, 57
-  orig: 39, 57
-  offset: 0, 0
-  index: -1
-idle-e-012
-  rotate: false
-  xy: 857, 389
-  size: 38, 58
-  orig: 38, 58
-  offset: 0, 0
-  index: -1
-idle-e-013
-  rotate: false
-  xy: 897, 389
-  size: 33, 58
-  orig: 33, 58
-  offset: 0, 0
-  index: -1
-run-e-000
-  rotate: false
-  xy: 2, 458
-  size: 96, 53
-  orig: 96, 53
-  offset: 0, 0
-  index: -1
-run-e-001
-  rotate: false
-  xy: 100, 458
-  size: 66, 100
-  orig: 66, 100
-  offset: 0, 0
-  index: -1
-run-e-002
-  rotate: false
-  xy: 168, 458
-  size: 69, 104
-  orig: 69, 104
-  offset: 0, 0
-  index: -1
-run-e-003
-  rotate: false
-  xy: 239, 458
-  size: 94, 58
-  orig: 94, 58
-  offset: 0, 0
-  index: -1
-run-e-004
-  rotate: false
-  xy: 335, 458
-  size: 100, 52
-  orig: 100, 52
-  offset: 0, 0
-  index: -1
-run-e-005
-  rotate: false
-  xy: 437, 458
-  size: 108, 52
-  orig: 108, 52
-  offset: 0, 0
-  index: -1
-run-e-006
-  rotate: false
-  xy: 547, 458
-  size: 107, 53
-  orig: 107, 53
-  offset: 0, 0
-  index: -1
-skill1-e-000
-  rotate: false
-  xy: 656, 458
-  size: 32, 58
-  orig: 32, 58
-  offset: 0, 0
-  index: -1
-skill1-e-001
-  rotate: false
-  xy: 690, 458
-  size: 51, 53
-  orig: 51, 53
-  offset: 0, 0
-  index: -1
-skill1-e-002
-  rotate: false
-  xy: 743, 458
-  size: 89, 51
-  orig: 89, 51
-  offset: 0, 0
-  index: -1
-skill1-e-003
-  rotate: false
-  xy: 834, 458
-  size: 106, 47
-  orig: 106, 47
-  offset: 0, 0
-  index: -1
-skill1-e-004
-  rotate: false
-  xy: 2, 564
-  size: 108, 45
-  orig: 108, 45
-  offset: 0, 0
-  index: -1
-skill1-e-005
-  rotate: false
-  xy: 112, 564
-  size: 77, 84
-  orig: 77, 84
-  offset: 0, 0
-  index: -1
-skill1-e-006
-  rotate: false
-  xy: 191, 564
-  size: 101, 58
-  orig: 101, 58
-  offset: 0, 0
-  index: -1
-skill1-e-007
-  rotate: false
-  xy: 294, 564
-  size: 88, 93
-  orig: 88, 93
-  offset: 0, 0
-  index: -1
-skill1-e-008
-  rotate: false
-  xy: 384, 564
-  size: 46, 125
-  orig: 46, 125
-  offset: 0, 0
-  index: -1
-skill1-e-009
-  rotate: false
-  xy: 432, 564
-  size: 39, 122
-  orig: 39, 122
-  offset: 0, 0
-  index: -1
-skill1-e-010
-  rotate: false
-  xy: 473, 564
-  size: 53, 114
-  orig: 53, 114
-  offset: 0, 0
-  index: -1
-skill1-e-011
-  rotate: false
-  xy: 528, 564
-  size: 64, 101
-  orig: 64, 101
-  offset: 0, 0
-  index: -1
-skill1-e-012
-  rotate: false
-  xy: 594, 564
-  size: 50, 75
-  orig: 50, 75
-  offset: 0, 0
-  index: -1
-skill1-e-013
-  rotate: false
-  xy: 646, 564
-  size: 33, 59
-  orig: 33, 59
-  offset: 0, 0
-  index: -1
-skill2-e-000
-  rotate: false
-  xy: 681, 564
-  size: 61, 92
-  orig: 61, 92
-  offset: 0, 0
-  index: -1
-skill2-e-001
-  rotate: false
-  xy: 744, 564
-  size: 56, 94
-  orig: 56, 94
-  offset: 0, 0
-  index: -1
-skill2-e-002
-  rotate: false
-  xy: 802, 564
-  size: 46, 94
-  orig: 46, 94
-  offset: 0, 0
-  index: -1
-skill2-e-003
-  rotate: false
-  xy: 850, 564
-  size: 52, 87
-  orig: 52, 87
-  offset: 0, 0
-  index: -1
-skill2-e-004
-  rotate: false
-  xy: 904, 564
-  size: 48, 91
-  orig: 48, 91
-  offset: 0, 0
-  index: -1
-skill2-e-005
-  rotate: false
-  xy: 954, 564
-  size: 48, 93
-  orig: 48, 93
-  offset: 0, 0
-  index: -1
-skill2-e-006
-  rotate: false
-  xy: 2, 691
-  size: 47, 92
-  orig: 47, 92
-  offset: 0, 0
-  index: -1
-skill2-e-007
-  rotate: false
-  xy: 51, 691
-  size: 48, 89
-  orig: 48, 89
-  offset: 0, 0
-  index: -1
-skill2-e-008
-  rotate: false
-  xy: 101, 691
-  size: 49, 90
-  orig: 49, 90
-  offset: 0, 0
-  index: -1
-skill2-e-009
-  rotate: false
-  xy: 152, 691
-  size: 50, 90
-  orig: 50, 90
-  offset: 0, 0
-  index: -1
-dead-e-000
-  rotate: false
-  xy: 204, 691
-  size: 109, 56
-  orig: 109, 56
-  offset: 0, 0
-  index: -1
-dead-e-001
-  rotate: false
-  xy: 315, 691
-  size: 61, 90
-  orig: 61, 90
-  offset: 0, 0
-  index: -1
-dead-e-002
-  rotate: false
-  xy: 378, 691
-  size: 47, 105
-  orig: 47, 105
-  offset: 0, 0
-  index: -1
-dead-e-003
-  rotate: false
-  xy: 427, 691
-  size: 62, 86
-  orig: 62, 86
-  offset: 0, 0
-  index: -1
-dead-e-004
-  rotate: false
-  xy: 491, 691
-  size: 77, 55
-  orig: 77, 55
-  offset: 0, 0
-  index: -1
-dead-e-005
-  rotate: false
-  xy: 570, 691
-  size: 91, 57
-  orig: 91, 57
-  offset: 0, 0
-  index: -1
-dead-e-006
-  rotate: false
-  xy: 663, 691
-  size: 98, 57
-  orig: 98, 57
-  offset: 0, 0
-  index: -1
-dead-e-007
-  rotate: false
-  xy: 763, 691
-  size: 101, 56
-  orig: 101, 56
-  offset: 0, 0
-  index: -1
-dead-e-008
-  rotate: false
-  xy: 866, 691
-  size: 93, 59
-  orig: 93, 59
-  offset: 0, 0
-  index: -1
-dead-e-009
-  rotate: false
-  xy: 2, 798
-  size: 96, 48
-  orig: 96, 48
-  offset: 0, 0
-  index: -1
-dead-e-010
-  rotate: false
-  xy: 100, 798
-  size: 101, 42
-  orig: 101, 42
-  offset: 0, 0
-  index: -1
-dead-e-011
-  rotate: false
-  xy: 203, 798
-  size: 107, 44
-  orig: 107, 44
-  offset: 0, 0
-  index: -1
-dead-e-012
-  rotate: false
-  xy: 312, 798
-  size: 107, 47
-  orig: 107, 47
-  offset: 0, 0
-  index: -1
-dead-e-013
-  rotate: false
-  xy: 421, 798
-  size: 91, 60
-  orig: 91, 60
-  offset: 0, 0
-  index: -1
-dead-e-014
-  rotate: false
-  xy: 514, 798
-  size: 58, 77
-  orig: 58, 77
-  offset: 0, 0
-  index: -1
-dead-e-015
-  rotate: false
-  xy: 574, 798
-  size: 79, 56
-  orig: 79, 56
-  offset: 0, 0
-  index: -1
-dead-e-016
-  rotate: false
-  xy: 655, 798
-  size: 89, 71
-  orig: 89, 71
-  offset: 0, 0
-  index: -1
-dead-e-017
-  rotate: false
-  xy: 746, 798
-  size: 83, 82
-  orig: 83, 82
-  offset: 0, 0
-  index: -1
-dead-e-018
-  rotate: false
-  xy: 831, 798
-  size: 87, 69
-  orig: 87, 69
-  offset: 0, 0
-  index: -1
-dead-e-019
-  rotate: false
-  xy: 920, 798
-  size: 82, 71
-  orig: 82, 71
-  offset: 0, 0
-  index: -1
-idle-ne-000
-  rotate: false
-  xy: 2, 882
-  size: 53, 49
-  orig: 53, 49
-  offset: 0, 0
-  index: -1
-idle-ne-001
-  rotate: false
-  xy: 57, 882
-  size: 55, 49
-  orig: 55, 49
-  offset: 0, 0
-  index: -1
-idle-ne-002
-  rotate: false
-  xy: 114, 882
-  size: 57, 49
-  orig: 57, 49
-  offset: 0, 0
-  index: -1
-idle-ne-003
-  rotate: false
-  xy: 173, 882
-  size: 60, 48
-  orig: 60, 48
-  offset: 0, 0
-  index: -1
-idle-ne-004
-  rotate: false
-  xy: 235, 882
-  size: 63, 48
-  orig: 63, 48
-  offset: 0, 0
-  index: -1
-idle-ne-005
-  rotate: false
-  xy: 300, 882
-  size: 65, 48
-  orig: 65, 48
-  offset: 0, 0
-  index: -1
-idle-ne-006
-  rotate: false
-  xy: 367, 882
-  size: 64, 48
-  orig: 64, 48
-  offset: 0, 0
-  index: -1
-idle-ne-007
-  rotate: false
-  xy: 433, 882
-  size: 64, 48
-  orig: 64, 48
-  offset: 0, 0
-  index: -1
-idle-ne-008
-  rotate: false
-  xy: 499, 882
-  size: 62, 48
-  orig: 62, 48
-  offset: 0, 0
-  index: -1
-idle-ne-009
-  rotate: false
-  xy: 563, 882
-  size: 59, 48
-  orig: 59, 48
-  offset: 0, 0
-  index: -1
-idle-ne-010
-  rotate: false
-  xy: 624, 882
-  size: 56, 47
-  orig: 56, 47
-  offset: 0, 0
-  index: -1
-idle-ne-011
-  rotate: false
-  xy: 682, 882
-  size: 53, 48
-  orig: 53, 48
-  offset: 0, 0
-  index: -1
-idle-ne-012
-  rotate: false
-  xy: 737, 882
-  size: 52, 48
-  orig: 52, 48
-  offset: 0, 0
-  index: -1
-idle-ne-013
-  rotate: false
-  xy: 791, 882
-  size: 53, 49
-  orig: 53, 49
-  offset: 0, 0
-  index: -1
-run-ne-000
-  rotate: false
-  xy: 846, 882
-  size: 53, 64
-  orig: 53, 64
-  offset: 0, 0
-  index: -1
-run-ne-001
-  rotate: false
-  xy: 901, 882
-  size: 40, 85
-  orig: 40, 85
-  offset: 0, 0
-  index: -1
-run-ne-002
-  rotate: false
-  xy: 943, 882
-  size: 39, 85
-  orig: 39, 85
+  xy: 741, 767
+  size: 229, 190
+  orig: 229, 190
   offset: 0, 0
   index: -1
 
 battle-guanyu-packed-1.png
-size: 1024,465
+size: 1024,1011
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-run-ne-003
+skill1-s-003
   rotate: false
   xy: 2, 2
-  size: 53, 68
-  orig: 53, 68
+  size: 173, 183
+  orig: 173, 183
+  offset: 0, 0
+  index: -1
+skill1-s-004
+  rotate: false
+  xy: 177, 2
+  size: 132, 167
+  orig: 132, 167
+  offset: 0, 0
+  index: -1
+skill1-s-005
+  rotate: false
+  xy: 311, 2
+  size: 191, 124
+  orig: 191, 124
+  offset: 0, 0
+  index: -1
+skill1-s-006
+  rotate: false
+  xy: 504, 2
+  size: 109, 214
+  orig: 109, 214
+  offset: 0, 0
+  index: -1
+skill1-s-007
+  rotate: false
+  xy: 615, 2
+  size: 159, 139
+  orig: 159, 139
+  offset: 0, 0
+  index: -1
+skill1-s-008
+  rotate: false
+  xy: 776, 2
+  size: 137, 235
+  orig: 137, 235
+  offset: 0, 0
+  index: -1
+skill1-s-009
+  rotate: false
+  xy: 2, 239
+  size: 114, 255
+  orig: 114, 255
+  offset: 0, 0
+  index: -1
+skill1-s-010
+  rotate: false
+  xy: 118, 239
+  size: 95, 235
+  orig: 95, 235
+  offset: 0, 0
+  index: -1
+skill1-s-011
+  rotate: false
+  xy: 215, 239
+  size: 92, 213
+  orig: 92, 213
+  offset: 0, 0
+  index: -1
+skill1-s-012
+  rotate: false
+  xy: 309, 239
+  size: 177, 208
+  orig: 177, 208
+  offset: 0, 0
+  index: -1
+skill1-s-013
+  rotate: false
+  xy: 488, 239
+  size: 213, 200
+  orig: 213, 200
+  offset: 0, 0
+  index: -1
+skill2-s-000
+  rotate: false
+  xy: 703, 239
+  size: 106, 187
+  orig: 106, 187
+  offset: 0, 0
+  index: -1
+skill2-s-001
+  rotate: false
+  xy: 811, 239
+  size: 164, 163
+  orig: 164, 163
+  offset: 0, 0
+  index: -1
+skill2-s-002
+  rotate: false
+  xy: 2, 496
+  size: 112, 238
+  orig: 112, 238
+  offset: 0, 0
+  index: -1
+skill2-s-003
+  rotate: false
+  xy: 116, 496
+  size: 140, 234
+  orig: 140, 234
+  offset: 0, 0
+  index: -1
+skill2-s-004
+  rotate: false
+  xy: 258, 496
+  size: 131, 250
+  orig: 131, 250
+  offset: 0, 0
+  index: -1
+skill2-s-005
+  rotate: false
+  xy: 391, 496
+  size: 130, 257
+  orig: 130, 257
+  offset: 0, 0
+  index: -1
+skill2-s-006
+  rotate: false
+  xy: 523, 496
+  size: 132, 259
+  orig: 132, 259
+  offset: 0, 0
+  index: -1
+skill2-s-007
+  rotate: false
+  xy: 657, 496
+  size: 137, 258
+  orig: 137, 258
+  offset: 0, 0
+  index: -1
+skill2-s-008
+  rotate: false
+  xy: 796, 496
+  size: 138, 257
+  orig: 138, 257
+  offset: 0, 0
+  index: -1
+skill2-s-009
+  rotate: false
+  xy: 2, 757
+  size: 136, 252
+  orig: 136, 252
+  offset: 0, 0
+  index: -1
+dead-s-000
+  rotate: false
+  xy: 140, 757
+  size: 143, 163
+  orig: 143, 163
+  offset: 0, 0
+  index: -1
+dead-s-001
+  rotate: false
+  xy: 285, 757
+  size: 199, 120
+  orig: 199, 120
+  offset: 0, 0
+  index: -1
+dead-s-002
+  rotate: false
+  xy: 486, 757
+  size: 166, 168
+  orig: 166, 168
+  offset: 0, 0
+  index: -1
+dead-s-003
+  rotate: false
+  xy: 654, 757
+  size: 82, 161
+  orig: 82, 161
+  offset: 0, 0
+  index: -1
+dead-s-004
+  rotate: false
+  xy: 738, 757
+  size: 140, 149
+  orig: 140, 149
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-2.png
+size: 1024,926
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dead-s-005
+  rotate: false
+  xy: 2, 2
+  size: 163, 146
+  orig: 163, 146
+  offset: 0, 0
+  index: -1
+dead-s-006
+  rotate: false
+  xy: 167, 2
+  size: 129, 146
+  orig: 129, 146
+  offset: 0, 0
+  index: -1
+dead-s-007
+  rotate: false
+  xy: 298, 2
+  size: 118, 149
+  orig: 118, 149
+  offset: 0, 0
+  index: -1
+dead-s-008
+  rotate: false
+  xy: 418, 2
+  size: 129, 145
+  orig: 129, 145
+  offset: 0, 0
+  index: -1
+dead-s-009
+  rotate: false
+  xy: 549, 2
+  size: 109, 168
+  orig: 109, 168
+  offset: 0, 0
+  index: -1
+dead-s-010
+  rotate: false
+  xy: 660, 2
+  size: 88, 190
+  orig: 88, 190
+  offset: 0, 0
+  index: -1
+dead-s-011
+  rotate: false
+  xy: 750, 2
+  size: 87, 169
+  orig: 87, 169
+  offset: 0, 0
+  index: -1
+dead-s-012
+  rotate: false
+  xy: 839, 2
+  size: 111, 146
+  orig: 111, 146
+  offset: 0, 0
+  index: -1
+dead-s-013
+  rotate: false
+  xy: 2, 194
+  size: 222, 122
+  orig: 222, 122
+  offset: 0, 0
+  index: -1
+dead-s-014
+  rotate: false
+  xy: 226, 194
+  size: 279, 97
+  orig: 279, 97
+  offset: 0, 0
+  index: -1
+dead-s-015
+  rotate: false
+  xy: 507, 194
+  size: 271, 77
+  orig: 271, 77
+  offset: 0, 0
+  index: -1
+dead-s-016
+  rotate: false
+  xy: 2, 318
+  size: 265, 125
+  orig: 265, 125
+  offset: 0, 0
+  index: -1
+dead-s-017
+  rotate: false
+  xy: 269, 318
+  size: 269, 145
+  orig: 269, 145
+  offset: 0, 0
+  index: -1
+dead-s-018
+  rotate: false
+  xy: 540, 318
+  size: 269, 123
+  orig: 269, 123
+  offset: 0, 0
+  index: -1
+dead-s-019
+  rotate: false
+  xy: 2, 465
+  size: 275, 102
+  orig: 275, 102
+  offset: 0, 0
+  index: -1
+idle-se-000
+  rotate: false
+  xy: 279, 465
+  size: 212, 149
+  orig: 212, 149
+  offset: 0, 0
+  index: -1
+idle-se-001
+  rotate: false
+  xy: 493, 465
+  size: 198, 152
+  orig: 198, 152
+  offset: 0, 0
+  index: -1
+idle-se-002
+  rotate: false
+  xy: 693, 465
+  size: 192, 155
+  orig: 192, 155
+  offset: 0, 0
+  index: -1
+idle-se-003
+  rotate: false
+  xy: 2, 622
+  size: 184, 154
+  orig: 184, 154
+  offset: 0, 0
+  index: -1
+idle-se-004
+  rotate: false
+  xy: 188, 622
+  size: 168, 154
+  orig: 168, 154
+  offset: 0, 0
+  index: -1
+idle-se-005
+  rotate: false
+  xy: 358, 622
+  size: 163, 153
+  orig: 163, 153
+  offset: 0, 0
+  index: -1
+idle-se-006
+  rotate: false
+  xy: 523, 622
+  size: 174, 151
+  orig: 174, 151
+  offset: 0, 0
+  index: -1
+idle-se-007
+  rotate: false
+  xy: 699, 622
+  size: 186, 149
+  orig: 186, 149
+  offset: 0, 0
+  index: -1
+idle-se-008
+  rotate: false
+  xy: 2, 778
+  size: 202, 145
+  orig: 202, 145
+  offset: 0, 0
+  index: -1
+idle-se-009
+  rotate: false
+  xy: 206, 778
+  size: 218, 144
+  orig: 218, 144
+  offset: 0, 0
+  index: -1
+idle-se-010
+  rotate: false
+  xy: 426, 778
+  size: 229, 145
+  orig: 229, 145
+  offset: 0, 0
+  index: -1
+idle-se-011
+  rotate: false
+  xy: 657, 778
+  size: 233, 146
+  orig: 233, 146
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-3.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+idle-se-012
+  rotate: false
+  xy: 2, 2
+  size: 233, 147
+  orig: 233, 147
+  offset: 0, 0
+  index: -1
+idle-se-013
+  rotate: false
+  xy: 237, 2
+  size: 218, 148
+  orig: 218, 148
+  offset: 0, 0
+  index: -1
+run-se-000
+  rotate: false
+  xy: 457, 2
+  size: 260, 135
+  orig: 260, 135
+  offset: 0, 0
+  index: -1
+run-se-001
+  rotate: false
+  xy: 719, 2
+  size: 235, 231
+  orig: 235, 231
+  offset: 0, 0
+  index: -1
+run-se-002
+  rotate: false
+  xy: 2, 235
+  size: 225, 255
+  orig: 225, 255
+  offset: 0, 0
+  index: -1
+run-se-003
+  rotate: false
+  xy: 229, 235
+  size: 270, 144
+  orig: 270, 144
+  offset: 0, 0
+  index: -1
+run-se-004
+  rotate: false
+  xy: 501, 235
+  size: 257, 145
+  orig: 257, 145
+  offset: 0, 0
+  index: -1
+run-se-005
+  rotate: false
+  xy: 760, 235
+  size: 231, 156
+  orig: 231, 156
+  offset: 0, 0
+  index: -1
+run-se-006
+  rotate: false
+  xy: 2, 492
+  size: 243, 164
+  orig: 243, 164
+  offset: 0, 0
+  index: -1
+skill1-se-000
+  rotate: false
+  xy: 247, 492
+  size: 214, 149
+  orig: 214, 149
+  offset: 0, 0
+  index: -1
+skill1-se-001
+  rotate: false
+  xy: 463, 492
+  size: 274, 150
+  orig: 274, 150
+  offset: 0, 0
+  index: -1
+skill1-se-002
+  rotate: false
+  xy: 2, 658
+  size: 306, 146
+  orig: 306, 146
+  offset: 0, 0
+  index: -1
+skill1-se-003
+  rotate: false
+  xy: 310, 658
+  size: 293, 143
+  orig: 293, 143
+  offset: 0, 0
+  index: -1
+skill1-se-004
+  rotate: false
+  xy: 605, 658
+  size: 262, 136
+  orig: 262, 136
+  offset: 0, 0
+  index: -1
+skill1-se-005
+  rotate: false
+  xy: 2, 806
+  size: 288, 147
+  orig: 288, 147
+  offset: 0, 0
+  index: -1
+skill1-se-006
+  rotate: false
+  xy: 292, 806
+  size: 221, 216
+  orig: 221, 216
+  offset: 0, 0
+  index: -1
+skill1-se-007
+  rotate: false
+  xy: 515, 806
+  size: 294, 172
+  orig: 294, 172
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-4.png
+size: 1024,843
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill1-se-008
+  rotate: false
+  xy: 2, 2
+  size: 173, 302
+  orig: 173, 302
+  offset: 0, 0
+  index: -1
+skill1-se-009
+  rotate: false
+  xy: 177, 2
+  size: 134, 307
+  orig: 134, 307
+  offset: 0, 0
+  index: -1
+skill1-se-010
+  rotate: false
+  xy: 313, 2
+  size: 144, 283
+  orig: 144, 283
+  offset: 0, 0
+  index: -1
+skill1-se-011
+  rotate: false
+  xy: 459, 2
+  size: 123, 243
+  orig: 123, 243
+  offset: 0, 0
+  index: -1
+skill1-se-012
+  rotate: false
+  xy: 584, 2
+  size: 125, 193
+  orig: 125, 193
+  offset: 0, 0
+  index: -1
+skill1-se-013
+  rotate: false
+  xy: 711, 2
+  size: 205, 150
+  orig: 205, 150
+  offset: 0, 0
+  index: -1
+skill2-se-000
+  rotate: false
+  xy: 2, 311
+  size: 148, 211
+  orig: 148, 211
+  offset: 0, 0
+  index: -1
+skill2-se-001
+  rotate: false
+  xy: 152, 311
+  size: 231, 218
+  orig: 231, 218
+  offset: 0, 0
+  index: -1
+skill2-se-002
+  rotate: false
+  xy: 385, 311
+  size: 124, 251
+  orig: 124, 251
+  offset: 0, 0
+  index: -1
+skill2-se-003
+  rotate: false
+  xy: 511, 311
+  size: 139, 240
+  orig: 139, 240
+  offset: 0, 0
+  index: -1
+skill2-se-004
+  rotate: false
+  xy: 652, 311
+  size: 138, 258
+  orig: 138, 258
+  offset: 0, 0
+  index: -1
+skill2-se-005
+  rotate: false
+  xy: 792, 311
+  size: 146, 264
+  orig: 146, 264
+  offset: 0, 0
+  index: -1
+skill2-se-006
+  rotate: false
+  xy: 2, 577
+  size: 154, 264
+  orig: 154, 264
+  offset: 0, 0
+  index: -1
+skill2-se-007
+  rotate: false
+  xy: 158, 577
+  size: 162, 262
+  orig: 162, 262
+  offset: 0, 0
+  index: -1
+skill2-se-008
+  rotate: false
+  xy: 322, 577
+  size: 159, 260
+  orig: 159, 260
+  offset: 0, 0
+  index: -1
+skill2-se-009
+  rotate: false
+  xy: 483, 577
+  size: 150, 254
+  orig: 150, 254
+  offset: 0, 0
+  index: -1
+dead-se-000
+  rotate: false
+  xy: 635, 577
+  size: 165, 203
+  orig: 165, 203
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-5.png
+size: 1024,865
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dead-se-001
+  rotate: false
+  xy: 2, 2
+  size: 255, 180
+  orig: 255, 180
+  offset: 0, 0
+  index: -1
+dead-se-002
+  rotate: false
+  xy: 259, 2
+  size: 192, 243
+  orig: 192, 243
+  offset: 0, 0
+  index: -1
+dead-se-003
+  rotate: false
+  xy: 453, 2
+  size: 126, 186
+  orig: 126, 186
+  offset: 0, 0
+  index: -1
+dead-se-004
+  rotate: false
+  xy: 581, 2
+  size: 110, 153
+  orig: 110, 153
+  offset: 0, 0
+  index: -1
+dead-se-005
+  rotate: false
+  xy: 693, 2
+  size: 104, 155
+  orig: 104, 155
+  offset: 0, 0
+  index: -1
+dead-se-006
+  rotate: false
+  xy: 799, 2
+  size: 157, 157
+  orig: 157, 157
+  offset: 0, 0
+  index: -1
+dead-se-007
+  rotate: false
+  xy: 2, 247
+  size: 234, 157
+  orig: 234, 157
+  offset: 0, 0
+  index: -1
+dead-se-008
+  rotate: false
+  xy: 238, 247
+  size: 270, 153
+  orig: 270, 153
+  offset: 0, 0
+  index: -1
+dead-se-009
+  rotate: false
+  xy: 510, 247
+  size: 283, 141
+  orig: 283, 141
+  offset: 0, 0
+  index: -1
+dead-se-010
+  rotate: false
+  xy: 2, 406
+  size: 260, 170
+  orig: 260, 170
+  offset: 0, 0
+  index: -1
+dead-se-011
+  rotate: false
+  xy: 264, 406
+  size: 251, 157
+  orig: 251, 157
+  offset: 0, 0
+  index: -1
+dead-se-012
+  rotate: false
+  xy: 517, 406
+  size: 205, 160
+  orig: 205, 160
+  offset: 0, 0
+  index: -1
+dead-se-013
+  rotate: false
+  xy: 724, 406
+  size: 151, 196
+  orig: 151, 196
+  offset: 0, 0
+  index: -1
+dead-se-014
+  rotate: false
+  xy: 2, 604
+  size: 213, 176
+  orig: 213, 176
+  offset: 0, 0
+  index: -1
+dead-se-015
+  rotate: false
+  xy: 217, 604
+  size: 203, 131
+  orig: 203, 131
+  offset: 0, 0
+  index: -1
+dead-se-016
+  rotate: false
+  xy: 422, 604
+  size: 184, 233
+  orig: 184, 233
+  offset: 0, 0
+  index: -1
+dead-se-017
+  rotate: false
+  xy: 608, 604
+  size: 191, 259
+  orig: 191, 259
+  offset: 0, 0
+  index: -1
+dead-se-018
+  rotate: false
+  xy: 801, 604
+  size: 190, 227
+  orig: 190, 227
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-6.png
+size: 1024,683
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dead-se-019
+  rotate: false
+  xy: 2, 2
+  size: 203, 206
+  orig: 203, 206
+  offset: 0, 0
+  index: -1
+idle-e-000
+  rotate: false
+  xy: 207, 2
+  size: 124, 227
+  orig: 124, 227
+  offset: 0, 0
+  index: -1
+idle-e-001
+  rotate: false
+  xy: 333, 2
+  size: 120, 226
+  orig: 120, 226
+  offset: 0, 0
+  index: -1
+idle-e-002
+  rotate: false
+  xy: 455, 2
+  size: 134, 225
+  orig: 134, 225
+  offset: 0, 0
+  index: -1
+idle-e-003
+  rotate: false
+  xy: 591, 2
+  size: 155, 223
+  orig: 155, 223
+  offset: 0, 0
+  index: -1
+idle-e-004
+  rotate: false
+  xy: 748, 2
+  size: 176, 222
+  orig: 176, 222
+  offset: 0, 0
+  index: -1
+idle-e-005
+  rotate: false
+  xy: 2, 231
+  size: 186, 221
+  orig: 186, 221
+  offset: 0, 0
+  index: -1
+idle-e-006
+  rotate: false
+  xy: 190, 231
+  size: 175, 221
+  orig: 175, 221
+  offset: 0, 0
+  index: -1
+idle-e-007
+  rotate: false
+  xy: 367, 231
+  size: 160, 220
+  orig: 160, 220
+  offset: 0, 0
+  index: -1
+idle-e-008
+  rotate: false
+  xy: 529, 231
+  size: 150, 220
+  orig: 150, 220
+  offset: 0, 0
+  index: -1
+idle-e-009
+  rotate: false
+  xy: 681, 231
+  size: 149, 220
+  orig: 149, 220
+  offset: 0, 0
+  index: -1
+idle-e-010
+  rotate: false
+  xy: 832, 231
+  size: 157, 221
+  orig: 157, 221
+  offset: 0, 0
+  index: -1
+idle-e-011
+  rotate: false
+  xy: 2, 454
+  size: 157, 223
+  orig: 157, 223
+  offset: 0, 0
+  index: -1
+idle-e-012
+  rotate: false
+  xy: 161, 454
+  size: 146, 225
+  orig: 146, 225
+  offset: 0, 0
+  index: -1
+idle-e-013
+  rotate: false
+  xy: 309, 454
+  size: 129, 227
+  orig: 129, 227
+  offset: 0, 0
+  index: -1
+run-e-000
+  rotate: false
+  xy: 440, 454
+  size: 379, 210
+  orig: 379, 210
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-7.png
+size: 1024,857
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+run-e-001
+  rotate: false
+  xy: 2, 2
+  size: 264, 393
+  orig: 264, 393
+  offset: 0, 0
+  index: -1
+run-e-002
+  rotate: false
+  xy: 268, 2
+  size: 277, 412
+  orig: 277, 412
+  offset: 0, 0
+  index: -1
+run-e-003
+  rotate: false
+  xy: 547, 2
+  size: 374, 229
+  orig: 374, 229
+  offset: 0, 0
+  index: -1
+run-e-004
+  rotate: false
+  xy: 2, 416
+  size: 393, 210
+  orig: 393, 210
+  offset: 0, 0
+  index: -1
+run-e-005
+  rotate: false
+  xy: 397, 416
+  size: 425, 208
+  orig: 425, 208
+  offset: 0, 0
+  index: -1
+run-e-006
+  rotate: false
+  xy: 2, 628
+  size: 422, 206
+  orig: 422, 206
+  offset: 0, 0
+  index: -1
+skill1-e-000
+  rotate: false
+  xy: 426, 628
+  size: 124, 227
+  orig: 124, 227
+  offset: 0, 0
+  index: -1
+skill1-e-001
+  rotate: false
+  xy: 552, 628
+  size: 200, 206
+  orig: 200, 206
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-8.png
+size: 1024,904
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill1-e-002
+  rotate: false
+  xy: 2, 2
+  size: 350, 199
+  orig: 350, 199
+  offset: 0, 0
+  index: -1
+skill1-e-003
+  rotate: false
+  xy: 354, 2
+  size: 418, 186
+  orig: 418, 186
+  offset: 0, 0
+  index: -1
+skill1-e-004
+  rotate: false
+  xy: 2, 203
+  size: 425, 178
+  orig: 425, 178
+  offset: 0, 0
+  index: -1
+skill1-e-005
+  rotate: false
+  xy: 429, 203
+  size: 304, 330
+  orig: 304, 330
+  offset: 0, 0
+  index: -1
+skill1-e-006
+  rotate: false
+  xy: 2, 535
+  size: 398, 229
+  orig: 398, 229
+  offset: 0, 0
+  index: -1
+skill1-e-007
+  rotate: false
+  xy: 402, 535
+  size: 348, 367
+  orig: 348, 367
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-9.png
+size: 1024,870
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill1-e-008
+  rotate: false
+  xy: 2, 2
+  size: 180, 493
+  orig: 180, 493
+  offset: 0, 0
+  index: -1
+skill1-e-009
+  rotate: false
+  xy: 184, 2
+  size: 154, 481
+  orig: 154, 481
+  offset: 0, 0
+  index: -1
+skill1-e-010
+  rotate: false
+  xy: 340, 2
+  size: 210, 448
+  orig: 210, 448
+  offset: 0, 0
+  index: -1
+skill1-e-011
+  rotate: false
+  xy: 552, 2
+  size: 251, 395
+  orig: 251, 395
+  offset: 0, 0
+  index: -1
+skill1-e-012
+  rotate: false
+  xy: 805, 2
+  size: 199, 292
+  orig: 199, 292
+  offset: 0, 0
+  index: -1
+skill1-e-013
+  rotate: false
+  xy: 2, 497
+  size: 129, 227
+  orig: 129, 227
+  offset: 0, 0
+  index: -1
+skill2-e-000
+  rotate: false
+  xy: 133, 497
+  size: 239, 360
+  orig: 239, 360
+  offset: 0, 0
+  index: -1
+skill2-e-001
+  rotate: false
+  xy: 374, 497
+  size: 221, 371
+  orig: 221, 371
+  offset: 0, 0
+  index: -1
+skill2-e-002
+  rotate: false
+  xy: 597, 497
+  size: 180, 370
+  orig: 180, 370
+  offset: 0, 0
+  index: -1
+skill2-e-003
+  rotate: false
+  xy: 779, 497
+  size: 204, 339
+  orig: 204, 339
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-10.png
+size: 1024,724
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+skill2-e-004
+  rotate: false
+  xy: 2, 2
+  size: 188, 357
+  orig: 188, 357
+  offset: 0, 0
+  index: -1
+skill2-e-005
+  rotate: false
+  xy: 192, 2
+  size: 187, 363
+  orig: 187, 363
+  offset: 0, 0
+  index: -1
+skill2-e-006
+  rotate: false
+  xy: 381, 2
+  size: 186, 359
+  orig: 186, 359
+  offset: 0, 0
+  index: -1
+skill2-e-007
+  rotate: false
+  xy: 569, 2
+  size: 185, 352
+  orig: 185, 352
+  offset: 0, 0
+  index: -1
+skill2-e-008
+  rotate: false
+  xy: 756, 2
+  size: 192, 354
+  orig: 192, 354
+  offset: 0, 0
+  index: -1
+skill2-e-009
+  rotate: false
+  xy: 2, 367
+  size: 195, 355
+  orig: 195, 355
+  offset: 0, 0
+  index: -1
+dead-e-000
+  rotate: false
+  xy: 199, 367
+  size: 430, 217
+  orig: 430, 217
+  offset: 0, 0
+  index: -1
+dead-e-001
+  rotate: false
+  xy: 631, 367
+  size: 236, 355
+  orig: 236, 355
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-11.png
+size: 1024,879
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dead-e-002
+  rotate: false
+  xy: 2, 2
+  size: 184, 414
+  orig: 184, 414
+  offset: 0, 0
+  index: -1
+dead-e-003
+  rotate: false
+  xy: 188, 2
+  size: 246, 338
+  orig: 246, 338
+  offset: 0, 0
+  index: -1
+dead-e-004
+  rotate: false
+  xy: 436, 2
+  size: 301, 216
+  orig: 301, 216
+  offset: 0, 0
+  index: -1
+dead-e-005
+  rotate: false
+  xy: 2, 418
+  size: 359, 224
+  orig: 359, 224
+  offset: 0, 0
+  index: -1
+dead-e-006
+  rotate: false
+  xy: 363, 418
+  size: 387, 223
+  orig: 387, 223
+  offset: 0, 0
+  index: -1
+dead-e-007
+  rotate: false
+  xy: 2, 644
+  size: 401, 223
+  orig: 401, 223
+  offset: 0, 0
+  index: -1
+dead-e-008
+  rotate: false
+  xy: 405, 644
+  size: 371, 233
+  orig: 371, 233
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-12.png
+size: 1024,1013
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dead-e-009
+  rotate: false
+  xy: 2, 2
+  size: 382, 193
+  orig: 382, 193
+  offset: 0, 0
+  index: -1
+dead-e-010
+  rotate: false
+  xy: 386, 2
+  size: 399, 168
+  orig: 399, 168
+  offset: 0, 0
+  index: -1
+dead-e-011
+  rotate: false
+  xy: 2, 197
+  size: 427, 175
+  orig: 427, 175
+  offset: 0, 0
+  index: -1
+dead-e-012
+  rotate: false
+  xy: 431, 197
+  size: 424, 184
+  orig: 424, 184
+  offset: 0, 0
+  index: -1
+dead-e-013
+  rotate: false
+  xy: 2, 383
+  size: 361, 238
+  orig: 361, 238
+  offset: 0, 0
+  index: -1
+dead-e-014
+  rotate: false
+  xy: 365, 383
+  size: 234, 304
+  orig: 234, 304
+  offset: 0, 0
+  index: -1
+dead-e-015
+  rotate: false
+  xy: 601, 383
+  size: 311, 220
+  orig: 311, 220
+  offset: 0, 0
+  index: -1
+dead-e-016
+  rotate: false
+  xy: 2, 689
+  size: 349, 279
+  orig: 349, 279
+  offset: 0, 0
+  index: -1
+dead-e-017
+  rotate: false
+  xy: 353, 689
+  size: 329, 322
+  orig: 329, 322
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-13.png
+size: 1024,862
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dead-e-018
+  rotate: false
+  xy: 2, 2
+  size: 344, 271
+  orig: 344, 271
+  offset: 0, 0
+  index: -1
+dead-e-019
+  rotate: false
+  xy: 348, 2
+  size: 321, 278
+  orig: 321, 278
+  offset: 0, 0
+  index: -1
+idle-ne-000
+  rotate: false
+  xy: 671, 2
+  size: 210, 193
+  orig: 210, 193
+  offset: 0, 0
+  index: -1
+idle-ne-001
+  rotate: false
+  xy: 2, 282
+  size: 216, 193
+  orig: 216, 193
+  offset: 0, 0
+  index: -1
+idle-ne-002
+  rotate: false
+  xy: 220, 282
+  size: 226, 192
+  orig: 226, 192
+  offset: 0, 0
+  index: -1
+idle-ne-003
+  rotate: false
+  xy: 448, 282
+  size: 239, 191
+  orig: 239, 191
+  offset: 0, 0
+  index: -1
+idle-ne-004
+  rotate: false
+  xy: 689, 282
+  size: 251, 190
+  orig: 251, 190
+  offset: 0, 0
+  index: -1
+idle-ne-005
+  rotate: false
+  xy: 2, 477
+  size: 257, 190
+  orig: 257, 190
+  offset: 0, 0
+  index: -1
+idle-ne-006
+  rotate: false
+  xy: 261, 477
+  size: 256, 190
+  orig: 256, 190
+  offset: 0, 0
+  index: -1
+idle-ne-007
+  rotate: false
+  xy: 519, 477
+  size: 251, 189
+  orig: 251, 189
+  offset: 0, 0
+  index: -1
+idle-ne-008
+  rotate: false
+  xy: 772, 477
+  size: 244, 188
+  orig: 244, 188
+  offset: 0, 0
+  index: -1
+idle-ne-009
+  rotate: false
+  xy: 2, 669
+  size: 233, 188
+  orig: 233, 188
+  offset: 0, 0
+  index: -1
+idle-ne-010
+  rotate: false
+  xy: 237, 669
+  size: 220, 188
+  orig: 220, 188
+  offset: 0, 0
+  index: -1
+idle-ne-011
+  rotate: false
+  xy: 459, 669
+  size: 211, 189
+  orig: 211, 189
+  offset: 0, 0
+  index: -1
+idle-ne-012
+  rotate: false
+  xy: 672, 669
+  size: 207, 191
+  orig: 207, 191
+  offset: 0, 0
+  index: -1
+
+battle-guanyu-packed-14.png
+size: 1024,901
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+idle-ne-013
+  rotate: false
+  xy: 2, 2
+  size: 210, 193
+  orig: 210, 193
+  offset: 0, 0
+  index: -1
+run-ne-000
+  rotate: false
+  xy: 214, 2
+  size: 214, 258
+  orig: 214, 258
+  offset: 0, 0
+  index: -1
+run-ne-001
+  rotate: false
+  xy: 430, 2
+  size: 158, 345
+  orig: 158, 345
+  offset: 0, 0
+  index: -1
+run-ne-002
+  rotate: false
+  xy: 590, 2
+  size: 159, 339
+  orig: 159, 339
+  offset: 0, 0
+  index: -1
+run-ne-003
+  rotate: false
+  xy: 751, 2
+  size: 214, 271
+  orig: 214, 271
   offset: 0, 0
   index: -1
 run-ne-004
   rotate: false
-  xy: 57, 2
-  size: 55, 60
-  orig: 55, 60
+  xy: 2, 349
+  size: 221, 244
+  orig: 221, 244
   offset: 0, 0
   index: -1
 run-ne-005
   rotate: false
-  xy: 114, 2
-  size: 63, 49
-  orig: 63, 49
+  xy: 225, 349
+  size: 253, 198
+  orig: 253, 198
   offset: 0, 0
   index: -1
 run-ne-006
   rotate: false
-  xy: 179, 2
-  size: 64, 48
-  orig: 64, 48
+  xy: 480, 349
+  size: 252, 197
+  orig: 252, 197
   offset: 0, 0
   index: -1
 skill1-ne-000
   rotate: false
-  xy: 245, 2
-  size: 53, 49
-  orig: 53, 49
+  xy: 734, 349
+  size: 210, 193
+  orig: 210, 193
   offset: 0, 0
   index: -1
 skill1-ne-001
   rotate: false
-  xy: 300, 2
-  size: 53, 45
-  orig: 53, 45
+  xy: 2, 595
+  size: 214, 178
+  orig: 214, 178
   offset: 0, 0
   index: -1
 skill1-ne-002
   rotate: false
-  xy: 355, 2
-  size: 30, 52
-  orig: 30, 52
+  xy: 218, 595
+  size: 122, 208
+  orig: 122, 208
   offset: 0, 0
   index: -1
 skill1-ne-003
   rotate: false
-  xy: 387, 2
-  size: 37, 63
-  orig: 37, 63
+  xy: 342, 595
+  size: 152, 248
+  orig: 152, 248
   offset: 0, 0
   index: -1
 skill1-ne-004
   rotate: false
-  xy: 426, 2
-  size: 57, 63
-  orig: 57, 63
+  xy: 496, 595
+  size: 230, 250
+  orig: 230, 250
   offset: 0, 0
   index: -1
 skill1-ne-005
   rotate: false
-  xy: 485, 2
-  size: 26, 77
-  orig: 26, 77
+  xy: 728, 595
+  size: 101, 304
+  orig: 101, 304
   offset: 0, 0
   index: -1
+
+battle-guanyu-packed-15.png
+size: 1024,755
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
 skill1-ne-006
   rotate: false
-  xy: 513, 2
-  size: 75, 48
-  orig: 75, 48
+  xy: 2, 2
+  size: 297, 193
+  orig: 297, 193
   offset: 0, 0
   index: -1
 skill1-ne-007
   rotate: false
-  xy: 590, 2
-  size: 43, 88
-  orig: 43, 88
+  xy: 301, 2
+  size: 172, 350
+  orig: 172, 350
   offset: 0, 0
   index: -1
 skill1-ne-008
   rotate: false
-  xy: 635, 2
-  size: 26, 104
-  orig: 26, 104
+  xy: 475, 2
+  size: 104, 412
+  orig: 104, 412
   offset: 0, 0
   index: -1
 skill1-ne-009
   rotate: false
-  xy: 663, 2
-  size: 29, 100
-  orig: 29, 100
+  xy: 581, 2
+  size: 115, 398
+  orig: 115, 398
   offset: 0, 0
   index: -1
 skill1-ne-010
   rotate: false
-  xy: 694, 2
-  size: 31, 96
-  orig: 31, 96
+  xy: 698, 2
+  size: 126, 383
+  orig: 126, 383
   offset: 0, 0
   index: -1
 skill1-ne-011
   rotate: false
-  xy: 727, 2
-  size: 47, 88
-  orig: 47, 88
+  xy: 826, 2
+  size: 190, 351
+  orig: 190, 351
   offset: 0, 0
   index: -1
 skill1-ne-012
   rotate: false
-  xy: 776, 2
-  size: 56, 70
-  orig: 56, 70
+  xy: 2, 416
+  size: 221, 278
+  orig: 221, 278
   offset: 0, 0
   index: -1
 skill1-ne-013
   rotate: false
-  xy: 834, 2
-  size: 54, 49
-  orig: 54, 49
+  xy: 225, 416
+  size: 213, 193
+  orig: 213, 193
   offset: 0, 0
   index: -1
 skill2-ne-000
   rotate: false
-  xy: 890, 2
-  size: 42, 84
-  orig: 42, 84
+  xy: 440, 416
+  size: 167, 337
+  orig: 167, 337
   offset: 0, 0
   index: -1
 skill2-ne-001
   rotate: false
-  xy: 934, 2
-  size: 34, 84
-  orig: 34, 84
+  xy: 609, 416
+  size: 134, 337
+  orig: 134, 337
   offset: 0, 0
   index: -1
 skill2-ne-002
   rotate: false
-  xy: 970, 2
-  size: 29, 77
-  orig: 29, 77
+  xy: 745, 416
+  size: 115, 308
+  orig: 115, 308
   offset: 0, 0
   index: -1
 skill2-ne-003
   rotate: false
-  xy: 2, 108
-  size: 35, 74
-  orig: 35, 74
+  xy: 862, 416
+  size: 139, 292
+  orig: 139, 292
   offset: 0, 0
   index: -1
+
+battle-guanyu-packed-16.png
+size: 1024,936
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
 skill2-ne-004
   rotate: false
-  xy: 39, 108
-  size: 29, 74
-  orig: 29, 74
+  xy: 2, 2
+  size: 114, 297
+  orig: 114, 297
   offset: 0, 0
   index: -1
 skill2-ne-005
   rotate: false
-  xy: 70, 108
-  size: 27, 73
-  orig: 27, 73
+  xy: 118, 2
+  size: 109, 295
+  orig: 109, 295
   offset: 0, 0
   index: -1
 skill2-ne-006
   rotate: false
-  xy: 99, 108
-  size: 29, 73
-  orig: 29, 73
+  xy: 229, 2
+  size: 114, 289
+  orig: 114, 289
   offset: 0, 0
   index: -1
 skill2-ne-007
   rotate: false
-  xy: 130, 108
-  size: 31, 70
-  orig: 31, 70
+  xy: 345, 2
+  size: 121, 282
+  orig: 121, 282
   offset: 0, 0
   index: -1
 skill2-ne-008
   rotate: false
-  xy: 163, 108
-  size: 32, 71
-  orig: 32, 71
+  xy: 468, 2
+  size: 129, 285
+  orig: 129, 285
   offset: 0, 0
   index: -1
 skill2-ne-009
   rotate: false
-  xy: 197, 108
-  size: 36, 73
-  orig: 36, 73
+  xy: 599, 2
+  size: 140, 293
+  orig: 140, 293
   offset: 0, 0
   index: -1
 dead-ne-000
   rotate: false
-  xy: 235, 108
-  size: 76, 48
-  orig: 76, 48
+  xy: 2, 301
+  size: 303, 189
+  orig: 303, 189
   offset: 0, 0
   index: -1
 dead-ne-001
   rotate: false
-  xy: 313, 108
-  size: 28, 78
-  orig: 28, 78
+  xy: 307, 301
+  size: 113, 309
+  orig: 113, 309
   offset: 0, 0
   index: -1
 dead-ne-002
   rotate: false
-  xy: 343, 108
-  size: 29, 86
-  orig: 29, 86
+  xy: 422, 301
+  size: 114, 344
+  orig: 114, 344
   offset: 0, 0
   index: -1
 dead-ne-003
   rotate: false
-  xy: 374, 108
-  size: 46, 84
-  orig: 46, 84
+  xy: 538, 301
+  size: 183, 334
+  orig: 183, 334
   offset: 0, 0
   index: -1
 dead-ne-004
   rotate: false
-  xy: 422, 108
-  size: 66, 65
-  orig: 66, 65
+  xy: 723, 301
+  size: 264, 262
+  orig: 264, 262
   offset: 0, 0
   index: -1
 dead-ne-005
   rotate: false
-  xy: 490, 108
-  size: 77, 56
-  orig: 77, 56
+  xy: 2, 647
+  size: 306, 229
+  orig: 306, 229
   offset: 0, 0
   index: -1
 dead-ne-006
   rotate: false
-  xy: 569, 108
-  size: 77, 65
-  orig: 77, 65
+  xy: 310, 647
+  size: 304, 264
+  orig: 304, 264
   offset: 0, 0
   index: -1
 dead-ne-007
   rotate: false
-  xy: 648, 108
-  size: 67, 72
-  orig: 67, 72
+  xy: 616, 647
+  size: 269, 287
+  orig: 269, 287
   offset: 0, 0
   index: -1
+
+battle-guanyu-packed-17.png
+size: 1024,996
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
 dead-ne-008
   rotate: false
-  xy: 717, 108
-  size: 57, 71
-  orig: 57, 71
+  xy: 2, 2
+  size: 226, 286
+  orig: 226, 286
   offset: 0, 0
   index: -1
 dead-ne-009
   rotate: false
-  xy: 776, 108
-  size: 57, 55
-  orig: 57, 55
+  xy: 230, 2
+  size: 227, 225
+  orig: 227, 225
   offset: 0, 0
   index: -1
 dead-ne-010
   rotate: false
-  xy: 835, 108
-  size: 63, 46
-  orig: 63, 46
+  xy: 459, 2
+  size: 252, 186
+  orig: 252, 186
   offset: 0, 0
   index: -1
 dead-ne-011
   rotate: false
-  xy: 900, 108
-  size: 70, 48
-  orig: 70, 48
+  xy: 713, 2
+  size: 281, 198
+  orig: 281, 198
   offset: 0, 0
   index: -1
 dead-ne-012
   rotate: false
-  xy: 2, 196
-  size: 77, 48
-  orig: 77, 48
+  xy: 2, 290
+  size: 310, 193
+  orig: 310, 193
   offset: 0, 0
   index: -1
 dead-ne-013
   rotate: false
-  xy: 81, 196
-  size: 88, 42
-  orig: 88, 42
+  xy: 314, 290
+  size: 353, 170
+  orig: 353, 170
   offset: 0, 0
   index: -1
 dead-ne-014
   rotate: false
-  xy: 171, 196
-  size: 86, 44
-  orig: 86, 44
+  xy: 669, 290
+  size: 346, 174
+  orig: 346, 174
   offset: 0, 0
   index: -1
 dead-ne-015
   rotate: false
-  xy: 259, 196
-  size: 90, 41
-  orig: 90, 41
+  xy: 2, 485
+  size: 359, 161
+  orig: 359, 161
   offset: 0, 0
   index: -1
 dead-ne-016
   rotate: false
-  xy: 351, 196
-  size: 92, 32
-  orig: 92, 32
+  xy: 363, 485
+  size: 368, 126
+  orig: 368, 126
   offset: 0, 0
   index: -1
 dead-ne-017
   rotate: false
-  xy: 445, 196
-  size: 91, 35
-  orig: 91, 35
+  xy: 2, 648
+  size: 363, 139
+  orig: 363, 139
   offset: 0, 0
   index: -1
 dead-ne-018
   rotate: false
-  xy: 538, 196
-  size: 92, 36
-  orig: 92, 36
+  xy: 367, 648
+  size: 368, 141
+  orig: 368, 141
   offset: 0, 0
   index: -1
 dead-ne-019
   rotate: false
-  xy: 632, 196
-  size: 92, 35
-  orig: 92, 35
+  xy: 2, 791
+  size: 368, 136
+  orig: 368, 136
   offset: 0, 0
   index: -1
 idle-n-000
   rotate: false
-  xy: 726, 196
-  size: 55, 50
-  orig: 55, 50
+  xy: 372, 791
+  size: 218, 199
+  orig: 218, 199
   offset: 0, 0
   index: -1
 idle-n-001
   rotate: false
-  xy: 783, 196
-  size: 55, 52
-  orig: 55, 52
+  xy: 592, 791
+  size: 219, 203
+  orig: 219, 203
   offset: 0, 0
   index: -1
+
+battle-guanyu-packed-18.png
+size: 1024,915
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
 idle-n-002
   rotate: false
-  xy: 840, 196
-  size: 57, 52
-  orig: 57, 52
+  xy: 2, 2
+  size: 222, 204
+  orig: 222, 204
   offset: 0, 0
   index: -1
 idle-n-003
   rotate: false
-  xy: 899, 196
-  size: 57, 52
-  orig: 57, 52
+  xy: 226, 2
+  size: 223, 204
+  orig: 223, 204
   offset: 0, 0
   index: -1
 idle-n-004
   rotate: false
-  xy: 958, 196
-  size: 55, 53
-  orig: 55, 53
+  xy: 451, 2
+  size: 220, 206
+  orig: 220, 206
   offset: 0, 0
   index: -1
 idle-n-005
   rotate: false
-  xy: 2, 251
-  size: 55, 53
-  orig: 55, 53
+  xy: 673, 2
+  size: 221, 206
+  orig: 221, 206
   offset: 0, 0
   index: -1
 idle-n-006
   rotate: false
-  xy: 59, 251
-  size: 57, 51
-  orig: 57, 51
+  xy: 2, 210
+  size: 225, 201
+  orig: 225, 201
   offset: 0, 0
   index: -1
 idle-n-007
   rotate: false
-  xy: 118, 251
-  size: 58, 51
-  orig: 58, 51
+  xy: 229, 210
+  size: 229, 199
+  orig: 229, 199
   offset: 0, 0
   index: -1
 idle-n-008
   rotate: false
-  xy: 178, 251
-  size: 57, 49
-  orig: 57, 49
+  xy: 460, 210
+  size: 229, 197
+  orig: 229, 197
   offset: 0, 0
   index: -1
 idle-n-009
   rotate: false
-  xy: 237, 251
-  size: 57, 48
-  orig: 57, 48
+  xy: 691, 210
+  size: 226, 192
+  orig: 226, 192
   offset: 0, 0
   index: -1
 idle-n-010
   rotate: false
-  xy: 296, 251
-  size: 56, 47
-  orig: 56, 47
+  xy: 2, 413
+  size: 222, 187
+  orig: 222, 187
   offset: 0, 0
   index: -1
 idle-n-011
   rotate: false
-  xy: 354, 251
-  size: 56, 46
-  orig: 56, 46
+  xy: 226, 413
+  size: 219, 185
+  orig: 219, 185
   offset: 0, 0
   index: -1
 idle-n-012
   rotate: false
-  xy: 412, 251
-  size: 55, 46
-  orig: 55, 46
+  xy: 447, 413
+  size: 219, 186
+  orig: 219, 186
   offset: 0, 0
   index: -1
 idle-n-013
   rotate: false
-  xy: 469, 251
-  size: 55, 49
-  orig: 55, 49
+  xy: 668, 413
+  size: 219, 196
+  orig: 219, 196
   offset: 0, 0
   index: -1
 run-n-000
   rotate: false
-  xy: 526, 251
-  size: 21, 57
-  orig: 21, 57
+  xy: 889, 413
+  size: 83, 230
+  orig: 83, 230
   offset: 0, 0
   index: -1
 run-n-001
   rotate: false
-  xy: 549, 251
-  size: 32, 68
-  orig: 32, 68
+  xy: 2, 645
+  size: 127, 268
+  orig: 127, 268
   offset: 0, 0
   index: -1
 run-n-002
   rotate: false
-  xy: 583, 251
-  size: 36, 66
-  orig: 36, 66
+  xy: 131, 645
+  size: 140, 265
+  orig: 140, 265
   offset: 0, 0
   index: -1
 run-n-003
   rotate: false
-  xy: 621, 251
-  size: 23, 59
-  orig: 23, 59
+  xy: 273, 645
+  size: 89, 239
+  orig: 89, 239
   offset: 0, 0
   index: -1
 run-n-004
   rotate: false
-  xy: 646, 251
-  size: 19, 54
-  orig: 19, 54
+  xy: 364, 645
+  size: 76, 218
+  orig: 76, 218
   offset: 0, 0
   index: -1
 run-n-005
   rotate: false
-  xy: 667, 251
-  size: 21, 49
-  orig: 21, 49
+  xy: 442, 645
+  size: 83, 192
+  orig: 83, 192
   offset: 0, 0
   index: -1
 run-n-006
   rotate: false
-  xy: 690, 251
-  size: 22, 43
-  orig: 22, 43
+  xy: 527, 645
+  size: 86, 184
+  orig: 86, 184
   offset: 0, 0
   index: -1
 skill1-n-000
   rotate: false
-  xy: 714, 251
-  size: 55, 50
-  orig: 55, 50
+  xy: 615, 645
+  size: 219, 200
+  orig: 219, 200
   offset: 0, 0
   index: -1
+
+battle-guanyu-packed-19.png
+size: 1024,806
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
 skill1-n-001
   rotate: false
-  xy: 771, 251
-  size: 67, 40
-  orig: 67, 40
+  xy: 2, 2
+  size: 266, 162
+  orig: 266, 162
   offset: 0, 0
   index: -1
 skill1-n-002
   rotate: false
-  xy: 840, 251
-  size: 64, 37
-  orig: 64, 37
+  xy: 270, 2
+  size: 254, 152
+  orig: 254, 152
   offset: 0, 0
   index: -1
 skill1-n-003
   rotate: false
-  xy: 906, 251
-  size: 48, 44
-  orig: 48, 44
+  xy: 526, 2
+  size: 189, 175
+  orig: 189, 175
   offset: 0, 0
   index: -1
 skill1-n-004
   rotate: false
-  xy: 956, 251
-  size: 33, 54
-  orig: 33, 54
+  xy: 717, 2
+  size: 131, 211
+  orig: 131, 211
   offset: 0, 0
   index: -1
 skill1-n-005
   rotate: false
-  xy: 2, 321
-  size: 51, 47
-  orig: 51, 47
+  xy: 2, 215
+  size: 201, 185
+  orig: 201, 185
   offset: 0, 0
   index: -1
 skill1-n-006
   rotate: false
-  xy: 55, 321
-  size: 32, 47
-  orig: 32, 47
+  xy: 205, 215
+  size: 125, 186
+  orig: 125, 186
   offset: 0, 0
   index: -1
 skill1-n-007
   rotate: false
-  xy: 89, 321
-  size: 28, 70
-  orig: 28, 70
+  xy: 332, 215
+  size: 110, 276
+  orig: 110, 276
   offset: 0, 0
   index: -1
 skill1-n-008
   rotate: false
-  xy: 119, 321
-  size: 31, 77
-  orig: 31, 77
+  xy: 444, 215
+  size: 121, 311
+  orig: 121, 311
   offset: 0, 0
   index: -1
 skill1-n-009
   rotate: false
-  xy: 152, 321
-  size: 27, 78
-  orig: 27, 78
+  xy: 567, 215
+  size: 105, 310
+  orig: 105, 310
   offset: 0, 0
   index: -1
 skill1-n-010
   rotate: false
-  xy: 181, 321
-  size: 25, 78
-  orig: 25, 78
+  xy: 674, 215
+  size: 98, 314
+  orig: 98, 314
   offset: 0, 0
   index: -1
 skill1-n-011
   rotate: false
-  xy: 208, 321
-  size: 26, 76
-  orig: 26, 76
+  xy: 774, 215
+  size: 104, 307
+  orig: 104, 307
   offset: 0, 0
   index: -1
 skill1-n-012
   rotate: false
-  xy: 236, 321
-  size: 44, 66
-  orig: 44, 66
+  xy: 2, 531
+  size: 178, 265
+  orig: 178, 265
   offset: 0, 0
   index: -1
 skill1-n-013
   rotate: false
-  xy: 282, 321
-  size: 55, 52
-  orig: 55, 52
+  xy: 182, 531
+  size: 215, 208
+  orig: 215, 208
   offset: 0, 0
   index: -1
 skill2-n-000
   rotate: false
-  xy: 339, 321
-  size: 28, 68
-  orig: 28, 68
+  xy: 399, 531
+  size: 112, 273
+  orig: 112, 273
   offset: 0, 0
   index: -1
 skill2-n-001
   rotate: false
-  xy: 369, 321
-  size: 36, 61
-  orig: 36, 61
+  xy: 513, 531
+  size: 143, 244
+  orig: 143, 244
   offset: 0, 0
   index: -1
 skill2-n-002
   rotate: false
-  xy: 407, 321
-  size: 28, 65
-  orig: 28, 65
+  xy: 658, 531
+  size: 109, 257
+  orig: 109, 257
   offset: 0, 0
   index: -1
 skill2-n-003
   rotate: false
-  xy: 437, 321
-  size: 34, 66
-  orig: 34, 66
+  xy: 769, 531
+  size: 134, 260
+  orig: 134, 260
   offset: 0, 0
   index: -1
+
+battle-guanyu-packed-20.png
+size: 1024,969
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
 skill2-n-004
   rotate: false
-  xy: 473, 321
-  size: 33, 65
-  orig: 33, 65
+  xy: 2, 2
+  size: 129, 253
+  orig: 129, 253
   offset: 0, 0
   index: -1
 skill2-n-005
   rotate: false
-  xy: 508, 321
-  size: 33, 63
-  orig: 33, 63
+  xy: 133, 2
+  size: 129, 247
+  orig: 129, 247
   offset: 0, 0
   index: -1
 skill2-n-006
   rotate: false
-  xy: 543, 321
-  size: 33, 62
-  orig: 33, 62
+  xy: 264, 2
+  size: 133, 242
+  orig: 133, 242
   offset: 0, 0
   index: -1
 skill2-n-007
   rotate: false
-  xy: 578, 321
-  size: 36, 61
-  orig: 36, 61
+  xy: 399, 2
+  size: 139, 240
+  orig: 139, 240
   offset: 0, 0
   index: -1
 skill2-n-008
   rotate: false
-  xy: 616, 321
-  size: 36, 62
-  orig: 36, 62
+  xy: 540, 2
+  size: 142, 244
+  orig: 142, 244
   offset: 0, 0
   index: -1
 skill2-n-009
   rotate: false
-  xy: 654, 321
-  size: 35, 63
-  orig: 35, 63
+  xy: 684, 2
+  size: 140, 249
+  orig: 140, 249
   offset: 0, 0
   index: -1
 dead-n-000
   rotate: false
-  xy: 691, 321
-  size: 35, 41
-  orig: 35, 41
+  xy: 826, 2
+  size: 137, 167
+  orig: 137, 167
   offset: 0, 0
   index: -1
 dead-n-001
   rotate: false
-  xy: 728, 321
-  size: 43, 57
-  orig: 43, 57
+  xy: 2, 257
+  size: 166, 225
+  orig: 166, 225
   offset: 0, 0
   index: -1
 dead-n-002
   rotate: false
-  xy: 773, 321
-  size: 39, 64
-  orig: 39, 64
+  xy: 170, 257
+  size: 154, 255
+  orig: 154, 255
   offset: 0, 0
   index: -1
 dead-n-003
   rotate: false
-  xy: 814, 321
-  size: 23, 70
-  orig: 23, 70
+  xy: 326, 257
+  size: 91, 276
+  orig: 91, 276
   offset: 0, 0
   index: -1
 dead-n-004
   rotate: false
-  xy: 839, 321
-  size: 37, 66
-  orig: 37, 66
+  xy: 419, 257
+  size: 146, 261
+  orig: 146, 261
   offset: 0, 0
   index: -1
 dead-n-005
   rotate: false
-  xy: 878, 321
-  size: 43, 61
-  orig: 43, 61
+  xy: 567, 257
+  size: 167, 244
+  orig: 167, 244
   offset: 0, 0
   index: -1
 dead-n-006
   rotate: false
-  xy: 923, 321
-  size: 35, 66
-  orig: 35, 66
+  xy: 736, 257
+  size: 138, 265
+  orig: 138, 265
   offset: 0, 0
   index: -1
 dead-n-007
   rotate: false
-  xy: 960, 321
-  size: 32, 65
-  orig: 32, 65
+  xy: 876, 257
+  size: 126, 263
+  orig: 126, 263
   offset: 0, 0
   index: -1
 dead-n-008
   rotate: false
-  xy: 2, 401
-  size: 35, 62
-  orig: 35, 62
+  xy: 2, 535
+  size: 135, 255
+  orig: 135, 255
   offset: 0, 0
   index: -1
 dead-n-009
   rotate: false
-  xy: 39, 401
-  size: 28, 49
-  orig: 28, 49
+  xy: 139, 535
+  size: 111, 205
+  orig: 111, 205
   offset: 0, 0
   index: -1
 dead-n-010
   rotate: false
-  xy: 69, 401
-  size: 23, 42
-  orig: 23, 42
+  xy: 252, 535
+  size: 88, 179
+  orig: 88, 179
   offset: 0, 0
   index: -1
 dead-n-011
   rotate: false
-  xy: 94, 401
-  size: 22, 47
-  orig: 22, 47
+  xy: 342, 535
+  size: 86, 198
+  orig: 86, 198
   offset: 0, 0
   index: -1
 dead-n-012
   rotate: false
-  xy: 118, 401
-  size: 29, 52
-  orig: 29, 52
+  xy: 430, 535
+  size: 114, 208
+  orig: 114, 208
   offset: 0, 0
   index: -1
 dead-n-013
   rotate: false
-  xy: 149, 401
-  size: 52, 42
-  orig: 52, 42
+  xy: 546, 535
+  size: 201, 172
+  orig: 201, 172
   offset: 0, 0
   index: -1
 dead-n-014
   rotate: false
-  xy: 203, 401
-  size: 65, 36
-  orig: 65, 36
+  xy: 749, 535
+  size: 257, 142
+  orig: 257, 142
   offset: 0, 0
   index: -1
 dead-n-015
   rotate: false
-  xy: 270, 401
-  size: 60, 44
-  orig: 60, 44
+  xy: 2, 792
+  size: 237, 175
+  orig: 237, 175
   offset: 0, 0
   index: -1
 dead-n-016
   rotate: false
-  xy: 332, 401
-  size: 58, 33
-  orig: 58, 33
+  xy: 241, 792
+  size: 229, 131
+  orig: 229, 131
   offset: 0, 0
   index: -1
 dead-n-017
   rotate: false
-  xy: 392, 401
-  size: 59, 27
-  orig: 59, 27
+  xy: 472, 792
+  size: 232, 109
+  orig: 232, 109
   offset: 0, 0
   index: -1
 dead-n-018
   rotate: false
-  xy: 453, 401
-  size: 58, 35
-  orig: 58, 35
+  xy: 706, 792
+  size: 230, 136
+  orig: 230, 136
   offset: 0, 0
   index: -1
+
+battle-guanyu-packed-21.png
+size: 1024,136
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
 dead-n-019
   rotate: false
-  xy: 513, 401
-  size: 61, 34
-  orig: 61, 34
+  xy: 2, 2
+  size: 239, 132
+  orig: 239, 132
   offset: 0, 0
   index: -1

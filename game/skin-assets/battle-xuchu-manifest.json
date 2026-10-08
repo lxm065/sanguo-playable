@@ -1,7 +1,10 @@
 {
   "textures": [
     "battle-xuchu-packed-0.png",
-    "battle-xuchu-packed-1.png"
+    "battle-xuchu-packed-1.png",
+    "battle-xuchu-packed-2.png",
+    "battle-xuchu-packed-3.png",
+    "battle-xuchu-packed-4.png"
   ],
   "frames": 325,
   "actions": {
@@ -113,50 +116,52 @@
     "ne",
     "n"
   ],
-  "scale": 1.719298245614035,
+  "scale": 0.8672566371681416,
   "anchors": {
     "s": {
-      "left": 68,
-      "top": 70,
-      "right": 124,
-      "bottom": 120,
-      "width": 57,
-      "height": 51
+      "left": 137,
+      "top": 139,
+      "right": 248,
+      "bottom": 242,
+      "width": 112,
+      "height": 104
     },
     "se": {
-      "left": 67,
-      "top": 73,
-      "right": 123,
-      "bottom": 118,
-      "width": 57,
-      "height": 46
+      "left": 135,
+      "top": 146,
+      "right": 247,
+      "bottom": 237,
+      "width": 113,
+      "height": 92
     },
     "e": {
-      "left": 69,
-      "top": 71,
-      "right": 123,
-      "bottom": 120,
-      "width": 55,
-      "height": 50
+      "left": 138,
+      "top": 143,
+      "right": 247,
+      "bottom": 241,
+      "width": 110,
+      "height": 99
     },
     "ne": {
-      "left": 76,
-      "top": 69,
-      "right": 113,
-      "bottom": 123,
-      "width": 38,
-      "height": 55
+      "left": 153,
+      "top": 137,
+      "right": 229,
+      "bottom": 246,
+      "width": 77,
+      "height": 110
     },
     "n": {
-      "left": 69,
-      "top": 68,
-      "right": 122,
-      "bottom": 124,
-      "width": 54,
-      "height": 57
+      "left": 139,
+      "top": 138,
+      "right": 245,
+      "bottom": 249,
+      "width": 107,
+      "height": 112
     }
   },
   "model": "war3mapImported/XuChu.mdx",
+  "frameSize": 384,
+  "qualityFactor": 2,
   "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
   "dependencies": {
     "war3mapImported/XuChu.mdx": {
@@ -171,13 +176,13 @@
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\Textures\\star4.blp",
       "sha256": "226e4006f97c3a0e282eff2cd44c0336c541cf2f15e88ecfc3062c19ac6fe51b"
     },
-    "ReplaceableTextures/TeamColor/TeamColor00.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
-      "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
-    },
     "XuChuWeapon.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\XuChuWeapon.blp",
       "sha256": "8aea610e6ebff94ffa9832aff3eb1b0bec371b7ce3f937fa728b3f2cf1374805"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
+      "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
     },
     "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ReplaceableTextures\\TeamGlow\\TeamGlow00.blp",
@@ -308,16 +313,16 @@
     "center": [
       0.5514557082206011,
       -0.7190696597099304,
-      70.798674694699
+      70.79816683179524
     ],
-    "height": 140.30564450385282,
+    "height": 140.3052182769461,
     "span": 467.0486192712797
   },
   "uniformZoom": 1.9599999999999997,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 48365568,
-    "afterBytes": 5095424,
+    "beforeBytes": 193462272,
+    "afterBytes": 19251200,
     "boundaryFrames": 0
   }
 }

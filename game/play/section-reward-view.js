@@ -1,0 +1,4 @@
+"use strict";
+/** 所有尾王普通奖励复用扫荡物品结算，解锁与领取保持原事务和防重放校验。 */
+function show(v){const reward=v.progress.state.sectionReward;if(!reward||v.model.state.pending)return;if(reward.resetChapter&&v.page!=='home'){v.page='home';v.render();return;}const ticket=v.model.adTicket(),m=require('./sweep-view').reward(v,reward.items,()=>v.act(()=>{v.progress.claimSection(reward.key);require("./route-focus").start(v);}),()=>v.ad(()=>{v.progress.claimSection(reward.key,ticket);require("./route-focus").start(v);}));if(reward.unlock){const hero=v.roster.find(h=>h.id===reward.unlock);v.ui.text(m,'已解锁 '+hero.name,0,320,30,'#FFE2A0',550,50);if(reward.newUnlock)require('./hero-unlock-view').show(v,[reward.unlock],reward);}}
+module.exports={show};

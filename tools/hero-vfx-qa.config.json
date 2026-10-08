@@ -1,0 +1,11 @@
+{
+  "output":"evidence/vfx-realism-20261007",
+  "fps":2,
+  "captureFrames":24,
+  "speed":1,
+  "team":["zhaoyun","zhouyu","huangzhong"],
+  "enemies":["xuchu","zhenji","guanyu"],
+  "slots":[2,12,16],
+  "star":4,
+  "ffmpeg":"D:/AI/vits/ffmpeg-master-latest-win64-gpl/bin/ffmpeg.exe"
+}

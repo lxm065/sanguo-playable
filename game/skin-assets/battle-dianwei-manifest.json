@@ -1,7 +1,13 @@
 {
   "textures": [
     "battle-dianwei-packed-0.png",
-    "battle-dianwei-packed-1.png"
+    "battle-dianwei-packed-1.png",
+    "battle-dianwei-packed-2.png",
+    "battle-dianwei-packed-3.png",
+    "battle-dianwei-packed-4.png",
+    "battle-dianwei-packed-5.png",
+    "battle-dianwei-packed-6.png",
+    "battle-dianwei-packed-7.png"
   ],
   "frames": 470,
   "actions": {
@@ -113,50 +119,52 @@
     "ne",
     "n"
   ],
-  "scale": 1.896551724137931,
+  "scale": 0.9514563106796117,
   "anchors": {
     "s": {
-      "left": 71,
-      "top": 67,
-      "right": 121,
-      "bottom": 124,
-      "width": 51,
-      "height": 58
+      "left": 140,
+      "top": 134,
+      "right": 242,
+      "bottom": 247,
+      "width": 103,
+      "height": 114
     },
     "se": {
-      "left": 70,
-      "top": 68,
-      "right": 120,
-      "bottom": 123,
-      "width": 51,
-      "height": 56
+      "left": 141,
+      "top": 136,
+      "right": 241,
+      "bottom": 247,
+      "width": 101,
+      "height": 112
     },
     "e": {
-      "left": 76,
-      "top": 67,
-      "right": 116,
-      "bottom": 123,
-      "width": 41,
-      "height": 57
+      "left": 151,
+      "top": 136,
+      "right": 232,
+      "bottom": 247,
+      "width": 82,
+      "height": 112
     },
     "ne": {
-      "left": 71,
-      "top": 66,
-      "right": 120,
-      "bottom": 123,
-      "width": 50,
-      "height": 58
+      "left": 144,
+      "top": 134,
+      "right": 241,
+      "bottom": 247,
+      "width": 98,
+      "height": 114
     },
     "n": {
-      "left": 72,
-      "top": 67,
-      "right": 119,
-      "bottom": 124,
-      "width": 48,
-      "height": 58
+      "left": 143,
+      "top": 134,
+      "right": 241,
+      "bottom": 247,
+      "width": 99,
+      "height": 114
     }
   },
   "model": "Units/Creeps/Beastmaster/Beastmaster.mdx",
+  "frameSize": 384,
+  "qualityFactor": 2,
   "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图",
   "dependencies": {
     "Units/Creeps/Beastmaster/Beastmaster.mdx": {
@@ -175,13 +183,13 @@
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\Textures\\RibbonBlur1.blp",
       "sha256": "4dcf7d2d6468f765277f84a7cfb1df4eb5995e6feb5e5ff43a6ed199841d96e8"
     },
-    "ReplaceableTextures/TeamColor/TeamColor00.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
-      "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
-    },
     "Textures/Yellow_Glow_Dim.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\Textures\\Yellow_Glow_Dim.blp",
       "sha256": "a3ba0717b66a310f1732088b75a27aec55fda1de06a745bcc2877feb9b5033dc"
+    },
+    "ReplaceableTextures/TeamColor/TeamColor00.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
+      "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
     },
     "Textures/Clouds8x8.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\真三国无双3_1_9dai版无CD无限蓝\\自定义单位模型\\模型与贴图\\Textures\\Clouds8x8.blp",
@@ -318,18 +326,18 @@
   },
   "camera": {
     "center": [
-      -4.259002685546875,
-      -4.335502624511719,
-      88.3268986643244
+      -4.259006700658574,
+      -4.335498582194759,
+      88.32467210090164
     ],
-    "height": 190.1258412760505,
-    "span": 427.424135564016
+    "height": 190.07235426194336,
+    "span": 427.2881167239548
   },
   "uniformZoom": 1.9599999999999997,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 69599232,
-    "afterBytes": 8065024,
+    "beforeBytes": 278396928,
+    "afterBytes": 30126080,
     "boundaryFrames": 0
   }
 }

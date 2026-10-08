@@ -1,0 +1,5 @@
+"use strict";
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),{execFileSync}=require('node:child_process'),c=require('./battle-audio-import.config.json');
+/** 从只读资源库压缩导出播报，并保留来源、事件与哈希回执。 */
+function main(){const root=path.resolve(__dirname,'../game/skin-assets/audio');fs.mkdirSync(root,{recursive:true});const catalog=JSON.parse(fs.readFileSync(path.join(c.sourceRoot,'catalog.json'))),records=[];for(const[name,id]of Object.entries(c.clips)){const entry=catalog.records.find(r=>r.id==='en_US/'+id);if(!entry)throw Error('缺少来源 '+id);const source=path.join(c.sourceRoot,'converted/en_US',id+'.wav'),target=path.join(root,name+'.mp3');execFileSync(c.ffmpeg,['-hide_banner','-loglevel','error','-y','-i',source,'-map_metadata','-1','-ac','1','-ar',String(c.sampleRate),'-b:a',c.bitrate,target]);records.push({name,source,events:entry.events,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(source)).digest('hex'),bytes:fs.statSync(target).size});}fs.writeFileSync(path.resolve(__dirname,'../docs/battle-refinement/audio-sources.json'),JSON.stringify(records,null,2));console.log(records);}
+main();

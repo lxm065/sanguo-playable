@@ -189,10 +189,11 @@ test("所有21人各阶本地战斗无NaN且读查询不改变存档", () => {
   m.adTicket();
   assert.deepEqual(m.state, before);
 });
-test("满仓不吞奖励，显式放弃可以完成结算", () => {
+test("显式有限容量兼容模式不吞奖励", () => {
   const { m } = fixture();
+  m.rules={...m.rules,capacity:12};
   m.transact(() => {
-    while (m.state.units.length < base.capacity)
+    while (m.state.units.length < m.rules.capacity)
       m.state.units.push({
         uid: m.state.nextUid++,
         heroId: "xuchu",
@@ -206,7 +207,7 @@ test("满仓不吞奖励，显式放弃可以完成结算", () => {
   assert.deepEqual(m.state, before);
   m.claim(null, true);
   assert.equal(m.state.pending, null);
-  assert.equal(m.state.units.length, base.capacity);
+  assert.equal(m.state.units.length, m.rules.capacity);
 });
 test("历史五人存档和待领奖继续兼容，不重置金币和阵容", () => {
   const { Campaign } = require("../game/play/campaign"),
@@ -232,7 +233,7 @@ test("历史五人存档和待领奖继续兼容，不重置金币和阵容", ()
   migrated.claim(0);
   assert.equal(migrated.state.pending, null);
 });
-test("第18章才开放5阶，重开远征不重置已领新人福利", () => {
+test("第18章才开放5阶，重开远征恢复局内新人福利", () => {
   const { m } = fixture();
   m.claimNovice(m.adTicket());
   assert.equal(m.maxRank(), 4);
@@ -242,10 +243,12 @@ test("第18章才开放5阶，重开远征不重置已领新人福利", () => {
   });
   assert.equal(m.maxRank(), 5);
   m.progression.restart();
-  assert.equal(m.state.expedition.novice, 1);
+  assert.equal(m.state.expedition.novice, 0);
 });
 test("首胜100经验跨过90门槛，上阵上限与存档校验同步", () => {
   const { m } = fixture();
+  assert.equal(m.state.units.filter(u=>u.slot>=0).length,0);
+  m.state.units.forEach((u,i)=>m.deploy(u.uid,i));
   assert.equal(m.canDirect(), false);
   assert.equal(m.limit(), 3);
   assert.equal(m.state.units.filter((u) => u.slot >= 0).length, 3);
@@ -253,8 +256,11 @@ test("首胜100经验跨过90门槛，上阵上限与存档校验同步", () => 
   m.claim(0);
   assert.equal(m.state.expedition.level, 2);
   assert.equal(m.state.expedition.experience, 10);
-  assert.equal(m.limit(), 4);
-  m.deploy(4, 4);
-  assert.equal(m.state.units.filter((u) => u.slot >= 0).length, 4);
+  assert.equal(m.limit(), 3);
+  assert.throws(()=>m.deploy(4,4),/人数已满/);
+  m.state.expedition.level=3;
+  m.deploy(4,4);
+  assert.equal(m.limit(),4);
+  assert.equal(m.state.units.filter((u) => u.slot >= 0).length,4);
   assert.equal(m.canDirect(), true);
 });

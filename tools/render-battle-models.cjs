@@ -51,7 +51,7 @@ async function bounds(buffer) {
 }
 /** 直接打包透明模型动画帧，方向共用比例，保持动作本身的位移。 */
 async function pack(id, frames, animations, anchors, record) {
-  const size = policy.frameSize,
+  const size = record.frameSize || policy.frameSize,
     columns = 8,
     perPage = 64,
     out = path.join(root, "game/skin-assets"),
@@ -77,7 +77,7 @@ async function pack(id, frames, animations, anchors, record) {
   };
   for (const [name, a] of Object.entries(animations)) {
     const timeline = a.frames.map((name, i) => ({
-      time: i / policy.fps,
+      time: i / (record.fps || policy.fps),
       name,
     }));
     timeline.push({ time: a.duration, name: a.frames.at(-1) });
@@ -137,7 +137,7 @@ async function pack(id, frames, animations, anchors, record) {
       },
     })
       .composite(composites)
-      .png({ palette: true, quality: 90, effort: 7 })
+      .png({ palette: policy.quality.palette, compressionLevel: 9 })
       .toFile(path.join(out, name));
   }
   fs.writeFileSync(path.join(out, key + ".json"), JSON.stringify(skeleton));
@@ -211,6 +211,8 @@ async function main() {
   });
   try {
     for (const [id, mapKey, model] of sources.rows) {
+      const base=require("./battle-render-config.cjs"),factor=base.quality.factors[id]||base.quality.defaultFactor;
+      const policy={...base,frameSize:base.frameSize*factor,visibleSpan:base.visibleSpan*factor};
       if (process.argv.length > 2 && !process.argv.slice(2).includes(id))
         continue;
       files = new Map();
@@ -464,6 +466,8 @@ async function main() {
         }
         await pack(id, frames, animations, anchors, {
           model,
+          frameSize:policy.frameSize,
+          qualityFactor:factor,
           sourceRoot,
           dependencies: Object.fromEntries(used),
           camera,
@@ -483,7 +487,8 @@ async function main() {
     server.close();
   }
 }
-main().catch((e) => {
+module.exports = { pack, bounds };
+if (require.main === module) main().catch((e) => {
   console.error(e);
   process.exitCode = 1;
 });

@@ -9,8 +9,18 @@
   "iOSHighPerformance": true,
   "iOSHighPerformance+": true,
   "subpackages": [
-    { "name": "internal", "root": "subpackages/internal/" },
-    { "name": "__ccWasmAssetSubpkg__", "root": "cocos-js/assets/" },
-    { "name": "__ccWasmChunkSubpkg__", "root": "cocos-js/chunks/" }
-  ]
+    {
+      "name": "internal",
+      "root": "subpackages/internal/"
+    },
+    {
+      "name": "__ccWasmAssetSubpkg__",
+      "root": "cocos-js/assets/"
+    },
+    {
+      "name": "__ccWasmChunkSubpkg__",
+      "root": "cocos-js/chunks/"
+    }
+  ],
+  "openDataContext": "wechat-friend-data"
 }

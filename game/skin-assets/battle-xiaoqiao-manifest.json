@@ -1,7 +1,12 @@
 {
   "textures": [
     "battle-xiaoqiao-packed-0.png",
-    "battle-xiaoqiao-packed-1.png"
+    "battle-xiaoqiao-packed-1.png",
+    "battle-xiaoqiao-packed-2.png",
+    "battle-xiaoqiao-packed-3.png",
+    "battle-xiaoqiao-packed-4.png",
+    "battle-xiaoqiao-packed-5.png",
+    "battle-xiaoqiao-packed-6.png"
   ],
   "frames": 365,
   "actions": {
@@ -113,50 +118,52 @@
     "ne",
     "n"
   ],
-  "scale": 1.75,
+  "scale": 0.875,
   "anchors": {
     "s": {
-      "left": 74,
-      "top": 67,
-      "right": 116,
-      "bottom": 123,
-      "width": 43,
-      "height": 57
+      "left": 147,
+      "top": 133,
+      "right": 233,
+      "bottom": 247,
+      "width": 87,
+      "height": 115
     },
     "se": {
-      "left": 73,
-      "top": 68,
-      "right": 120,
-      "bottom": 122,
-      "width": 48,
-      "height": 55
+      "left": 145,
+      "top": 137,
+      "right": 240,
+      "bottom": 247,
+      "width": 96,
+      "height": 111
     },
     "e": {
-      "left": 69,
-      "top": 72,
-      "right": 123,
-      "bottom": 119,
-      "width": 55,
-      "height": 48
+      "left": 138,
+      "top": 143,
+      "right": 247,
+      "bottom": 238,
+      "width": 110,
+      "height": 96
     },
     "ne": {
-      "left": 68,
-      "top": 75,
-      "right": 123,
-      "bottom": 117,
-      "width": 56,
-      "height": 43
+      "left": 136,
+      "top": 147,
+      "right": 247,
+      "bottom": 234,
+      "width": 112,
+      "height": 88
     },
     "n": {
-      "left": 72,
-      "top": 67,
-      "right": 118,
-      "bottom": 124,
-      "width": 47,
-      "height": 58
+      "left": 144,
+      "top": 134,
+      "right": 235,
+      "bottom": 248,
+      "width": 92,
+      "height": 115
     }
   },
   "model": "q2.mdx",
+  "frameSize": 384,
+  "qualityFactor": 2,
   "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\守卫剑阁降龙伏虎3.0T资源\\守卫剑阁-降龙伏虎3.0T(C)1.24EMM版\\模型与贴图",
   "dependencies": {
     "q2.mdx": {
@@ -304,16 +311,16 @@
     "center": [
       0.5,
       -0.5,
-      68.71845017752685
+      68.71463755949435
     ],
-    "height": 133.5906851632908,
+    "height": 133.58466431121178,
     "span": 408.7077195258245
   },
   "uniformZoom": 1.9599999999999997,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 54263808,
-    "afterBytes": 6557696,
+    "beforeBytes": 217055232,
+    "afterBytes": 24408064,
     "boundaryFrames": 0
   }
 }

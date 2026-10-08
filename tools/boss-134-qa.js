@@ -1,0 +1,1 @@
+view.model.transact(()=>{view.model.state.meta.section=5;});view.render();return {section:view.progress.section(),texts:view.root.getComponentsInChildren(cc.Label).map(l=>l.string).filter(s=>s.includes('赵云')||s.includes('子龙'))};

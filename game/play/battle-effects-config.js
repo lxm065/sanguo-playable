@@ -1,0 +1,5 @@
+'use strict';
+/** 表现配置独立于技能伤害与冷却；素材来源见source-assets/battle-effects.json。 */
+module.exports={maxNodes:32,offsetY:44,castSize:110,skillSize:142,hitSize:65,life:.55,healLife:.8,healSize:100,healThrottleMs:2500,projectileSize:30,
+profiles:{ice:{texture:'frost',burst:'ice',color:'#A4E7FF'},fire:{texture:'holy',burst:'ring',color:'#FF9746'},holy:{texture:'holy',burst:'spark',color:'#FFF3AF'},poison:{texture:'holy',burst:'ring',color:'#86F96F'},shadow:{texture:'lightning',burst:'ring',color:'#CC8BFF'},water:{texture:'frost',burst:'ring',color:'#80DBFF'},metal:{texture:'spark',burst:'ring',color:'#FFE0A2'},lightning:{texture:'lightning',burst:'spark',color:'#BCB0FF'}},
+heroes:{zhenji:'ice',xuchu:'metal',xiahouyuan:'ice',zhaoyun:'shadow',dianwei:'metal',diaochan:'shadow',huangzhong:'metal',taishici:'fire',zhangfei:'poison',xiaoqiao:'ice',ganning:'water',zhangliao:'poison',zhouyu:'fire',guanyu:'holy',machao:'metal',sunshangxiang:'holy',zhangjiao:'shadow',yanliang:'metal',huangyueying:'fire',zhurong:'water',lvbu:'metal',zhugeliang:'lightning'},textures:['ring','ice','lightning','frost','holy','spark']};

@@ -1,0 +1,31 @@
+'use strict';
+/** 本地十阶强化策略。费用与效果均独立于界面，不声称等同原服未公开的经济规则。 */
+module.exports={
+ fragmentCosts:[5,10,20,50,80,120,180,260,360,500],
+ diamondCosts:[100,250,600,1250,2000,3200,5000,7500,10000,15000],
+ currencyName:'钻石',
+ entries:{
+  '7001':[['haste',.15],['physicalAttack',20],['physicalAttack',20],['critical',.12],['criticalBonus',.25],['physicalAttack',30],['leech',.10],['physicalAttack',40],['leech',.15],['physicalAttack',50]],
+  '7002':[['physicalAttack',20],['haste',.25],['armor',15],['physicalAttack',25],['hp',250],['haste',.3],['physicalAttack',40],['physicalAttack',50],['armor',30],['physicalAttack',60]],
+  '7101':[['magicAttack',15],['haste',.25],['magicArmor',15],['magicAttack',20],['hp',250],['magicAttack',30],['regen',15],['magicAttack',40],['magicArmor',30],['magicAttack',50]],
+  '7104':[['regen',15],['magicAttack',20],['armor',20],['magicArmor',20],['magicAttack',25],['teamMagicPen',12],['teamRegen',6],['magicAttack',40],['armor',30],['magicArmor',30]],
+  '7201':[['hp',250],['magicArmor',20],['reflect',.10],['hp',400],['magicArmor',30],['reflect',.15],['regen',20],['hp',600],['armor',30],['magicArmor',30]],
+  '7202':[['magicArmor',10],['armor',10],['physicalAttack',20],['teamHaste',.05],['hp',250],['teamHaste',.15],['teamRegen',6],['physicalAttack',40],['armor',30],['teamHaste',.15]],
+  '7204':[['magicArmor',10],['hp',150],['teamMagicArmor',9],['hp',250],['teamMagicArmor',12],['teamRegen',12],['regen',20],['hp',400],['teamMagicArmor',12],['teamRegen',12]],
+  '7206':[['block',30],['regen',10],['reduction',.08],['hp',250],['block',40],['reduction',.08],['regenPercent',.01],['hp',600],['block',60],['reduction',.08]],
+  '7207':[['regen',10],['hp',150],['magicArmor',20],['regen',15],['magicArmor',30],['reduction',.05],['teamMagicArmor',10],['teamMagicArmor',15],['magicArmor',30],['reduction',.05]],
+  '7208':[['critical',.12],['leech',.15],['physicalAttack',20],['haste',.2],['criticalBonus',.25],['leech',.25],['physicalAttack',30],['physicalAttack',50],['hpPercent',.05],['physicalAttack',40]],
+  '7211':[['teamRegen',6],['hp',150],['magicAttack',20],['teamHeal',100],['regen',20],['teamHeal',150],['teamArmor',6],['teamMagicArmor',6],['regenPercent',.01],['teamHeal',200]],
+  '7212':[['reflect',.20],['magicArmor',40],['hp',900],['hpPercent',.15],['reduction',.15],['regenPercent',.03],['regen',30],['hp',900],['armor',60],['magicArmor',60]],
+  '7213':[['armor',20],['magicArmor',30],['haste',.9],['armor',70],['hp',1200],['teamArmor',20],['physicalAttack',40],['physicalAttack',60],['armor',100],['teamArmor',20]],
+ },
+ fields:{
+  hp:['stats','生命',false],physicalAttack:['stats','物理攻击',false],magicAttack:['stats','法术攻击',false],
+  armor:['stats','护甲',false],magicArmor:['stats','魔抗',false],regen:['stats','每秒回血',false],
+  haste:['stats','攻击速度',true],hpPercent:['effect','最大生命',true],critical:['stats','暴击率',true],criticalBonus:['stats','暴击伤害',true],
+  reflect:['effect','物理反伤',true],leech:['effect','物理吸血',true],block:['effect','伤害抵挡',false],
+  reduction:['effect','伤害减免',true],regenPercent:['effect','每秒回复最大生命',true],
+  teamMagicPen:['effect','全队法术穿透',false],teamMagicArmor:['effect','全队魔抗',false],teamArmor:['effect','全队护甲',false],
+  teamHaste:['effect','全队攻击速度',true],teamRegen:['effect','全队每秒回血',false],teamHeal:['effect','全队每次治疗波回复',false],
+ },
+};

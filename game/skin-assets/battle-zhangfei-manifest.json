@@ -1,7 +1,11 @@
 {
   "textures": [
     "battle-zhangfei-packed-0.png",
-    "battle-zhangfei-packed-1.png"
+    "battle-zhangfei-packed-1.png",
+    "battle-zhangfei-packed-2.png",
+    "battle-zhangfei-packed-3.png",
+    "battle-zhangfei-packed-4.png",
+    "battle-zhangfei-packed-5.png"
   ],
   "frames": 230,
   "actions": {
@@ -113,50 +117,52 @@
     "ne",
     "n"
   ],
-  "scale": 1.240506329113924,
+  "scale": 0.6533333333333333,
   "anchors": {
     "s": {
-      "left": 58,
-      "top": 60,
-      "right": 133,
-      "bottom": 132,
-      "width": 76,
-      "height": 73
+      "left": 117,
+      "top": 123,
+      "right": 263,
+      "bottom": 262,
+      "width": 147,
+      "height": 140
     },
     "se": {
-      "left": 56,
-      "top": 74,
-      "right": 134,
-      "bottom": 118,
-      "width": 79,
-      "height": 45
+      "left": 117,
+      "top": 149,
+      "right": 266,
+      "bottom": 235,
+      "width": 150,
+      "height": 87
     },
     "e": {
-      "left": 59,
-      "top": 60,
-      "right": 134,
-      "bottom": 130,
-      "width": 76,
-      "height": 71
+      "left": 119,
+      "top": 124,
+      "right": 266,
+      "bottom": 260,
+      "width": 148,
+      "height": 137
     },
     "ne": {
-      "left": 83,
-      "top": 58,
-      "right": 108,
-      "bottom": 133,
-      "width": 26,
-      "height": 76
+      "left": 166,
+      "top": 117,
+      "right": 217,
+      "bottom": 266,
+      "width": 52,
+      "height": 150
     },
     "n": {
-      "left": 60,
-      "top": 55,
-      "right": 130,
-      "bottom": 133,
-      "width": 71,
-      "height": 79
+      "left": 122,
+      "top": 113,
+      "right": 258,
+      "bottom": 265,
+      "width": 137,
+      "height": 153
     }
   },
   "model": "war3mapImported/moon_shin_ZF.mdx",
+  "frameSize": 384,
+  "qualityFactor": 2,
   "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图",
   "dependencies": {
     "war3mapImported/moon_shin_ZF.mdx": {
@@ -178,18 +184,6 @@
     "ZhangFeiWeapon.BLP": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ZhangFeiWeapon.BLP",
       "sha256": "af36e33667271beabcd48dced8a5ded8d6608d057540fc3b4021ecf01e26a0d8"
-    },
-    "SL.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\SL.blp",
-      "sha256": "4cf58e9255d05b7566a16b1a8f0fc51e4fc8abdae7ced8567f725bfaf4a48fbf"
-    },
-    "baozha.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\baozha.blp",
-      "sha256": "8c3d15a792be279a4cb18f01e657e7b3a772fb02e6ac8a96ffc2e42e6a3cb693"
-    },
-    "dizhen.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\dizhen.blp",
-      "sha256": "c6c5c3af61600ee9c657ba04dee4788c7c5734be447124cd46840fd6c847be5e"
     },
     "BS1.BLP": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\BS1.BLP",
@@ -219,6 +213,18 @@
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ReplaceableTextures\\Weather\\Clouds8x8.blp",
       "sha256": "6ce87e14a5f129cf390531660803694f13e44fc25dba05ff2853c7a622f0fc56"
     },
+    "SL.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\SL.blp",
+      "sha256": "4cf58e9255d05b7566a16b1a8f0fc51e4fc8abdae7ced8567f725bfaf4a48fbf"
+    },
+    "baozha.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\baozha.blp",
+      "sha256": "8c3d15a792be279a4cb18f01e657e7b3a772fb02e6ac8a96ffc2e42e6a3cb693"
+    },
+    "dizhen.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\dizhen.blp",
+      "sha256": "c6c5c3af61600ee9c657ba04dee4788c7c5734be447124cd46840fd6c847be5e"
+    },
     "ZFdaoguang.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\四地图模型与技能图标_20260924\\三国战记0.24正式版\\模型与贴图\\ZFdaoguang.blp",
       "sha256": "56719212e609270e34a9de5402d9858c571c3f21d1e57689f50dfbd38271d3d5"
@@ -226,18 +232,18 @@
   },
   "camera": {
     "center": [
-      24.063093784920056,
-      0.15197808668017387,
-      48.67969541059574
+      24.06478551842156,
+      0.1519351340830326,
+      48.67727986507998
     ],
-    "height": 99.58991356368642,
-    "span": 143.8617347505471
+    "height": 99.58501289680498,
+    "span": 143.86437681090163
   },
-  "uniformZoom": 1.4,
+  "uniformZoom": 1.456,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 34209792,
-    "afterBytes": 6275072,
+    "beforeBytes": 136839168,
+    "afterBytes": 21995520,
     "boundaryFrames": 0
   }
 }

@@ -1,0 +1,5 @@
+'use strict';
+const config=require('./upgrade-feedback-config');
+/** 事务成功且新界面已建立后播放；动画不修改等级、不阻塞输入，离开页面随节点销毁。 */
+function play(v,parent,kind,x=0,y=0){if(!parent?.isValid)return null;const c=config.kinds[kind],name='upgrade-feedback-'+kind;parent.getChildByName(name)?.destroy();const labelY=c.labelY??config.labelY,layer=v.ui.node(parent,name,x,y);require('./native-effects').play(v,config.effect,layer,0,0,{size:c.size,duration:config.duration});if(!c.text){layer.once(v.cc.Node.EventType.NODE_DESTROYED,()=>v.cc.Tween.stopAllByTarget(layer));v.cc.tween(layer).delay(config.duration).call(()=>{if(layer.isValid)layer.destroy();}).start();return layer;}const label=v.ui.text(layer,c.text,0,labelY,config.font,c.color,config.width,44).node,opacity=label.addComponent(v.cc.UIOpacity);v.cc.tween(label).to(config.duration,{position:new v.cc.Vec3(0,labelY+config.rise,0)}).start();v.cc.tween(opacity).delay(config.duration/2).to(config.duration/2,{opacity:0}).call(()=>{if(layer.isValid)layer.destroy();}).start();layer.once(v.cc.Node.EventType.NODE_DESTROYED,()=>{v.cc.Tween.stopAllByTarget(label);v.cc.Tween.stopAllByTarget(opacity);});return layer;}
+module.exports={play};

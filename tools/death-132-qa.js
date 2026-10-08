@@ -1,0 +1,1 @@
+const req=GameGlobal[0].require;req('play/talent-tree-view.js').close(view);view.page='battle';view.render();const actor=[...view.actors.values()][0];if(!actor)throw Error('无测试武将');req('play/death-view.js').hide(view,actor);return new Promise(resolve=>setTimeout(()=>resolve({alive:actor.alive,visible:actor.node.active,bars:actor.status.active}),1800));

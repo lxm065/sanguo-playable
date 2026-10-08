@@ -7,6 +7,7 @@ function report(error){console.error('[sanguo-playable]',error);globalThis.__san
 async function boot(){
  const release=require('./release-config');
  if(release.assetPackage)await new Promise((resolve,reject)=>wx.loadSubpackage({name:release.assetPackage,success:resolve,fail:error=>reject(new Error(error.errMsg||'资源分包加载失败'))}));
+ wx.onTouchStart?.(()=>{const audio=require('./audio-settings').get();if(!audio.started)audio.start();});
  const denied=[];
  for(const method of ['request','downloadFile','connectSocket']){
   const original=wx[method];
@@ -25,8 +26,8 @@ async function boot(){
   const scene=new cc.Scene('SanguoLocalScene'),root=new cc.Node('Canvas');root.layer=cc.Layers.Enum.UI_2D;root.addComponent(cc.UITransform).setContentSize(config.layout.width,config.layout.height);root.setPosition(config.layout.width/2,config.layout.height/2,0);const canvas=root.addComponent(cc.Canvas);
   const cameraNode=new cc.Node('LocalCamera');cameraNode.setPosition(config.layout.width/2,config.layout.height/2,1000);const camera=cameraNode.addComponent(cc.Camera);camera.projection=cc.Camera.ProjectionType.ORTHO;camera.orthoHeight=config.layout.height/2;camera.near=.1;camera.far=2000;camera.visibility=cc.Layers.Enum.UI_2D;camera.clearFlags=cc.Camera.ClearFlag.SOLID_COLOR;camera.clearColor=new cc.Color(config.colors.ink);canvas.cameraComponent=camera;scene.addChild(cameraNode);scene.addChild(root);cc.director.runSceneImmediate(scene);
   const {Assets}=require('./assets'),{Expedition:Campaign}=require('./expedition'),{storage}=require('./storage'),{ExpeditionView:PlayView}=require('./expedition-view'),{Widgets}=require('./widgets');
-  const assets=new Assets(cc,wx,config),widgets=new Widgets(cc,assets,config.colors);widgets.text(root,'整军备战 · 正在载入武将',0,0,32,config.colors.gold);
-  assets.preload(roster).then(()=>{const model=new Campaign(config,roster,storage(wx,config));require('./classic-hooks').attach(model,roster);model.simulator=(allies,enemies,list,rules,seed,scale)=>require('./expedition-combat').simulate(allies,enemies,list,rules,seed,scale,model.state.expedition.equipment);const view=new PlayView(cc,root,assets,model,config,roster);globalThis.__sanguoPlay={model,view,assets,cc,config,roster,denied,ready:true};console.info('[sanguo-playable] ready',roster.length,'heroes');}).catch(report);
+  const friendRank=new (require('./friend-rank-runtime').FriendRankRuntime)(wx);const assets=new Assets(cc,wx,config),widgets=new Widgets(cc,assets,config.colors);widgets.text(root,'整军备战 · 正在载入武将',0,0,32,config.colors.gold);
+  assets.preload(roster).then(()=>{const model=new Campaign(config,roster,storage(wx,config,state=>friendRank.saved(state)));require('./classic-hooks').attach(model,roster);model.simulator=(allies,enemies,list,rules,seed,scale)=>require('./expedition-combat').simulate(allies,enemies,list,{...rules,playerVip:require("./vip").perks(model),playerTalent:model.activities.bonuses(),playerTalentTree:require("./talent-tree").state(model).levels,playerBonds:require("./bond-activation").state(model),playerEquipmentGrades:model.state.meta.equipmentGrades},seed,scale,model.state.expedition.equipment);const view=new PlayView(cc,root,assets,model,config,roster);view.shareService=new (require('./share-service').ShareService)(wx);view.shareService.initialize();view.friendRankRuntime=friendRank;friendRank.initialize(model.state);globalThis.__sanguoPlay={model,view,assets,cc,config,roster,denied,ready:true};console.info('[sanguo-playable] ready',roster.length,'heroes');}).catch(report);
  });
 }
 boot().catch(report);

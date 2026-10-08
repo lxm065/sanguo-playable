@@ -1,0 +1,17 @@
+'use strict';
+const c=require('./enemy-budget-config');
+/** 相同路线节点共享快照；重开本章会清除本局远征数据。 */
+function key(state){const m=state.meta;return m?[m.chapter,m.section,m.activeNode||m.layer].join(':'):null;}
+/** 把历史胜场换算为二阶奖励质量，用人口摊成正常观看视频的参考阶级。 */
+function reference(state,rules){const count=Math.max(1,Math.min(require('./population').limit(state,rules),rules.maxDeployedLimit)),wins=state.wins||0,mass=rules.startingRoster.length+wins*c.normalFightRatio*Math.pow(rules.mergeCount,c.rewardRank-1);return {count,mass,star:Math.min(c.maxExpectedStar,1+Math.log(Math.max(1,mass/count))/Math.log(rules.mergeCount)),equipment:wins*c.equipmentPerWin};}
+/** 首次配装生成固定随机强度，参考预算超过敌阵时给少量装备增益。 */
+function decorate(units,state,rules,roster=[]){if(units.length&&!units.some(u=>u.equipment?.length)){const u=units[0],id=roster.find(h=>h.id===u.heroId)?.magic?c.intro.magic:c.intro.physical;units=units.map((v,i)=>i?v:{...v,equipment:[{uid:'enemy:'+u.uid+':intro',owner:u.uid,id,potency:c.intro.potency}]});}if(require('./enemy-opening').active(state))return units;const ref=reference(state,rules),average=units.reduce((n,u)=>n+u.star,0)/Math.max(1,units.length),seed=Array.from(key(state)||'').reduce((n,ch)=>Math.imul(n,31)+ch.charCodeAt(0)|0,c.seed),bonus=Math.min(c.maxResourceBonus,Math.max(0,ref.star-average)*c.resourceWeight+Math.max(0,ref.equipment/Math.max(1,ref.count)-units.reduce((n,u)=>n+(u.equipment?.length||0),0)/Math.max(1,units.length))*c.equipmentWeight),potency=c.basePotency+bonus+require('./combat').random(seed>>>0)()*c.randomBonus;return units.map(u=>u.equipment?({...u,equipment:u.equipment.map(e=>({...e,potency:(e.potency??1)*potency}))}):({...u}));}
+/** 查询已保存敌阵，仅按视频重试次数衰减装备，不重新抽取身份、位置和等级。 */
+function cached(state){const e=state.expedition?.enemyEncounter;if(!e||e.key!==key(state))return null;const factor=Math.max(c.minPotency,Math.pow(c.retryMultiplier,e.retries||0));return e.units.map(u=>({...u,star:state.pending?u.star:Math.max(u.star,require('./chapter-difficulty').minimum(state)),equipment:(u.equipment||[]).map(item=>({...item,potency:(item.potency??1)*factor}))}));}
+/** 在开战事务内锁定首次敌阵，失败事务会一并回滚。 */
+function lock(model){if(!model.state.expedition)return;const old=cached(model.state);if(old){const e=model.state.expedition.enemyEncounter;if(e.levelPolicyVersion!==require("./enemy-level-config").version||old.some((u,i)=>u.star!==e.units[i].star)){e.units=e.units.map((u,i)=>({...u,star:old[i].star}));e.levelPolicyVersion=require("./enemy-level-config").version;}return;}const scale=require('./chapter-difficulty').scale(model.state,model.rules);model.state.expedition.enemyEncounter={key:key(model.state),levelPolicyVersion:require("./enemy-level-config").version,scale,units:model.enemies(),retries:0,reference:reference(model.state,model.rules)};}
+/** 仅战败视频奖励事务调用，普通失败不降难度，重复广告凭据已由上层拒绝。 */
+function assist(model){const e=model.state.expedition.enemyEncounter;if(e&&e.key===key(model.state))e.retries=(e.retries||0)+1;}
+/** 只缩放装备增益，保留减益、控制时长和间隔，避免低强度反而增强负面装备。 */
+function equipment(definition,item){if(item.potency===undefined)return definition;const factor=Math.max(0,item.potency),e={...definition,basic:{...definition.basic}};for(const k of Object.keys(e.basic))if(e.basic[k]>0)e.basic[k]*=factor;for(const k of c.fields)if(e[k]>0)e[k]*=factor;if(e.onHit)e.onHit={...e.onHit,meleeChance:(e.onHit.meleeChance||0)*Math.min(1,factor),rangedChance:(e.onHit.rangedChance||0)*Math.min(1,factor)};return e;}
+module.exports={key,reference,decorate,cached,lock,assist,equipment};

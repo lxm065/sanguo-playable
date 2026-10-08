@@ -1,0 +1,4 @@
+const fs=require('fs'),{simulate}=require('../game/play/expedition-combat'),roster=require('../game/play/expedition-roster'),rules=require('../game/play/config');
+/** 在高生命靶场收集真实模拟事件，证明触发链而非仅检查配置键。 */
+function audit(){const out={};for(const hero of roster.filter(h=>h.tiers)){const r=roster.map(h=>({...h,tiers:h.tiers?.map(t=>({...t,hp:10000000,attack:100}))}));const b=simulate([{uid:1,heroId:hero.id,star:4,slot:2}],[{uid:-1,heroId:'taishici',star:1,slot:2}],r,{...rules,maxBattleSeconds:65},17,1);out[hero.id]={abilities:[...new Set(b.events.filter(e=>e.uid===1&&e.type==='ability').map(e=>e.skillId||e.effect))],effects:[...new Set(b.events.filter(e=>e.actor===1||e.uid===1||e.target===1).map(e=>e.effect).filter(Boolean))]};}fs.writeFileSync('evidence/skills-154-events.json',JSON.stringify(out,null,2));}
+audit();

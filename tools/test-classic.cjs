@@ -3,7 +3,7 @@ const test=require('node:test'),assert=require('node:assert/strict');
 const {Campaign}=require('../game/play/campaign'),{attach}=require('../game/play/classic-hooks');
 const rules=require('../game/play/config'),roster=require('../game/play/roster'),cfg=require('../game/play/classic.config.json');
 /** 创建独立内存档，测试不得改写玩家存档。 */
-function fixture(){const model=new Campaign(rules,roster,{read:()=>null,write:()=>{}});return {model,p:attach(model,roster)};}
+function fixture(){const model=new Campaign(rules,roster,{read:()=>null,write:()=>{}});const p=attach(model,roster);model.transact(()=>{p.state.mapVersion=1;});return {model,p};}
 test('七主公原ID、生命、金币、解锁条件保持一致',()=>{const expected=[['刘备',3,0,0,0],['孙坚',1,200,35,0],['董卓',2,30,8,0],['袁绍',2,50,2,0],['曹操',3,0,0,9],['孙权',2,60,0,18],['刘表',3,100,50,0]];assert.deepEqual(cfg.lords.map(l=>[l.name,l.hp,l.coin,l.chapter,l.sign]),expected);for(const l of cfg.lords)assert.equal(l.skillDescription,l.source.skill_des1);});
 test('新档金币0生命3，刘备实际增加一个上阵名额',()=>{const {model,p}=fixture();assert.equal(model.state.gold,0);assert.equal(p.state.hp,3);assert.equal(model.limit(),cfg.baseArmyLimit+1);assert(!model.state.units.some(u=>u.heroId==='zhangfei'));});
 test('张飞不能提前从选将、随机合成或商店获取',()=>{const {model}=fixture();assert(!model.availableRoster().some(h=>h.id==='zhangfei'));for(let i=0;i<20;i++){model.roll();assert(!model.state.shop.includes('zhangfei'));}model.merge(1,'random');assert.notEqual(model.state.units[0].heroId,'zhangfei');});
@@ -13,4 +13,4 @@ test('礼包必须通章，数量保留且不可重复领取',()=>{const {model,
 test('广告取消无奖励，购买和刷新只在完成后生效',()=>{const {p}=fixture();assert.throws(()=>p.buy(1,false));assert.equal(p.state.inventory['7211'],undefined);p.buy(1,true);assert.equal(p.state.inventory['7211'],10);assert.throws(()=>p.buy(1,true));const count=p.state.refreshes;assert.throws(()=>p.refresh(false));assert.equal(p.state.refreshes,count);p.refresh(true);assert.equal(p.state.refreshes,count-1);assert.deepEqual(p.state.bought,[]);});
 test('未满足主公解锁条件不能切换，签到一天一次',()=>{const {p}=fixture();assert.throws(()=>p.select('1002'));p.sign();assert.equal(p.state.signs,1);assert.throws(()=>p.sign());assert(!p.unlocked('1005'));});
 test('微信配置与审阅JSON一致',()=>assert.deepEqual(require('../game/play/classic-config'),cfg));
-test('生命耗尽可重开但保留局外解锁与库存',()=>{const {model,p}=fixture();model.transact(()=>{p.state.hp=0;p.state.layer=5;p.state.inventory['5']=100;p.state.unlocked.push('zhangfei');});p.restart();assert.equal(p.state.hp,3);assert.equal(p.state.layer,0);assert.equal(model.state.gold,0);assert.equal(p.state.inventory['5'],100);assert(p.state.unlocked.includes('zhangfei'));});
+test('生命耗尽重开回收本章BOSS资格并保留库存',()=>{const {model,p}=fixture();model.transact(()=>{p.state.hp=0;p.state.layer=5;p.state.inventory['5']=100;p.state.unlocked.push('zhangfei');});p.restart();assert.equal(p.state.hp,3);assert.equal(p.state.layer,0);assert.equal(model.state.gold,0);assert.equal(p.state.inventory['5'],100);assert(!p.state.unlocked.includes('zhangfei'));});

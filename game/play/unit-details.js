@@ -58,11 +58,8 @@ function unitDetails(model, id, uid, snapshot = null) {
       enemy || { uid: 0, heroId: id, star: hero.tier || 1, slot: -1 };
   let value = snapshot;
   if (!value && unit.slot >= 0) {
-    const r = model.rules,
-      scale = Math.min(
-        r.enemyMaxScale,
-        r.enemyBaseScale + (model.state.stage - 1) * r.enemyGrowth,
-      );
+    const r = {...model.rules,playerVip:require("./vip").perks(model),playerTalentTree:require("./talent-tree").state(model).levels,playerBonds:require("./bond-activation").state(model),playerEquipmentGrades:model.state.meta?.equipmentGrades},
+      scale = require('./chapter-difficulty').scale(model.state,r);
     value = prepareBattle(
       model.state.units.filter((u) => u.slot >= 0),
       model.enemies(),
@@ -78,7 +75,7 @@ function unitDetails(model, id, uid, snapshot = null) {
       [unit],
       model.roster,
       own ? model.state.expedition.equipment : [],
-      model.rules,
+      {...model.rules,playerVip:own?require("./vip").perks(model):null,playerTalentTree:own?require("./talent-tree").state(model).levels:{},playerBonds:own?require("./bond-activation").state(model):undefined,playerEquipmentGrades:own?model.state.meta?.equipmentGrades:{}},
     );
   return {
     unit,
@@ -92,7 +89,7 @@ function unitDetails(model, id, uid, snapshot = null) {
     ],
   };
 }
-/** 渲染敌我通用的只读单页；装备只展示，不在属性页加入阵容管理。 */
+/** 渲染敌我通用单页，装备可打开独立详情，不加入阵容管理按钮。 */
 function showUnitDetails(view, id, uid = null, snapshot = null) {
   const data = unitDetails(view.model, id, uid, snapshot),
     { value, unit } = data,
@@ -189,8 +186,9 @@ function showUnitDetails(view, id, uid = null, snapshot = null) {
       c.equipmentSize,
       "#332D25AA",
     );
-    if (item)
-      u.image(
+    if(!item&&!data.enemy&&view.equipmentPanel&&!view.playing&&!view.model.state.pending){const slot=m.getChildByName('property-equipment-'+i);slot.on(view.cc.Node.EventType.TOUCH_END,event=>{event.propagationStopped=true;view.equipmentPanel(uid);});}
+    if (item) {
+      const icon = u.image(
         m,
         "equipment/" + item.id + ".png",
         c.equipmentX,
@@ -198,6 +196,13 @@ function showUnitDetails(view, id, uid = null, snapshot = null) {
         c.equipmentSize - 7,
         c.equipmentSize - 7,
       );
+      icon.on(view.cc.Node.EventType.TOUCH_END, (event) => {
+        event.propagationStopped = true;
+        require("./equipped-item-details").showEquippedItem(view, m, item, () =>
+          view.details?view.details(id,uid):showUnitDetails(view, id, uid, snapshot),
+        );
+      });
+    }
   }
   u.text(m, "点击空白处关闭", 0, c.closeY, 27, "#F8ECD7", 520);
   m.on(view.cc.Node.EventType.TOUCH_END, (e) => {

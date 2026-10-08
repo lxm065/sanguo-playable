@@ -2,8 +2,10 @@
 /** 远征本地规则集中维护；掉落权重与模拟数值属于本地策略。 */
 module.exports = {
   equipmentLimit: 3,
+  teamMagicPenCap:120,
   baseArmyLimit: 2,
-  initialSlots: [1, 2, 3],
+  population: {version:1,growthOffset:2},
+  initialSlots: [-1, -1, -1],
   rankLimit: 4,
   maxStar: 5,
   fiveStarChapter: 18,
@@ -11,9 +13,10 @@ module.exports = {
   refreshRank: 2,
   enemyRankEveryStages: 5,
   experience: {
+    growth: 700,
     normal: 100,
     elite: 200,
-    thresholds: [90, 300, 600, 1000, 1500],
+    thresholds: [90, 300, 600, 1000, 1500, 2100],
   },
   directedAfterFirstNode: true,
   initialRoster: ["xuchu", "xuchu", "xuchu"],
@@ -21,23 +24,18 @@ module.exports = {
     ...Object.keys(require("./battle-appearance").models),
     ...Object.keys(require("./battle-appearance").legacy),
   ],
+  noviceStart: 0,
   novice: [
     { kind: "hero", id: "guanyu", star: 3 },
     { kind: "equipment", id: "7212" },
     { kind: "diamonds", count: 10000 },
   ],
-  elitePool: [
-    "7201",
-    "7202",
-    "7204",
-    "7206",
-    "7207",
-    "7208",
-    "7211",
-    "7212",
-    "7213",
-  ],
+  elitePool: require('./equipment-pool-config').blue,
   equipment: [
+    {id:'7001',name:'暗灭',symbol:'刃',description:'普攻命中降低目标15护甲，持续6秒。',onHit:{armor:-15,duration:6}},
+    {id:'7002',name:'碎骨',symbol:'锤',description:'普攻有概率眩晕1.5秒：近战15%，远程10%。',onHit:{meleeChance:.15,rangedChance:.1,stun:1.5}},
+    {id:'7101',name:'散失',symbol:'法',description:'普攻使目标攻击降低5、魔抗降低5、冷却恢复降低5%，持续6秒。',onHit:{attack:-5,magicArmor:-5,cooldownFactor:.05,duration:6}},
+    {id:'7104',name:'纷争',symbol:'杖',description:'全队法术穿透+12，最多叠加10件。',teamMagicPen:12},
     {
       id: "7201",
       name: "反甲",
@@ -55,6 +53,7 @@ module.exports = {
     {
       id: "7204",
       name: "烟斗",
+      detailLines: ["生命+400","魔抗+65","","◇ 全队魔抗+6","◇ 全队回血+8/秒"],
       symbol: "御",
       description: "全体友军魔防提高6，每秒回复8生命。",
       teamMagicArmor: 6,
@@ -146,3 +145,6 @@ module.exports = {
     lvbu: { power: 1.2, line: true, stun: 1 },
   },
 };
+
+/** 展示身份统一从三国主题表派生，战斗 ID 与基础规则保持不变。 */
+module.exports.equipment=module.exports.equipment.map(item=>({...item,name:require('./equipment-theme')[item.id].name,description:item.teamMagicPen?'全队法术穿透+'+item.teamMagicPen+'，全队装备穿透上限'+module.exports.teamMagicPenCap+'。':item.description}));

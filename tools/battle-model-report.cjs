@@ -14,7 +14,7 @@ async function main() {
     labels = [];
   let total = 0,
     gpu = 0;
-  for (const [i, [id, entry]] of Object.entries(appearance.models).entries()) {
+  for (const [i, [id, entry]] of require("../game/play/appearance-policy").entries(appearance).entries()) {
     const dir = path.join(root, "game/skin-assets"),
       manifest = JSON.parse(
         fs.readFileSync(
@@ -44,7 +44,11 @@ async function main() {
     records.push({
       id,
       name: hero.name,
+      assetKey: entry.assetKey,
+      minStar: entry.minStar,
+      sharedAnimationKey: entry.animationKey,
       model: manifest.model,
+      sourceType: manifest.sourceType || (manifest.nativeWow ? 'wow-m2' : manifest.authored ? 'authored-glb' : 'warcraft-mdx'),
       sourceRoot: manifest.sourceRoot,
       animationSources: Object.fromEntries(
         Object.entries(manifest.actions).filter(([k]) => k.endsWith("-s")),
@@ -56,7 +60,7 @@ async function main() {
       boundaryFrames: manifest.compacted.boundaryFrames,
     });
     const b = manifest.anchors.se,
-      source = path.join(root, "evidence/battle-models", id + ".png"),
+      source = path.join(root, "evidence/battle-models", entry.assetKey.replace(/^battle-/, "") + ".png"),
       buffer = await sharp(source)
         .extract({ left: b.left, top: b.top, width: b.width, height: b.height })
         .resize({
@@ -83,12 +87,13 @@ async function main() {
         "</text>",
     );
   }
+  const height = Math.ceil(records.length / 5) * 180;
   const svg =
-    '<svg width="900" height="720"><style>text{font-family:Microsoft YaHei;font-size:22px;fill:#f0dfbe;text-anchor:middle}</style>' +
+    '<svg width="900" height="'+height+'"><style>text{font-family:Microsoft YaHei;font-size:22px;fill:#f0dfbe;text-anchor:middle}</style>' +
     labels.join("") +
     "</svg>";
   await sharp({
-    create: { width: 900, height: 720, channels: 4, background: "#3d4238" },
+    create: { width: 900, height, channels: 4, background: "#3d4238" },
   })
     .composite([...parts, { input: Buffer.from(svg), left: 0, top: 0 }])
     .png()
@@ -97,7 +102,7 @@ async function main() {
     path.join(out, "model-sources.json"),
     JSON.stringify(
       {
-        rendering: "原始MDX骨骼动作烘焙为Spine附件序列，不是实时3D模型加载",
+        rendering: "源模型骨骼动作烘焙为Spine附件序列；逐项记录MDX、魔兽M2或原创GLB来源，不是实时3D模型加载",
         totalTextureFileBytes: total,
         totalTextureMemoryBytes: gpu,
         models: records,

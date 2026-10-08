@@ -32,9 +32,10 @@ test("拖动命中显示中的己方单位，空白落点不误穿戴", () => {
     { uid: 1, x: -50, y: 0, scale: 0.85 },
     { uid: 2, x: 100, y: -350, scale: 0.64 },
   ];
-  assert.equal(equipmentTarget({ x: -50, y: 60 }, positions), 1);
+  assert.equal(equipmentTarget({ x: -50, y: 35 }, positions), 1);
   assert.equal(equipmentTarget({ x: 100, y: -315 }, positions), 2);
   assert.equal(equipmentTarget({ x: 310, y: 320 }, positions), null);
+  assert.equal(equipmentTarget({ x: -50, y: -35 }, positions), 1);
   assert.equal(equipmentTarget({ x: -50, y: -50 }, positions), null);
   assert.equal(equipmentTarget({ x: 100, y: -200 }, positions), null);
 });
@@ -97,6 +98,7 @@ test("节点外松手提交穿戴，系统取消与空白落点不提交", () =>
         equip: (item, unit) => calls.push([item, unit]),
       },
       act: (fn) => fn(),
+      render: () => {},
       equipmentDetails: () => {},
     };
   const hud = new BattleHud(view);
