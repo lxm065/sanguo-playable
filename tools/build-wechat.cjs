@@ -20,6 +20,8 @@ async function build(){
  verifyActiveModels(path.join(output,config.assetDirectory),activeKeys);
  if(config.imageBudget)await require("./release-image-budget.cjs").prepare(path.join(output,config.assetDirectory),appearance,config.imageBudget);
  const assetAliases={};
+ // UI母版仅在发布副本按配置缩小，保持透明通道和原始宽高比。
+ for(const entry of config.uiImages||[]){const sharp=require('../../analysis-work/node_modules/sharp'),file=path.join(output,config.assetDirectory,entry.file),bytes=fs.readFileSync(file);fs.writeFileSync(file,await sharp(bytes).resize({width:entry.width,withoutEnlargement:true}).png().toBuffer());}
  // 装备插画只在发布副本缩放；源 PNG 留作美术母版，透明图仍保留 PNG。
  if(config.equipmentImages){
   const sharp=require('../../analysis-work/node_modules/sharp');

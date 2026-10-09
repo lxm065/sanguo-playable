@@ -115,7 +115,7 @@ class ChallengeView {
   /** 复用飘字表现，不修改战斗数值。 */
   damageText(...args){return PlayView.prototype.damageText.apply(this,args);}
   /** 播放结束仅返回已保存的回合结果，禁止自动重复发奖。 */
-  finish(){require("./kill-banner").clear(this);require("./attack-audio").get(this).stop();require("./battle-audio").get(this).finish(this.replay?.result);clearInterval(this.timer);this.timer=null;this.playing=false;this.act(()=>{this.service.claim();this.selected=null;});}
+  finish(){require("./kill-banner").clear(this);require("./attack-audio").get(this).stop();require("./battle-audio").get(this).finish(this.replay?.result);clearInterval(this.timer);this.timer=null;this.playing=false;this.act(()=>{this.service.claim();this.selected=null;});require("./kill-banner").show(this,{key:this.replay?.result});}
   /** 复用远征武将详情，属性与装备只读取挑战局内适配器。 */
   details(id,uid){return require('./challenge-details').unit(this,id,uid);}
   /** 点击装备打开远征同款属性页，已穿戴装备可卸下。 */

@@ -232,11 +232,11 @@ class Expedition extends Campaign {
   }
   /** 普通敌阵仅取当前开放武将，BOSS仍使用章节策略的固定配置。 */
   enemies() {
-    const cached=require("./enemy-budget").cached(this.state);if(cached)return require('./first-chapter-budget').apply(require('./tutorial-enemy').apply(cached,this.state),this.state,this.rules,this.roster);
+    const cached=require("./enemy-budget").cached(this.state);if(cached)return require('./enemy-stage').apply(cached,this.state,this.rules,this.roster,true);
     const configured = this.hooks?.enemies?.();
     const type=this.progression?.nodes().find(n=>n.id===this.state.meta?.activeNode)?.type||'battle';
     const difficulty=require('./chapter-difficulty');
-    const prepare=units=>require('./first-chapter-budget').apply(require('./tutorial-enemy').apply(require('./enemy-budget').decorate(require('./enemy-equipment').equip(require('./enemy-formation').arrange(units.map(u=>({...u,star:Math.max(u.star,difficulty.minimum(this.state))})),this.roster,this.rules),difficulty.equipmentState(this.state),this.roster,type),this.state,this.rules,this.roster),this.state),this.state,this.rules,this.roster);
+    const prepare=units=>require('./enemy-stage').apply(require('./tutorial-enemy').apply(require('./enemy-budget').decorate(require('./enemy-equipment').equip(require('./enemy-formation').arrange(units.map(u=>({...u,star:Math.max(u.star,difficulty.minimum(this.state))})),this.roster,this.rules),difficulty.equipmentState(this.state),this.roster,type),this.state,this.rules,this.roster),this.state),this.state,this.rules,this.roster);
     if (configured) return prepare(type==='boss'?difficulty.reinforce(this.state,this.rules,configured):configured);
     const r = this.rules,
       rng = random(this.state.stage * 997),

@@ -14,6 +14,6 @@ function end(v,before,refresh=false){
  const nodes=v.root.children.filter(n=>!before.has(n)),owned=new Set(nodes);
  const actors=new Map([...v.actors].filter(([,a])=>owned.has(a.node)));
  v.reserveScope={nodes,actors};
- if(refresh){for(const a of actors.values())v.battleHud?.renderEquipped(a.unit);require('./merge-hints').show(v,new Set(actors.keys()));}
+ if(refresh){for(const a of actors.values())v.battleHud?.renderEquipped(a.unit);if(!v.playing&&!v.model.state.pending)require('./merge-hints').show(v,new Set(actors.keys()));}
 }
 module.exports={begin,end};

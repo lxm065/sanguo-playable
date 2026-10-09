@@ -1,0 +1,7 @@
+{
+  "reference": "C:/Users/Administrator/AppData/Local/Temp/codex-clipboard-7d68b1f1-a07c-473e-bf02-de2de9895467.png",
+  "generated": "D:\\codex\\generated_images\\01a12075-a848-7783-a763-524c14d7ed59\\exec-60ca120c-bbc8-4459-a2e3-06fcf0a4e4a4.png",
+  "output": "game\\skin-assets\\common\\march-header-dragon.png",
+  "sha256": "59fa0090e3cfe4e8a3010c24ffad015f967d17977654e635bed9e37952682fb3",
+  "changes": "imagegen移除固定文字与外部背景；保留龙纹、红绸、卷轴与返回箭头；运行时叠加真实章节标题"
+}

@@ -252,7 +252,7 @@ class ExpeditionView extends ClassicView {
           c.arrowY,
           c.arrowWidth,
           () => {
-            if (this.playing) return;
+            if (this.modal?.isValid) return;
             this.benchPage = (this.benchPage + direction + pages) % pages;
             this.renderReserve(true);
           },
@@ -307,7 +307,7 @@ class ExpeditionView extends ClassicView {
     require('./lord-skill-view').show(this,()=>{if(!this.playing)return;this.lastTime=Date.now();this.timer=setInterval(()=>this.tick(),40);});
   }
   /** 结算播报只在一次正常回放结束时触发。 */
-  finish(){require("./lord-skill-view").cancel(this);require("./attack-audio").get(this).stop();const active=this.playing,result=this.replay?.result;super.finish();if(active)require("./battle-audio").get(this).finish(result);}
+  finish(){require("./lord-skill-view").cancel(this);require("./attack-audio").get(this).stop();const active=this.playing,result=this.replay?.result;super.finish();if(active){require("./battle-audio").get(this).finish(result);require("./kill-banner").show(this,{key:result});}}
   /** 单击直接显示武将详情；拖动只布阵，取消时恢复原位置。 */
   drawFriendly(unit, x, y, scale) {
     const actor = this.ui.actor(this.root, unit, x, y, scale);
@@ -369,6 +369,12 @@ class ExpeditionView extends ClassicView {
       });
     };
     actor.node.on(events.TOUCH_END, release);
+    // 交战及待结算时，备战席只开放属性查看，仍禁止合成和布阵。
+    actor.node.on(events.TOUCH_END, (event) => {
+      if (unit.slot >= 0 || !(this.playing || this.model.state.pending)) return;
+      event.propagationStopped = true;
+      if (!this.modal?.isValid) this.details(unit.heroId, unit.uid);
+    });
     actor.node.on(events.TOUCH_CANCEL, (event) => {
       if (event.getEventCode?.() === "touch-end") return release(event);
       event.propagationStopped = true;
@@ -601,6 +607,7 @@ class ExpeditionView extends ClassicView {
         this.act(() => this.model.claim()),
       );
     } else if (p.choices.length) {
+      const cardLayout=require("./combat-feedback-config").rewardCards;
       p.choices.forEach((id, i) => {
         const x = (i - 1) * 216,
           h = this.roster.find((h) => h.id === id),
@@ -609,13 +616,13 @@ class ExpeditionView extends ClassicView {
           m,
           star + "  " + h.name,
           x,
-          140,
+          cardLayout.nameY,
           28,
           policy.colors[star - 1],
           205,
         );
-        u.image(m, id + "-avatar.png", x, 25, 140, 140);
-        u.text(m, h.faction + " / " + h.role, x, -94, 24, "#6C4E31", 204);
+        u.image(m, id + "-avatar.png", x, cardLayout.portraitY, 140, 140);
+        u.text(m, h.faction + " / " + h.role, x, cardLayout.roleY, 24, "#6C4E31", 204);
         u.text(
           m,
           "拥有：" +
@@ -623,26 +630,18 @@ class ExpeditionView extends ClassicView {
               (v) => v.heroId === id && v.star === star,
             ).length,
           x,
-          -142,
+          cardLayout.ownedY,
           23,
           "#6C4E31",
           204,
         );
-        u.button(m, "选择", x, -216, 186, () =>
+        u.button(m, "选择", x, cardLayout.buttonY, 186, () =>
           this.act(() => this.model.claim(i)),
         );
+        require('./reward-merge-hint').draw(this,m,id,star,x);
       });
       const ticket = this.model.adTicket(),rc=require('./reward-refresh-config'),coins=this.model.state.meta.inventory[rc.item]||0,expected={id:p.id,coins:p.coinRefreshes||0,ads:p.refreshes};
-      u.button(
-        m,
-        coins>=rc.cost?rc.label+' · '+coins+'枚':"▶ 换一批 · 剩余"+Math.max(0,require("./vip").perks(this.model).data_1-p.refreshes)+"次",
-        0,
-        -390,
-        435,
-        () => (this.model.state.meta.inventory[rc.item]||0)>=rc.cost?this.act(()=>this.model.refreshReward(null,expected)):this.ad(() => this.model.refreshReward(ticket,expected)),
-        "#B7821C",
-        86,
-      );
+      require("./reward-refresh-view").button(this,m,coins,Math.max(0,require("./vip").perks(this.model).data_1-p.refreshes),()=> (this.model.state.meta.inventory[rc.item]||0)>=rc.cost?this.act(()=>this.model.refreshReward(null,expected)):this.ad(()=>this.model.refreshReward(ticket,expected)));
       u.text(m, "金币 +" + p.gold, 0, 321, 26, "#ECD5A5");
       if (require('./reserve-policy').full(this.model.rules,this.model.state.units.length))
         u.button(

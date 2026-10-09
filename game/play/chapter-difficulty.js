@@ -31,7 +31,7 @@ function boss(section){const p=config.chapters[section.chapter];if(!p)return sec
 /** 敌将阶级随小节成长，英雄初始阶级仅作为下限；不改尾王独立编排。 */
 function star(state,hero){return Math.max(hero.tier,minimum(state));}
 /** 普通敌人、精英和首领护卫共享小节最低阶，避免单独编队漏掉成长。 */
-function minimum(state){if(require('./enemy-opening').active(state))return require('./enemy-opening-config').star;return Math.max(Math.ceil(require('./route-resources').reference(state,require('./config')).star),require('./enemy-level-config').minimumBySection[state.meta?.section]||1,policy(state)?.minimumStarBySection?.[state.meta?.section]||1);}
+function minimum(state){if(require('./enemy-opening').active(state))return require('./enemy-opening-config').star;return require('./enemy-stage').range(state,require('./config')).star;}
 /** 阶段基础人数叠加可用阵容规模；包括备战席但不超过人口和棋盘容量。 */
 function count(state,rules,fallback,typeOverride=null){if(!state.pending&&require('./tutorial-enemy').first(state))return require('./tutorial-enemy-config').first.count;const chapter=require('./enemy-opening').active(state)?null:curve(state),p=chapter?.sections?.[state.meta?.section],detail=p?breakdown(state,rules):{},type=typeOverride||detail.type||'battle',baseline=p&&type!=='boss'?p.startCount+Math.round((p.endCount-p.startCount)*detail.progress):fallback;
  const available=Math.min(require('./population').limit(state,rules),state.units.length),offset=require('./enemy-count-config').offsets[type]??require('./enemy-count-config').offsets.battle;

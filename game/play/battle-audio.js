@@ -13,7 +13,7 @@ class BattleAudio {
  /** 多杀升级替换尚未开始的低阶播报，当前音频自然播完。 */
  play(key){if(Number(key)&&this.policy.maxKillTier)key=Math.min(Number(key),this.policy.maxKillTier);if(this.isEnabled&&!this.isEnabled())return;if(!this.audio||!this.policy.clips[key])return;if(Number(key))this.queue=this.queue.filter(k=>!Number(k));this.queue.push(String(key));this.queue=this.queue.slice(-this.policy.maxQueue);if(!this.busy)this.next();}
  /** 只按己方同一武将的真实击杀归属计算连杀；重复死亡事件不重复播报。 */
- event(e,units){if(e.type!=='death'||this.seen.has(e.uid))return;this.seen.add(e.uid);const killer=units.find(u=>u.uid===e.actor),victim=units.find(u=>u.uid===e.uid);if(!killer||!victim||killer.side===victim.side)return;if(!this.first){this.first=true;this.play('first');}if(killer.side!=='ally'||victim.side!=='enemy')return;const old=this.counts.get(e.actor),count=old&&e.t-old.time<=this.policy.windowSeconds?old.count+1:1;this.counts.set(e.actor,{count,time:e.t});if(count>=2)this.play(count);return {count,killer,victim};}
+ event(e,units){if(e.type!=='death'||this.seen.has(e.uid))return;this.seen.add(e.uid);const killer=units.find(u=>u.uid===e.actor),victim=units.find(u=>u.uid===e.uid);if(!killer||!victim||killer.side===victim.side)return;const first=!this.first;if(first){this.first=true;this.play('first');}if(killer.side!=='ally'||victim.side!=='enemy')return first?{key:'first',count:1,killer,victim}:undefined;const old=this.counts.get(e.actor),count=old&&e.t-old.time<=this.policy.windowSeconds?old.count+1:1;this.counts.set(e.actor,{count,time:e.t});if(count>=2)this.play(count);return {count,killer,victim};}
  /** 结算保留最后的最高连杀播报，再按结果播放一次。 */
  finish(result){this.play(result);}
 }

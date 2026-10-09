@@ -1,7 +1,7 @@
 {
-  "output": "dist/wechat-1.0.105",
-  "version": "1.0.105",
-  "description": "合成卡片素色排版；胜利后清空敌方棋盘；行军统一动态下箭头",
+  "output": "dist/wechat-1.0.110",
+  "version": "1.0.110",
+  "description": "交战中备战席翻页查看，章末取消局内装备，关内递进及精英首领差异",
   "copy": [
     "@babel",
     "cocos-js",
@@ -36,7 +36,7 @@
     "attachmentPrecision": 4
   },
   "opaqueJpeg": {
-    "quality": 67,
+    "quality": 58,
     "files": [
       "campaign-map.png",
       "battle-ground.png",
@@ -56,5 +56,11 @@
     "width": 224,
     "quality": 74
   },
-  "scriptMinifier": "../../release-tools/node_modules/terser"
+  "scriptMinifier": "../../release-tools/node_modules/terser",
+  "uiImages": [
+    {
+      "file": "common/march-header-dragon.png",
+      "width": 864
+    }
+  ]
 }
