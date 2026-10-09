@@ -1,0 +1,6 @@
+'use strict';
+/** 统一绘制主公头像、等级经验、生命、人口和金币。 */
+function render(v){const c=require('./expedition-header-config'),u=v.ui,s=v.model.state,a=c.avatar,r=c.resources;const avatar=u.portrait(v.root,v.progress.lord().portrait,a.x,a.y,a.width,a.height,require('./classic-config').portraitCrop);avatar.name='battle-lord-avatar';avatar.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;v.battleHud.lordDetails();});u.text(v.root,'♥'.repeat(s.meta.hp),r.hpX,r.y,32,'#E65441',170);u.text(v.root,s.units.filter(x=>x.slot>=0).length+'/'+v.model.limit(),r.populationX,r.y,26,'#F0D36B',130);u.text(v.root,'金币 '+s.gold,r.goldX,r.y,26,'#F0D36B',185);u.text(v.root,'等级 '+s.expedition.level,c.level.x,c.level.y,c.level.font,'#EEE6D6',140);const e=c.experience,n=u.node(v.root,'lord-experience',e.x,e.y),g=n.addComponent(v.cc.Graphics),ratio=progress(s.expedition);g.fillColor=new v.cc.Color(e.background);g.rect(-e.width/2,-e.height/2,e.width,e.height);g.fill();g.fillColor=new v.cc.Color(e.color);g.rect(-e.width/2,-e.height/2,e.width*ratio,e.height);g.fill();n.on(v.cc.Node.EventType.TOUCH_END,event=>{event.propagationStopped=true;v.battleHud.lordDetails();});}
+/** 读取当前等级真实经验需求，升级后自然从下一等级起点继续。 */
+function progress(e){return Math.max(0,Math.min(1,e.experience/require('./level-progression').cost(e.level)));}
+module.exports={render,progress};

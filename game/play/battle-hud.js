@@ -314,7 +314,7 @@ class BattleHud {
       u.text(m, r.star, -145, y, 29, "#FFFFFF", 40, 44);
       u.text(
         m,
-        r.percent === null ? "暂未开放" : r.percent + "%",
+        r.percent === null ? r.unlockLevel+"级主公开放" : r.percent + "%",
         22,
         y,
         25,

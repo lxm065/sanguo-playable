@@ -5,109 +5,110 @@
     "battle-zhenji-packed-2.png",
     "battle-zhenji-packed-3.png",
     "battle-zhenji-packed-4.png",
-    "battle-zhenji-packed-5.png"
+    "battle-zhenji-packed-5.png",
+    "battle-zhenji-packed-6.png"
   ],
-  "frames": 375,
+  "frames": 365,
   "actions": {
     "idle-s": {
       "source": "Stand",
-      "duration": 2
+      "duration": 1.4
     },
     "run-s": {
       "source": "Walk",
-      "duration": 1.334
+      "duration": 0.867
     },
     "skill1-s": {
-      "source": "Attack - 1",
-      "duration": 1
+      "source": "Attack",
+      "duration": 0.9
     },
     "skill2-s": {
-      "source": "Spell",
-      "duration": 1.333
+      "source": "Spell One",
+      "duration": 0.8
     },
     "dead-s": {
       "source": "Death",
-      "duration": 1.667
+      "duration": 3.233
     },
     "idle-se": {
       "source": "Stand",
-      "duration": 2
+      "duration": 1.4
     },
     "run-se": {
       "source": "Walk",
-      "duration": 1.334
+      "duration": 0.867
     },
     "skill1-se": {
-      "source": "Attack - 1",
-      "duration": 1
+      "source": "Attack",
+      "duration": 0.9
     },
     "skill2-se": {
-      "source": "Spell",
-      "duration": 1.333
+      "source": "Spell One",
+      "duration": 0.8
     },
     "dead-se": {
       "source": "Death",
-      "duration": 1.667
+      "duration": 3.233
     },
     "idle-e": {
       "source": "Stand",
-      "duration": 2
+      "duration": 1.4
     },
     "run-e": {
       "source": "Walk",
-      "duration": 1.334
+      "duration": 0.867
     },
     "skill1-e": {
-      "source": "Attack - 1",
-      "duration": 1
+      "source": "Attack",
+      "duration": 0.9
     },
     "skill2-e": {
-      "source": "Spell",
-      "duration": 1.333
+      "source": "Spell One",
+      "duration": 0.8
     },
     "dead-e": {
       "source": "Death",
-      "duration": 1.667
+      "duration": 3.233
     },
     "idle-ne": {
       "source": "Stand",
-      "duration": 2
+      "duration": 1.4
     },
     "run-ne": {
       "source": "Walk",
-      "duration": 1.334
+      "duration": 0.867
     },
     "skill1-ne": {
-      "source": "Attack - 1",
-      "duration": 1
+      "source": "Attack",
+      "duration": 0.9
     },
     "skill2-ne": {
-      "source": "Spell",
-      "duration": 1.333
+      "source": "Spell One",
+      "duration": 0.8
     },
     "dead-ne": {
       "source": "Death",
-      "duration": 1.667
+      "duration": 3.233
     },
     "idle-n": {
       "source": "Stand",
-      "duration": 2
+      "duration": 1.4
     },
     "run-n": {
       "source": "Walk",
-      "duration": 1.334
+      "duration": 0.867
     },
     "skill1-n": {
-      "source": "Attack - 1",
-      "duration": 1
+      "source": "Attack",
+      "duration": 0.9
     },
     "skill2-n": {
-      "source": "Spell",
-      "duration": 1.333
+      "source": "Spell One",
+      "duration": 0.8
     },
     "dead-n": {
       "source": "Death",
-      "duration": 1.667
+      "duration": 3.233
     }
   },
   "directions": [
@@ -117,92 +118,84 @@
     "ne",
     "n"
   ],
-  "scale": 0.875,
+  "scale": 0.8909090909090909,
   "anchors": {
     "s": {
-      "left": 145,
+      "left": 138,
       "top": 134,
-      "right": 237,
-      "bottom": 247,
-      "width": 93,
-      "height": 114
+      "right": 245,
+      "bottom": 248,
+      "width": 108,
+      "height": 115
     },
     "se": {
-      "left": 163,
-      "top": 135,
-      "right": 217,
-      "bottom": 246,
-      "width": 55,
-      "height": 112
+      "left": 151,
+      "top": 134,
+      "right": 232,
+      "bottom": 248,
+      "width": 82,
+      "height": 115
     },
     "e": {
-      "left": 158,
-      "top": 135,
-      "right": 226,
+      "left": 150,
+      "top": 134,
+      "right": 229,
       "bottom": 247,
-      "width": 69,
-      "height": 113
+      "width": 80,
+      "height": 114
     },
     "ne": {
-      "left": 137,
-      "top": 138,
-      "right": 248,
-      "bottom": 244,
-      "width": 112,
-      "height": 107
+      "left": 138,
+      "top": 135,
+      "right": 246,
+      "bottom": 246,
+      "width": 109,
+      "height": 112
     },
     "n": {
-      "left": 142,
+      "left": 136,
       "top": 135,
-      "right": 241,
+      "right": 245,
       "bottom": 246,
-      "width": 100,
+      "width": 110,
       "height": 112
     }
   },
-  "model": "zhenjipf.mdx",
+  "model": "Ninja_5.mdx",
   "frameSize": 384,
   "qualityFactor": 2,
-  "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图",
+  "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\技能特效补充_20260929\\仙道II陆章超级终结版修正\\资源根目录",
   "dependencies": {
-    "zhenjipf.mdx": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\zhenjipf.mdx",
-      "sha256": "a19fc1c69c28789a1cc117208c094d571db4274d95e786590ed8135471ae366a"
+    "Ninja_5.mdx": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\技能特效补充_20260929\\仙道II陆章超级终结版修正\\资源根目录\\Ninja_5.mdx",
+      "sha256": "a695a114a1e385b4466c45e02a26126e2b5d6248d16ba9820e3b29331d52855e"
     },
-    "HeroArchSorceressFZ1.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\HeroArchSorceressFZ1.blp",
-      "sha256": "f81178ecbf61567a596efb2f0eaa688992eb4cae86d85368b5d270e99e394136"
-    },
-    "zhenji1.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\zhenji1.blp",
-      "sha256": "ae34ac15918e516e90402248aa3de24f1dde5cc762df164cff7d315f00570d56"
-    },
-    "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamGlow\\TeamGlow00.blp",
-      "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
+    "Textures/Ninja_5.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\技能特效补充_20260929\\仙道II陆章超级终结版修正\\资源根目录\\Textures\\Ninja_5.blp",
+      "sha256": "7e5ed47661db82a42154b0c89d017dcf4f19a2f0741158f2fb803386c9b6f8ea"
     },
     "ReplaceableTextures/TeamColor/TeamColor00.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\技能特效补充_20260929\\仙道II陆章超级终结版修正\\资源根目录\\ReplaceableTextures\\TeamColor\\TeamColor00.blp",
       "sha256": "db8efb0a2d76cb4e472c3395086f35391a25c81760509dc58ed109b79e1b9ef6"
     },
-    "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow01.blp",
-      "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
-    },
-    "zhenji2.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\zhenji2.blp",
-      "sha256": "951279ae3941bd0200aca66b856435c8fa6273a0b5ca5cd43850e1d8124fc531"
+    "ReplaceableTextures/TeamGlow/TeamGlow00.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\技能特效补充_20260929\\仙道II陆章超级终结版修正\\资源根目录\\ReplaceableTextures\\TeamGlow\\TeamGlow00.blp",
+      "sha256": "bfc0800307b317b820ee786e5c9587a13893f158f37680672bd98e077c923c38"
     },
     "ReplaceableTextures/TeamColor/TeamColor01.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor01.blp",
       "sha256": "5521bd761c6bfdb34f742fb3acbe9b8d3a19d07bf6da323a2216e478b5817564"
+    },
+    "ReplaceableTextures/TeamGlow/TeamGlow01.blp": {
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamGlow\\TeamGlow01.blp",
+      "sha256": "c36510d9886113d75e484bc6599ec75f1afac6cd5fd8113cafc0a0ae3542d2b1"
     },
     "ReplaceableTextures/TeamColor/TeamColor02.blp": {
       "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\补充依赖\\9\\ReplaceableTextures\\TeamColor\\TeamColor02.blp",
       "sha256": "1a33afc10d67014dba95ec31c185bddb2ee62d5d7c62626af9ac3bbbcea36ce8"
     },
     "ReplaceableTextures/TeamGlow/TeamGlow02.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamGlow\\TeamGlow02.blp",
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\技能特效补充_20260929\\仙道II陆章超级终结版修正\\资源根目录\\ReplaceableTextures\\TeamGlow\\TeamGlow02.blp",
       "sha256": "487721616303f1a84969fccff2b1df2c34a4a28135f4f701b88f4d575f50e18e"
     },
     "ReplaceableTextures/TeamColor/TeamColor03.blp": {
@@ -214,7 +207,7 @@
       "sha256": "ee0e4d372ebb66e254ed4b1f63aad46c74cb55a21778f1539ea5e10f86bf9743"
     },
     "ReplaceableTextures/TeamColor/TeamColor04.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor04.blp",
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\技能特效补充_20260929\\仙道II陆章超级终结版修正\\资源根目录\\ReplaceableTextures\\TeamColor\\TeamColor04.blp",
       "sha256": "f5b015cfe28d21d3c36e14acc2b141f0be30699cdcd644d75e6748a0b8ed41f5"
     },
     "ReplaceableTextures/TeamGlow/TeamGlow04.blp": {
@@ -222,7 +215,7 @@
       "sha256": "abce29ecb184869e17799881f067b9dff9b1da6d2af97a05e56ce33cb8843adf"
     },
     "ReplaceableTextures/TeamColor/TeamColor05.blp": {
-      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\Maps\\遗失的记忆v1.7.22-U9_1.24\\自定义单位模型\\模型与贴图\\ReplaceableTextures\\TeamColor\\TeamColor05.blp",
+      "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\技能特效补充_20260929\\仙道II陆章超级终结版修正\\资源根目录\\ReplaceableTextures\\TeamColor\\TeamColor05.blp",
       "sha256": "d0a23c5dd00c59cf5602535482ec2d1e4fd8a0e7f5c7b9327a255bc5b2c2ec97"
     },
     "ReplaceableTextures/TeamGlow/TeamGlow05.blp": {
@@ -312,18 +305,18 @@
   },
   "camera": {
     "center": [
-      -0.75,
-      -4.5,
-      63.67892658064375
+      -12.75,
+      15.686859153211117,
+      51.6402724692598
     ],
-    "height": 127.81518283311743,
-    "span": 303.7025683131442
+    "height": 194.16401516459882,
+    "span": 332.9673389667276
   },
   "uniformZoom": 1.9599999999999997,
   "rendering": "MDX原始骨骼动画烘焙，多方向Spine附件序列",
   "compacted": {
-    "beforeBytes": 221773824,
-    "afterBytes": 22982656,
+    "beforeBytes": 217055232,
+    "afterBytes": 27541504,
     "boundaryFrames": 0
   }
 }

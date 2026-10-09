@@ -8,5 +8,5 @@ function prepare(model){if(!eligible(model))return null;const id=key(model),old=
 /** 开战沿用已经到账的进场技能；兼容直接调用开战的旧入口，不再发第二份。 */
 function beforeFight(model,training){if(training)return null;if(require('./lord-skill-config').skills[model.state.meta?.lord]?.trigger==='preparation')return prepare(model)?.receipt;return require('./lord-skills').beforeFight(model,training);}
 /** 动画只消费展示标记，奖励早已保存；动画结束即可把装备拖给武将。 */
-function show(view){if(view.playing||view.startingBattle)return;const record=prepare(view.model);if(!record||record.shown)return;view.model.transact(()=>{view.model.state.expedition.lordPreparation.shown=true;});view.battleHud.renderEquipment();require('./lord-skill-view').show(view,()=>{},record.receipt);}
+function show(view){if(view.playing||view.startingBattle)return;const record=prepare(view.model);if(!record||record.shown)return;view.model.transact(()=>{view.model.state.expedition.lordPreparation.shown=true;});if(record.receipt.kind==='hero')view.render();else view.battleHud.renderEquipment();require('./lord-skill-view').show(view,()=>{},record.receipt);}
 module.exports={key,eligible,prepare,beforeFight,show};

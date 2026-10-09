@@ -1,0 +1,5 @@
+'use strict';
+const c=require('./combat-text-config');
+/** 真实事件驱动飘字，暴击加粗描边并快速弹跳，节点自动销毁。 */
+function show(v,actor,value,kind='damage',critical=false,skill=false){if(!actor?.node?.isValid)return;const cc=v.cc,p=actor.node.position,n=v.ui.node(v.root,'combat-text-'+kind,p.x,p.y+65),text=typeof value==='number'?(kind==='damage'?'-':'+')+value:String(value),label=v.ui.text(n,(critical?c.prefix.critical:kind==='damage'?(skill?c.prefix.skill:c.prefix.attack):'')+text,0,0,critical?c.criticalSize:c.normalSize,c[kind],260,65);label.isBold=critical;if(critical&&cc.LabelOutline){const line=label.node.addComponent(cc.LabelOutline);line.color=new cc.Color(c.outline);line.width=3;}const alpha=n.addComponent(cc.UIOpacity);if(critical){n.setScale(.6,.6,1);cc.tween(n).to(.1,{scale:new cc.Vec3(c.criticalScale,c.criticalScale,1)}).to(.12,{scale:new cc.Vec3(1,1,1)}).start();}cc.tween(n).by(c.life,{position:new cc.Vec3(0,c.rise,0)}).call(()=>n.destroy()).start();cc.tween(alpha).delay(.15).to(c.life-.15,{opacity:0}).start();}
+module.exports={show};

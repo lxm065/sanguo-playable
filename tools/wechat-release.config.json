@@ -1,7 +1,7 @@
 {
-  "output": "dist/wechat-1.0.73",
-  "version": "1.0.73",
-  "description": "张飞开场肉钩；装备逐阶章节门槛；每章两场温和开局及敌将等级跟随；通关招贤钱",
+  "output": "dist/wechat-1.0.105",
+  "version": "1.0.105",
+  "description": "合成卡片素色排版；胜利后清空敌方棋盘；行军统一动态下箭头",
   "copy": [
     "@babel",
     "cocos-js",
@@ -32,11 +32,11 @@
     "atlasEdge": 1024,
     "padding": 2,
     "portraitWidth": 256,
-    "modelColors": 96,
+    "modelColors": 88,
     "attachmentPrecision": 4
   },
   "opaqueJpeg": {
-    "quality": 76,
+    "quality": 67,
     "files": [
       "campaign-map.png",
       "battle-ground.png",
@@ -54,7 +54,7 @@
   },
   "equipmentImages": {
     "width": 224,
-    "quality": 76
+    "quality": 74
   },
   "scriptMinifier": "../../release-tools/node_modules/terser"
 }

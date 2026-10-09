@@ -8,28 +8,7 @@ function wrapDescription(
   width = layout.skillWidth,
   font = layout.bodyFont,
 ) {
-  const max = width / font - layout.wrapPadding,
-    lines = [];
-  let line = "",
-    used = 0;
-  for (const ch of String(text || "")) {
-    if (ch === "\n") {
-      lines.push(line);
-      line = "";
-      used = 0;
-      continue;
-    }
-    const size = ch.charCodeAt(0) < 128 ? 0.56 : 1;
-    if (used + size > max && line) {
-      lines.push(line);
-      line = "";
-      used = 0;
-    }
-    line += ch;
-    used += size;
-  }
-  if (line) lines.push(line);
-  return lines;
+  return require("./detail-wrap").wrap(text,width,font,layout.wrapPadding);
 }
 /** 根据完整文案计算各技能位置，单页垂直空间留给实际行数。 */
 function skillRows(skills) {

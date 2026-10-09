@@ -1,5 +1,5 @@
 "use strict";
-/** 战斗栏布局、标识与推荐映射；推荐顺序来自原装备 recommend 字段。 */
+/** 战斗栏布局与标识；装备推荐由独立策略模块维护。 */
 module.exports = {
   unit: {
     modelHeight: 110,
@@ -24,8 +24,8 @@ module.exports = {
   },
   scene: {
     headerColor: "#12201E70",
-    headerY: 550,
-    headerHeight: 180,
+    headerY: 575,
+    headerHeight: 130,
     gridColors: ["#493D344D", "#C6BC8640"],
     footerColor: "#241F1AE0",
   },
@@ -40,7 +40,7 @@ module.exports = {
     arrowWidth: 44,
     arrowHeight: 65,
   },
-  buffs: {x:-160,y:535,size:62,gap:73,columns:6,font:19},
+  buffs: {x:-165,y:582,size:42,gap:55,columns:8,font:16},
   equipmentDetail: {
     width: 470,
     height: 740,
@@ -152,56 +152,4 @@ module.exports = {
     closeY: -442,
   },
   rankRows: [1, 2, 3, 4],
-  recommendations: {
-    7001:['xuchu','taishici','huangzhong','zhaoyun'],
-    7002:['xuchu','yanliang','zhaoyun'],
-    7101:['zhenji','zhouyu','huangyueying'],
-    7104:['zhenji','zhouyu','huangyueying'],
-    7201: ["yanliang", "guanyu", "xuchu", "dianwei", "zhurong"],
-    7202: ["yanliang", "guanyu", "xuchu", "dianwei", "zhurong"],
-    7204: ["guanyu", "xuchu", "dianwei", "huangyueying", "zhangfei", "zhurong"],
-    7206: ["xuchu", "dianwei", "guanyu", "yanliang", "zhangfei", "zhurong"],
-    7207: ["xuchu", "dianwei", "guanyu", "yanliang", "zhangfei", "zhurong"],
-    7208: [
-      "huangzhong",
-      "xiahouyuan",
-      "taishici",
-      "machao",
-      "yanliang",
-      "zhangjiao",
-      "lvbu",
-    ],
-    7211: [
-      "zhenji",
-      "zhouyu",
-      "huangyueying",
-      "zhangfei",
-      "xiaoqiao",
-      "zhurong",
-      "machao",
-      "sunshangxiang",
-      "ganning",
-      "zhangliao",
-    ],
-    7212: [
-      "guanyu",
-      "xuchu",
-      "dianwei",
-      "huangyueying",
-      "zhangfei",
-      "zhurong",
-      "lvbu",
-    ],
-    7213: [
-      "guanyu",
-      "xuchu",
-      "dianwei",
-      "huangyueying",
-      "zhangfei",
-      "zhurong",
-      "zhaoyun",
-      "zhangjiao",
-      "lvbu",
-    ],
-  },
 };

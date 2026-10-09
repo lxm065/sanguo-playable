@@ -40,5 +40,5 @@ module.exports={
  thresholds:[2,4],fiveStarChapter:18,
  tabs:[['heroes','武将'],['equipment','装备'],['bonds','羁绊']],
  text:{title:'图鉴',preview:'羁绊规则 · 按不同上阵武将计算',initial:'',chapter:'通关第{0}章',bossShort:'第{0}章第{1}节解锁',boss:'击败首个BOSS并完成结算解锁',unimplemented:'仅图鉴展示，尚未接入招募',available:'已接入本地阵容',unavailable:'已接入本地阵容，尚未解锁',close:'点击空白处关闭',back:'返回图鉴',fiveStar:'通关第{0}章，全体单位可升5星',rules:'',detail:'图鉴定位与当前战斗规则分别维护。'},
- layout:{width:690,height:990,titleY:439,tabY:-426,viewportY:28,viewportHeight:716,viewportWidth:632,padding:12,columns:3,cellWidth:196,cellHeight:172,portrait:108,tierHeader:58,bondHeight:330,bondColumns:3,bondPortrait:76,bondRow:108,dragThreshold:14,font:25,smallFont:22,titleFont:34,colors:['#24903A','#3278C8','#924EC2','#C58020'],paper:'#E5D2AA',ink:'#593E2C',muted:'#816849',gold:'#D5A635'},
+ layout:{width:690,height:990,titleY:439,tabY:-426,viewportY:28,viewportHeight:640,viewportWidth:632,padding:12,columns:3,cellWidth:196,cellHeight:172,portrait:108,tierHeader:58,bondHeight:330,bondColumns:3,bondPortrait:76,bondRow:108,dragThreshold:14,font:25,smallFont:22,titleFont:34,colors:['#24903A','#3278C8','#924EC2','#C58020'],paper:'#E5D2AA',ink:'#593E2C',muted:'#816849',gold:'#D5A635'},
 };

@@ -1,9 +1,9 @@
 'use strict';
-const c=require('./handbook-detail-config'),data=require('./expedition-data'),assets=require('./handbook-detail-assets');
+const c=require('./handbook-detail-config'),data=require('./skill-theme'),assets=require('./handbook-detail-assets');
 /** 按中英文实际显示宽度分行，技能文案完整保留，不省略、不截断。 */
 function wrap(text,font){const max=Math.floor((c.width-c.padding*2)/font)-c.wrapSafety;let line='',used=0;const lines=[];for(const ch of text){const n=ch.charCodeAt(0)<128?.55:1;if(ch==='\n'||used+n>max){lines.push(line);line='';used=0;}if(ch!=='\n'){line+=ch;used+=n;}}if(line)lines.push(line);return lines;}
 /** 从原阶级配置只读生成属性对照，未通18章展示四阶上限。 */
-function query(id,cleared=0){const original=data.heroes.find(h=>h.id===id),hero=original&&{...original,tiers:original.tiers.map(require("./skill-timing").tier)};if(!hero)throw Error('未找到武将属性');const max=cleared>=c.fiveStarChapter?5:c.normalMax,tiers=hero.tiers.filter(t=>t.star>=hero.tier&&t.star<=max),low=tiers[0],high=tiers.at(-1);return {hero,cards:(low.star===high.star?[high]:[low,high]).map(t=>({...t,max:t===high,primary:assets.primary[t.sourceId]??0}))};}
+function query(id,cleared=0){const original=data.heroes.find(h=>h.id===id),hero=original&&{...original,tiers:original.tiers.map(t=>require('./hero-range').tier(id,require('./skill-timing').tier(t)))};if(!hero)throw Error('未找到武将属性');const max=cleared>=c.fiveStarChapter?5:c.normalMax,tiers=hero.tiers.filter(t=>t.star>=hero.tier&&t.star<=max),low=tiers[0],high=tiers.at(-1);return {hero,cards:(low.star===high.star?[high]:[low,high]).map(t=>({...t,max:t===high,primary:assets.primary[t.sourceId]??0}))};}
 /** 优先使用大字，根据完整技能长度计算单页高度，长描述只在必要时小幅调整字号。 */
 function layout(tier){let result;for(let font=c.font;font>=c.minFont;font--){let height=c.header;const rows=tier.skills.map(s=>{const lines=wrap(s.description,font),row={...s,lines,top:height,height:c.skillHeader+lines.length*font*c.lineRatio+c.skillGap};height+=row.height;return row;});result={font,rows,height:Math.max(c.minHeight,height+c.bottom)};if(result.height<=c.maxHeight)return result;}return result;}
 /** 左对齐文本，名称、冷却和技能说明沿同一基线排列。 */

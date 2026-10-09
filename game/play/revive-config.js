@@ -1,3 +1,3 @@
 'use strict';
-/** 最后一命战败的复活机会；倒计时暂停于广告，完整观看恢复生命并赠二阶武将。 */
-module.exports={seconds:10,title:'复活',advice:'吾尚能再战，诸将助我重整旗鼓！',accept:'▶ 复活',decline:'投降认输',fullHealth:true,hp:1,ring:{radius:78,width:7,color:'#B68250'},countY:-115,countFont:72,tickMs:100,buttonY:-280};
+/** 原版复活布局的三国映射、语音与计时参数。 */
+module.exports={"seconds":10,"title":"复活","advice":"我觉得我还可以\n抢救一下！","accept":"▶ 复活","decline":"投降认输","fullHealth":true,"hp":1,"ring":{"radius":88,"width":12,"color":"#FFCD79"},"countY":-150,"countFont":66,"tickMs":100,"buttonY":-335,"layout":{"panelY":125,"panelWidth":720,"panelHeight":310,"portraitX":-218,"portraitY":166,"portraitWidth":125,"portraitHeight":125,"textX":98,"textY":161,"titleY":315,"hintY":22,"rewardY":-400,"footerY":-500,"ink":"#704621","gold":"#FFD474","titleColor":"#FFF1CF"},"voice":"skin-assets/audio/revive-guide.mp3","guide":"在哪里跌倒，就从哪里站起来！"};

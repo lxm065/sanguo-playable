@@ -13,5 +13,5 @@ function attach(model,roster){const progress=new Progression(model,config);model
  beforeFight(training){if(training)return;if(progress.state.hp<=0)throw Error('本次远征生命耗尽');const node=progress.nodes().find(n=>n.id===progress.state.activeNode);if(!node||!['battle','elite','boss'].includes(node.type))throw Error('请先在章节地图选择战斗节点');require('./enemy-budget').lock(model);return require('./lord-preparation').beforeFight(model,training);},
  /** 与领奖共享同一事务，退出重启或重复点击不会重复解锁。 */
  settle(pending){require('./chapter-difficulty').settle(model.state,pending);progress.settle(pending);}
-};if(model.state.shop.some(id=>id&&!progress.state.unlocked.includes(id)))model.transact(()=>{model.state.shop=model.availableRoster().slice(0,model.rules.shopSize).map(h=>h.id);});require('./sign-rewards').settleReserved(progress);require('./activity-rewards').settleLegacy(model);return progress;}
+};if(model.state.shop.some(id=>id&&!progress.state.unlocked.includes(id)))model.transact(()=>{model.state.shop=model.availableRoster().slice(0,model.rules.shopSize).map(h=>h.id);});require('./route-resources').initialize(model);require('./sign-rewards').settleReserved(progress);require('./activity-rewards').settleLegacy(model);return progress;}
 module.exports={attach};

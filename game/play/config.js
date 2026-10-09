@@ -11,7 +11,7 @@ module.exports={
  recruitCost:100,refreshCost:30,shopSize:3,sellRatio:0.5,winGold:100,lossGold:30,rewardChoices:3,
  enemyStartCount:1,enemyEveryStages:2,enemyBaseScale:0.7,enemyGrowth:0.05,enemyMaxScale:2.2,
  enemyColumns:[2,3,1,4,0,5],
- tickSeconds:0.1,attackDelay:0.35,moveSeconds:0.3,maxBattleSeconds:90,armorScale:100,minDamage:1,
+ tickSeconds:0.1,attackDelay:0.35,moveSeconds:0.3,maxBattleSeconds:60,armorScale:100,minDamage:1,
  criticalChance:0.08,criticalMultiplier:1.5,synergyThreshold:2,synergyAttackBonus:0.1,
  assetsRoot:'skin-assets/',battleImage:'battle-ground.png',mapImage:'campaign-map.png',
  colors:{ink:'#2D261F',paper:'#EAD8AF',gold:'#C89B53',red:'#8E352B',green:'#71BC76',panel:'#453728',muted:'#BAA98A'},

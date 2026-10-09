@@ -8,7 +8,7 @@ function direction(dx, dy, previous = "n") {
   ];
 }
 /** 将战场方向映射到模型烘焙方向，身份与位移坐标保持不变。 */
-function sourceDirection(heroId,facing){const offset=config.sourceDirectionOffsets?.[heroId]||0,index=config.directions.indexOf(facing);return config.directions[(Math.max(0,index)+offset)%config.directions.length];}
+function sourceDirection(heroId,facing){const override=config.sourceDirectionOverrides?.[heroId]?.[facing];if(override)return override;const offset=config.sourceDirectionOffsets?.[heroId]||0,index=config.directions.indexOf(facing);return config.directions[(Math.max(0,index)+offset)%config.directions.length];}
 /** 将左侧朝向映射到对应源动作并镜像，避免用一张正面图假转向。 */
 function animationKey(name, facing, directional) {
   return directional ? name + "-" + (config.mirrored[facing] || facing) : name;

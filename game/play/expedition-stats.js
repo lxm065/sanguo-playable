@@ -71,9 +71,9 @@ function stats(
     }
     if (item.owner === unit.uid) {
       if(e.onHit&&!result.equipmentHits.some(x=>x.id===e.id))result.equipmentHits.push({id:e.id,...e.onHit});
-      const basic=e.basic;
+      const basic=e.basic;result.equipmentCooldown=(result.equipmentCooldown||0)+(basic.cooldown||0);result.magicPen+=basic.magicPen||0;result.bondDodge=Math.max(result.bondDodge||0,basic.dodge||0);result.reduction+=basic.reduction||0;
       for(const key of ["hp","armor","magicArmor","regen","haste","critical","criticalBonus"])result[key]=(result[key]||0)+(basic[key]||0);
-      result.attack+=basic[hero.magic?"magicAttack":"physicalAttack"]||0;
+      result.attack+=require('./hero-damage').equipmentAttack(hero,basic);
       result.hp *= 1 + (e.hpPercent || 0);
       for (const k of [
         "regenPercent",
@@ -99,10 +99,11 @@ function stats(
       result.criticalBonus += b.values[2] / 100;
     }
   }
+  require('./equipment-effects').stats(result,unit,units,equipment);
   result.hp+=rules.playerVip?.data_8||0;result.attack+=rules.playerVip?.data_7||0;
   require("./talent-effects").stats(result,unit,units,roster,rules.playerTalentTree);
-  result.hp = Math.round(result.hp);
-  result.attack = Math.round(result.attack);
+  result.hp = Math.max(1,Math.round(result.hp*(unit.retryStats?.hp??1)));
+  result.attack = Math.round(result.attack*(unit.retryStats?.attack??1));
   result.interval /= 1 + result.haste;
   return result;
 }

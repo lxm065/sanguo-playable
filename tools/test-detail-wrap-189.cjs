@@ -1,0 +1,7 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),{wrap}=require('../game/play/detail-wrap'),c=require('../game/play/detail-wrap-config'),equipment=require('../game/play/expedition-config').equipment,roster=require('../game/play/expedition-roster');
+/** 对完整词组、行首标点和原文完整性同时验收，防止靠删字消除断行。 */
+function verify(text,width=434,font=27){const lines=wrap(text,width,font);assert.equal(lines.join(''),text.replace(/\n/g,''));for(const line of lines){const clean=line.trim();if(!clean)continue;assert(!c.closing.includes(clean[0]),line);assert(!c.opening.includes(clean.at(-1)),line);assert(!/^[+＋−-]?\d+(?:\.\d+)?[%％]?[。；，,.!?]*$/.test(clean),line);}return lines;}
+test('截图装备句末标点与负数百分比完整，属性名和数值不拆开',()=>{const text='普攻命中后使目标[残废]（攻击-5，攻击-5，攻击速度-5%）6秒。',lines=verify(text);assert(lines.some(l=>l.includes('攻击速度-5%')));assert(lines.some(l=>l.includes('6秒。')));const stats=verify('物防 20    魔防 10    射程 1');assert(stats.some(l=>l.includes('射程 1')));});
+test('全部装备与武将技能在商店及详情宽度下遵守断行禁则，保留全文',()=>{const texts=[...equipment.map(e=>e.description),...roster.flatMap(h=>(h.tiers||[]).flatMap(t=>(t.skills||[]).map(s=>s.description)))];for(const text of texts.filter(Boolean))for(const width of [390,434,535])verify(text,width,27);});
+test('保留显式段落、小数时间和英文词，不产生空白标点行',()=>{assert.deepEqual(wrap('攻击\n恢复',434,27),['攻击','恢复']);const lines=verify('持续3.5秒，恢复35%生命。\n物理攻击+120；冷却缩减20%。');assert(lines.some(l=>l.includes('持续3.5秒')));});

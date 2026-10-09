@@ -15,7 +15,7 @@ module.exports={
  '11034':{kind:'attackAura',power:.15},
  '11041':{kind:'delay',delay:3,effect:'manaBreak'},
  '11042':{kind:'reduction',reduction:.4},
- '11043':{kind:'blinkStrike',power:7,select:'highestAttack',global:true,effect:'blinkStrike'},
+ '11043':{initialCooldown:0,kind:'blinkStrike',power:7,select:'highestAttack',global:true,effect:'blinkStrike'},
  '11044':{kind:'damage',power:10,radius:1,effect:'void'},
  '12071':{kind:'bash',chance:.4,power:1.15,stun:.2,undodgeable:true,effect:'headshot'},
  '12072':{kind:'dot',power:.6,period:1,duration:5,radius:1,slow:.3,effect:'shrapnel'},

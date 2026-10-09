@@ -1,6 +1,6 @@
 'use strict';
 /** 原始 MDX 特效的镜头、采样与映射配置；不生成粒子替代图形。 */
-module.exports={fps:12,frameSize:192,outputSize:128,seconds:1.5,camera:[0,-1,.85],renderer:'D:/Tools/wc3-mdx-screenshotter',models:'D:/Games/Warcraft3/ExtractedAssets/Models',dependencies:['D:/Games/Warcraft3/ExtractedAssets/技能特效补充_20260929/守护雅典娜8路出怪平衡版j/资源根目录','D:/Games/Warcraft3/ExtractedAssets/技能特效补充_20260929/遗失的记忆v1.7.22-U9[1.24]/资源根目录','D:/Games/Warcraft3/ExtractedAssets/技能特效补充_20260929/决战江湖1.63正式版+(1)/资源根目录'],effects:{
+module.exports={fps:12,frameSize:192,outputSize:128,seconds:1.5,camera:[0,-1,.85],renderer:'D:/Tools/wc3-mdx-screenshotter',models:'D:/Games/Warcraft3/ExtractedAssets/Models',dependencies:['D:/Games/Warcraft3/ExtractedAssets/技能特效补充_20260929/守护雅典娜8路出怪平衡版j/资源根目录','D:/Games/Warcraft3/ExtractedAssets/技能特效补充_20260929/遗失的记忆v1.7.22-U9[1.24]/资源根目录','D:/Games/Warcraft3/ExtractedAssets/技能特效补充_20260929/决战江湖1.63正式版+(1)/资源根目录'],effects:{sheep:{model:'Units/Critters/Sheep/Sheep',radius:45,center:25,camera:[1,-1,.65],seconds:1,sequence:'Stand'},
  zhouyuPillar:{path:'Human/FlameStrike/FlameStrikeDamageTarget',radius:100,center:65,seconds:1.5,sequence:'Stand',loop:true,particleColors:[[1,.7,.2],[1,.3,.03],[.4,.06,.01]]},
  zhouyuGround:{path:'Human/FlameStrike/FlameStrikeEmbers',radius:165,center:15,sequence:'Stand',loop:true},
  zhouyuWave:{path:'Other/BreathOfFire/BreathOfFireMissile',radius:230,center:20,sequence:'Birth',loop:true,travel:180},

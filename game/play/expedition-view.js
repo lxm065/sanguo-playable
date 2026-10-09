@@ -10,6 +10,7 @@ const { showUnitDetails } = require("./unit-details");
 class ExpeditionView extends ClassicView {
   /** 保留战场领取后的阵容，通过前进按钮返回路线。 */
   act(operation) {
+    const levelNotice=require('./lord-level-notice'),levelBefore=levelNotice.snapshot(this.model);
     const before=new Set(this.model.state.meta.unlocked),acquired=new Set(require('./hero-acquisition').known(this.model)),runReward=this.model.state.meta.runReward,sweepReward=this.model.state.meta.sweep?.pending,diamonds=this.model.state.meta.diamonds;
     const ranks=new Map(this.model.state.units.map(unit=>[unit.uid,unit.star]));
     try {
@@ -20,6 +21,7 @@ class ExpeditionView extends ClassicView {
       this.notice("提示", e.message);
       return;
     }
+    levelNotice.capture(this,levelBefore);
     this.render();
     require("./upgrade-effects").show(this,ranks);
     const added=[...new Set([...this.model.state.meta.unlocked.filter(id=>!before.has(id)),...require('./hero-acquisition').known(this.model).filter(id=>!acquired.has(id))])];
@@ -53,40 +55,7 @@ class ExpeditionView extends ClassicView {
       hudLayout.scene.headerColor,
       false,
     );
-    const lordAvatar = u.portrait(
-      this.root,
-      this.progress.lord().portrait,
-      -290,
-      554,
-      110,
-      130,
-      classic.portraitCrop,
-    );
-    lordAvatar.name = "battle-lord-avatar";
-    lordAvatar.on(this.cc.Node.EventType.TOUCH_END, (event) => {
-      event.propagationStopped = true;
-      this.battleHud.lordDetails();
-    });
-    u.text(this.root, "♥".repeat(m.hp), -140, 607, 32, "#E65441", 170);
-    u.text(
-      this.root,
-      s.units.filter((x) => x.slot >= 0).length + "/" + this.model.limit(),
-      42,
-      607,
-      26,
-      "#F0D36B",
-      130,
-    );
-    u.text(this.root, "金币 " + s.gold, 202, 607, 26, "#F0D36B", 185);
-    u.text(
-      this.root,
-      "等级 " + s.expedition.level,
-      -288,
-      480,
-      24,
-      "#EEE6D6",
-      140,
-    );
+    require('./expedition-header').render(this);
     const {offer} = require('./novice-rewards').current(this.model);
     if (offer && !s.pending && !nodeEventView.active(this)) {
       const name =
@@ -168,6 +137,7 @@ class ExpeditionView extends ClassicView {
     require("./talent-shop-view").entry(this);
     if (this.modal) this.modal.setSiblingIndex(this.root.children.length - 1);
     require("./lord-preparation").show(this);
+    require('./lord-level-notice').show(this);
   }
   /** 绘制敌我棋盘与无外框备战席；不继承旧版额外管理按钮。 */
   renderFormation() {
@@ -192,6 +162,7 @@ class ExpeditionView extends ClassicView {
       }
     if (s.pending) {
       for (const initial of s.pending.battle.initial) {
+        if(!require("./enemy-board-view").showResult(s,initial))continue;
         const final = s.pending.battle.final.find((f) => f.uid === initial.uid),
           unit = { ...initial, ...final },
           p = this.position(unit.x, unit.y),
@@ -208,7 +179,7 @@ class ExpeditionView extends ClassicView {
         if(unit.uid<0)this.battleHud.renderEquipped(unit);
       }
     } else {
-      for (const unit of this.model.enemies()) {
+      for (const unit of require("./enemy-board-view").preview(s)?this.model.enemies():[]) {
         const p = this.position(
             unit.slot % this.config.columns,
             Math.floor(unit.slot / this.config.columns) + this.config.rows,
@@ -238,7 +209,8 @@ class ExpeditionView extends ClassicView {
     require("./merge-hints").show(this);
   }
   /** 备战席仅保留人物、描边姓名和必要的翻页箭头。 */
-  renderReserve() {
+  renderReserve(refresh=false) {
+    const before=require('./reserve-refresh').begin(this);
     const u = this.ui,
       c = hudLayout.reserve,
       bench = this.model.state.units.filter((v) => v.slot < 0),
@@ -282,11 +254,12 @@ class ExpeditionView extends ClassicView {
           () => {
             if (this.playing) return;
             this.benchPage = (this.benchPage + direction + pages) % pages;
-            this.render();
+            this.renderReserve(true);
           },
           "#191F1B44",
           c.arrowHeight,
         );
+    require('./reserve-refresh').end(this,before,refresh);
   }
   /** 绑定敌方和回放中单位的只读点击，不注册布阵或合成操作。 */
   bindAttributeTap(actor, unit, snapshot = null) {
@@ -325,7 +298,7 @@ class ExpeditionView extends ClassicView {
     require("./merge-hints").clear(this);
     this.playing = true;
     this.replay = battle;
-    this.elapsed = 0;
+    this.elapsed = 0;require('./battle-clock').create(this);
     this.eventIndex = 0;
     this.lastTime = Date.now();
     this.status = null;
@@ -419,7 +392,7 @@ class ExpeditionView extends ClassicView {
     effective = null,
   ) {
     const u = this.ui,
-      c = this.paper(parent, "hero-card", x, y, width, height),
+      c = require("./equipment-paper").create(this,parent, "hero-card", x, y, width, height),
       hero = this.roster.find((h) => h.id === id),
       tier = effective || hero?.tiers?.find((t) => t.star === star) || hero;
     u.text(
@@ -554,13 +527,13 @@ class ExpeditionView extends ClassicView {
       l.cardHeight,
       true,
     );
-    this.ui.button(m, "原地升级", -230, -510, 212, () =>
+    this.ui.button(m, "原地合成", -230, -510, 212, () =>
       this.act(() => {this.model.merge(uid, "same");require("./attack-audio").get(this).play("merge");}),
     );
     if (this.model.canDirect())
       this.ui.button(
         m,
-        "▶ 定向升级",
+        "▶ 定向合成",
         0,
         -510,
         228,
@@ -571,7 +544,7 @@ class ExpeditionView extends ClassicView {
     else
       this.ui.text(
         m,
-        "通过首关\n开放定向升级",
+        "通过首关\n开放定向合成",
         0,
         -510,
         23,
@@ -579,7 +552,7 @@ class ExpeditionView extends ClassicView {
         220,
         90,
       );
-    this.ui.button(m, "随机升级", 230, -510, 212, () =>
+    this.ui.button(m, "随机合成", 230, -510, 212, () =>
       this.act(() => {this.model.merge(uid, "random");require("./attack-audio").get(this).play("merge");}),
     );
     this.ui.button(m, "返回", 0, -601, 220, () => this.render(), "#655744", 46);
@@ -591,8 +564,8 @@ class ExpeditionView extends ClassicView {
       setTimeout(() => {
         const m = this.overlay(),
           unit = this.model.unit(uid);
-        this.paper(m, "directed-selection", 0, 0, 680, 700);
-        this.ui.text(m, "选择定向升级目标", 0, 281, 33, "#694A2C");
+        const panel=this.paper(m, "directed-selection", 0, 0, 680, 700);
+        require("./paper-title").draw(this,panel,"选择定向合成目标",680,700);
         this.model.directedTargets(uid).forEach((id, i) => {
           const x = (i - 1) * 215,
             h = this.roster.find((v) => v.id === id);
@@ -617,22 +590,13 @@ class ExpeditionView extends ClassicView {
     if(!p.training&&p.battle.result==='loss')return require('./defeat-view').show(this,p);
     const m = this.overlay(),
       u = this.ui;
-    this.paper(m, "expedition-reward", 0, 0, 682, 610);
-    u.text(
-      m,
-      p.battle.result === "win" ? "通关奖励" : "战斗结束",
-      0,
-      242,
-      36,
-      "#6C4E31",
-    );
-    const target=this.progress.section(),node=this.progress.nodes().find(n=>n.id===this.progress.state.activeNode);
-    if(!p.training&&p.battle.result==="win"&&node?.type==="boss"&&target.unlock&&!this.progress.state.unlocked.includes(target.unlock))u.text(m,require("./section-policy").text.pending+target.name,0,190,23,"#8E352B",570,32);
+    const panel=this.paper(m, "expedition-reward", 0, 0, 682, 610);
+    require("./paper-title").draw(this,panel,p.battle.result === "win" ? "通关奖励" : "战斗结束",682,610);
     if (p.rewardKind === "equipment") {
       const e = policy.equipment.find((e) => e.id === p.equipmentId);
-      u.image(m, "equipment/" + e.id + ".png", 0, 94, 112, 112);
+      const icon=u.image(m, "equipment/" + e.id + ".png", 0, 94, 112, 112);
+      icon.on(this.cc.Node.EventType.TOUCH_END,event=>{event.propagationStopped=true;require("./merchant-offer-view").preview(this,e.id,m);});
       u.text(m, e.name, 0, -9, 32, "#6C4E31");
-      u.text(m, e.description, 0, -84, 26, "#6C4E31", 560, 90);
       u.button(m, "领取装备", 0, -214, 280, () =>
         this.act(() => this.model.claim()),
       );
@@ -640,7 +604,7 @@ class ExpeditionView extends ClassicView {
       p.choices.forEach((id, i) => {
         const x = (i - 1) * 216,
           h = this.roster.find((h) => h.id === id),
-          star = p.rewardStar || 1;
+          star = p.rewardRanks?.[i] || p.rewardStar || 1;
         u.text(
           m,
           star + "  " + h.name,
@@ -712,15 +676,8 @@ class ExpeditionView extends ClassicView {
         (x) => owner === null || x.owner === null,
       ),
       size = 6;
-    this.paper(m, "equipment-bag", 0, 0, 665, 970);
-    u.text(
-      m,
-      owner ? "选择装备 · 每人最多3件" : "本局装备栏",
-      0,
-      411,
-      34,
-      "#694A2C",
-    );
+    const panel=this.paper(m, "equipment-bag", 0, 0, 665, 970);
+    require("./paper-title").draw(this,panel,owner ? "选择装备 · 每人最多3件" : "本局装备栏",665,970);
     items.slice(page * size, (page + 1) * size).forEach((item, i) => {
       const e = policy.equipment.find((v) => v.id === item.id),
         y = 296 - i * 111;
@@ -771,10 +728,13 @@ class ExpeditionView extends ClassicView {
       actor = this.actors.get(event.uid),
       target = this.actors.get(event.target);
     if(event.type==='ability'&&actor){if(target&&target!==actor)u.face(actor,target.node.position.x-actor.node.position.x,target.node.position.y-actor.node.position.y);u.animate(actor,'skill2',false,{speed:this.speed});require('./skill-effects').ability(this,actor,target,event);return;}
-    if(event.type==='status'&&target){require('./skill-effects').status(this,target,event);return;}
-    if(event.type==='evade'&&target){require('./skill-effects').ability(this,target,target,{skillName:'闪避'});return;}
+    if(event.type==='shield'&&target){require('./combat-text').show(this,target,require('./combat-text-config').status.shield+' '+event.amount,'gain');return;}
+    if(event.type==='gain'&&target){if(event.effect)require('./native-effects').play(this,event.effect,target.node,0,40,{duration:require('./equipment-vfx-config').duration});require('./combat-text').show(this,target,event.text,'gain');return;}
+    if(event.type==='equipment'&&actor){require('./equipment-vfx').cast(this,event);return;}
+    if(event.type==='status'&&target){const benefit=require('./combat-text-config').beneficial[event.effect];const text=benefit||require('./combat-text-config').status[event.effect];if(text)require('./combat-text').show(this,target,text,benefit?'gain':'damage');require('./skill-effects').status(this,target,event);return;}
+    if(event.type==='evade'&&target){require('./combat-text').show(this,target,require('./combat-text-config').status.evade,'gain');return;}
     if (event.type === "heal") {
-      if (target){u.health(target, event.hp);require('./battle-effects').heal(this,target);}
+      if (target){u.health(target, event.hp);require('./battle-effects').heal(this,target);require('./combat-text').show(this,target,event.amount,'heal');}
       return;
     }
     if (event.type === "move" && actor) {

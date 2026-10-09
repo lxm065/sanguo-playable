@@ -7,5 +7,5 @@ function reward(v,items,normal,double){const m=v.overlay(),u=v.ui,g=u.node(m,'re
 /** 通关后显示十次额度，前三次免费，剩余次数只接完整视频回调。 */
 function home(v){const s=require('./sweep').status(v.progress);if(!s.unlocked||v.model.state.pending)return;button(v,v.root,s.remaining?(s.free?'免费扫荡':'▶ 扫荡'):'今日已扫荡',0,c.buttonY,c.buttonWidth,()=>{if(!s.remaining)return;const service=require('./sweep');if(service.status(v.progress).free)v.act(()=>service.begin(v.progress));else{const ticket=service.ticket(v.progress);v.ad(()=>service.begin(v.progress,ticket));}},s.free?'red':'gold');v.ui.text(v.root,'今日剩余 '+s.remaining+' 次',0,c.countY,28,'#FFFFFF',430,48);}
 /** 待领取扫荡快照可从任意主页标签恢复，普通与双倍只能选一次。 */
-function show(v){const r=v.progress.state.sweep?.pending;if(!r)return;const service=require('./sweep'),ticket=v.model.adTicket();reward(v,r.items,()=>v.act(()=>service.claim(v.progress,r.id)),()=>v.ad(()=>service.claim(v.progress,r.id,ticket)));}
+function show(v){const r=v.progress.state.sweep?.pending;if(!r)return;const service=require('./sweep'),ticket=v.model.adTicket();reward(v,require('./sweep').withoutBonus(r.items),()=>v.act(()=>service.claim(v.progress,r.id)),()=>v.ad(()=>service.claim(v.progress,r.id,ticket)));}
 module.exports={home,show,reward};

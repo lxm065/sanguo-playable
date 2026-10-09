@@ -1,4 +1,3 @@
-"use strict";
-/** 物攻、法攻与防御辅助按接近三等份配置；重复项表示抽取权重。 */
-const physical=['7001','7002'],magic=['7101','7104'],support=['7201','7202','7204','7206','7207','7208','7211'];
-module.exports={physical,magic,support,blue:[...physical,...physical,...physical,...magic,...magic,...magic,...support],purple:['7212','7213']};
+'use strict';
+/** 全部已实装装备按图鉴品质进入一致的掉落池。 */
+const rows=require('./equipment-catalog-data'),ids=(category,quality)=>rows.filter(e=>(!category||e.category===category)&&e.quality===quality).map(e=>e.id);module.exports={physical:ids('physical',2),magic:ids('magic',2),support:ids('support',2),blue:ids(null,2),purple:ids(null,3)};

@@ -19,8 +19,9 @@ function render(book){
   group.items.forEach((item,i)=>{
    const x=(i%l.columns-(l.columns-1)/2)*l.cellWidth,cy=y-l.header-l.icon/2-Math.floor(i/l.columns)*l.cellHeight;
    const n=icon(book,content,item,x,cy,l.icon);
+   if(!item.active)u.text(n,'待开放',0,0,21,'#FFFFFF',100,35);
    if(item.revealed)u.text(content,item.name,x,cy-l.icon/2-17,l.nameFont,l.ink,l.cellWidth-2,35);
-   
+
    n.on(book.cc.Node.EventType.TOUCH_END,event=>{event.propagationStopped=true;if(!book.dragged&&item.revealed)show(book,item.id);});
   });
   y-=heights[index];
@@ -28,9 +29,7 @@ function render(book){
 }
 /** 中英文按字宽分行；长说明用滚动保留全文，不缩小字体或截断。 */
 function wrap(value,width,font){
- const lines=[];let line='',used=0;
- for(const ch of String(value)){const weight=ch.charCodeAt(0)<128?.55:1;if(ch==='\n'||used+weight>width/font){lines.push(line);line='';used=0;}if(ch!=='\n'){line+=ch;used+=weight;}}
- if(line)lines.push(line);return lines;
+ return require('./detail-wrap').wrap(value,width,font);
 }
 /** 装备详情与进阶列表共享有界正文视口，所有正文均保留可访问区域。 */
 function body(book,card,rows,scroll=0){
@@ -57,9 +56,8 @@ function show(book,id,mode='detail',message='',scroll=0,options={}){
  icon(book,card,item,0,l.iconY,l.detailIcon);
  if(!item.revealed){u.text(card,!item.active?config.text.unavailable:item.condition||config.concealed.unobtained,0,0,28,l.muted,l.detailWidth-50,160);u.button(card,'关闭',0,l.buttonY,l.buttonWidth,()=>{shade.destroy();if(hint?.isValid)hint.active=true;});return shade;}
  const progress=item.max?config.text.max:item.fragments+'/'+(item.cost?.fragments||'—');
- const fragmentBar=u.box(card,'equipment-fragment-bar',0,l.progressY,280,38,'#927555',false);
+ const fragmentBar=require('./fragment-progress').draw(book,card,item,l.progressY,progress);
  if(require('./equipment-ad').eligible(host.model,id)){require('./notification-view').badge(host,fragmentBar,'fragment-ad-'+id,135,16,()=>require('./equipment-ad').eligible(host.model,id));fragmentBar.on(cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;require('./equipment-ad-view').offer(book,id);});}
- u.text(fragmentBar,config.text.fragment+'  '+progress,0,0,25,'#FFFFFF',300,40);
  const rows=mode==='upgrade'?[{text:config.text.upgradeTitle+' · '+item.grade+'/'+item.upgrades.length},...item.upgrades.map((text,i)=>({text:(i<item.grade?'已激活 · ':'第'+(i+1)+'阶 · ')+text,color:i<item.grade?l.active:l.ink})),{text:config.text.rule,color:l.muted}]:[
   {text:item.attributes.join('\n')},
   ...item.effects.map(text=>({text:'◇ '+text})),
@@ -68,11 +66,12 @@ function show(book,id,mode='detail',message='',scroll=0,options={}){
   {text:item.lore.text,color:l.ink},
   ...(item.lore.source?[{text:'出处：'+item.lore.source.title,color:l.muted}]:[]),
  ];
- if(mode==='upgrade'&&!item.max)rows.unshift({text:'下一阶：'+item.condition,color:l.muted});
+
  const content=body(book,card,rows,scroll);
  if(mode==='upgrade'){
-  u.button(card,config.text.back,-146,l.buttonY,205,()=>show(book,id),l.muted,60);
-  if(!item.max)u.button(card,require('./equipment-ad').required(item)?'▶ 视频进阶':'进阶',117,l.buttonY,250,()=>{
+  if(!item.max&&(host.model.state.meta.cleared||0)<item.requiredChapter){}
+  else if(!item.max&&item.needsUnlock)u.button(card,'▶ 解锁进阶',0,l.buttonY,320,()=>{const ticket=host.model.adTicket();host.ad(()=>require('./equipment-unlock').unlock(host.model,id,ticket),()=>require('./equipment-ad-view').reopen(host,id));},l.ready,60);
+  else if(!item.max)u.button(card,require('./equipment-ad').required(item)?'▶ 视频进阶':'进阶',0,l.buttonY,320,()=>{
    if(require('./equipment-ad').eligible(host.model,id)){require('./equipment-ad-view').offer(book,id);return;}
    if(item.canUpgrade&&require('./equipment-ad').required(item)){const ticket=host.model.adTicket();host.ad(()=>upgrades.upgrade(host.model,id,item.grade,ticket),()=>require('./equipment-ad-view').reopen(host,id,true));return;}
    try{upgrades.upgrade(host.model,id,item.grade);require('./notification-view').refresh(host);book.render();const upgraded=show(book,id,'upgrade','',content.position.y);require('./upgrade-feedback').play(host,upgraded,'equipment',0,l.iconY);}
@@ -88,8 +87,8 @@ function show(book,id,mode='detail',message='',scroll=0,options={}){
   u.button(card,config.text.upgrade,0,l.buttonY,l.buttonWidth,()=>show(book,id,'upgrade'),l.ready,60);
   if(!(config.feedback.hideFragmentHint&&item.reason===config.text.noFragments))u.text(card,item.max?config.text.max:item.reason||'材料齐备，可进阶',0,l.costY,22,item.canUpgrade?l.active:l.muted,l.detailWidth-35,65);
  }else u.text(card,config.text.unavailable,0,l.buttonY,28,l.muted,l.detailWidth-40,60);
- u.text(shade,options.equipped?'点击空白处关闭':config.text.close,0,l.closeY,25,'#FFFFFF',650,45);
- shade.on(cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;if(e.target===shade){shade.destroy();if(hint?.isValid)hint.active=true;}});
+ u.text(shade,options.equipped?'点击空白处关闭':mode==='upgrade'?'点击空白处返回详情':config.text.close,0,l.closeY,25,'#FFFFFF',650,45);
+ shade.on(cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;if(e.target===shade){if(mode==='upgrade')show(book,id,'detail','',0,options);else{shade.destroy();if(hint?.isValid)hint.active=true;}}});
  return shade;
 }
 module.exports={render,show,wrap,body};

@@ -7,7 +7,7 @@ function show(v,actor,e){
  if(config.status.hiddenSkills?.includes(String(id))||config.status.hiddenSkillsByHero?.[actor.unit.heroId]?.includes(String(id)))return remove(v,actor,[String(id)]);
  const all=v.skillStatuses||(v.skillStatuses=[]),key=actor.unit.uid+':'+id,old=all.find(x=>x.key===key);
  if(old){old.remaining=e.duration||config.visualDuration;return;}
- const c=config.status,parent=actor.status||actor.node,n=v.ui.image(parent,file,0,c.y,c.size,c.size);
+ const c=config.status,parent=actor.status||actor.node,n=v.ui.image(parent,file,0,c.y,id==='11032'?c.silenceSize:c.size,id==='11032'?c.silenceSize:c.size);
  n.name='skill-status-'+id;const entry={key,node:n,actor,remaining:e.duration||config.visualDuration};all.push(entry);layout(v,actor);
  if(!v.skillStatusTimer){v.skillStatusLast=Date.now();v.skillStatusTimer=setInterval(()=>tick(v),c.interval);}
 }

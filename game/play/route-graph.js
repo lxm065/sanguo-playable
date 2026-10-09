@@ -9,6 +9,7 @@ function nodes(state,legacy){
  require("./route-events").apply(state,result);
  const preserved=state.routeMigration;
  if(preserved?.key===state.chapter+'-'+state.section){const active=result.find(n=>n.id===preserved.id);if(active)active.type=preserved.type;}
+ require('./route-events').protect(state,result);
  return result;
 }
 /** 图形连线与入口校验共用相邻关系，不再绘制不存在的交叉通路。 */

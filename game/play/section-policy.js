@@ -21,6 +21,6 @@ function requirement(id){return sections.find(s=>s.unlock===id);}
 /** 根据已完成的小节补齐旧版漏发的解锁，不回收已有武将或改写待领取奖励。 */
 function earned(meta){return [...new Set(sections.filter(s=>s.unlock&&((meta.cleared||0)>=s.chapter||meta.chapter>s.chapter||(meta.chapter===s.chapter&&meta.section>s.section))).map(s=>s.unlock))];}
 /** 重开当前章回收本章BOSS的获取资格，已完成前章和非BOSS收录不受影响。 */
-function resetRun(meta){const ids=sections.filter(s=>s.chapter===meta.chapter&&s.unlock).map(s=>s.unlock);meta.unlocked=meta.unlocked.filter(id=>!ids.includes(id));}
+function resetRun(meta){require("./equipment-tutorial").reset(meta);const ids=sections.filter(s=>s.chapter===meta.chapter&&s.unlock).map(s=>s.unlock);meta.unlocked=meta.unlocked.filter(id=>!ids.includes(id));}
 module.exports={resetRun,sections,current,eligible,requirement,earned,
  text:{pending:'结算后解锁',unlocked:'武将解锁',description:'已解锁，可通过对应阶级的奖励或合成获取。'}};

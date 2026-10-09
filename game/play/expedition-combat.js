@@ -54,7 +54,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
     events = [],
     hits = [];
   const skills = require('./hero-skills'),talents=require('./talent-effects');
-  skills.initialize(units,events);
+  skills.initialize(units,events);const equip=require('./equipment-effects');equip.initialize(units);
   const initial = JSON.parse(JSON.stringify(units));
   let result = "draw",
     elapsed = 0;
@@ -76,31 +76,33 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
     critical = false,
     reflect = true,
     effect = null,
+    damageType = null,
   ) {
-    const up=(a.talent?.[a.magic?"magicUp":"physicalUp"]||0)+(a.talent?.[skill?"skillUp":"attackUp"]||0),down=(u.talent?.[a.magic?"magicDown":"physicalDown"]||0)+(u.talent?.[skill?"skillDown":"attackDown"]||0);
+    if(u.hp<=0)return;const magic=damageType&&damageType!=='true'?damageType==='magic':require('./hero-damage').isMagic(a,skill);const up=(a.talent?.[magic?"magicUp":"physicalUp"]||0)+(a.talent?.[skill?"skillUp":"attackUp"]||0),down=(u.talent?.[magic?"magicDown":"physicalDown"]||0)+(u.talent?.[skill?"skillDown":"attackDown"]||0);
     amount*= (1+up)*(1-Math.min(require("./activity-config").talent.damageReductionCap,down));
     let actual = Math.max(
       rules.minDamage,
       Math.round((amount - u.block) * (1 - Math.min(0.9, u.reduction))),
     );
-    actual=Math.max(0,Math.round(talents.damage(a,u,actual,critical,rng)));
-    u.hp = Math.max(0, u.hp - actual);
+    actual=Math.max(0,Math.round(talents.damage(a,u,actual,critical,rng,magic)));
+    if(effect==='healthLoss')actual=Math.round(amount);const absorbed=effect==='healthLoss'?0:Math.min(actual,u.equipmentShield||0);u.equipmentShield=(u.equipmentShield||0)-absorbed;actual-=absorbed;if(absorbed>0)events.push({type:'shield',t,target:u.uid,amount:absorbed});u.hp = Math.max(0, u.hp - actual);
     events.push({
       type: "damage",
       t,
       actor: a.uid,
       target: u.uid,
       damage: actual,
+      damageType:damageType||(magic?"magic":"physical"),
       hp: u.hp,
       skill,
       critical,
       effect,
     });
-    if (!u.hp) {events.push({ type: "death", t, uid: u.uid, actor: a.uid });skills.onDeath(u,units,t,hits,heal,events);talents.death(u,units,t,heal);}
+    if (!u.hp) {equip.death(u,a,units,t,events);events.push({ type: "death", t, uid: u.uid, actor: a.uid });skills.onDeath(u,units,t,hits,heal,events);talents.death(u,units,t,heal);}
     talents.hit(a,u,actual,t,skill,critical,reflect,rng,heal,damage);
-    if (reflect && !a.magic && u.reflect && a.hp > 0)
+    if (reflect && !magic && u.reflect && a.hp > 0)
       damage(u, a, actual * u.reflect, t, false, false, false);
-    if (!a.magic && a.leech) heal(a, actual * a.leech, t);
+    if (!magic && a.leech&&reflect&&!skill){equip.leech(a,actual*a.leech,t,events);heal(a, actual * a.leech, t);}if(!skill&&reflect&&a!==u)equip.hit(a,u,actual,t,units,events,heal,damage,rng);
   }
   for (
     let step = 0;
@@ -122,7 +124,8 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
       if(!hit.skill&&!s.undodgeable&&u.bondDodge&&rng()<u.bondDodge){talents.onEvade(u,t,heal);events.push({type:'evade',t,target:u.uid});continue;}
       if(!hit.skill&&!s.undodgeable&&talents.evade(u,rng,t,heal)){events.push({type:'evade',t,target:u.uid});continue;}
       if(!hit.skill && !s.undodgeable && u.dodgeUntil>t && rng()<u.skillDodge){talents.onEvade(u,t,heal);events.push({type:'evade',t,target:u.uid});continue;}
-      const armor = s.trueDamage ? 0 : a.magic ? u.magicArmor-(a.magicPen||0) : u.armor;
+      const magic=require('./hero-damage').isMagic(a,hit.skill);
+      const armor = s.trueDamage ? 0 : magic ? u.magicArmor-(a.magicPen||0) : u.armor;
       damage(
         a,
         u,
@@ -133,14 +136,15 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
         hit.critical,
         true,
         hit.effect,
+        s.trueDamage?"true":magic?"magic":"physical",
       );
       skills.onHit(a,u,hit,t,events);
-      if(!hit.skill&&u.hp>0)for(const rule of a.equipmentHits||[]){if(rule.stun){if(rng()<(a.range>1?rule.rangedChance:rule.meleeChance)&&!talents.resists(u,rng))u.stunnedUntil=Math.max(u.stunnedUntil,t+rule.stun);}else{const values={};for(const key of ['armor','magicArmor','attack','cooldownFactor'])if(rule[key])values[key]=rule[key];skills.buff(u,'equipment-'+rule.id,values,t+rule.duration);}}
+      if(!hit.skill&&u.hp>0)for(const rule of a.equipmentHits||[]){if(rule.stun){if(rng()<(a.range>1?rule.rangedChance:rule.meleeChance)&&!talents.resists(u,rng)){u.stunnedUntil=Math.max(u.stunnedUntil,t+rule.stun);events.push({type:'status',t,target:u.uid,effect:'stun',duration:rule.stun});}}else{const values={};for(const key of ['armor','magicArmor','attack','cooldownFactor'])if(rule[key])values[key]=rule[key];skills.buff(u,'equipment-'+rule.id,values,t+rule.duration);}}
 
       if (u.hp > 0) {
-        if (s.stun&&!talents.resists(u,rng)) u.stunnedUntil = Math.max(u.stunnedUntil, t + s.stun);
+        if (s.stun&&!talents.resists(u,rng)){u.stunnedUntil = Math.max(u.stunnedUntil, t + s.stun);events.push({type:'status',t,target:u.uid,effect:'stun',duration:s.stun});}
         if (s.slow&&!talents.resists(u,rng)) {
-          u.slow = s.slow;
+          if(!(u.slowUntil>t))events.push({type:'status',t,target:u.uid,effect:'slow',duration:s.duration});u.slow = s.slow;
           u.slowUntil = t + s.duration;
         }
         if (s.delay) {u.nextSkill += s.delay;for(const id of Object.keys(u.skillTimers||{}))u.skillTimers[id]+=s.delay;}
@@ -196,7 +200,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
       break;
     }
     for (const a of units) {
-      skills.tick(a,units,t,hits,events);talents.tick(a,t);
+      skills.tick(a,units,t,hits,events);talents.tick(a,t);equip.tick(a,units,t,events,heal,damage,rng);a.hp=Math.min(a.hp,a.maxHp);
       if (a.hp <= 0) continue;
       if (a.restoreArmor?.at <= t) {
         a.armor += a.restoreArmor.value;
@@ -275,7 +279,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
       if (s.passive === "counter") s = {};
       if(!skill&&a.disarmedUntil>t)continue;
       const critical = rng() < rules.criticalChance + a.critical;
-      if (critical) power *= rules.criticalMultiplier + a.criticalBonus;
+      if (critical) power *= (rules.criticalMultiplier + a.criticalBonus)*equip.critical(a,rng);
       a.attacks++;
       const affected =
         skill && (s.radius || s.line)
@@ -307,18 +311,22 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
           effect: spec.effect || (!skills.managed(a)?require("./hero-skill-config").primaryEffects[a.heroId]:null) || null,
         });
       skills.afterAttack(a,units,t,events,rng,rules);
-      a.nextAction = t + a.interval / ((1-Math.max(a.slowUntil>t?a.slow:0,a.auraSlow||0))*(1+(a.skillHaste||0)));
+      a.nextAction = t + a.interval / ((1-Math.max(a.slowUntil>t?a.slow:0,a.auraSlow||0))*(1+(a.skillHaste||0)+(a.equipmentHaste||0)));
       if(skill)talents.cast(a,t);
       if (skill)
         a.nextSkill =
           t + (a.skills?.[0]?.cooldown || policy.localCombat.interval)*(a.cooldownFactor||1);
     }
   }
+  if(result==="draw"){const ally=units.some(u=>u.side==="ally"&&u.hp>0),enemy=units.some(u=>u.side==="enemy"&&u.hp>0);if(!enemy&&ally)result="win";else if(!ally&&enemy)result="loss";}
+  const timedOut=result==="draw"&&elapsed>=rules.maxBattleSeconds;if(timedOut)result="loss";
   return {
+    timedOut,
     initial,
     events,
     result,
     duration: elapsed,
+    ...equip.receipt(units,result),
     final: units.map((u) => ({ uid: u.uid, hp: u.hp, x: u.x, y: u.y })),
   };
 }

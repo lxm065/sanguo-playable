@@ -8,7 +8,7 @@ function fixture(saved=null){let stored=saved,fail=false;const storage={read:()=
 function fund(model,id){model.transact(()=>{model.state.meta.cleared=60;model.state.meta.diamonds=100000;model.state.meta.inventory[id]=10000;});}
 test('完整38件按14/10/14分组，13开放25待开放；查询不改存档',()=>{
  const {model:m}=fixture(),before=JSON.stringify(m.state),groups=catalog.groups(m.state),items=groups.flatMap(g=>g.items);
- a.deepEqual(groups.map(g=>g.items.length),[14,10,14]);a.equal(items.filter(e=>e.active).length,13);a.equal(new Set(items.map(e=>e.id)).size,38);a.equal(new Set(items.map(e=>e.name)).size,38);
+ a.deepEqual(groups.map(g=>g.items.length),[14,10,14]);a.equal(items.filter(e=>e.active).length,38);a.equal(new Set(items.map(e=>e.id)).size,38);a.equal(new Set(items.map(e=>e.name)).size,38);
  for(const item of items){a(fs.existsSync('game/skin-assets/equipment/'+item.id+'.png'));a(item.attributes.length);a(item.effects.length);a(!item.effects.join('').includes('<'));if(!item.active)a.equal(item.canUpgrade,false);}
  a.equal(JSON.stringify(m.state),before);a.throws(()=>catalog.query('invalid'));
 });
@@ -20,7 +20,7 @@ test('13件逐阶扣费至10阶并可恢复，过期双击与满阶拒绝',()=>{
 });
 test('不足、章节未通、未开放、待结算和写盘失败均不吞材料',()=>{
  const f=fixture(),m=f.model;m.state.meta.cleared=1;
- for(const [id,pattern]of [['7201',/46/],['7202',/碎片/],['7003',/待开放/]]){const before=JSON.stringify(m.state);a.throws(()=>upgrade.upgrade(m,id,0),pattern);a.equal(JSON.stringify(m.state),before);}
+ for(const [id,pattern]of [['7201',/3/],['7202',/碎片/],['7003',/3/]]){const before=JSON.stringify(m.state);a.throws(()=>upgrade.upgrade(m,id,0),pattern);a.equal(JSON.stringify(m.state),before);}
  m.transact(()=>{m.state.meta.inventory['7202']=5;});a.throws(()=>upgrade.upgrade(m,'7202',0),/钻石/);
  fund(m,'7202');m.deploy(m.state.units[0].uid,0);m.fight(true);const pending=JSON.stringify(m.state);a.throws(()=>upgrade.upgrade(m,'7202',0),/结算/);a.equal(JSON.stringify(m.state),pending);m.claim();
  const before=JSON.stringify(m.state),saved=f.saved();f.fail();a.throws(()=>upgrade.upgrade(m,'7202',0),/写入失败/);a.equal(JSON.stringify(m.state),before);a.deepEqual(f.saved(),saved);
@@ -36,7 +36,7 @@ test('同名共享阶级，未穿戴不生效，旧档零阶属性不重复计�
  const unit={uid:1,heroId:'xuchu',star:1,slot:0},idle=[{uid:1,id:'7202',owner:null}],plain=stats(unit,[unit],roster,idle,rules);
  a.deepEqual(stats(unit,[unit],roster,idle,{...rules,playerEquipmentGrades:{'7202':10}}),plain);
  const heart=stats(unit,[unit],roster,[{uid:1,id:'7212',owner:1}],rules);const hero=roster.find(h=>h.id===unit.heroId).tiers.find(t=>t.star===1);a.equal(heart.hp,Math.round((hero.hp+1800)*1.15));
- a(upgrade.valid(undefined));for(const grades of [null,[],{'7202':-1},{'7202':11},{'7202':.5},{'7003':1}])a.equal(upgrade.valid(grades),false);
+ a(upgrade.valid(undefined));for(const grades of [null,[],{'7202':-1},{'7202':11},{'7202':.5},{'unknown':1}])a.equal(upgrade.valid(grades),false);
 });
 test('说明完整换行，三国名称统一且战斗定义不会被强化查询修改',()=>{
  const view=require('../game/play/equipment-catalog-view'),theme=require('../game/play/equipment-theme'),before=JSON.stringify(policy.equipment);

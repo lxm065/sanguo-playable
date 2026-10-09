@@ -24,7 +24,7 @@ function stack(a,key,amount,duration,t){if(!amount)return;a.treeStacks=a.treeSta
 /** 每个战斗时步回收过期叠层，重复增益不永久污染攻击数值。 */
 function tick(a,t){for(const [key,list]of Object.entries(a.treeStacks||{})){const expired=list.filter(e=>e.until<=t);a.attack-=expired.reduce((n,e)=>n+e.amount,0);a.treeStacks[key]=list.filter(e=>e.until>t);}}
 /** 调整实际伤害并判定致命抵抗，只有有该天赋时才消费随机数。 */
-function damage(a,u,amount,critical,rng){if(a.talentClass===2&&a.magic)amount*=1+value(a,3007,3);if(critical&&u.talentClass===0)amount*=1-value(u,1012,5);if(u.talentClass===1&&amount>=u.hp&&value(u,2010)&&rng()<value(u,2010))return Math.max(0,u.hp-1);return amount;}
+function damage(a,u,amount,critical,rng,magic=a.magic){if(a.talentClass===2&&magic)amount*=1+value(a,3007,3);if(critical&&u.talentClass===0)amount*=1-value(u,1012,5);if(u.talentClass===1&&amount>=u.hp&&value(u,2010)&&rng()<value(u,2010))return Math.max(0,u.hp-1);return amount;}
 /** 闪避后按敏系天赋回血，未学习的角色不会额外获得闪避。 */
 function evade(a,rng,t,heal){if(!a.treeDodge||rng()>=a.treeDodge)return false;onEvade(a,t,heal);return true;}
 /** 任意来源成功闪避都共享预感回血，不能只识别天赋自身的闪避。 */

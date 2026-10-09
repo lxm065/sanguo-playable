@@ -8,6 +8,7 @@ module.exports = {
   // recon/upcon由原服下发；以下递增表为本地策略，截图确认首刷2、后续10及人口1/3时5/15。
   choiceCount: 3, refreshCosts: [2,4,6,8,10], populationCosts: [5,10,15,20,25,30,35], maxPopulation: 8,
   initialLevel: 1, maxStar: 5, levelGrowth: {hp:1.35,attack:1.25},
+  skillProgression:{keepEntrySkills:true},
   deployment: {melee:[14,15,13,16,12,17,8,9,7,10,6,11,2,3,1,4,0,5],ranged:[2,3,1,4,0,5,8,9,7,10,6,11,14,15,13,16,12,17]},
   legacy: {reserveCapacity:12,populationExperience:[1,2,3,4,5,6,7]},
   preparationSeconds: 30, readyDelayMs: 1200, roundGold: 50, winGold: 0,

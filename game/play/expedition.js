@@ -47,6 +47,7 @@ class Expedition extends Campaign {
           : -1;
     });
     s.expedition = {
+      tutorialRunId: (this.state?.expedition?.tutorialRunId || 0) + 1,
       equipment: [],
       nextEquipment: 1,
       novice: policy.noviceStart,
@@ -77,6 +78,7 @@ class Expedition extends Campaign {
   valid(s) {
     if (!require('./challenge').valid(s.meta?.challenge,this.roster,this.rules)) return false;
     if (!require("./talent-tree").valid(s.meta?.activities?.talent?.tree)||!super.valid(s)||!require("./equipment-upgrades").valid(s.meta?.equipmentGrades)) return false;
+    if(s.pending?.rewardRanks&&(!Array.isArray(s.pending.rewardRanks)||s.pending.rewardRanks.length!==s.pending.choices.length||s.pending.rewardRanks.some(n=>!Number.isInteger(n)||n<1||n>policy.maxStar)))return false;
     const e = s.expedition;
     if (!e) return true;
     const p = s.pending;
@@ -107,7 +109,7 @@ class Expedition extends Campaign {
       new Set(e.equipment.map((x) => x.uid)).size === e.equipment.length &&
       e.equipment.every(
         (x) =>
-          Number.isInteger(x.uid) &&
+          (x.stacks===undefined||(Number.isInteger(x.stacks)&&x.stacks>=0&&x.stacks<=(require('./equipment-effect-config')[x.id]?.maxStacks||0))) && Number.isInteger(x.uid) &&
           x.uid > 0 &&
           x.uid < e.nextEquipment &&
           policy.equipment.some((v) => v.id === x.id) &&
@@ -184,7 +186,7 @@ class Expedition extends Campaign {
       if (group.length < this.rules.mergeCount)
         throw Error("需要三名相同、同阶武将");
       if (mode === "directed") {
-        if (!this.canDirect()) throw Error("通过首个节点后开放定向升级");
+        if (!this.canDirect()) throw Error("通过首个节点后开放定向合成");
         if (!this.directedTargets(uid).includes(target))
           throw Error("定向目标已失效");
         this.consumeAd(ticket);
@@ -230,11 +232,11 @@ class Expedition extends Campaign {
   }
   /** 普通敌阵仅取当前开放武将，BOSS仍使用章节策略的固定配置。 */
   enemies() {
-    const cached=require("./enemy-budget").cached(this.state);if(cached)return cached;
+    const cached=require("./enemy-budget").cached(this.state);if(cached)return require('./first-chapter-budget').apply(require('./tutorial-enemy').apply(cached,this.state),this.state,this.rules,this.roster);
     const configured = this.hooks?.enemies?.();
     const type=this.progression?.nodes().find(n=>n.id===this.state.meta?.activeNode)?.type||'battle';
     const difficulty=require('./chapter-difficulty');
-    const prepare=units=>require('./enemy-budget').decorate(require('./enemy-equipment').equip(require('./enemy-formation').arrange(units.map(u=>({...u,star:Math.max(u.star,difficulty.minimum(this.state))})),this.roster,this.rules),difficulty.equipmentState(this.state),this.roster,type),this.state,this.rules,this.roster);
+    const prepare=units=>require('./first-chapter-budget').apply(require('./tutorial-enemy').apply(require('./enemy-budget').decorate(require('./enemy-equipment').equip(require('./enemy-formation').arrange(units.map(u=>({...u,star:Math.max(u.star,difficulty.minimum(this.state))})),this.roster,this.rules),difficulty.equipmentState(this.state),this.roster,type),this.state,this.rules,this.roster),this.state),this.state,this.rules,this.roster);
     if (configured) return prepare(type==='boss'?difficulty.reinforce(this.state,this.rules,configured):configured);
     const r = this.rules,
       rng = random(this.state.stage * 997),
@@ -269,7 +271,7 @@ class Expedition extends Campaign {
         node = this.progression
           ?.nodes()
           .find((n) => n.id === this.state.meta.activeNode);
-      p.gold=require("./battle-gold").reward(this.state,node,p);
+      p.gold=require("./battle-gold").reward(this.state,node,p)+(battle.equipmentGold||0);
       p.rewardKind =
         !training && battle.result === "win"
           ? node?.type === "elite"
@@ -280,15 +282,13 @@ class Expedition extends Campaign {
       p.refreshes = 0;
       p.experience =
         !training && battle.result === "win"
-          ? node?.type === "elite"
-            ? policy.experience.elite
-            : policy.experience.normal
+          ? require("./level-progression").reward(this.state.meta?.chapter,node?.type)
           : 0;
       if (p.rewardKind === "equipment") {
         p.choices = [];
         const rng = random(this.state.seed++);
         p.equipmentId =
-          policy.elitePool[Math.floor(rng() * policy.elitePool.length)];
+          require('./elite-loot').pick(this.state.meta.chapter,rng);
       } else if (p.rewardKind === "heroes")
         p.choices = this.picks(p.rewardStar);
       else p.choices = [];
@@ -306,8 +306,7 @@ class Expedition extends Campaign {
       const c=require('./reward-refresh-config'),bag=this.state.meta.inventory;
       if((bag[c.item]||0)>=c.cost){bag[c.item]-=c.cost;p.coinRefreshes=(p.coinRefreshes||0)+1;this.state.expedition.adSerial++;}
       else {if(p.refreshes>=require('./vip').perks(this).data_1)throw Error('本场视频换一批次数已用完');this.consumeAd(ticket);p.refreshes++;}
-      p.rewardStar = policy.refreshRank;
-      p.choices = this.picks(p.rewardStar);
+      require('./reward-rank').roll(this);
     });
   }
   /** 发放唯一装备实例，尚未穿戴时放入本局装备栏。 */
@@ -316,6 +315,7 @@ class Expedition extends Campaign {
     if (!policy.equipment.some((x) => x.id === id)) throw Error("未知装备");
     const item = { uid: e.nextEquipment++, id, owner: null };
     e.equipment.push(item);
+    require("./equipment-tutorial").acquired(this,item);
     this.activities?.record("equipment");
     return item.uid;
   }
@@ -334,7 +334,7 @@ class Expedition extends Campaign {
         this.state.units.push({
           uid: this.state.nextUid++,
           heroId: p.choices[index],
-          star: p.rewardStar || 1,
+          star: p.rewardRanks?.[index] || p.rewardStar || 1,
           slot: -1,
         });
       }
@@ -351,6 +351,7 @@ class Expedition extends Campaign {
         this.state.wins++;
         this.activities?.record("wins");
       }
+      for(const change of p.battle.equipmentProgress||[]){const item=e.equipment.find(v=>v.uid===change.uid);if(item)item.stacks=change.stacks;}
       this.state.pending = null;
       this.state.expedition.vipSpeedActive=false;
       if (!p.training) this.roll();
@@ -400,6 +401,7 @@ class Expedition extends Campaign {
           throw Error("每名武将最多装备3件");
       }
       item.owner = owner;
+      require("./equipment-tutorial").equipped(this,owner);
     });
   }
   /** 遣返将装备归还背包，保留父类经济与最后一人限制。 */

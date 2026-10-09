@@ -34,6 +34,8 @@ module.exports = {
   defaultDirection: { ally: "n", enemy: "s" },
   // 赵云导出镜头的正面与战场方向相反，两套皮肤共用180度校正。
   sourceDirectionOffsets: { zhaoyun: 4 },
+  // 正背面过窄的持弓姿态改用现有斜向动作，位移与投射物仍使用真实目标坐标。
+  sourceDirectionOverrides: { taishici: { n: 'ne', s: 'se' } },
   attackContact: 0.5,
   fallback: {
     width: 80,

@@ -55,8 +55,8 @@ class Widgets {
   }
   /** 创建带阻挡冒泡的按钮，防止模态操作误点下层棋盘。 */
   button(parent, text, x, y, w, callback, color = this.colors.red, h = 62) {
-    const n = this.box(parent, text, x, y, w, h, color);
-    require('./button-content').draw(this,n,text,24,this.colors.paper,w-12,h);
+    const n = this.node(parent, text, x, y, w, h);
+    require('./button-skin').draw(this,n,text,color,w,h);
     n.on(this.cc.Node.EventType.TOUCH_END, (event) => {
       event.propagationStopped = true;
       callback();

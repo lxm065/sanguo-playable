@@ -8,7 +8,7 @@ const test = require("node:test"),
   } = require("../game/play/battle-hud-query"),
   config = require("../game/play/battle-hud-config"),
   policy = require("../game/play/expedition-config");
-test("推荐包含备战席同名实例，满槽和非推荐角色排除且查询只读", () => {
+test("推荐包含备战席同名实例，满槽保留但非推荐角色排除且查询只读", () => {
   const units = [
       { uid: 1, heroId: "guanyu", slot: 0 },
       { uid: 2, heroId: "xuchu", slot: -1 },
@@ -24,7 +24,7 @@ test("推荐包含备战席同名实例，满槽和非推荐角色排除且查�
       })),
     ],
     before = JSON.stringify({ units, equipment });
-  assert.deepEqual(recommendedUnits(equipment[0], units, equipment), [1, 2]);
+  assert.deepEqual(recommendedUnits(equipment[0], units, equipment), [1, 2, 4]);
   assert.equal(JSON.stringify({ units, equipment }), before);
 });
 test("拖动命中显示中的己方单位，空白落点不误穿戴", () => {
@@ -71,12 +71,12 @@ test("主公概率与刷新策略一致，经验与人数不修改存档", () =>
 test("装备推荐配置覆盖当前掉落池且人物身份均有效", () => {
   const heroes = require("../game/play/handbook-config").heroes;
   for (const item of policy.equipment) {
-    assert(config.recommendations[item.id].length);
+    assert(require('../game/play/equipment-recommendations').heroIds(item.id).length);
     assert.equal(
-      new Set(config.recommendations[item.id]).size,
-      config.recommendations[item.id].length,
+      new Set(require('../game/play/equipment-recommendations').heroIds(item.id)).size,
+      require('../game/play/equipment-recommendations').heroIds(item.id).length,
     );
-    for (const id of config.recommendations[item.id])
+    for (const id of require('../game/play/equipment-recommendations').heroIds(item.id))
       assert(heroes.some((h) => h.id === id));
   }
 });

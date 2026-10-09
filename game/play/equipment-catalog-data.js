@@ -98,9 +98,9 @@ module.exports=[
   },
   {
     "id": "7006",
-    "name": "神臂弩",
+    "name": "诸葛连弩",
     "shape": "crossbow",
-    "flavor": "弦响如雷，一矢穿云。",
+    "flavor": "机括连动，劲矢破阵。",
     "category": "physical",
     "quality": 3,
     "unlock": {

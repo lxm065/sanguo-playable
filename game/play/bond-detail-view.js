@@ -1,5 +1,21 @@
 'use strict';
-const c={width:630,height:480,titleY:159,bodyY:24,buttonY:-164,font:27,bodyWidth:552,bodyHeight:220};
-/** 两种战斗共用纸质羁绊说明；内容拦截触摸，点击遮罩空白处关闭。 */
-function show(v,bond){const u=v.ui,cc=v.cc,shade=u.box(v.root,'bond-detail-shade',0,0,720,1280,'#15120FDD',false),host=v.host||v,p=host.paper(shade,'bond-detail-panel',0,0,c.width,c.height);shade.addComponent(cc.BlockInputEvents);const close=()=>{if(shade.isValid)shade.destroy();};shade.on(cc.Node.EventType.TOUCH_END,close);p.addComponent(cc.BlockInputEvents);p.on(cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;});u.text(p,bond.name,0,c.titleY,36,'#77532F');const text=bond.effect.replace(/\{(\d+)\}/g,(_,i)=>bond.values[i]??'');u.text(p,text+'\n不同武将：'+bond.count+'，当前档位：'+bond.level,0,c.bodyY,c.font,'#4D3B2B',c.bodyWidth,c.bodyHeight);u.button(p,'关闭',0,c.buttonY,244,close);return shade;}
-module.exports={show};
+const c=require('./bond-detail-config'),handbook=require('./handbook-config');
+/** 每个人数门槛单列实际加成；使用已激活等级，未看视频的羁绊不会误亮。 */
+function rows(bond){return (bond.thresholds||handbook.thresholds).map((count,i)=>({
+ text:'['+count+']'+(c.effects[bond.id]||bond.effect).replaceAll('{value}',bond.values[i]).replaceAll('{bonus}',bond.values[2]??''),
+ active:i<(bond.level||0),
+}));}
+/** 两种战斗共用紧凑深色羁绊浮层，空白遮罩点击关闭。 */
+function show(v,bond){
+ const u=v.ui,cc=v.cc,shade=u.box(v.root,'bond-detail-shade',0,0,720,1280,c.shade,false);
+ const p=u.box(shade,'bond-detail-panel',0,0,c.width,c.height,c.background);
+ shade.addComponent(cc.BlockInputEvents);shade.on(cc.Node.EventType.TOUCH_END,()=>{if(shade.isValid)shade.destroy();});
+ p.addComponent(cc.BlockInputEvents);p.on(cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;});
+ const [symbol,color]=require('./battle-hud-config').bonds.symbols[bond.id]||[bond.symbol,bond.color];
+ const icon=u.box(p,'bond-detail-icon',c.iconX,c.titleY,c.iconSize,c.iconSize,color);
+ u.text(icon,symbol,0,0,c.titleFont,c.title,c.iconSize,c.iconSize);
+ u.text(p,bond.name+'（'+(c.kinds[bond.kind]||'羁绊')+'）',c.textX,c.titleY,c.titleFont,c.title,c.width-100,48);
+ rows(bond).forEach((row,i)=>{const label=u.text(p,row.text,0,c.rowTop-i*c.rowGap,c.font,row.active?c.active:c.inactive,c.bodyWidth,c.rowHeight);label.horizontalAlign=cc.Label.HorizontalAlign.LEFT;});
+ return shade;
+}
+module.exports={show,rows};

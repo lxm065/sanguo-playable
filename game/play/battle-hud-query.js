@@ -1,15 +1,13 @@
 "use strict";
 const layout = require("./battle-hud-config"),
   rules = require("./expedition-config");
-/** 推荐只筛选有空装备槽的己方实例，备战席也参与且不改变装备归属。 */
+/** 推荐按英雄适配筛选全部己方实例，满槽仍保留提示，备战席也参与且不改变装备归属。 */
 function recommendedUnits(item, units, equipment) {
-  const ids = layout.recommendations[item.id] || [];
+  const ids = require('./equipment-recommendations').heroIds(item.id);
   return units
     .filter(
       (u) =>
-        ids.includes(u.heroId) &&
-        equipment.filter((e) => e.owner === u.uid).length <
-          rules.equipmentLimit,
+        ids.includes(u.heroId),
     )
     .map((u) => u.uid);
 }
@@ -41,12 +39,8 @@ function lordSummary(model) {
     limit: model.limit(),
     ranks: layout.rankRows.map((star) => ({
       star,
-      percent:
-        star <= rules.refreshRank
-          ? star === rules.refreshRank
-            ? 100
-            : 0
-          : null,
+      percent: e.level<(require('./reward-rank-config').unlockLevels[star]||1)?null:require('./reward-rank').weights(e.level)[star-1],
+      unlockLevel:require('./reward-rank-config').unlockLevels[star],
     })),
     guaranteedRank: rules.refreshRank,
   };

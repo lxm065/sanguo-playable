@@ -3,7 +3,7 @@ const c=require('./activity-config'),l=c.layout;
 /** 图片按钮共用点击隔离和文字大小，保持纸张与红金按钮的视觉体系。 */
 function button(v,parent,text,x,y,width,action,color='red',height=62){const n=v.ui.node(parent,text,x,y,width,height);v.ui.image(n,'classic/button-'+color+'.png',0,0,width,height);require('./button-content').draw(v.ui,n,text,l.font,'#FFE267',width-12,height-8);n.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;action();});return n;}
 /** 弹窗内阻止触摸穿透，点遮罩保留原页面并关闭。 */
-function modal(v,title){const shade=v.overlay(),p=v.paper(shade,'activity-panel',0,0,l.modalWidth,l.modalHeight);p.addComponent(v.cc.BlockInputEvents);v.ui.text(p,title,0,l.titleY,36,'#674322',590,60);v.ui.text(shade,c.text.close,0,-l.modalHeight/2-30,26,'#FFFFFF',600,40);shade.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;if(e.target===shade){shade.destroy();v.modal=null;}});return p;}
+function modal(v,title){const shade=v.overlay(),p=v.paper(shade,'activity-panel',0,0,l.modalWidth,l.modalHeight);p.addComponent(v.cc.BlockInputEvents);require('./paper-title').draw(v,p,title,l.modalWidth,l.modalHeight);v.ui.text(shade,c.text.close,0,-l.modalHeight/2-30,26,'#FFFFFF',600,40);shade.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;if(e.target===shade){shade.destroy();v.modal=null;}});return p;}
 /** 奖励图标显示真实物品数量，未知随机碎片以问号表达其类别。 */
 function rewards(v,p,items,y=l.rewardY){Object.entries(items).forEach(([id,count],i)=>{const x=l.rewardX+i*l.rewardGap,n=v.ui.box(p,'reward-'+id,x,y,l.iconSize,l.iconSize,'#362344');v.ui.image(n,id==='1'?'classic/diamond.png':'classic/item-'+id+'.png',0,4,67,67);v.ui.text(n,id==='1'?require('./vip').diamonds(v.model,count):count,9,-24,24,'#FFFFFF',64,32);});}
 /** 切页只销毁当前弹窗，不切换宿主页面。 */
