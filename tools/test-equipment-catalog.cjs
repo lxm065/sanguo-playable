@@ -9,7 +9,7 @@ function fund(model,id){model.transact(()=>{model.state.meta.cleared=60;model.st
 test('完整38件按14/10/14分组，13开放25待开放；查询不改存档',()=>{
  const {model:m}=fixture(),before=JSON.stringify(m.state),groups=catalog.groups(m.state),items=groups.flatMap(g=>g.items);
  a.deepEqual(groups.map(g=>g.items.length),[14,10,14]);a.equal(items.filter(e=>e.active).length,38);a.equal(new Set(items.map(e=>e.id)).size,38);a.equal(new Set(items.map(e=>e.name)).size,38);
- for(const item of items){a(fs.existsSync('game/skin-assets/equipment/'+item.id+'.png'));a(item.attributes.length);a(item.effects.length);a(!item.effects.join('').includes('<'));if(!item.active)a.equal(item.canUpgrade,false);}
+ for(const item of items){a(fs.existsSync('game/skin-assets/equipment/'+item.id+'.png'));a(item.attributes.length);a(item.effects.length||item.exclusive?.implemented);a(!item.effects.join('').includes('<'));if(!item.active)a.equal(item.canUpgrade,false);}
  a.equal(JSON.stringify(m.state),before);a.throws(()=>catalog.query('invalid'));
 });
 test('13件逐阶扣费至10阶并可恢复，过期双击与满阶拒绝',()=>{

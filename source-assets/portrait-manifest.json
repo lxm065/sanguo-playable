@@ -2,11 +2,11 @@
   "version": 2,
   "size": 512,
   "background": "#554b39",
-  "scope": "武将头像来源清单；魔兽资源头像与对应战斗模型一致",
+  "scope": "21位武将均以原模型为参考制作A风格Q版头像，保留原始渲染来源",
   "entries": [
     {
       "id": "zhenji",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "D:\\Games\\Warcraft3\\ExtractedAssets\\技能特效补充_20260929\\仙道II陆章超级终结版修正\\资源根目录",
       "model": "Ninja_5.mdx",
       "camera": {
@@ -170,11 +170,18 @@
         }
       },
       "file": "handbook/zhenji.png",
-      "sha256": "08088f9e5c85414d5372a1aa61a6950cf4cf9dc11500d51ea2439f42bb5069c7"
+      "sha256": "052e9b083ce521505ecbdeaa7fe3a454b83ee83504b8bf24b041c604ff06c707",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "08088f9e5c85414d5372a1aa61a6950cf4cf9dc11500d51ea2439f42bb5069c7",
+        "file": "source-assets/portraits-1.0.118/zhenji-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.118/retouch-manifest.json"
     },
     {
       "id": "xuchu",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/XuChu.mdx",
       "camera": {
@@ -309,11 +316,18 @@
         }
       },
       "file": "handbook/xuchu.png",
-      "sha256": "2ee8f4b05e30a5ce7fad14df70723b3959684fd76e949785ec9b8ef9a1328545"
+      "sha256": "d966e449d4c1b37e6243264eadcb8c4e2af48883f802c1c5fe790b6f92f7c911",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "2ee8f4b05e30a5ce7fad14df70723b3959684fd76e949785ec9b8ef9a1328545",
+        "file": "source-assets/portraits-1.0.118/xuchu-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.118/retouch-manifest.json"
     },
     {
       "id": "xiahouyuan",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/XHY.mdx",
       "camera": {
@@ -501,11 +515,18 @@
         }
       },
       "file": "handbook/xiahouyuan.png",
-      "sha256": "a3490a8f6f011dc8e2e6b3245600b85ca7680d7cf4af2e0681f4398d14be0474"
+      "sha256": "0f62902c5ed68376209b6dc69e2886b8593263e2769b1e3327118898b418c7cd",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "a3490a8f6f011dc8e2e6b3245600b85ca7680d7cf4af2e0681f4398d14be0474",
+        "file": "source-assets/portraits-1.0.118/xiahouyuan-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.118/retouch-manifest.json"
     },
     {
       "id": "zhaoyun",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "真三国无双3_1_9dai版无CD无限蓝/自定义单位模型/模型与贴图",
       "model": "units/human/Arthas/Arthas.mdx",
       "camera": {
@@ -641,11 +662,18 @@
         }
       },
       "file": "handbook/zhaoyun.png",
-      "sha256": "8e02585974f53d4b44b2933f50b0bafbad242eee9f058e70af1bd85e175fffb9"
+      "sha256": "bbdae00836a0e3b99c19a70efeff351b6aec1d8c54c7652c96b76e28f34c2318",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "8e02585974f53d4b44b2933f50b0bafbad242eee9f058e70af1bd85e175fffb9",
+        "file": "source-assets/portraits-1.0.118/zhaoyun-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.118/retouch-manifest.json"
     },
     {
       "id": "dianwei",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "真三国无双3_1_9dai版无CD无限蓝/自定义单位模型/模型与贴图",
       "model": "Units/Creeps/Beastmaster/Beastmaster.mdx",
       "camera": {
@@ -790,11 +818,18 @@
         }
       },
       "file": "handbook/dianwei.png",
-      "sha256": "aa336e52aa9fd4fdc31aa7034388a49058ebb2040a8c6378177b2effdcb16f3f"
+      "sha256": "cd1ecd6ae2bda27c3bef60f7637cfdff82b8ff66e045ea3979ef082180282887",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "aa336e52aa9fd4fdc31aa7034388a49058ebb2040a8c6378177b2effdcb16f3f",
+        "file": "source-assets/portraits-1.0.118/dianwei-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.118/retouch-manifest.json"
     },
     {
       "id": "diaochan",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/DC.mdx",
       "camera": {
@@ -861,11 +896,18 @@
         }
       },
       "file": "handbook/diaochan.png",
-      "sha256": "0e46acd26ee97228b112a03b41661263c1720e9e80ef0f9565f41be5184a285b"
+      "sha256": "90401c8ad81a40407a38a86035e5a29728d08b5f8e55f4a79adb3a704dd494f2",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "0e46acd26ee97228b112a03b41661263c1720e9e80ef0f9565f41be5184a285b",
+        "file": "source-assets/portraits-1.0.118/diaochan-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.118/retouch-manifest.json"
     },
     {
       "id": "huangzhong",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/moon_shin_HZ.mdx",
       "camera": {
@@ -932,11 +974,18 @@
         }
       },
       "file": "handbook/huangzhong.png",
-      "sha256": "a152895d00a3af678b2de8748bfd952ce5ea0a0c6828643e024fb3324cb13a7e"
+      "sha256": "be0d06147cff47fa7a4e900ffc5e61304ae2057065861dbd45fa2d251cdae390",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "a152895d00a3af678b2de8748bfd952ce5ea0a0c6828643e024fb3324cb13a7e",
+        "file": "source-assets/portraits-1.0.118/huangzhong-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/huangzhong.json"
     },
     {
       "id": "zhangfei",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/moon_shin_ZF.mdx",
       "camera": {
@@ -1012,11 +1061,18 @@
         }
       },
       "file": "handbook/zhangfei.png",
-      "sha256": "a753c2196990eff4bb32e69fba4d5fdbee15c76d1ed708d47b186daa0ae00cb9"
+      "sha256": "0ca6a0b1c2af48e927452a9e7bbeeea27480114d7a0e77f697ae4a6df5fcdabf",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "a753c2196990eff4bb32e69fba4d5fdbee15c76d1ed708d47b186daa0ae00cb9",
+        "file": "source-assets/portraits-1.0.118/zhangfei-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/zhangfei.json"
     },
     {
       "id": "xiaoqiao",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "守卫剑阁降龙伏虎3.0T资源/守卫剑阁-降龙伏虎3.0T(C)1.24EMM版/模型与贴图",
       "model": "q2.mdx",
       "camera": {
@@ -1149,11 +1205,18 @@
         }
       },
       "file": "handbook/xiaoqiao.png",
-      "sha256": "6e9ddb3670f9904c7f09a06d53e40bf51d886793ed807b1a7f5d6831fbfa8755"
+      "sha256": "28aff64e2d9cd2ee4dae4e8c2a88ed588eb93d5d0b18025694d38b691965ce20",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "6e9ddb3670f9904c7f09a06d53e40bf51d886793ed807b1a7f5d6831fbfa8755",
+        "file": "source-assets/portraits-1.0.118/xiaoqiao-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/xiaoqiao.json"
     },
     {
       "id": "zhangliao",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/moon_shin_ZL21.mdx",
       "camera": {
@@ -1226,11 +1289,18 @@
         }
       },
       "file": "handbook/zhangliao.png",
-      "sha256": "e92e925700902641483f03efcb601c6e8fa1733554c5ae0294bf90f78eef8cb4"
+      "sha256": "5188086157d78a7153841a716d9ba18bd2a9b2e77f2251088a629bf6fd05235d",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "e92e925700902641483f03efcb601c6e8fa1733554c5ae0294bf90f78eef8cb4",
+        "file": "source-assets/portraits-1.0.118/zhangliao-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/zhangliao.json"
     },
     {
       "id": "zhouyu",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/ZhouYu.mdx",
       "camera": {
@@ -1267,11 +1337,18 @@
         }
       },
       "file": "handbook/zhouyu.png",
-      "sha256": "08e94ffc3448127a7d213114e6f0abb74b850b3df03a545f946f00275fa7f232"
+      "sha256": "46a42a18deedc77612dc3db220f39707c17dc57f5be6b8d6b437595e0759944a",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "08e94ffc3448127a7d213114e6f0abb74b850b3df03a545f946f00275fa7f232",
+        "file": "source-assets/portraits-1.0.118/zhouyu-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/zhouyu.json"
     },
     {
       "id": "guanyu",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/GY.mdx",
       "camera": {
@@ -1308,11 +1385,18 @@
         }
       },
       "file": "handbook/guanyu.png",
-      "sha256": "fcd03f695a8a7ff2b44d180a7ad7a1d7d7848a241b1783df393e327ceb67249f"
+      "sha256": "0854244a6ca1af4ca4052d2ff7ec8c3f9af0aaff7a6d4748d58a3e2db7dac1d2",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "fcd03f695a8a7ff2b44d180a7ad7a1d7d7848a241b1783df393e327ceb67249f",
+        "file": "source-assets/portraits-1.0.118/guanyu-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/guanyu.json"
     },
     {
       "id": "machao",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/moon_shin_MC.mdx",
       "camera": {
@@ -1388,11 +1472,18 @@
         }
       },
       "file": "handbook/machao.png",
-      "sha256": "33cce73e1d4cf35e95e9005ece4b8cd8d3712fcc4ccdbd925cee4437c9210c14"
+      "sha256": "fd97a8b12d31363a40aa97cdd8726717078a5264ac9973c4332d45d5740547af",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "33cce73e1d4cf35e95e9005ece4b8cd8d3712fcc4ccdbd925cee4437c9210c14",
+        "file": "source-assets/portraits-1.0.118/machao-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/machao.json"
     },
     {
       "id": "sunshangxiang",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/SSX12.mdx",
       "camera": {
@@ -1537,11 +1628,18 @@
         }
       },
       "file": "handbook/sunshangxiang.png",
-      "sha256": "1cb2951f20e7283df13ff301c07f9d1eeb3b5f58a27c86f49008749c38e2ae8c"
+      "sha256": "303fa703ff743efb9cada3301d479610e25e0da3b18f69905cbb2ccf12b3bb85",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "1cb2951f20e7283df13ff301c07f9d1eeb3b5f58a27c86f49008749c38e2ae8c",
+        "file": "source-assets/portraits-1.0.118/sunshangxiang-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/sunshangxiang.json"
     },
     {
       "id": "huangyueying",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "真三国无双3_1_9dai版无CD无限蓝/自定义单位模型/模型与贴图",
       "model": "units/nightelf/Runner/Runner.mdx",
       "camera": {
@@ -1677,11 +1775,18 @@
         }
       },
       "file": "handbook/huangyueying.png",
-      "sha256": "f58741793d81e520bd8429557cb812397110f894744e405c87bab10318713393"
+      "sha256": "e7bf04578762021aab19d02334072d3258378c5060f202f1d6ed2a43fe6a0893",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "f58741793d81e520bd8429557cb812397110f894744e405c87bab10318713393",
+        "file": "source-assets/portraits-1.0.118/huangyueying-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/huangyueying.json"
     },
     {
       "id": "zhurong",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "真三国无双3_1_9dai版无CD无限蓝/自定义单位模型/模型与贴图",
       "model": "units/nightelf/Huntress/Huntress.mdx",
       "camera": {
@@ -1817,11 +1922,18 @@
         }
       },
       "file": "handbook/zhurong.png",
-      "sha256": "dee2685665e8660da11c727b06e3dc35ab6f9d0f1d6611a0575ae8ecbba48f73"
+      "sha256": "d7ecd951d5f739dc59ef2733c4902c58e38c3737f7166240ff7c77eb3af4b83a",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "dee2685665e8660da11c727b06e3dc35ab6f9d0f1d6611a0575ae8ecbba48f73",
+        "file": "source-assets/portraits-1.0.118/zhurong-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/zhurong.json"
     },
     {
       "id": "lvbu",
-      "type": "model-render",
+      "type": "ai-retouched-model-render",
       "sourceRoot": "四地图模型与技能图标_20260924/三国战记0.24正式版/模型与贴图",
       "model": "war3mapImported/moon_shin_LB.mdx",
       "camera": {
@@ -1888,11 +2000,18 @@
         }
       },
       "file": "handbook/lvbu.png",
-      "sha256": "6b5e41c7e9b291b241211692869aeb24fa02b2bdb6b269b0a11275cc47ab7c61"
+      "sha256": "d7ba4ffc2b271a1dafdde28b52919ac63bb725af20c9a97b250ca9842457988d",
+      "originalRender": {
+        "type": "model-render",
+        "sha256": "6b5e41c7e9b291b241211692869aeb24fa02b2bdb6b269b0a11275cc47ab7c61",
+        "file": "source-assets/portraits-1.0.118/lvbu-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/lvbu.json"
     },
     {
       "id": "taishici",
-      "type": "wow-model-render",
+      "type": "ai-retouched-model-render",
       "modelPending": false,
       "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
       "model": "creature/humanmalewarriorlight/humanmalewarriorlight.m2",
@@ -1936,11 +2055,18 @@
         }
       },
       "file": "handbook/taishici.png",
-      "sha256": "feacdaed1ac8e69e11b613a5d8b1bfb5c319e530c0a771252eb8b0cbfbfa3ad6"
+      "sha256": "a53686e0d25229ebdc6c9961f220afe373012ea47fae5db6f155006fbb7a8ebd",
+      "originalRender": {
+        "type": "wow-model-render",
+        "sha256": "feacdaed1ac8e69e11b613a5d8b1bfb5c319e530c0a771252eb8b0cbfbfa3ad6",
+        "file": "source-assets/portraits-1.0.118/taishici-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/taishici.json"
     },
     {
       "id": "ganning",
-      "type": "wow-model-render",
+      "type": "ai-retouched-model-render",
       "modelPending": false,
       "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
       "model": "creature/humanmalepirateswashbuckler/humanmalepirateswashbuckler.m2",
@@ -1984,11 +2110,18 @@
         }
       },
       "file": "handbook/ganning.png",
-      "sha256": "20510f9608e2268f5fb526b6d62ab538d6c4e43c73a5a77e03d7e0c8bfec9292"
+      "sha256": "9cad3138e416dda847248ffd48cc066812dcdb6374099401fc7e4ea702e271cc",
+      "originalRender": {
+        "type": "wow-model-render",
+        "sha256": "20510f9608e2268f5fb526b6d62ab538d6c4e43c73a5a77e03d7e0c8bfec9292",
+        "file": "source-assets/portraits-1.0.118/ganning-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/ganning.json"
     },
     {
       "id": "zhangjiao",
-      "type": "wow-model-render",
+      "type": "ai-retouched-model-render",
       "modelPending": false,
       "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
       "model": "creature/humanmalecaster/humanmalecaster.m2",
@@ -2032,11 +2165,18 @@
         }
       },
       "file": "handbook/zhangjiao.png",
-      "sha256": "164e95224e060136223e328f4db769a951fe940c83a7b7810c4be748a8696abc"
+      "sha256": "3581ad52a50655119a7c3e5af4f166bb1ec4e00af37b060027ef731f52744601",
+      "originalRender": {
+        "type": "wow-model-render",
+        "sha256": "164e95224e060136223e328f4db769a951fe940c83a7b7810c4be748a8696abc",
+        "file": "source-assets/portraits-1.0.118/zhangjiao-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/zhangjiao.json"
     },
     {
       "id": "yanliang",
-      "type": "wow-model-render",
+      "type": "ai-retouched-model-render",
       "modelPending": false,
       "sourceRoot": "F:/WoW-Assets/classic-titan/raw",
       "model": "creature/humanmalewarriorheavy/humanmalewarriorheavy.m2",
@@ -2080,7 +2220,14 @@
         }
       },
       "file": "handbook/yanliang.png",
-      "sha256": "e4f944eaba757eb779c64856382ceea47846c59a69c62fa6c6d1194d3f7bdda3"
+      "sha256": "0731184ae9e0a3a104e8edbcc16df4c75dcabfbd909661baee5b04ce96018b04",
+      "originalRender": {
+        "type": "wow-model-render",
+        "sha256": "e4f944eaba757eb779c64856382ceea47846c59a69c62fa6c6d1194d3f7bdda3",
+        "file": "source-assets/portraits-1.0.118/yanliang-before.png"
+      },
+      "size": 1254,
+      "editManifest": "source-assets/portraits-1.0.119/yanliang.json"
     }
   ]
 }

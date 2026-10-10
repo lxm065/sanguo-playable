@@ -61,6 +61,7 @@ function show(book,id,mode='detail',message='',scroll=0,options={}){
  const rows=mode==='upgrade'?[{text:config.text.upgradeTitle+' · '+item.grade+'/'+item.upgrades.length},...item.upgrades.map((text,i)=>({text:(i<item.grade?'已激活 · ':'第'+(i+1)+'阶 · ')+text,color:i<item.grade?l.active:l.ink})),{text:config.text.rule,color:l.muted}]:[
   {text:item.attributes.join('\n')},
   ...item.effects.map(text=>({text:'◇ '+text})),
+  ...(item.exclusive?[{text:item.exclusive.description+(item.exclusive.implemented?'':'（待实现）'),color:item.exclusive.implemented?l.active:l.muted}]:[]),
   ...(item.grade?[{text:'已激活强化\n'+item.upgrades.slice(0,item.grade).join('\n'),color:l.active}]:[]),
   {text:item.lore.label+' · '+item.lore.title,color:l.muted},
   {text:item.lore.text,color:l.ink},

@@ -148,4 +148,4 @@ module.exports = {
 };
 
 /** 展示身份统一从三国主题表派生，战斗 ID 与基础规则保持不变。 */
-module.exports.equipment=[...module.exports.equipment,...require('./equipment-extra-config')].map(item=>({...item,name:require('./equipment-theme')[item.id].name,description:require('./equipment-exclusive').description(item.id,item.teamMagicPen?'全队法术穿透+'+item.teamMagicPen+'，全队装备穿透上限'+module.exports.teamMagicPenCap+'。':item.description)}));
+module.exports.equipment=[...module.exports.equipment,...require('./equipment-extra-config')].map(item=>({...item,name:require('./equipment-theme')[item.id].name,description:item.teamMagicPen?'全队法术穿透+'+item.teamMagicPen+'，全队装备穿透上限'+module.exports.teamMagicPenCap+'。':item.description}));

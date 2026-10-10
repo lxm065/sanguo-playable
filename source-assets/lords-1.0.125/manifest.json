@@ -1,0 +1,14 @@
+[
+  {
+    "id": "yuanshao",
+    "generated": "8c3a5e3f-3ee0-447f-ab33-df9ea1135290",
+    "sha256": "632EBEA486AF2ADC93B8758DA8F13F981AE305016E626A54486EC63E728114AF",
+    "backup": "yuanshao-before.png"
+  },
+  {
+    "id": "liubei",
+    "generated": "c5fb036f-9047-4c94-8236-eee1d604e3b3",
+    "sha256": "76D6F0BBDE67B34ABD198A209411C6BDF49B3A96198F52DA93483D97E6277A39",
+    "backup": "liubei-before.png"
+  }
+]

@@ -1,7 +1,7 @@
 {
-  "output": "dist/wechat-1.0.114",
-  "version": "1.0.114",
-  "description": "八件装备专属技能与推荐、双铁戟更名、赤兔头顶急行军特效",
+  "output": "dist/wechat-1.0.126",
+  "version": "1.0.126",
+  "description": "对战和远征装备栏按品质显示蓝色紫色边框",
   "copy": [
     "@babel",
     "cocos-js",
@@ -49,7 +49,28 @@
       "classic/yuanshao.png",
       "classic/caocao.png",
       "classic/sunquan.png",
-      "classic/liubiao.png"
+      "classic/liubiao.png",
+      "handbook/zhenji.png",
+      "handbook/xuchu.png",
+      "handbook/xiahouyuan.png",
+      "handbook/zhaoyun.png",
+      "handbook/dianwei.png",
+      "handbook/diaochan.png",
+      "handbook/ganning.png",
+      "handbook/guanyu.png",
+      "handbook/huangyueying.png",
+      "handbook/huangzhong.png",
+      "handbook/lvbu.png",
+      "handbook/machao.png",
+      "handbook/sunshangxiang.png",
+      "handbook/taishici.png",
+      "handbook/xiaoqiao.png",
+      "handbook/yanliang.png",
+      "handbook/zhangfei.png",
+      "handbook/zhangjiao.png",
+      "handbook/zhangliao.png",
+      "handbook/zhouyu.png",
+      "handbook/zhurong.png"
     ]
   },
   "equipmentImages": {
@@ -61,6 +82,90 @@
     {
       "file": "common/march-header-dragon.png",
       "width": 864
+    },
+    {
+      "file": "handbook/zhenji.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/xuchu.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/xiahouyuan.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/zhaoyun.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/dianwei.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/diaochan.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/ganning.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/guanyu.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/huangyueying.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/huangzhong.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/lvbu.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/machao.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/sunshangxiang.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/taishici.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/xiaoqiao.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/yanliang.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/zhangfei.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/zhangjiao.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/zhangliao.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/zhouyu.png",
+      "width": 384
+    },
+    {
+      "file": "handbook/zhurong.png",
+      "width": 384
     }
   ]
 }

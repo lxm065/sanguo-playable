@@ -1,0 +1,50 @@
+{
+  "version": "1.0.118",
+  "tool": "builtin image_gen edit",
+  "style": "A Supercell式Q版",
+  "prompt": "以原图为角色参考，以风格对比图A行为风格参考；重点重塑面容，保留服饰、武器、发型结构和辨识特征，细化材质；大头、鲜明五官、立体卡通渲染，棕色背景，无文字；仅一阶六武将。",
+  "entries": [
+    {
+      "id": "zhenji",
+      "source": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-9636b086-082f-48a5-b6fa-72acf2252918.png",
+      "target": "game/skin-assets/handbook/zhenji.png",
+      "original": "source-assets/portraits-1.0.118/zhenji-before.png",
+      "sha256": "052e9b083ce521505ecbdeaa7fe3a454b83ee83504b8bf24b041c604ff06c707"
+    },
+    {
+      "id": "xuchu",
+      "source": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-ef3e5fd3-ea60-424e-b244-b1862830ed29.png",
+      "target": "game/skin-assets/handbook/xuchu.png",
+      "original": "source-assets/portraits-1.0.118/xuchu-before.png",
+      "sha256": "d966e449d4c1b37e6243264eadcb8c4e2af48883f802c1c5fe790b6f92f7c911"
+    },
+    {
+      "id": "xiahouyuan",
+      "source": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-fdf320e3-8713-4625-8e90-8bd0a5b499cf.png",
+      "target": "game/skin-assets/handbook/xiahouyuan.png",
+      "original": "source-assets/portraits-1.0.118/xiahouyuan-before.png",
+      "sha256": "0f62902c5ed68376209b6dc69e2886b8593263e2769b1e3327118898b418c7cd"
+    },
+    {
+      "id": "zhaoyun",
+      "source": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-f72001f2-3e42-4002-ab7c-ab2735ae51dd.png",
+      "target": "game/skin-assets/handbook/zhaoyun.png",
+      "original": "source-assets/portraits-1.0.118/zhaoyun-before.png",
+      "sha256": "bbdae00836a0e3b99c19a70efeff351b6aec1d8c54c7652c96b76e28f34c2318"
+    },
+    {
+      "id": "dianwei",
+      "source": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-2889870e-2419-48cd-b621-4ef183962820.png",
+      "target": "game/skin-assets/handbook/dianwei.png",
+      "original": "source-assets/portraits-1.0.118/dianwei-before.png",
+      "sha256": "cd1ecd6ae2bda27c3bef60f7637cfdff82b8ff66e045ea3979ef082180282887"
+    },
+    {
+      "id": "diaochan",
+      "source": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-b3b075b4-effc-4a67-9597-e34ea5dbe125.png",
+      "target": "game/skin-assets/handbook/diaochan.png",
+      "original": "source-assets/portraits-1.0.118/diaochan-before.png",
+      "sha256": "90401c8ad81a40407a38a86035e5a29728d08b5f8e55f4a79adb3a704dd494f2"
+    }
+  ]
+}

@@ -72,23 +72,10 @@ class BattleHud {
     items
       .slice(v.equipmentPage * capacity, (v.equipmentPage + 1) * capacity)
       .forEach((item, i) => {
-        const n = u.box(
-          panel,
-          "equipment-drag-" + item.uid,
+        const n = require('./equipment-icon').draw(u,panel,item,
           c.x + (i % c.columns) * c.gap,
           c.y - Math.floor(i / c.columns) * c.rowGap,
-          c.size,
-          c.size,
-          "#574B39",
-        );
-        u.image(
-          n,
-          "equipment/" + item.id + ".png",
-          0,
-          0,
-          c.size - c.iconInset,
-          c.size - c.iconInset,
-        );
+          c.size,'equipment-drag-' + item.uid);
         this.bindEquipment(n, item);
       });
     v.equipmentPager={pages,refresh:()=>this.renderEquipment()};

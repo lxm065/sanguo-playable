@@ -1,17 +1,41 @@
 [
   {
     "file": "audio/kill_6.mp3",
-    "source": "F:/game/wow-zzq/outputs/original-art-20261007/具名素材/audio/effect/kill_6.mp3",
-    "sha256": "b6c944fde9e60d8838f686a78c54c2692041341263a60747dfc783adf58f0ee4"
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\268856538.wav",
+    "sourceSha256": "aa2d58755bf75b9880be4b2f49dcfb36b20a94ef926126d6b7b61b8242e66177",
+    "sha256": "236ba32d913c47c38712e049586cc08a2a48ec982a23fcefdc0eedc38ffb4656",
+    "events": [
+      "Play_vo_Announcer_Female1_DominatingHeroBlue",
+      "Play_vo_Announcer_Female1_DominatingHeroRed",
+      "Play_vo_Announcer_Female1_DominatingHeroYourTeam",
+      "Play_vo_Announcer_Female1_DominatingYouYourTeam",
+      "Play_vo_Announcer_Female1_KillingSpreeSet4purple"
+    ]
   },
   {
     "file": "audio/kill_7.mp3",
-    "source": "F:/game/wow-zzq/outputs/original-art-20261007/具名素材/audio/effect/kill_7.mp3",
-    "sha256": "4437f92bfe6adb46b678f19526d130c936579895290c42e7e0c11589a5a6a177"
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\172470563.wav",
+    "sourceSha256": "6dd86013d9ed570c83464c83c45ddf0f894fb5f0be4f8fbc60174936eaeeb1e0",
+    "sha256": "1acccca6e6c72994a75811464af97ca8f798ade430628a68280cc2b325529ba1",
+    "events": [
+      "Play_vo_Announcer_Female1_GodlikeHeroBlue",
+      "Play_vo_Announcer_Female1_GodlikeHeroRed",
+      "Play_vo_Announcer_Female1_GodlikeHeroYourTeam",
+      "Play_vo_Announcer_Female1_GodlikeYouYourTeam",
+      "Play_vo_Announcer_Female1_KillingSpreeSet5purple"
+    ]
   },
   {
     "file": "audio/kill_8.mp3",
-    "source": "F:/game/wow-zzq/outputs/original-art-20261007/具名素材/audio/effect/kill_8.mp3",
-    "sha256": "0e2f02eb4867dd4075300d23d41adc94572231f579bcbde6575ef255ff9f4d0f"
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\202559117.wav",
+    "sourceSha256": "0307cf1cb62854414f44b838cefac3a79e4ac67267a439dbcf563d88c9be7162",
+    "sha256": "881738a88715ac133298a0c1d1878d5a0c72d0e84f741561da60b7b6e2ab7991",
+    "events": [
+      "Play_vo_Announcer_Female1_KillingSpreeSet6purple",
+      "Play_vo_Announcer_Female1_LegendaryHeroBlue",
+      "Play_vo_Announcer_Female1_LegendaryHeroRed",
+      "Play_vo_Announcer_Female1_LegendaryHeroYourTeam",
+      "Play_vo_Announcer_Female1_LegendaryYouYourTeam"
+    ]
   }
 ]

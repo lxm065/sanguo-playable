@@ -140,14 +140,14 @@ test("定向合成仅允许候选且交易失败回滚全部状态", () => {
   assert.throws(() => m.merge(1, "directed", target, t), /磁盘/);
   assert.deepEqual(m.state, before);
 });
-test("同名多阶不叠羁绊、装备属性在详情和战斗一致", () => {
+test("同名多阶逐个累计羁绊、装备属性在详情和战斗一致", () => {
   const units = [
     { uid: 1, heroId: "xuchu", star: 1, slot: 0 },
     { uid: 2, heroId: "xuchu", star: 2, slot: 1 },
     { uid: 3, heroId: "zhenji", star: 1, slot: 2 },
   ];
-  assert.equal(bonds(units, roster).find((b) => b.id === "wei").count, 2);
-  assert.equal(bonds(units, roster).find((b) => b.id === "warrior").level, 0);
+  assert.equal(bonds(units, roster).find((b) => b.id === "wei").count, 3);
+  assert.equal(bonds(units, roster).find((b) => b.id === "warrior").level, 1);
   const e = [{ uid: 1, id: "7212", owner: 1 }],
     s = stats(units[0], units, roster, e, base),
     b = simulate(

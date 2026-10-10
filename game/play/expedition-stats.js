@@ -1,11 +1,9 @@
 "use strict";
 const handbook = require("./handbook-config"),
   policy = require("./expedition-config");
-/** 按不同武将身份计算羁绊，同名多阶只占一个名额。 */
+/** 按上阵单位数量计算羁绊，同名武将逐个计数。 */
 function bonds(units, roster, active) {
-  const heroes = [...new Set(units.map((u) => u.heroId))].map((id) =>
-    roster.find((h) => h.id === id),
-  );
+  const heroes = require('./bond-count').heroes(units, roster);
   return handbook.bonds.map((b) => {
     const count = heroes.filter((h) => require('./bond-activation').member(b,h)).length,
       index = require("./bond-activation").enabled(b.id,active)?(b.thresholds||handbook.thresholds).filter((n) => count >= n).length - 1:-1;
@@ -70,11 +68,10 @@ function stats(
       }
     }
     if (item.owner === unit.uid) {
-      if(require('./equipment-exclusive').active(item.id,unit.heroId)&&e.onHit&&!result.equipmentHits.some(x=>x.id===e.id))result.equipmentHits.push({id:e.id,...e.onHit});
+      if(e.onHit&&!result.equipmentHits.some(x=>x.id===e.id))result.equipmentHits.push({id:e.id,...e.onHit});
       const basic=e.basic;result.equipmentCooldown=(result.equipmentCooldown||0)+(basic.cooldown||0);result.magicPen+=basic.magicPen||0;result.bondDodge=Math.max(result.bondDodge||0,basic.dodge||0);result.reduction+=basic.reduction||0;
       for(const key of ["hp","armor","magicArmor","regen","haste","critical","criticalBonus"])result[key]=(result[key]||0)+(basic[key]||0);
       result.attack+=require('./hero-damage').equipmentAttack(hero,basic);
-      const exclusiveActive=require('./equipment-exclusive').active(item.id,unit.heroId);
       result.hp *= 1 + (e.hpPercent || 0);
       for (const k of [
         "regenPercent",
@@ -83,7 +80,7 @@ function stats(
         "leech",
         "reflect",
       ])
-        result[k] += (e[k] || 0) - (exclusiveActive ? 0 : definition[k] || 0);
+        result[k] += e[k] || 0;
     }
   }
   for (const b of bonds(units, roster,rules.playerBonds)) {

@@ -10,7 +10,8 @@ function query(id,state={}){
  const reason=!definition?config.text.unavailable:max?config.text.max:(meta.cleared||0)<chapter?condition:state.pending?config.text.pending:needsUnlock?'观看视频解锁进阶':fragments<cost.fragments?config.text.noFragments:(meta.diamonds||0)<cost.diamonds?config.text.noDiamonds:'';
  return {...entry,...require('./equipment-theme')[id],active:!!definition,revealed:!!definition&&require('./equipment-discovery').known(state).includes(id),grade:level,max,fragments,cost,condition,requiredChapter:chapter,needsUnlock,reason,canUpgrade:!reason,
   attributes:definition?(require('./equipment-base-config')[id]?.lines||[]):entry.attributes,
-  effects:definition?[definition.description]:entry.effects,
+  effects:id===require('./chitu-config').id?[]:definition?[definition.description]:entry.effects,
+  exclusive:require('./equipment-exclusive').skill(id),
   upgrades:steps,diamonds:meta.diamonds||0,qualityStyle:config.quality[entry.quality]};
 }
 /** 分组顺序保持通用、物理、法术；来源表中的隐藏特殊物品不在本图鉴中。 */

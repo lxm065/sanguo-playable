@@ -1,0 +1,56 @@
+{
+  "version": "1.0.124",
+  "style": "A Supercell式Q版",
+  "generator": "imagegen",
+  "entries": [
+    {
+      "id": "sunquan",
+      "generatedFile": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-8fcf8aac-e223-476c-9389-a4e4ab78ad99.png",
+      "target": "game/skin-assets/classic/sunquan.png",
+      "sha256": "BA2B618F0FD1E09AE33BC1E3E6414445DBB569502FA1E46E3D971ED78FEA26F0",
+      "originalBackup": "source-assets/lords-1.0.124/sunquan-before.png"
+    },
+    {
+      "id": "liubei",
+      "generatedFile": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-8a7c56fa-0471-4786-a2d0-b9f764e7b82a.png",
+      "target": "game/skin-assets/classic/liubei.png",
+      "sha256": "37F32F0A6873AB43A1B0C8D30B7FCF12C03992DADE9A1E03D3B7A8390231C84B",
+      "originalBackup": "source-assets/lords-1.0.124/liubei-before.png"
+    },
+    {
+      "id": "liubiao",
+      "generatedFile": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-9943cf07-ff51-4c71-a2bd-0a535514275b.png",
+      "target": "game/skin-assets/classic/liubiao.png",
+      "sha256": "DE8CE1F86AF84017200C8F72B0291B52A583D9010259E6918135542EB96ED740",
+      "originalBackup": "source-assets/lords-1.0.124/liubiao-before.png"
+    },
+    {
+      "id": "sunjian",
+      "generatedFile": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-db83d330-5122-460a-8782-41620b01a383.png",
+      "target": "game/skin-assets/classic/sunjian.png",
+      "sha256": "7CA3C566C3786A0B8B47B4A6FDC3A574DDFA9F8AA920CFC385932C60E31FA6CD",
+      "originalBackup": "source-assets/lords-1.0.124/sunjian-before.png"
+    },
+    {
+      "id": "caocao",
+      "generatedFile": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-37c8e72f-08ee-4110-8a07-c4ea43176065.png",
+      "target": "game/skin-assets/classic/caocao.png",
+      "sha256": "BAB1F706B6CB544683C6CE610AD828E715771824A7929066E7D5465EE6707FAD",
+      "originalBackup": "source-assets/lords-1.0.124/caocao-before.png"
+    },
+    {
+      "id": "yuanshao",
+      "generatedFile": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-ef6d69d6-64eb-4d23-b634-1b798a4070d1.png",
+      "target": "game/skin-assets/classic/yuanshao.png",
+      "sha256": "765C79D21A57EE44B6D4256176AEDDBC72E5D87005C884B45BF8166B53D77DA0",
+      "originalBackup": "source-assets/lords-1.0.124/yuanshao-before.png"
+    },
+    {
+      "id": "dongzhuo",
+      "generatedFile": "D:/codex/generated_images/01a0f5e1-702f-7e00-b060-8258f9170cdf/exec-9cb0b3de-4615-4f24-b51c-34beb8d16a17.png",
+      "target": "game/skin-assets/classic/dongzhuo.png",
+      "sha256": "B36BB80407ADB3EA6C688D947C5544D47E7EC85FD0877B4709B389FB3F468A15",
+      "originalBackup": "source-assets/lords-1.0.124/dongzhuo-before.png"
+    }
+  ]
+}

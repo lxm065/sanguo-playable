@@ -22,7 +22,7 @@ module.exports = {
   menu: [{id:'arena',title:'刀锋竞技',subtitle:'当前段位：青铜',icon:'tab-challenge'},
     {id:'dungeon',title:'英雄副本',subtitle:'无进行中副本',icon:'tab-fort'},
     {id:'multiplayer',title:'多人对战',subtitle:'自选10枚棋子 · 四人棋局',icon:'tab-expedition'}],
-  deckLayout:{columns:5,cellWidth:118,cellHeight:120,selectedX:0,selectedTop:416,reserveTop:46,reserveRows:4,bondsY:208,hintY:149,tabsY:-508,closeY:-615,messageY:-440,splitY:143,modelScale:1,modelInset:4,lockSize:80,lockColor:'#DDD7B6',lockOutline:'#514738'},
+  deckLayout:{modelFacing:[0,-1],modelFacingOverrides:{zhaoyun:[0,1]},columns:5,cellWidth:118,cellHeight:120,selectedX:0,selectedTop:416,reserveTop:46,reserveRows:4,bondsY:208,hintY:149,tabsY:-508,closeY:-615,messageY:-440,splitY:143,modelScale:1,modelInset:4,lockSize:80,lockColor:'#DDD7B6',lockOutline:'#514738'},
   ui: {tickMs:250,replayTickMs:40,boardY:[-135,-25,85,195,305,415],boardX:108,
     modelScale:1.05,choiceScale:.88,dragThreshold:14,recommendationCount:3,recommendationColor:'#66E58B70',recommendationBestColor:'#F5D86B99',
     readyY:220,choiceY:-350,footerY:-488,footerHeight:300,slotHitHeight:100,

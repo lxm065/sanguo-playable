@@ -18,7 +18,7 @@ class Handbook{
  listCondition(hero){if(Object.hasOwn(this.config.conditionLabels,hero.id))return this.config.conditionLabels[hero.id];const r=require('./section-policy').requirement(hero.id);return r?this.format(this.config.text.bossShort,[r.chapter,r.section]):this.condition(hero);}
  /** 区分图鉴解锁规划和当前真实可用性，旧玩家不被图鉴操作降级。 */
  status(hero,meta,roster){const integrated=roster.some(h=>h.id===hero.id),owned=(meta.unlocked||[]).includes(hero.id);const meetsCondition=require('./section-policy').requirement(hero.id)||hero.unlock==='boss'?owned:hero.chapter===0||(meta.cleared||0)>=hero.chapter;return {integrated,locked:!meetsCondition&&!owned,available:integrated&&owned,label:!integrated?this.config.text.unimplemented:owned?this.config.text.available:this.config.text.unavailable};}
- /** 按不同身份计算预览档位，忽略主公、未知单位与同名升阶重复项。 */
- preview(bondId,units){const b=this.bonds().find(x=>x.id===bondId);if(!b)throw Error('未知羁绊');const members=new Set(b.members.map(h=>h.id));const count=new Set(units.filter(u=>members.has(u.heroId)).map(u=>u.heroId)).size;return {count,threshold:(b.thresholds||this.config.thresholds).filter(n=>count>=n).pop()||0};}
+ /** 按上阵数量计算预览档位，同名武将累计，主公与未知单位不参与。 */
+ preview(bondId,units){const b=this.bonds().find(x=>x.id===bondId);if(!b)throw Error('未知羁绊');const members=new Set(b.members.map(h=>h.id));const count=require('./bond-count').heroes(units,this.config.heroes).filter(h=>members.has(h.id)).length;return {count,threshold:(b.thresholds||this.config.thresholds).filter(n=>count>=n).pop()||0};}
 }
 module.exports={Handbook};

@@ -10,6 +10,7 @@
       "Play_vo_Announcer_Female1_FirstBloodYouYourTeam"
     ],
     "sourceSha256": "04866584faff88ddb06123180eb314a5d27e5c5a12ffa6f18dd7be707e347346",
+    "outputSha256": "f14879c7d877205ad2d65487e5c41f820275f12fe26dee0f00fa42948629f236",
     "bytes": 17612
   },
   {
@@ -20,6 +21,7 @@
       "Play_vo_Announcer_Female1_DoubleKillYouYourTeam"
     ],
     "sourceSha256": "a6e6a4b5e4170c9f06dcfad7e6069857eb192dcd818ffae2ee0e169cdde5251b",
+    "outputSha256": "9752272cba548e81b9abcb3087f88698bff02de4644f6181f2a8d803c89eaeb8",
     "bytes": 12716
   },
   {
@@ -30,6 +32,7 @@
       "Play_vo_Announcer_Female1_TripleKillYouYourTeam"
     ],
     "sourceSha256": "654b67b6ee94f218286f60d06948f0f9c0360fc26e28d1998927c603f8558e3e",
+    "outputSha256": "0ce651498a7b10912881ac61f07e6cea7fe96940dcc4b6c282a345b0f10988f3",
     "bytes": 15596
   },
   {
@@ -40,16 +43,18 @@
       "Play_vo_Announcer_Female1_QuadraKillYouYourTeam"
     ],
     "sourceSha256": "ff47c9b26c3b70be2ca68d12fcd95abb7ca9a87440cc2f25da96698066d4867c",
+    "outputSha256": "5e86089198aa6f79eb58aa0c817d2dcc66702b2fd562b60172c342ba07fdaee8",
     "bytes": 17900
   },
   {
     "name": "penta_kill",
-    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\963502603.wav",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\177689956.wav",
     "events": [
       "Play_vo_Announcer_Female1_PentaKillHeroYourTeam",
       "Play_vo_Announcer_Female1_PentaKillYouYourTeam"
     ],
-    "sourceSha256": "4ac46721472862f4007116a58d7a96fbde11291b9298d70e207d9340d293e383",
+    "sourceSha256": "37e6040bc6853f96a4f81faaa0ad8b8b32d6a554c6fe1e2e5c3f8e90b0636ed6",
+    "outputSha256": "dda0078f2a18834436f6300982dada115d853884e78fb7320962438137f6e93d",
     "bytes": 18476
   },
   {
@@ -59,6 +64,7 @@
       "Play_vo_Announcer_Global_Female1_OnVictory"
     ],
     "sourceSha256": "284844eae0fb788492decb851f47be22ae7ec9e4922bfaad455626783e9212da",
+    "outputSha256": "834760d8d8a174f7ebdc2404306d39ee8a03c1658ca96cdb43f83109ccb79e0c",
     "bytes": 14732
   },
   {
@@ -68,6 +74,49 @@
       "Play_vo_Announcer_Global_Female1_OnDefeat"
     ],
     "sourceSha256": "f66598381f816ecc2576d4250a57b844304eff2b9389a3ac5f7c7466de889161",
+    "outputSha256": "94ea11fb71de54c4e9c9bee32fdf588b624b4d94b20dc994b3855e968e64741d",
     "bytes": 10988
+  },
+  {
+    "name": "kill_6",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\268856538.wav",
+    "events": [
+      "Play_vo_Announcer_Female1_DominatingHeroBlue",
+      "Play_vo_Announcer_Female1_DominatingHeroRed",
+      "Play_vo_Announcer_Female1_DominatingHeroYourTeam",
+      "Play_vo_Announcer_Female1_DominatingYouYourTeam",
+      "Play_vo_Announcer_Female1_KillingSpreeSet4purple"
+    ],
+    "sourceSha256": "aa2d58755bf75b9880be4b2f49dcfb36b20a94ef926126d6b7b61b8242e66177",
+    "outputSha256": "236ba32d913c47c38712e049586cc08a2a48ec982a23fcefdc0eedc38ffb4656",
+    "bytes": 14444
+  },
+  {
+    "name": "kill_7",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\172470563.wav",
+    "events": [
+      "Play_vo_Announcer_Female1_GodlikeHeroBlue",
+      "Play_vo_Announcer_Female1_GodlikeHeroRed",
+      "Play_vo_Announcer_Female1_GodlikeHeroYourTeam",
+      "Play_vo_Announcer_Female1_GodlikeYouYourTeam",
+      "Play_vo_Announcer_Female1_KillingSpreeSet5purple"
+    ],
+    "sourceSha256": "6dd86013d9ed570c83464c83c45ddf0f894fb5f0be4f8fbc60174936eaeeb1e0",
+    "outputSha256": "1acccca6e6c72994a75811464af97ca8f798ade430628a68280cc2b325529ba1",
+    "bytes": 13004
+  },
+  {
+    "name": "kill_8",
+    "source": "F:\\LoL-Asset-Library\\audio\\converted\\en_US\\202559117.wav",
+    "events": [
+      "Play_vo_Announcer_Female1_KillingSpreeSet6purple",
+      "Play_vo_Announcer_Female1_LegendaryHeroBlue",
+      "Play_vo_Announcer_Female1_LegendaryHeroRed",
+      "Play_vo_Announcer_Female1_LegendaryHeroYourTeam",
+      "Play_vo_Announcer_Female1_LegendaryYouYourTeam"
+    ],
+    "sourceSha256": "0307cf1cb62854414f44b838cefac3a79e4ac67267a439dbcf563d88c9be7162",
+    "outputSha256": "881738a88715ac133298a0c1d1878d5a0c72d0e84f741561da60b7b6e2ab7991",
+    "bytes": 16460
   }
 ]
