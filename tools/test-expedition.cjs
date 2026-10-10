@@ -123,7 +123,7 @@ test("新人福利按三星关羽、龙心、钻石顺序，旧凭据不可重�
   assert.equal(m.state.units.at(-1).star, 3);
   assert.throws(() => m.claimNovice(t), /已领取/);
   m.claimNovice(m.adTicket());
-  assert.equal(m.state.expedition.equipment[0].id, "7212");
+  assert.equal(m.state.expedition.equipment[0].id, "7214");
   const d = m.state.meta.diamonds;
   m.claimNovice(m.adTicket());
   assert.equal(m.state.meta.diamonds, d + 10000);

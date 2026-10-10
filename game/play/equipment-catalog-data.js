@@ -1,5 +1,5 @@
 'use strict';
-/** 三国装备图鉴基础资料，由本地恢复配置生成。 */
+/** 装备图鉴展示表，战斗ID保持稳定。 */
 module.exports=[
   {
     "id": "7001",
@@ -21,7 +21,7 @@ module.exports=[
   },
   {
     "id": "7002",
-    "name": "破阵锤",
+    "name": "双铁戟",
     "shape": "hammer",
     "flavor": "重锤落处，敌阵为之震动。",
     "category": "physical",
@@ -139,7 +139,7 @@ module.exports=[
   },
   {
     "id": "7008",
-    "name": "白羽弓",
+    "name": "养由弓",
     "shape": "bow",
     "flavor": "白羽逐风，弦影难寻。",
     "category": "physical",
@@ -700,7 +700,7 @@ module.exports=[
   },
   {
     "id": "7212",
-    "name": "应龙玉玺",
+    "name": "传国玉玺",
     "shape": "seal",
     "flavor": "应龙盘玺，生机绵延。",
     "category": "support",
@@ -720,7 +720,7 @@ module.exports=[
   },
   {
     "id": "7213",
-    "name": "龙鳞战铠",
+    "name": "龙鳞铠",
     "shape": "armor",
     "flavor": "龙鳞连缀，同守军阵。",
     "category": "support",
@@ -739,9 +739,9 @@ module.exports=[
   },
   {
     "id": "7214",
-    "name": "赤血宝珠",
-    "shape": "orb",
-    "flavor": "赤珠凝血，愈战愈强。",
+    "name": "赤兔",
+    "shape": "horse",
+    "flavor": "赤兔追风，急行破阵。",
     "category": "support",
     "quality": 3,
     "unlock": {
@@ -754,7 +754,7 @@ module.exports=[
       "冷却缩减+15% "
     ],
     "effects": [
-      "每击杀一个敌方非召唤物额外获得100点生命，5点生命回复/秒和3%冷却缩减，最高获得1000点生命，50点生命回复/秒和30%冷却缩减。死亡后损失一半积攒的能量"
+      "关羽、吕布专属技能【急行军】：开局触发，此后每20秒触发一次，全体友军移动、攻击与施法速度提高10%，持续2秒；同名效果不叠加。"
     ]
   }
 ];

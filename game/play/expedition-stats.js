@@ -70,10 +70,11 @@ function stats(
       }
     }
     if (item.owner === unit.uid) {
-      if(e.onHit&&!result.equipmentHits.some(x=>x.id===e.id))result.equipmentHits.push({id:e.id,...e.onHit});
+      if(require('./equipment-exclusive').active(item.id,unit.heroId)&&e.onHit&&!result.equipmentHits.some(x=>x.id===e.id))result.equipmentHits.push({id:e.id,...e.onHit});
       const basic=e.basic;result.equipmentCooldown=(result.equipmentCooldown||0)+(basic.cooldown||0);result.magicPen+=basic.magicPen||0;result.bondDodge=Math.max(result.bondDodge||0,basic.dodge||0);result.reduction+=basic.reduction||0;
       for(const key of ["hp","armor","magicArmor","regen","haste","critical","criticalBonus"])result[key]=(result[key]||0)+(basic[key]||0);
       result.attack+=require('./hero-damage').equipmentAttack(hero,basic);
+      const exclusiveActive=require('./equipment-exclusive').active(item.id,unit.heroId);
       result.hp *= 1 + (e.hpPercent || 0);
       for (const k of [
         "regenPercent",
@@ -82,7 +83,7 @@ function stats(
         "leech",
         "reflect",
       ])
-        result[k] += e[k] || 0;
+        result[k] += (e[k] || 0) - (exclusiveActive ? 0 : definition[k] || 0);
     }
   }
   for (const b of bonds(units, roster,rules.playerBonds)) {

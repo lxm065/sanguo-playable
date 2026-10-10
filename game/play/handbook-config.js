@@ -37,6 +37,7 @@ module.exports={
   {id:'strategist',kind:'role',value:'谋士',name:'谋士',effect:'全体敌人魔法防御－{0}／－{1}',values:[5,15]},
   ...require('./bond-activation-config').entries.map(e=>({...e,kind:'role',value:e.name})),
  ],
+ conditionLabels:{zhaoyun:'通关第1章',zhangfei:'',zhouyu:'',yanliang:'',huangyueying:''},
  thresholds:[2,4],fiveStarChapter:18,
  tabs:[['heroes','武将'],['equipment','装备'],['bonds','羁绊']],
  text:{title:'图鉴',preview:'羁绊规则 · 按不同上阵武将计算',initial:'',chapter:'通关第{0}章',bossShort:'第{0}章第{1}节解锁',boss:'击败首个BOSS并完成结算解锁',unimplemented:'仅图鉴展示，尚未接入招募',available:'已接入本地阵容',unavailable:'已接入本地阵容，尚未解锁',close:'点击空白处关闭',back:'返回图鉴',fiveStar:'通关第{0}章，全体单位可升5星',rules:'',detail:'图鉴定位与当前战斗规则分别维护。'},

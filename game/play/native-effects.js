@@ -1,7 +1,7 @@
 'use strict';
 const manifest=require('./native-effect-manifest.js'),config=require('./native-effect-config');
 /** 每张图集只装配一次帧对象，与图片缓存共用生命周期。 */
-function frames(v,id){v.nativeFrames=v.nativeFrames||new Map();if(!v.nativeFrames.has(id)){const m=manifest[id];v.nativeFrames.set(id,v.assets.texture(m.file).then(texture=>Array.from({length:m.count},(_,i)=>{const f=new v.cc.SpriteFrame();f.texture=texture;f.rect=new v.cc.Rect(i%m.columns*m.size,Math.floor(i/m.columns)*m.size,m.size,m.size);f.originalSize=new v.cc.Size(m.size,m.size);f.offset=new v.cc.Vec2(0,0);f.addRef();return f;})).catch(e=>{v.nativeFrames.delete(id);throw e;}));}return v.nativeFrames.get(id);}
+function frames(v,id){v.nativeFrames=v.nativeFrames||new Map();if(!v.nativeFrames.has(id)){const m=manifest[id];v.nativeFrames.set(id,v.assets.texture(m.file).then(texture=>Array.from({length:m.count},(_,i)=>{const index=m.frameIndices?.[i]??i,f=new v.cc.SpriteFrame();f.texture=texture;f.rect=new v.cc.Rect(index%m.columns*m.size,Math.floor(index/m.columns)*m.size,m.size,m.size);f.originalSize=new v.cc.Size(m.size,m.size);f.offset=new v.cc.Vec2(0,0);f.addRef();return f;})).catch(e=>{v.nativeFrames.delete(id);throw e;}));}return v.nativeFrames.get(id);}
 /** 备战阶段预热原生特效，避免首次技能触发时才解码贴图。 */
 function warm(v){return Promise.all(Object.keys(manifest).map(id=>frames(v,id))).catch(e=>console.warn('原生特效预热失败',e.message));}
 /** 清理唯一帧循环和节点，保留已经装配的共享图集。 */

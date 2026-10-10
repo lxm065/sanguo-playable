@@ -2411,5 +2411,120 @@
         "sha256": "4ea748a81645337b537d5a69ec1a83517fc01303a0b0498e2cda1cde74f85e42"
       }
     ]
+  },
+  "chituHaste": {
+    "file": "native-effects/chituHaste.png",
+    "size": 128,
+    "columns": 6,
+    "count": 16,
+    "fps": 8,
+    "sequences": [
+      {
+        "name": "Birth",
+        "interval": [
+          833,
+          1733
+        ]
+      },
+      {
+        "name": "Stand",
+        "interval": [
+          1800,
+          2233
+        ]
+      },
+      {
+        "name": "Death",
+        "interval": [
+          2300,
+          2467
+        ]
+      },
+      {
+        "name": "Birth Medium",
+        "interval": [
+          4167,
+          5067
+        ]
+      },
+      {
+        "name": "Stand Medium",
+        "interval": [
+          5133,
+          5567
+        ]
+      },
+      {
+        "name": "Death Medium",
+        "interval": [
+          5633,
+          5800
+        ]
+      },
+      {
+        "name": "Birth Large",
+        "interval": [
+          7500,
+          8400
+        ]
+      },
+      {
+        "name": "Stand Large",
+        "interval": [
+          8467,
+          8900
+        ]
+      },
+      {
+        "name": "Death Large",
+        "interval": [
+          8967,
+          9133
+        ]
+      }
+    ],
+    "particles": 1,
+    "ribbons": 0,
+    "textures": [
+      "Textures\\Star7b.blp",
+      "Textures\\firering1A.blp",
+      "abilities\\Spells\\Items\\AIsp\\Horseshoe.blp"
+    ],
+    "sources": [
+      {
+        "source": "D:/Games/Warcraft3/ExtractedAssets/三地图去重预览_20260929/去重模型库/883253019b0863757aa0bb1f/模型.mdx",
+        "sha256": "2de9dd3af06dd8092d071621672fc5338a4c0a91d5c175063ea43df55dd078d6"
+      },
+      {
+        "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\去重模型库\\883253019b0863757aa0bb1f\\textures\\star7b.blp",
+        "sha256": "5902423893c11a3bcff38e271206ba77b0a85a11ee6d2b0522f3999c18cdc1e0"
+      },
+      {
+        "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\去重模型库\\883253019b0863757aa0bb1f\\textures\\firering1a.blp",
+        "sha256": "0b16662e378260287680beeea17775e1408ee0a311a413df598a82acccc0c1b2"
+      },
+      {
+        "source": "D:\\Games\\Warcraft3\\ExtractedAssets\\三地图去重预览_20260929\\去重模型库\\883253019b0863757aa0bb1f\\abilities\\spells\\items\\aisp\\horseshoe.blp",
+        "sha256": "4e499b29729b950fd32b17cfd090b37e3241d218a0559821234ab82896e1bf5d"
+      }
+    ],
+    "frameIndices": [
+      0,
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13,
+      14,
+      15,
+      18,
+      19,
+      20,
+      21
+    ]
   }
 }

@@ -266,7 +266,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
             duration: rules.moveSeconds,
           });
         }
-        a.nextAction = t + rules.moveSeconds/(Math.max(.1,1-(a.treeSpeedDown||0))*(1+(a.treeSpeedUp||0)));
+        a.nextAction = t + rules.moveSeconds/(Math.max(.1,1-(a.treeSpeedDown||0))*(1+(a.treeSpeedUp||0))*(1+(a.marchMove||0)));
         continue;
       }
       let s = skill ? spec : spec.passive ? spec : {},

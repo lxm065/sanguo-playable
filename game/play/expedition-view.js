@@ -307,7 +307,7 @@ class ExpeditionView extends ClassicView {
     require('./lord-skill-view').show(this,()=>{if(!this.playing)return;this.lastTime=Date.now();this.timer=setInterval(()=>this.tick(),40);});
   }
   /** 结算播报只在一次正常回放结束时触发。 */
-  finish(){require("./lord-skill-view").cancel(this);require("./attack-audio").get(this).stop();const active=this.playing,result=this.replay?.result;super.finish();if(active){require("./battle-audio").get(this).finish(result);require("./kill-banner").show(this,{key:result});}}
+  finish(){require("./lord-skill-view").cancel(this);require("./attack-audio").get(this).stop();const active=this.playing,result=this.replay?.result;super.finish();if(active){require("./battle-audio").get(this).finish(result);}}
   /** 单击直接显示武将详情；拖动只布阵，取消时恢复原位置。 */
   drawFriendly(unit, x, y, scale) {
     const actor = this.ui.actor(this.root, unit, x, y, scale);
@@ -593,6 +593,7 @@ class ExpeditionView extends ClassicView {
   reward() {
     const p = this.model.state.pending;
     if (!p) return;
+    if(require('./chapter-final-reward').skip(this.model,p)){try{this.model.claim(null,true);}catch(error){this.notice('提示',error.message);return;}this.page='home';this.render();return;}
     if(!p.training&&p.battle.result==='loss')return require('./defeat-view').show(this,p);
     const m = this.overlay(),
       u = this.ui;
@@ -718,8 +719,7 @@ class ExpeditionView extends ClassicView {
   }
   /** 根据战报事件更新模型朝向和动作；数值与命中仍由模拟器决定。 */
   apply(event) {
-    const kill=require("./battle-audio").get(this).event(event,this.replay?.initial||[]);
-    require("./kill-banner").show(this,kill);
+    require("./battle-audio").get(this).event(event,this.replay?.initial||[]);
     const source=this.replay?.initial?.find(u=>u.uid===event.uid);
     const sound=require("./attack-audio");sound.get(this).play(sound.kind(event,source));
     const cc = this.cc,

@@ -77,7 +77,7 @@ test("装备推荐配置覆盖当前掉落池且人物身份均有效", () => {
       require('../game/play/equipment-recommendations').heroIds(item.id).length,
     );
     for (const id of require('../game/play/equipment-recommendations').heroIds(item.id))
-      assert(heroes.some((h) => h.id === id));
+      assert(require('../game/play/expedition-roster').some(h=>h.id===id));
   }
 });
 test("节点外松手提交穿戴，系统取消与空白落点不提交", () => {

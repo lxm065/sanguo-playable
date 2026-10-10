@@ -1,7 +1,7 @@
 {
-  "output": "dist/wechat-1.0.110",
-  "version": "1.0.110",
-  "description": "交战中备战席翻页查看，章末取消局内装备，关内递进及精英首领差异",
+  "output": "dist/wechat-1.0.114",
+  "version": "1.0.114",
+  "description": "八件装备专属技能与推荐、双铁戟更名、赤兔头顶急行军特效",
   "copy": [
     "@babel",
     "cocos-js",
@@ -36,7 +36,7 @@
     "attachmentPrecision": 4
   },
   "opaqueJpeg": {
-    "quality": 58,
+    "quality": 52,
     "files": [
       "campaign-map.png",
       "battle-ground.png",

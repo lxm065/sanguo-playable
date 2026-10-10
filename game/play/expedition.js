@@ -278,6 +278,7 @@ class Expedition extends Campaign {
             ? "equipment"
             : "heroes"
           : "none";
+      if(require('./chapter-final-reward').skip(this,p))p.rewardKind='none';
       p.rewardStar = 1;
       p.refreshes = 0;
       p.experience =
@@ -324,6 +325,7 @@ class Expedition extends Campaign {
     if (!this.state.pending) return false;
     return this.transact(() => {
       const p = this.state.pending;
+      if(require('./chapter-final-reward').skip(this,p)){p.rewardKind='none';p.choices=[];index=null;}
       if (p.rewardKind === "heroes" && index === null && !discard)
         throw Error("请选择一名武将");
       if (index !== null) {

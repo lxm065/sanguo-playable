@@ -191,7 +191,7 @@ module.exports={
     },
     "7214": {
       "profile": "frontline",
-      "reason": "生命回复及击杀叠加，优先近战持续作战"
+      "reason": "关羽、吕布可触发全军急行军"
     }
   }
 };
