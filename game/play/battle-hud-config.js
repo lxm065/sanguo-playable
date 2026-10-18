@@ -3,6 +3,7 @@
 module.exports = {
   unit: {
     modelHeight: 110,
+    battlefieldScale: { huangzhong: 0.85 },
     // 青龙刀和高举兵器不作为人物身高；其余模型按完整待机身体边界计算。
     bodyHeightRatios: { huangzhong: 0.82, zhaoyun: 0.85, taishici: 0.78, guanyu: 0.7, xiahouyuan: 0.88, zhangliao: 0.9 },
     directionBodyHeightRatios: {yanliang:{s:0.72,se:0.96,e:0.96,ne:0.96,n:0.96}},

@@ -1,0 +1,5 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),{BattleHud}=require('../game/play/battle-hud');
+/** 用真实触摸控制器检查战斗点击与拖动分离，写操作端口均拒绝调用。 */
+function fixture(playing,pending){const events={},opened=[],v={playing,model:{state:{pending}},config:{layout:{dragThreshold:14}},cc:{Node:{EventType:{TOUCH_START:'start',TOUCH_MOVE:'move',TOUCH_END:'end',TOUCH_CANCEL:'cancel'}}},equipmentDetails:i=>opened.push(i)};const hud=new BattleHud(v);hud.point=e=>e.p;hud.positions=()=>{throw Error('只读查看不能进行穿戴命中');};hud.beginDrag=()=>{throw Error('战斗中不能拖动');};hud.bindEquipment({on:(k,f)=>events[k]=f},{uid:1,id:'7103'});return {events,opened};}
+for(const [playing,pending]of [[true,true],[true,false],[false,true]])test('战斗或待结算时装备点击只读，拖动不查看或穿戴 '+playing+'/'+pending,()=>{const f=fixture(playing,pending);f.events.start({p:{x:0,y:0}});f.events.end({p:{x:0,y:0}});assert.equal(f.opened.length,1);f.events.start({p:{x:0,y:0}});f.events.move({p:{x:100,y:100}});f.events.end({p:{x:100,y:100}});assert.equal(f.opened.length,1);});

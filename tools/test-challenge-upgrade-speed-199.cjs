@@ -10,10 +10,10 @@ test('多人升级保持独立成长和入局技能，并按对应等级解锁�
  }
  const z=roster.find(h=>h.id==='zhangfei').tiers.find(t=>t.star===5);a.equal(z.hp,4982);a.equal(z.attack,239);a.equal(z.skills.length,4);
 });
-test('截图张飞生命攻击可复现，新增高阶技能进入实际战斗初始化',()=>{
+test('张飞法攻装备不再增加攻击，高阶技能仍进入实际战斗初始化',()=>{
  const units=[{uid:1,heroId:'zhangfei',star:5,slot:0},{uid:2,heroId:'xuchu',star:1,slot:1}],equipment=[{uid:11,id:'7101',owner:1},{uid:12,id:'7101',owner:1}];
  const prepared=require('../game/play/expedition-combat').prepareBattle(units,[{uid:-1,heroId:'xuchu',star:5,slot:0}],roster,rules,1,equipment),z=prepared[0],events=[];
- a.equal(z.hp,5381);a.equal(z.attack,359);a.equal(z.armor,10);a.equal(z.magicArmor,20);
+ a.equal(z.hp,5381);a.equal(z.attack,239);a.equal(z.armor,10);a.equal(z.magicArmor,20);
  require('../game/play/hero-skills').initialize(prepared,events);a(events.some(e=>e.target===1&&e.skillId==='12093'));a(z.skills.some(s=>s.id==='12094'));
 });
 test('播放中速度可循环切换，切换前时间按旧速度累计，结束后不修改',()=>{

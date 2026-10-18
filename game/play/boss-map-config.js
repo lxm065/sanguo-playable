@@ -1,6 +1,6 @@
 'use strict';
 /** 地图表现配置独立于战斗数值；每位武将分别提供招募和已收录挑战台词。 */
-module.exports={scale:1.25,heroY:0,nameY:165,font:28,nameColor:'#FFE19A',outline:'#3B2518',bubbleX:-207,bubbleY:107,bubbleWidth:230,bubbleHeight:133,bubbleFont:28,fill:'#ECD4A8',border:'#B27A3C',ink:'#4B311A',floatY:5,floatSeconds:1.1,popSeconds:.35,
+module.exports={heroX:0,scale:1.25,heroY:0,nameY:165,font:28,nameColor:'#FFE19A',outline:'#3B2518',bubbleX:-207,bubbleY:107,bubbleWidth:230,bubbleHeight:133,bubbleFont:28,fill:'#ECD4A8',border:'#B27A3C',ink:'#4B311A',floatY:5,floatSeconds:1.1,popSeconds:.35,
  dialogue:{
   zhaoyun:{join:['常山赵子龙在此！\n胜过这杆银枪，\n便与你并肩！','欲请子龙同行，\n先让我见识\n你的胆略！'],challenge:['银枪照胆，\n再战一场！','纵有千军万马，\n子龙亦往！']},
   zhangfei:{join:['燕人张翼德！\n赢了俺，\n俺就跟你走！','敢接俺三招？\n打赢这场，\n俺认你这朋友！'],challenge:['蛇矛可不认人！\n放马过来！','上回还没尽兴！\n再战三百回合！']},

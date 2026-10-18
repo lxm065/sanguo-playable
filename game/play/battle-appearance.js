@@ -36,6 +36,8 @@ module.exports = {
   sourceDirectionOffsets: { zhaoyun: 4 },
   // 正背面过窄的持弓姿态改用现有斜向动作，位移与投射物仍使用真实目标坐标。
   sourceDirectionOverrides: { taishici: { n: 'ne', s: 'se' } },
+  // 待机节奏按武将配置，两套赵云外观共用，不影响攻击与技能时序。
+  idleSpeed: { zhaoyun: 0.55 },
   attackContact: 0.5,
   fallback: {
     width: 80,

@@ -5,7 +5,7 @@ const catalog=require('../game/play/equipment-catalog'),upgrade=require('../game
 /** 独立内存存档，不接触当前开发工具中的玩家数据。 */
 function fixture(saved=null){let stored=saved,fail=false;const storage={read:()=>stored,write:s=>{if(fail)throw Error('写入失败');stored=structuredClone(s);}};const model=new Expedition(rules,roster,storage);attach(model,roster);return {model,saved:()=>structuredClone(stored),fail:()=>{fail=true;}};}
 /** 准备可消费材料，通过模型事务保留存档验证。 */
-function fund(model,id){model.transact(()=>{model.state.meta.cleared=60;model.state.meta.diamonds=100000;model.state.meta.inventory[id]=10000;});}
+function fund(model,id){model.transact(()=>{model.state.meta.cleared=60;model.state.meta.diamonds=100000;model.state.meta.inventory[id]=10000;model.state.meta.equipmentUpgradeUnlocked=[...(model.state.meta.equipmentUpgradeUnlocked||[]),id];});}
 test('完整38件按14/10/14分组，13开放25待开放；查询不改存档',()=>{
  const {model:m}=fixture(),before=JSON.stringify(m.state),groups=catalog.groups(m.state),items=groups.flatMap(g=>g.items);
  a.deepEqual(groups.map(g=>g.items.length),[14,10,14]);a.equal(items.filter(e=>e.active).length,38);a.equal(new Set(items.map(e=>e.id)).size,38);a.equal(new Set(items.map(e=>e.name)).size,38);
@@ -20,8 +20,8 @@ test('13件逐阶扣费至10阶并可恢复，过期双击与满阶拒绝',()=>{
 });
 test('不足、章节未通、未开放、待结算和写盘失败均不吞材料',()=>{
  const f=fixture(),m=f.model;m.state.meta.cleared=1;
- for(const [id,pattern]of [['7201',/3/],['7202',/碎片/],['7003',/3/]]){const before=JSON.stringify(m.state);a.throws(()=>upgrade.upgrade(m,id,0),pattern);a.equal(JSON.stringify(m.state),before);}
- m.transact(()=>{m.state.meta.inventory['7202']=5;});a.throws(()=>upgrade.upgrade(m,'7202',0),/钻石/);
+ for(const [id,pattern]of [['7201',/46/],['7202',/视频/],['7003',/9/]]){const before=JSON.stringify(m.state);a.throws(()=>upgrade.upgrade(m,id,0),pattern);a.equal(JSON.stringify(m.state),before);}
+ m.transact(()=>{m.state.meta.inventory['7202']=5;m.state.meta.equipmentUpgradeUnlocked=['7202'];});a.throws(()=>upgrade.upgrade(m,'7202',0),/钻石/);
  fund(m,'7202');m.deploy(m.state.units[0].uid,0);m.fight(true);const pending=JSON.stringify(m.state);a.throws(()=>upgrade.upgrade(m,'7202',0),/结算/);a.equal(JSON.stringify(m.state),pending);m.claim();
  const before=JSON.stringify(m.state),saved=f.saved();f.fail();a.throws(()=>upgrade.upgrade(m,'7202',0),/写入失败/);a.equal(JSON.stringify(m.state),before);a.deepEqual(f.saved(),saved);
 });

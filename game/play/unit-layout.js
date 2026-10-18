@@ -6,6 +6,8 @@ const centers = require('./body-center-config');
 function bodyHeightRatio(heroId,direction){return config.directionBodyHeightRatios?.[heroId]?.[appearance.mirrored[direction]||direction]??config.bodyHeightRatios[heroId]??1;}
 /** 用待机可见边界计算人物中心和头顶信息位置，避免脚底锚点占据格子中心。 */
 function unitLayout(manifest, facing, scale, centered = true, heroId = "") {
+  // 战场局部缩放同步作用于身体居中和头顶信息；地图展示不套用。
+  scale *= centered ? (config.battlefieldScale?.[heroId] ?? 1) : 1;
   const direction = appearance.mirrored[facing] || facing;
   const sourceHeight =
     manifest?.anchors?.[direction]?.height * manifest?.scale ||

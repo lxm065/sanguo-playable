@@ -26,7 +26,7 @@ module.exports = {
   ui: {tickMs:250,replayTickMs:40,boardY:[-135,-25,85,195,305,415],boardX:108,
     modelScale:1.05,choiceScale:.88,dragThreshold:14,recommendationCount:3,recommendationColor:'#66E58B70',recommendationBestColor:'#F5D86B99',
     readyY:220,choiceY:-350,footerY:-488,footerHeight:300,slotHitHeight:100,
-    choiceNameY:-41,choiceUpgradeY:104,choiceTitleY:-218,bondY:-473,equipmentY:-563,equipmentHeight:88,
+    replayInspection:{bondY:-385,equipmentY:-465},choiceNameY:-41,choiceUpgradeY:104,choiceTitleY:-218,bondY:-473,equipmentY:-563,equipmentHeight:88,
     equipmentPageSize:8,choiceStartX:-268,choiceGap:136,choiceWidth:128,choiceHeight:212,choiceHitY:31,equipmentIconSize:66,equippedIconSize:22,equippedIconGap:25,equippedIconY:30,equipmentRecommendationY:-65,rewardWidth:640,rewardHeight:450,
     deckColumns:5,deckCell:124,deckRow:142,deckTop:330,
     colors:['#70C46B','#69A6E9','#CB82EC','#F5AC4A'],

@@ -15,16 +15,26 @@ function combatants(units,side,roster,rules,enemyScale=1){
    nextAction:0,attacks:0,stunnedUntil:0};
  });
 }
-/** 搜索到射程边界的最短空格路径；已占用格子不能穿越或重叠。 */
-function nextStep(actor,target,units,rules){
- const occupied=new Set(units.filter(u=>u.hp>0&&u!==actor).map(u=>u.x+','+u.y));
- const queue=[{x:actor.x,y:actor.y,first:null}],seen=new Set([actor.x+','+actor.y]);
- while(queue.length){
-  const p=queue.shift();if(p.first&&distance(p,target)<=actor.range)return p.first;
-  const neighbors=[{x:p.x,y:p.y+(actor.side==='ally'?1:-1)},{x:p.x-1,y:p.y},{x:p.x+1,y:p.y},{x:p.x,y:p.y+(actor.side==='ally'?-1:1)}];
-  neighbors.sort((a,b)=>distance(a,target)-distance(b,target));
-  for(const n of neighbors){const key=n.x+','+n.y;if(n.x<0||n.x>=rules.columns||n.y<0||n.y>=rules.rows*2||seen.has(key)||occupied.has(key))continue;seen.add(key);queue.push({...n,first:p.first||n});}
+/** 一次搜索保留可达空格；数字格索引避免逐步创建字符串和移动队列。 */
+function searchPath(actor,target,units,rules){
+ const width=rules.columns,height=rules.rows*2,size=width*height,occupied=new Uint8Array(size),seen=new Uint8Array(size);
+ for(const u of units)if(u.hp>0&&u!==actor)occupied[u.y*width+u.x]=1;
+ const start=actor.y*width+actor.x,queue=[start],first=new Int32Array(size);seen[start]=1;first.fill(-1);
+ for(let head=0;head<queue.length;head++){
+  const index=queue[head],x=index%width,y=Math.floor(index/width);
+  if(first[index]>=0&&Math.abs(x-target.x)+Math.abs(y-target.y)<=actor.range){const step=first[index];return {step:{x:step%width,y:Math.floor(step/width)},cells:queue};}
+  const forward=actor.side==='ally'?1:-1,neighbors=[[x,y+forward],[x-1,y],[x+1,y],[x,y-forward]];
+  neighbors.sort((a,b)=>Math.abs(a[0]-target.x)+Math.abs(a[1]-target.y)-Math.abs(b[0]-target.x)-Math.abs(b[1]-target.y));
+  for(const [nx,ny] of neighbors){if(nx<0||nx>=width||ny<0||ny>=height)continue;const n=ny*width+nx;if(seen[n]||occupied[n])continue;seen[n]=1;first[n]=first[index]<0?n:first[index];queue.push(n);}
  }
+ return {step:null,cells:queue};
+}
+/** 搜索到射程边界的最短空格路径，不允许穿过存活单位。 */
+function nextStep(actor,target,units,rules){return searchPath(actor,target,units,rules).step;}
+/** 首选不可达时复用可达区域筛选目标，最多再为一个可达目标搜索路径。 */
+function approachStep(actor,target,targets,units,rules,locked=false){
+ const result=searchPath(actor,target,units,rules);if(result.step||locked||!require('./targeting-config').fallbackWhenBlocked)return result.step;
+ for(const candidate of targets){if(candidate===target)continue;if(result.cells.some(index=>Math.abs(index%rules.columns-candidate.x)+Math.abs(Math.floor(index/rules.columns)-candidate.y)<=actor.range))return nextStep(actor,candidate,units,rules);}
  return null;
 }
 /** 按固定时步计算移动、攻击前摇、技能与死亡，输出有序的表现事件。 */
@@ -46,7 +56,7 @@ function simulate(allies,enemies,roster,rules,seed,enemyScale){
    if(actor.hp<=0||actor.nextAction>t||actor.stunnedUntil>t)continue;
    const targets=units.filter(u=>u.side!==actor.side&&u.hp>0).sort((a,b)=>distance(actor,a)-distance(actor,b)||a.hp-b.hp||a.uid-b.uid);
    const target=targets[0];
-   if(distance(actor,target)>actor.range){const next=nextStep(actor,target,units,rules);if(next){actor.x=next.x;actor.y=next.y;events.push({type:'move',t,uid:actor.uid,x:next.x,y:next.y,duration:rules.moveSeconds});}actor.nextAction=t+rules.moveSeconds;continue;}
+   if(distance(actor,target)>actor.range){const next=approachStep(actor,target,targets,units,rules);if(next){actor.x=next.x;actor.y=next.y;events.push({type:'move',t,uid:actor.uid,x:next.x,y:next.y,duration:rules.moveSeconds});}actor.nextAction=t+rules.moveSeconds;continue;}
    actor.attacks++;const skill=actor.attacks%actor.skillEvery===0;actor.nextAction=t+actor.interval;
    events.push({type:'attack',t,uid:actor.uid,target:target.uid,skill,skillName:skill?actor.skillName:'',ranged:actor.range>1});
    const affected=skill&&actor.skill==='cleave'?targets.filter(u=>distance(u,target)<=1):[target];
@@ -58,4 +68,4 @@ function simulate(allies,enemies,roster,rules,seed,enemyScale){
  }
  return {initial,events,result,duration:elapsed,final:units.map(u=>({uid:u.uid,hp:u.hp,x:u.x,y:u.y}))};
 }
-module.exports={random,simulate,distance,combatants,nextStep};
+module.exports={random,simulate,distance,combatants,nextStep,approachStep};

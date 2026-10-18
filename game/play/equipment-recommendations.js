@@ -4,6 +4,7 @@ const config=require('./equipment-recommendation-config');
 function heroIds(id,roster=require('./expedition-roster')) {
  const entry=config.items[id],rule=entry&&config.profiles[entry.profile];
  if(!rule)return [];
- return roster.filter(h=>!h.legacy&&(!rule.roles||rule.roles.includes(h.role))&&(rule.magic===undefined||require('./hero-damage').accepts(h,rule.magic))&&(rule.maxRange===undefined||h.range<=rule.maxRange)).map(h=>h.id);
+ const owners=require('./equipment-exclusive-config').weapons[id];
+ return roster.filter(h=>!h.legacy&&(!owners||owners.includes(h.id))&&(!rule.roles||rule.roles.includes(h.role))&&(rule.magic===undefined||require('./hero-damage').accepts(h,rule.magic))&&(rule.maxRange===undefined||h.range<=rule.maxRange)).map(h=>h.id);
 }
 module.exports={heroIds};

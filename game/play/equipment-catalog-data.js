@@ -79,9 +79,9 @@ module.exports=[
   },
   {
     "id": "7005",
-    "name": "雌雄双股剑",
-    "shape": "dual",
-    "flavor": "双剑并举，与同袍共济乱世。",
+    "name": "丈八蛇矛",
+    "shape": "spear",
+    "flavor": "张飞专属兵器，蛇矛横扫，勇震长坂。",
     "category": "physical",
     "quality": 2,
     "unlock": {
@@ -118,7 +118,7 @@ module.exports=[
   },
   {
     "id": "7007",
-    "name": "饕餮战戟",
+    "name": "虎头湛金枪",
     "shape": "halberd",
     "flavor": "戟锋饮血，百战不息。",
     "category": "physical",
@@ -196,9 +196,9 @@ module.exports=[
   },
   {
     "id": "7101",
-    "name": "离魂羽扇",
+    "name": "洛神惊鸿扇",
     "shape": "fan",
-    "flavor": "羽扇轻摇，先夺敌志。",
+    "flavor": "翩若惊鸿，一顾倾心。",
     "category": "magic",
     "quality": 2,
     "unlock": {

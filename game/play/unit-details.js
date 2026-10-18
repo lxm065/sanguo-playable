@@ -2,6 +2,10 @@
 const { stats } = require("./expedition-stats"),
   { prepareBattle } = require("./expedition-combat"),
   layout = require("./battle-hud-config").detail;
+const preparedCache=new WeakMap();
+/** 备战属性按事务版本缓存；穿装、合成、布阵或培养变化后自动重算。 */
+function prepared(model,previewEnemies){const previous=preparedCache.get(model),revision=model.revision||0;if(previous?.state===model.state&&previous.revision===revision)return previous;
+ const enemies=previewEnemies||model.enemies(),r={...model.rules,playerVip:require('./vip').perks(model),playerTalentTree:require('./talent-tree').state(model).levels,playerBonds:require('./bond-activation').state(model),playerEquipmentGrades:model.state.meta?.equipmentGrades},scale=require('./chapter-difficulty').scale(model.state,r),values=prepareBattle(model.state.units.filter(u=>u.slot>=0),enemies,model.roster,r,scale,model.state.expedition.equipment),result={state:model.state,revision,enemies,values};preparedCache.set(model,result);return result;}
 /** 中英文按显示宽度分行，保留全部技能说明且不缩字、不翻页。 */
 function wrapDescription(
   text,
@@ -31,22 +35,13 @@ function skillRows(skills) {
 /** 敌我属性读取同一战斗准备快照，敌方缩放与羁绊减防不另写一套公式。 */
 function unitDetails(model, id, uid, snapshot = null) {
   const own = model.state.units.find((u) => u.uid === uid),
-    enemy = !own && model.enemies().find((u) => u.uid === uid),
+    enemy = !own && !snapshot && prepared(model).enemies.find((u) => u.uid === uid),
     hero = model.roster.find((h) => h.id === id),
-    unit = own ||
+    unit = own || snapshot ||
       enemy || { uid: 0, heroId: id, star: hero.tier || 1, slot: -1 };
   let value = snapshot;
   if (!value && unit.slot >= 0) {
-    const r = {...model.rules,playerVip:require("./vip").perks(model),playerTalentTree:require("./talent-tree").state(model).levels,playerBonds:require("./bond-activation").state(model),playerEquipmentGrades:model.state.meta?.equipmentGrades},
-      scale = require('./chapter-difficulty').scale(model.state,r);
-    value = prepareBattle(
-      model.state.units.filter((u) => u.slot >= 0),
-      model.enemies(),
-      model.roster,
-      r,
-      scale,
-      model.state.expedition.equipment,
-    ).find((u) => u.uid === unit.uid);
+    value = prepared(model).values.find((u) => u.uid === unit.uid);
   }
   if (!value)
     value = stats(
@@ -163,7 +158,8 @@ function showUnitDetails(view, id, uid = null, snapshot = null) {
       y,
       c.equipmentSize,
       c.equipmentSize,
-      "#332D25AA",
+      item?require("./equipment-icon").color(item.id):"#332D25AA",
+      !item,
     );
     if(!item&&!data.enemy&&view.equipmentPanel&&!view.playing&&!view.model.state.pending){const slot=m.getChildByName('property-equipment-'+i);slot.on(view.cc.Node.EventType.TOUCH_END,event=>{event.propagationStopped=true;view.equipmentPanel(uid);});}
     if (item) {
@@ -172,7 +168,7 @@ function showUnitDetails(view, id, uid = null, snapshot = null) {
         "equipment/" + item.id + ".png",
         c.equipmentX,
         y,
-        c.equipmentSize - 7,
+        c.equipmentSize - require("./equipment-icon-config").border*2,
         c.equipmentSize - 7,
       );
       icon.on(view.cc.Node.EventType.TOUCH_END, (event) => {
@@ -192,4 +188,4 @@ function showUnitDetails(view, id, uid = null, snapshot = null) {
   });
   return data;
 }
-module.exports = { wrapDescription, skillRows, unitDetails, showUnitDetails };
+module.exports = { prepared, wrapDescription, skillRows, unitDetails, showUnitDetails };

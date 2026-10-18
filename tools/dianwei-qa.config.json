@@ -1,0 +1,20 @@
+{
+  "output": "evidence/dianwei-1.0.186",
+  "fps": 4,
+  "captureFrames": 6,
+  "speed": 0.15,
+  "team": [
+    "dianwei"
+  ],
+  "enemies": [
+    "xuchu",
+    "guanyu"
+  ],
+  "slots": [
+    2,
+    12,
+    16
+  ],
+  "star": 1,
+  "ffmpeg": "D:/AI/vits/ffmpeg-master-latest-win64-gpl/bin/ffmpeg.exe"
+}

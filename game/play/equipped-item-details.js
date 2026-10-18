@@ -3,7 +3,7 @@
 function showEquippedItem(view,parent,item,refresh,readOnly=false){
  const book={host:view,ui:view.ui,cc:view.cc,modal:parent};
  return require('./equipment-catalog-view').show(book,item.id,'detail','',0,{
-  equipped:true,readOnly,
+  equipped:true,readOnly:readOnly||!!view.playing||!!view.model.state.pending,
   /** 卸下后刷新武将详情；失败由原页面提示，不能绕过战斗结算锁。 */
   onUnequip(){try{if(require("./equipment-refresh").equip(view,item.uid,null)){parent.getChildByName("equipment-detail-overlay")?.destroy();refresh();}}catch(error){view.notice('无法卸下',error.message);}},
  });

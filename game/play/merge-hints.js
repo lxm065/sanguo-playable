@@ -1,7 +1,7 @@
 "use strict";
 const c=require('./combat-feedback-config').merge;
 /** 场上与备战席共同统计同身份同阶单位，满阶不再提示。 */
-function eligible(model){const groups=new Map();for(const u of model.state.units){const k=u.heroId+':'+u.star;groups.set(k,(groups.get(k)||0)+1);}return new Set(model.state.units.filter(u=>u.star<model.maxRank()&&groups.get(u.heroId+':'+u.star)>=model.rules.mergeCount).map(u=>u.uid));}
+function eligible(model){const groups=new Map(),maxRank=model.maxRank();for(const u of model.state.units){const k=u.heroId+':'+u.star;groups.set(k,(groups.get(k)||0)+1);}return new Set(model.state.units.filter(u=>u.star<maxRank&&groups.get(u.heroId+':'+u.star)>=model.rules.mergeCount).map(u=>u.uid));}
 /** 页面切换、开始战斗和重绘时释放所有提示动画。 */
 function clear(v,ids=null){const keep=[];for(const x of v.mergeHints||[]){if(ids&&!ids.has(x.uid)){keep.push(x);continue;}for(const target of x.targets)v.cc.Tween.stopAllByTarget(target);if(x.node.isValid)x.node.destroy();}v.mergeHints=keep;}
 /** 高亮框、跳动箭头和可合成文字同时标记可点击单位，不拦截触摸。 */

@@ -59,6 +59,7 @@ function show(book,id,mode='detail',message='',scroll=0,options={}){
  const fragmentBar=require('./fragment-progress').draw(book,card,item,l.progressY,progress);
  if(require('./equipment-ad').eligible(host.model,id)){require('./notification-view').badge(host,fragmentBar,'fragment-ad-'+id,135,16,()=>require('./equipment-ad').eligible(host.model,id));fragmentBar.on(cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;require('./equipment-ad-view').offer(book,id);});}
  const rows=mode==='upgrade'?[{text:config.text.upgradeTitle+' · '+item.grade+'/'+item.upgrades.length},...item.upgrades.map((text,i)=>({text:(i<item.grade?'已激活 · ':'第'+(i+1)+'阶 · ')+text,color:i<item.grade?l.active:l.ink})),{text:config.text.rule,color:l.muted}]:[
+  ...(item.weaponOwner?[{text:item.weaponOwner+'专属武器',color:l.active}]:[]),
   {text:item.attributes.join('\n')},
   ...item.effects.map(text=>({text:'◇ '+text})),
   ...(item.exclusive?[{text:item.exclusive.description+(item.exclusive.implemented?'':'（待实现）'),color:item.exclusive.implemented?l.active:l.muted}]:[]),
@@ -70,7 +71,7 @@ function show(book,id,mode='detail',message='',scroll=0,options={}){
 
  const content=body(book,card,rows,scroll);
  if(mode==='upgrade'){
-  if(!item.max&&(host.model.state.meta.cleared||0)<item.requiredChapter){}
+  if(!item.max&&item.activationLocked){}
   else if(!item.max&&item.needsUnlock)u.button(card,'▶ 解锁进阶',0,l.buttonY,320,()=>{const ticket=host.model.adTicket();host.ad(()=>require('./equipment-unlock').unlock(host.model,id,ticket),()=>require('./equipment-ad-view').reopen(host,id));},l.ready,60);
   else if(!item.max)u.button(card,require('./equipment-ad').required(item)?'▶ 视频进阶':'进阶',0,l.buttonY,320,()=>{
    if(require('./equipment-ad').eligible(host.model,id)){require('./equipment-ad-view').offer(book,id);return;}

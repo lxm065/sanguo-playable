@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test'),assert=require('node:assert/strict'),{Expedition}=require('../game/play/expedition'),{attach}=require('../game/play/classic-hooks'),roster=require('../game/play/expedition-roster'),rules={...require('../game/play/config'),maxStar:5,startingRoster:require('../game/play/expedition-config').initialRoster};
 /** 独立内存局可模拟持久化失败，不接触玩家存档。 */
-function fixture(saved=null){let fail=false;const m=new Expedition(rules,roster,{read:()=>saved,write:()=>{if(fail)throw Error('写盘失败');}});attach(m,roster);return {m,fail:()=>fail=true};}
+function fixture(saved=null){let fail=false;const m=new Expedition(rules,roster,{read:()=>saved,write:()=>{if(fail)throw Error('写盘失败');}});attach(m,roster);require('./route-test-fixture.cjs').legacy(m.progression);return {m,fail:()=>fail=true};}
 /** 经真实战果领取链模拟通关，胜负计算单独替换。 */
 function boss(m,chapter,section){m.deploy(m.state.units[0].uid,0);m.transact(()=>Object.assign(m.state.meta,{chapter,section,layer:17,lane:1}));m.progression.enter('17-1');m.simulator=()=>({result:'win',events:[],initial:[],final:[],duration:1});m.fight();m.claim(0);}
 test('新局三名同兵种都在备战席，合成后仍需手动上阵，重载不改变已有站位',()=>{const {m}=fixture();assert.equal(m.state.units.length,3);assert.equal(new Set(m.state.units.map(u=>u.heroId)).size,1);assert(m.state.units.every(u=>u.slot===-1));m.progression.enter('0-1');assert.throws(()=>m.fight(),/上阵/);m.merge(1);assert.equal(m.state.units[0].star,2);assert.equal(m.state.units[0].slot,-1);m.deploy(1,4);assert.equal(fixture(JSON.parse(JSON.stringify(m.state))).m.state.units[0].slot,4);});

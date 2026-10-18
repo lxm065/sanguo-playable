@@ -37,12 +37,12 @@
   },
   {
     "id": "7005",
-    "name": "雌雄双股剑",
-    "shape": "dual",
-    "source": "source-assets/equipment-art/7005.png",
-    "kind": "user-supplied",
+    "name": "丈八蛇矛",
+    "shape": "spear",
+    "source": "source-assets/equipment-art/7005-zhangba.png",
+    "kind": "ai-generated",
     "output": "game/skin-assets/equipment/7005.png",
-    "sha256": "205a8d142c7b4784a0825155da87aab9d47327ec133aed78c39aed63736bbbda"
+    "sha256": "8816031083c533750bd17eb68954722c1ecb3ea1a21fad49cd1369a42f33e9dc"
   },
   {
     "id": "7006",
@@ -55,12 +55,12 @@
   },
   {
     "id": "7007",
-    "name": "饕餮战戟",
-    "shape": "halberd",
-    "source": "source-assets/equipment-art/7007.png",
-    "kind": "user-supplied",
+    "name": "虎头湛金枪",
+    "shape": "spear",
+    "source": "source-assets/equipment-art/7007-hutou.png",
+    "kind": "ai-generated",
     "output": "game/skin-assets/equipment/7007.png",
-    "sha256": "26284d7ea54956faa02213a5bda7d3054c890e6717df288f1de1da00a34fb525"
+    "sha256": "fde08acffa7839e18c633040a76710070861a5fc8e2bdd43921e4be727b0a18c"
   },
   {
     "id": "7008",
@@ -91,12 +91,12 @@
   },
   {
     "id": "7101",
-    "name": "离魂羽扇",
+    "name": "洛神惊鸿扇",
     "shape": "fan",
-    "source": "source-assets/equipment-art/7101.png",
-    "kind": "user-supplied",
+    "source": "source-assets/equipment-art/7101-luoshen.png",
+    "kind": "ai-generated",
     "output": "game/skin-assets/equipment/7101.png",
-    "sha256": "e19bd5c1429a4254eef551a131634352e0ae70c6f5d2a76cb968abe699500048"
+    "sha256": "5fdd1316cddb22ffbfa5e187651d874dd1843933b64f2d266c1139e7e83a9882"
   },
   {
     "id": "7102",

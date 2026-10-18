@@ -1,0 +1,5 @@
+'use strict';
+const test=require('node:test'),a=require('node:assert/strict'),rules=require('../game/play/config'),roster=require('../game/play/expedition-roster'),opening=require('../game/play/enemy-opening'),{Expedition}=require('../game/play/expedition');
+/** 构建库存与人口均足够的单英雄阵容，让总等级边界不依赖配装或羁绊搜索。 */
+function state(stars){const m=new Expedition(rules,roster,{read:()=>null,write(){}});require('../game/play/classic-hooks').attach(m,roster);m.state.expedition.level=10;m.state.units=stars.map((star,i)=>({uid:i+1,heroId:'xuchu',star,slot:-1}));return m.state;}
+test('保护期至少少一个总等级，优先降低最高级，全一级减员，单个一级为最小可战斗例外',()=>{for(const [own,enemy]of [[[3,2,1],[2,2,1]],[[3,1,1],[2,1,1]],[[2,2,1],[2,1,1]],[[1,1,1],[1,1]],[[2],[1]],[[1],[1]],[[],[]]]){a.deepEqual(opening.ceiling(state(own),rules).levels,enemy);}for(let n=1;n<=8;n++)for(let top=1;top<=5;top++){const own=Array.from({length:n},(_,i)=>Math.max(1,top-i%3)),enemy=opening.ceiling(state(own),rules).levels,sorted=own.sort((a,b)=>b-a);a(enemy.length<=own.length);a(enemy.every((v,i)=>v>=1&&v<=sorted[i]));const sum=own.reduce((x,y)=>x+y,0),enemySum=enemy.reduce((x,y)=>x+y,0);a.equal(enemySum,Math.max(1,sum-1));}});

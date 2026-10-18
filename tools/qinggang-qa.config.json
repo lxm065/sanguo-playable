@@ -1,0 +1,21 @@
+{
+  "output": "evidence/qinggang-1.0.164",
+  "fps": 3,
+  "captureFrames": 12,
+  "speed": 0.2,
+  "team": [
+    "zhaoyun"
+  ],
+  "enemies": [
+    "xuchu",
+    "guanyu",
+    "zhenji"
+  ],
+  "slots": [
+    2,
+    12,
+    16
+  ],
+  "star": 1,
+  "ffmpeg": "D:/AI/vits/ffmpeg-master-latest-win64-gpl/bin/ffmpeg.exe"
+}

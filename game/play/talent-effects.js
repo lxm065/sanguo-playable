@@ -31,7 +31,7 @@ function evade(a,rng,t,heal){if(!a.treeDodge||rng()>=a.treeDodge)return false;on
 function onEvade(a,t,heal){if(a.talentClass===1)heal(a,a.maxHp*value(a,2007,3),t);}
 /** 命中钩子负责反伤、叠层、吸血和攻击控制；不递归触发天赋反伤。 */
 function hit(a,u,amount,t,skill,critical,reflect,rng,heal,deal){
- if(reflect&&u.talentClass===0){stack(u,'strength',value(u,1015),c.strengthSeconds,t);const ratio=value(u,1007,3);if(ratio&&a.hp>0)deal(u,a,amount*ratio,t,false,false,false);}
+ if(reflect&&u.talentClass===0){stack(u,'strength',value(u,1015),c.strengthSeconds,t);const ratio=value(u,1007,3);if(ratio&&a.hp>0)deal(u,a,amount*ratio,t,false,false,false,null,null,null,true);}
  if(a.talentClass===2)heal(a,amount*value(a,3009,4),t);
  if(reflect&&a.talentClass===1&&critical)stack(a,'agility',value(a,2015),c.agilitySeconds,t);
  if(!reflect||skill)return;

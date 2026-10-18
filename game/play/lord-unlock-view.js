@@ -1,0 +1,9 @@
+'use strict';
+const service=require('./lord-unlock'),c=require('./lord-unlock-config');
+/** 未招募主公显示视频次数；完成回调重绘后由持久提示展示获得卡牌。 */
+function entry(v,p,id){if(!c.entries[id]||!service.ready(v.progress,id)||service.unlocked(v.progress,id))return false;const s=c.view;const button=v.ui.button(p,c.view.recruit+'\n('+service.count(v.progress,id)+'/'+c.entries[id].videos+')',0,s.buttonY,s.buttonWidth,()=>{const token=service.ticket(v.progress,id);v.ad(()=>service.recruit(v.progress,id,token));},'#B78416',s.buttonHeight);require('./notification-view').badge(v,button,'lord-recruit',s.badgeX,s.badgeY,()=>true);return true;}
+/** 获得卡牌的确认和空白关闭共用持久确认，面板内点击不穿透。 */
+function show(v){const id=v.progress.state.lordRecruitNotice;if(!id||!service.unlocked(v.progress,id))return;const s=c.view,lord=v.progress.lord(id),m=v.overlay(),p=v.paper(m,'lord-acquired',0,0,s.width,s.height);p.addComponent(v.cc.BlockInputEvents);require('./paper-title').draw(v,p,s.title,s.width,s.height);v.ui.image(p,lord.portrait,0,s.portraitY,s.portraitWidth,s.portraitHeight);v.ui.image(p,'classic/lord-frame.png',0,s.portraitY,s.frameWidth,s.frameHeight);v.ui.text(p,lord.name,0,s.nameY,s.font,'#674322',s.width-60,50);const close=()=>v.act(()=>v.model.transact(()=>{if(v.progress.state.lordRecruitNotice===id)v.progress.state.lordRecruitNotice=null;}));require('./benefit-ui').button(v,p,'确定',0,s.confirmY,s.confirmWidth,close);v.ui.text(m,'点击空白处关闭',0,-s.height/2-35,27,'#FFFFFF',s.width,44);m.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;if(e.target===m)close();});}
+/** 已开放招募的头像保留红点，观看一次后仍提示剩余次数。 */
+function badge(v,parent,id){if(c.entries[id]&&service.ready(v.progress,id)&&!service.unlocked(v.progress,id))require('./notification-view').badge(v,parent,'lord-recruit',c.view.avatarBadgeX,c.view.avatarBadgeY,()=>true);}
+module.exports={entry,show,badge};

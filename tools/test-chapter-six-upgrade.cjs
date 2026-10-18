@@ -1,0 +1,5 @@
+const test=require('node:test'),assert=require('node:assert/strict'),catalog=require('../game/play/equipment-catalog'),upgrades=require('../game/play/equipment-upgrades'),preview=require('../game/play/chapter-unlock-view');
+/** 覆盖章节边界及旧档解锁标记，实际消费必须服从永久章节门槛。 */
+test('七星杖首次章节门槛为6章，已进阶和已激活资格保留',()=>{for(const grade of [0,1,3]){const state={meta:{cleared:5,inventory:{7103:0},diamonds:999999,equipmentGrades:{7103:grade}}};assert.equal(catalog.query('7103',state).requiredChapter,6);assert.equal(catalog.query('7103',state).activationLocked,grade===0);state.meta.cleared=6;assert.equal(catalog.query('7103',state).needsUnlock,grade===0);state.meta.equipmentUpgradeUnlocked=['7103'];state.meta.inventory['7103']=100;assert.equal(catalog.query('7103',state).canUpgrade,true);}});
+/** 预告跟随永久通关，回玩与当前章节字段不能提前解锁。 */
+test('通关第五章展示第六章预告，通关第六章后移除',()=>{assert.equal(preview.current({progress:{state:{cleared:5}}}).id,'7103');assert.equal(preview.current({progress:{state:{cleared:6}}}),undefined);assert.equal(preview.current({progress:{state:{cleared:2}}}).id,'7208');});

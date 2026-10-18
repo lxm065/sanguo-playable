@@ -14,12 +14,12 @@ test('双修装备分别和同时真实增加攻击面板，张角甘宁只获�
   const base=read([]);a.equal(read(['7001'])-base,physical,id);a.equal(read(['7101'])-base,magic,id);a.equal(read(['7001','7101'])-base,physical+magic,id);
  }
  a(recommend('7001').includes('zhaoyun'));a(recommend('7001').includes('ganning'));a(!recommend('7001').includes('zhangjiao'));
- for(const id of ['zhaoyun','zhangliao','zhangjiao'])a(recommend('7101').includes(id));a(!recommend('7101').includes('ganning'));
+ for(const id of ['zhaoyun','zhangliao','zhangjiao'])a(recommend('7113').includes(id));a(!recommend('7113').includes('ganning'));
 });
 /** 使用真实张辽技能和极高生命靶验证抗性分流，不依赖纯函数自证。 */
 function battle(armor,magicArmor){
  const target={...roster.find(h=>h.id==='xuchu'),id:'target',skills:[],hp:100000,attack:1,armor,magicArmor,tiers:null};
- return require('../game/play/expedition-combat').simulate([{uid:1,heroId:'zhangliao',star:3,slot:0}],[{uid:-1,heroId:'target',star:1,slot:0}],[...roster,target],{...rules,criticalChance:0,maxBattleSeconds:20},123,1,[]).events.filter(e=>e.type==='damage'&&e.actor===1);
+ return require('../game/play/expedition-combat').simulate([{uid:1,heroId:'zhangliao',star:3,slot:0}],[{uid:-1,heroId:'target',star:1,slot:0}],[...roster,target],{...rules,criticalChance:0,overtime:{enabled:false},maxBattleSeconds:20},123,1,[]).events.filter(e=>e.type==='damage'&&e.actor===1);
 }
 test('张辽实战普攻吃护甲、技能吃魔抗，两种伤害均实际出现',()=>{
  const plain=battle(0,0),armor=battle(1000,0),resist=battle(0,1000);

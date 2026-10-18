@@ -191,6 +191,7 @@ class Expedition extends Campaign {
           throw Error("定向目标已失效");
         this.consumeAd(ticket);
       }
+      const material = {heroId:unit.heroId,star:unit.star};
       const pool = this.pool(unit.star + 1);
       if (mode === "random") {
         const rng = random(this.state.seed++);
@@ -206,6 +207,7 @@ class Expedition extends Campaign {
       this.state.units = this.state.units.filter(
         (u) => u === unit || !group.includes(u),
       );
+      require("./sunquan-skill").merge(this,material);
       if(this.state.expedition.talentReserve?.length)require("./talent-economy").deliver(this);
       return uid;
     });
@@ -235,8 +237,8 @@ class Expedition extends Campaign {
     const cached=require("./enemy-budget").cached(this.state);if(cached)return require('./enemy-stage').apply(cached,this.state,this.rules,this.roster,true);
     const configured = this.hooks?.enemies?.();
     const type=this.progression?.nodes().find(n=>n.id===this.state.meta?.activeNode)?.type||'battle';
-    const difficulty=require('./chapter-difficulty');
-    const prepare=units=>require('./enemy-stage').apply(require('./tutorial-enemy').apply(require('./enemy-budget').decorate(require('./enemy-equipment').equip(require('./enemy-formation').arrange(units.map(u=>({...u,star:Math.max(u.star,difficulty.minimum(this.state))})),this.roster,this.rules),difficulty.equipmentState(this.state),this.roster,type),this.state,this.rules,this.roster),this.state),this.state,this.rules,this.roster);
+    const difficulty=require('./chapter-difficulty'),minimum=difficulty.minimum(this.state);
+    const prepare=units=>require('./enemy-stage').apply(require('./tutorial-enemy').apply(require('./enemy-budget').decorate(require('./enemy-equipment').equip(require('./enemy-formation').arrange(units.map(u=>({...u,star:Math.max(u.star,minimum)})),this.roster,this.rules),difficulty.equipmentState(this.state),this.roster,type),this.state,this.rules,this.roster),this.state),this.state,this.rules,this.roster);
     if (configured) return prepare(type==='boss'?difficulty.reinforce(this.state,this.rules,configured):configured);
     const r = this.rules,
       rng = random(this.state.stage * 997),
@@ -256,7 +258,7 @@ class Expedition extends Campaign {
       return {
         uid: -i - 1,
         heroId: h.id,
-        star: difficulty.star(this.state,h),
+        star: Math.max(h.tier,minimum),
         slot: r.enemyColumns[i % r.enemyColumns.length],
       };
     }));
@@ -283,7 +285,7 @@ class Expedition extends Campaign {
       p.refreshes = 0;
       p.experience =
         !training && battle.result === "win"
-          ? require("./level-progression").reward(this.state.meta?.chapter,node?.type)
+          ? require("./level-progression").reward(this.state.meta?.chapter,node?.type,this.state.meta?.section)
           : 0;
       if (p.rewardKind === "equipment") {
         p.choices = [];

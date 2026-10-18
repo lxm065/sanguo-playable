@@ -50,11 +50,19 @@ function stats(
     healInterval: 0,
     interval: hero.interval,
   };
-  const team = units.map((u) => u.uid);
+  const evaluation=require('./stat-evaluation-cache').get(rules);
+  let shared=evaluation?.teams.get(units);
+  if(!shared){shared={team:units.map(u=>u.uid),bonds:bonds(units,roster,rules.playerBonds)};evaluation?.teams.set(units,shared);}
+  const team=shared.team;
   for (const item of equipment) {
+    const cacheKey=item.id+':'+(item.potency??'default');
+    let e=evaluation?.equipment.get(cacheKey);
+    if(!e){
     const definition = policy.equipment.find((v) => v.id === item.id);
     const resolved = definition && require("./equipment-upgrades").resolve(definition,rules.playerEquipmentGrades);
-    const e=resolved&&require("./enemy-budget").equipment(resolved,item);
+    e=resolved&&require("./enemy-budget").equipment(resolved,item);
+    if(e)evaluation?.equipment.set(cacheKey,e);
+    }
     if (!e) continue;
     if (team.includes(item.owner)) {
       result.armor += e.teamArmor || 0;
@@ -83,9 +91,10 @@ function stats(
         result[k] += e[k] || 0;
     }
   }
-  for (const b of bonds(units, roster,rules.playerBonds)) {
+  for (const b of shared.bonds) {
     if (!b.level) continue;
     const applies = require("./bond-activation").member(b,hero);
+    if(applies&&b.stat)result[b.stat]=(result[b.stat]||0)+b.amount;
     if(applies&&b.id==="dragon")result.bondDodge=b.amount/100;
     if (b.id === "shu") result.regenPercent += b.amount / 100;
     if (applies && b.id === "wei") result.armor += b.amount;

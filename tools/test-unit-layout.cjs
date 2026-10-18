@@ -14,7 +14,7 @@ test("17套模型所有朝向的可见中心对齐格心，头顶信息紧贴人
         const source =
             manifest.anchors[appearance.mirrored[facing] || facing].height *
             manifest.scale,
-          h = c.modelHeight * scale,
+          h = c.modelHeight * scale * (c.battlefieldScale?.[heroId] ?? 1),
           l = unitLayout(manifest, facing, scale, true, heroId);
         assert(
           Math.abs(
@@ -32,3 +32,5 @@ test("阶级与血条不重叠，三件装备在紧凑信息区内并与血条�
   assert(c.equipmentGap >= c.equipmentSize);
   assert(c.equipmentGap + c.equipmentSize / 2 < 50);
 });
+
+test('黄忠战场缩小15%，地图缩放保持独立',()=>{const m=require('../game/skin-assets/battle-huangzhong-manifest.json'),a=unitLayout(m,'s',1,true,'huangzhong'),b=unitLayout(m,'s',1,false,'huangzhong');assert(Math.abs(a.modelScale/b.modelScale-.85)<1e-8);});

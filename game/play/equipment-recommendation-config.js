@@ -59,7 +59,7 @@ module.exports={
     },
     "7005": {
       "profile": "physical",
-      "reason": "物攻攻速及普攻削弱"
+      "reason": "张飞专属蛇矛，物攻攻速及普攻削弱"
     },
     "7006": {
       "profile": "archer",
@@ -67,7 +67,7 @@ module.exports={
     },
     "7007": {
       "profile": "meleePhysical",
-      "reason": "战戟物攻、护甲、生命及物理吸血护盾适合近战持续作战"
+      "reason": "马超专属长枪，物攻、护甲、生命及物理吸血护盾适合近战持续作战"
     },
     "7008": {
       "profile": "archer",
@@ -83,7 +83,7 @@ module.exports={
     },
     "7101": {
       "profile": "magic",
-      "reason": "法攻、攻速与普攻减魔抗"
+      "reason": "甄姬专属羽扇，法攻、攻速与惊鸿魅惑控制"
     },
     "7102": {
       "profile": "magic",

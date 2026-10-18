@@ -34,7 +34,8 @@ function projectile(v, source, target) {
   const a = source.node.position, b = target.node.position;
   native.play(v, p.projectile, v.root, a.x, a.y + config.offsetY, {
     size: p.projectileSize, duration: v.config.attackDelay, angle: direction(source, target),
-    travel: { x: b.x, y: b.y + config.offsetY }, color: p.color
+    travel: { x: b.x, y: b.y + config.offsetY }, color: p.projectileColor ?? p.color,
+    widthRatio: p.projectileWidthRatio ?? 1, heightRatio: p.projectileHeightRatio ?? 1
   });
   return true;
 }

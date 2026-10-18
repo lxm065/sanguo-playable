@@ -1,3 +1,3 @@
 'use strict';
-/** 重玩提示与分页统一配置；跳转继续当前章节，放弃才重开所选章节。 */
-module.exports={firstChapter:1,firstSection:1,firstLayer:0,initialLane:1,title:'新的挑战',intro:'当前有进行中的章节',question:'是否放弃进度',current:'第 {chapter} 章\n{section}/{total}',target:'重新挑战第 {chapter} 章',resume:'跳转',confirm:'放弃',close:'点击空白处关闭',width:600,height:420,introY:110,currentY:15,questionY:-130,targetY:-80,buttonY:-300,buttonX:155,buttonWidth:230,buttonHeight:78,font:29,pager:{x:283,y:423,width:76,height:60,font:30,previous:'‹',next:'›'},rangeTitle:'第{first}—{last}章'};
+/** 重玩提示与分页统一配置；继续按钮保留当前局，开始按钮重开所选章并明确提示局内重置。 */
+module.exports={firstChapter:1,firstSection:1,firstLayer:0,initialLane:1,title:'开始新挑战？',intro:'当前正在挑战',question:'当前局内武将、装备和金币将重置\n永久养成和已解锁章节保留',current:'第{chapter}章 · 第{section}/{total}节',target:'将从第{chapter}章第1节重新开始',resume:'继续当前章节',confirm:'开始第{chapter}章',close:'点击空白处关闭',width:600,height:420,introY:110,currentY:15,questionY:-130,questionFont:22,questionHeight:76,targetY:-65,buttonY:-300,buttonX:155,buttonWidth:230,buttonHeight:78,font:29,pager:{x:283,y:423,width:76,height:60,font:30,previous:'‹',next:'›'},rangeTitle:'第{first}—{last}章'};

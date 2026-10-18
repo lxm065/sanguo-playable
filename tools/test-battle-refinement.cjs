@@ -139,14 +139,14 @@ test("21名武将模型齐全，每套具备五方向完整动作", () => {
   }
 });
 
-test("新局三人上阵后切换低人口主公可正常完成，超额武将回备战席", () => {
+test("新局两人上阵后切换低人口主公可正常完成，超额武将回备战席", () => {
   const m = fixture(),
     lords = require("../game/play/classic-config");
   m.transact(() => {
     m.state.meta.cleared = 60;
     m.state.meta.signs = 20;
   });
-  m.state.units.forEach((u,i)=>m.deploy(u.uid,i));
+  m.state.units.slice(0,m.limit()).forEach((u,i)=>m.deploy(u.uid,i));
   const lord = lords.lords.find((l) => !lords.lordArmyBonus[l.id]);
   m.progression.select(lord.id);
   assert.equal(m.state.units.length, 3);

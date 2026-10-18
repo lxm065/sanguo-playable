@@ -175,7 +175,7 @@
       "chapter": 0,
       "sign": 18,
       "skillName": "制衡 Lv.1",
-      "skillDescription": "单位合成时，有概率返还1个单位。泉水也变得更强了！",
+      "skillDescription": "合成时70%概率返还1个原材料武将；泉水升级时70%概率额外随机升级一次。",
       "source": {
         "id": "1006",
         "hp": "2",

@@ -25,7 +25,8 @@ module.exports = {
     machao: { profile: 'spear', color: '#E8DEBC', size: 86 },
     lvbu: { profile: 'blade', color: '#DFC0AA', size: 118 },
     yanliang: { profile: 'heavy', size: 100 },
-    huangzhong: { profile: 'bow', projectileSize: 114 },
+    // 原箭图集有效箭身仅占约四分之一帧宽，单独补偿留白并加粗轮廓。
+    huangzhong: { profile: 'bow', projectileSize: 184, projectileWidthRatio: 1.35, projectileHeightRatio: 1.8, projectileColor: '#FFFFFF', size: 78 },
     xiahouyuan: { profile: 'frost', projectileSize: 106 },
     taishici: { profile: 'fire', projectile: 'fireArrow', projectileSize: 108 },
     sunshangxiang: { profile: 'bow', projectile: 'arrow', color: '#DADAB8' },

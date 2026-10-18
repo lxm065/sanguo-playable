@@ -1,11 +1,11 @@
 "use strict";
 const config=require('./route-view-config'),graph=require('./route-graph');
 /** 为节点添加交错展示坐标，逻辑坐标和路线选择规则保持原样。 */
-function position(node){return {x:node.x+(config.rowShifts[node.row%config.rowShifts.length]||0),y:config.baseY+node.y+(node.lane===0?config.rowStagger:node.lane===2?-config.rowStagger:0)};}
+function position(node){return {x:node.x+(config.rowShifts[node.row%config.rowShifts.length]||0),y:config.baseY+node.y+(node.planar?0:node.lane===0?config.rowStagger:node.lane===2?-config.rowStagger:0)};}
 /** 查询本小节确实完成的节点；旧存档没有记录时不伪造分支。 */
 function history(state){return state.route?.key===state.chapter+'-'+state.section?state.route.nodes:[];}
 /** 生成弯曲点线路径，端点留白让旗帜清晰可见。 */
-function dots(from,to){const a=position(from),b=position(to),count=Math.max(3,Math.ceil(Math.hypot(b.x-a.x,b.y-a.y)/config.dotSpacing));return Array.from({length:count-1},(_,i)=>{const t=(i+1)/count;return {x:a.x+(b.x-a.x)*t+Math.sin(t*Math.PI)*config.bend*(from.lane===0?-1:1),y:a.y+(b.y-a.y)*t};});}
+function dots(from,to){const a=position(from),b=position(to),count=Math.max(3,Math.ceil(Math.hypot(b.x-a.x,b.y-a.y)/config.dotSpacing));return Array.from({length:count-1},(_,i)=>{const t=(i+1)/count;return {x:a.x+(b.x-a.x)*t+Math.sin(t*Math.PI)*config.bend*(from.planar?1:from.lane===0?-1:1),y:a.y+(b.y-a.y)*t};});}
 /** 绘制普通分支和真实行军轨迹，在最近完成节点显示主公头像。 */
 function renderRoutes(view,content,nodes){
  const u=view.ui,cc=view.cc,state=view.progress.state,visited=history(state);

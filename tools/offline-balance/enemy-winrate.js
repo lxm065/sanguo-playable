@@ -1,0 +1,19 @@
+'use strict';
+const c=require('./enemy-winrate-config');
+/** 阶段与节点类型决定目标；教学期与非战斗节点不校准。 */
+function target(state){const m=state.meta;if(!m||m.section<c.fromSection)return null;const node=require('../../game/play/route-graph').nodes(m,require('../../game/play/classic-config')).find(n=>n.id===m.activeNode),base=c.targets[node?.type];return base===undefined?null:base-c.perSection*(Math.min(c.lastSection,m.section)-c.fromSection);}
+/** 独立种子序列用于预演，绝不读取或推进本场实战种子。 */
+function seeds(state,count=c.samples,offset=0){let seed=c.seed;for(const ch of require('../../game/play/enemy-budget').key(state)||'')seed=(Math.imul(seed,31)+ch.charCodeAt(0))>>>0;return Array.from({length:count},(_,i)=>(seed+Math.imul(i+1+offset,c.separation))>>>0);}
+/** 每个候选倍率使用同一组预演种子，保留真实技能、装备与天赋计算。 */
+function measure(model,enemies,scale,trialSeeds,desired=null){const allies=model.state.units.filter(u=>u.slot>=0),rules=require('../../game/play/player-combat-context').rules(model),simulate=require('../../game/play/expedition-combat').simulate,equipment=model.state.expedition.equipment;let wins=0,samples=0;for(const seed of trialSeeds){if(simulate(allies,enemies,model.roster,rules,seed,scale,equipment).result==='win')wins++;samples++;if(farFromTarget(wins,samples,desired))break;}return {wins,samples,rate:wins/samples};}
+/** Wilson区间已完全偏离目标时提前排除候选，把完整样本预算留给接近目标的倍率。 */
+function farFromTarget(wins,n,desired){if(desired===null||n<c.minSamples)return false;const p=wins/n,z2=c.confidenceZ*c.confidenceZ,center=(p+z2/(2*n))/(1+z2/n),half=c.confidenceZ*Math.sqrt(p*(1-p)/n+z2/(4*n*n))/(1+z2/n);return center+half<desired-c.tolerance||center-half>desired+c.tolerance;}
+/** 有界搜索最接近目标的倍率；战术克制造成跳变时记录偏差，不强制改判胜负。 */
+function* candidates(desired,initial){let low=c.minScale,high=c.maxScale,best=null,evaluations=0,scale=Math.max(low,Math.min(high,initial));for(let i=0;i<=c.iterations;i++){const result={scale,...(yield scale)};evaluations++;result.error=Math.abs(result.rate-desired);if(!best||result.error<best.error||(result.error===best.error&&scale<best.scale))best=result;if(result.error<=c.tolerance)break;if(result.rate>desired)low=scale;else high=scale;scale=Math.sqrt(low*high);}return {...best,evaluations,target:desired,withinTolerance:best.error<=c.tolerance};}
+/** 同步入口供模型事务及离线测试使用，与分帧预演共享搜索状态机。 */
+function search(desired,initial,evaluate){const iterator=candidates(desired,initial);let step=iterator.next();while(!step.done)step=iterator.next(evaluate(step.value));return step.value;}
+/** 界面预演逐场让出主线程，不冻结按钮与渲染；只操作独立快照。 */
+async function calibrateAsync(model,yieldFrame=()=>new Promise(resolve=>setTimeout(resolve,0))){const desired=target(model.state),e=model.state.expedition?.enemyEncounter;if(desired===null||model.state.pending||!e||e.calibration||!model.state.units.some(u=>u.slot>=0))return;const iterator=candidates(desired,e.scale),trialSeeds=seeds(model.state);let step=iterator.next();while(!step.done){let wins=0,samples=0;for(let i=0;i<trialSeeds.length;i++){wins+=measure(model,e.units,step.value,[trialSeeds[i]]).wins;samples++;if(samples%c.yieldEvery===0)await yieldFrame();if(farFromTarget(wins,samples,desired))break;}step=iterator.next({wins,samples,rate:wins/samples});}e.scale=step.value.scale;e.calibration={version:c.version,...step.value};}
+/** 只在首次正式开战锁定；重试沿用倍率和减压，历史战报与教学关不改动。 */
+function calibrate(model){const desired=target(model.state),encounter=model.state.expedition?.enemyEncounter;if(desired===null||model.state.pending||!encounter||encounter.key!==require('../../game/play/enemy-budget').key(model.state)||encounter.calibration||!model.state.units.some(u=>u.slot>=0))return;const enemies=encounter.units,trialSeeds=seeds(model.state),result=search(desired,encounter.scale,scale=>measure(model,enemies,scale,trialSeeds,desired));encounter.scale=result.scale;encounter.calibration={version:c.version,...result};}
+module.exports={target,seeds,measure,search,calibrate,calibrateAsync};

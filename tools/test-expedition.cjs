@@ -245,18 +245,19 @@ test("第18章才开放5阶，重开远征恢复局内新人福利", () => {
   m.progression.restart();
   assert.equal(m.state.expedition.novice, 0);
 });
-test("首胜100经验跨过90门槛，上阵上限与存档校验同步", () => {
+test("首胜100经验跨过80门槛，上阵上限与存档校验同步", () => {
   const { m } = fixture();
   assert.equal(m.state.units.filter(u=>u.slot>=0).length,0);
-  m.state.units.forEach((u,i)=>m.deploy(u.uid,i));
+  m.state.units.slice(0,m.limit()).forEach((u,i)=>m.deploy(u.uid,i));
   assert.equal(m.canDirect(), false);
-  assert.equal(m.limit(), 3);
-  assert.equal(m.state.units.filter((u) => u.slot >= 0).length, 3);
+  assert.equal(m.limit(), 2);
+  assert.equal(m.state.units.filter((u) => u.slot >= 0).length, 2);
   victory(m);
   m.claim(0);
   assert.equal(m.state.expedition.level, 2);
-  assert.equal(m.state.expedition.experience, 10);
+  assert.equal(m.state.expedition.experience, 20);
   assert.equal(m.limit(), 3);
+  m.deploy(m.state.units[2].uid,2);
   assert.throws(()=>m.deploy(4,4),/人数已满/);
   m.state.expedition.level=3;
   m.deploy(4,4);

@@ -49,7 +49,6 @@ class BattleHud {
         u.text(n, b.count, c.countX, c.countY, c.countFont, "#FFF4D2", 24, 24);
         n.on(v.cc.Node.EventType.TOUCH_END, (e) => {
           e.propagationStopped = true;
-          if (v.playing) return;
           require('./bond-detail-view').show(v,b);
         });
       });
@@ -91,16 +90,17 @@ class BattleHud {
         (e) => e.owner === unit.uid,
       );
     const row = v.ui.node(actor.status, "equipped-icons", 0, c.equipmentY);
-    items.forEach((item, i) =>
-      v.ui.image(
+    items.forEach((item, i) => {
+      const icon=v.ui.image(
         row,
         "equipment/" + item.id + ".png",
         (i - (items.length - 1) / 2) * c.equipmentGap,
         0,
         c.equipmentSize,
         c.equipmentSize,
-      ),
-    );
+      );
+      icon.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;require("./equipped-item-details").showEquippedItem(v,v.root,item,()=>{},true);});
+    });
   }
 
   /** 将触摸坐标换算到战场，供浮动图标和命中检测共用。 */
@@ -140,13 +140,13 @@ class BattleHud {
       swipe = false;
     node.on(events.TOUCH_START, (e) => {
       e.propagationStopped = true;
-      if (v.playing || v.model.state.pending) return;
       start = this.point(e);
       moved = false;swipe=false;
     });
     node.on(events.TOUCH_MOVE, (e) => {
       e.propagationStopped = true;
-      if (!start || v.playing || v.model.state.pending) return;
+      if (!start) return;
+      if(v.playing||v.model.state.pending){const p=this.point(e);if(Math.hypot(p.x-start.x,p.y-start.y)>v.config.layout.dragThreshold)moved=true;return;}
       const p = this.point(e);
       if (
         !moved &&
@@ -165,6 +165,7 @@ class BattleHud {
       const origin=start;start = null;
       const point=this.point(e);
       if(swipe){this.clearDrag();require('./equipment-swipe').turn(v,origin,point);return;}
+      if(v.playing||v.model.state.pending){this.clearDrag();if(!moved)v.equipmentDetails(item);return;}
       const target = equipmentTarget(point, this.positions());
       this.clearDrag();
       if (v.playing || v.model.state.pending) return;

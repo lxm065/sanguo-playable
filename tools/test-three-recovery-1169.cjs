@@ -1,0 +1,4 @@
+'use strict';
+const test=require('node:test'),a=require('node:assert/strict'),cycle=require('../game/play/enemy-difficulty-cycle');
+/** 模拟旧四步周期已经完成一次增幅，验证读档迁移不立即提高当前敌人难度。 */
+test('旧四步已恢复一次，迁移后再赢两次到原目标，重载不重复迁移',()=>{const state={meta:{chapter:3,section:2,activeNode:'b'},expedition:{difficultyCycle:{chapter:3,baseline:100,difficulty:1.09,recoveryStart:1.08,recoveryTarget:1.12,growthStep:.01,wins:1}}},model={state,progression:{nodes:()=>[{id:'b',type:'battle'}]}};const v=cycle.initialize(state,999);a.equal(v.difficulty,1.09);a.equal(v.baseline,100);a.equal(v.recoverySteps,3);const step=v.growthStep;cycle.initialize(state,999);a.equal(v.growthStep,step);cycle.settle(model,{battle:{result:'win'}});a(Math.abs(v.difficulty-1.105)<1e-9);cycle.settle(model,{battle:{result:'win'}});a.equal(v.difficulty,1.12);a.equal(v.growthStep,.04);});

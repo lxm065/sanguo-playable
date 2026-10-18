@@ -24,19 +24,26 @@ function face(actor, dx, dy) {
 /** 根据源动作长度匹配命中前摇或移动速度，动作结束恢复同方向待机。 */
 function animate(actor, name, loop = false, options = {}) {
   if (!actor?.node.isValid) return;
+  // 专属动作的短暂视觉锁防止迟到的移动/普攻回调覆盖下劈；死亡始终优先。
+  if(actor.animationLock&&name!==actor.animationLock&&name!=='dead')return;
   actor.currentAnimation = { name, loop, options };
   if (!actor.sp.skeletonData) return;
   const key = animationKey(name, actor.facing, actor.directional),
     speed = options.speed || 1,
     duration = actor.manifest?.actions?.[key]?.duration;
   actor.sp.timeScale =
-    duration && options.contactDelay
+    duration && options.duration
+      ? duration * (1 - (options.startProgress || 0)) / options.duration * speed
+      : duration && options.contactDelay
       ? ((duration * config.attackContact) / options.contactDelay) * speed
       : speed;
+  if(name==='idle')actor.sp.timeScale*=config.idleSpeed?.[actor.unit?.heroId]??1;
   actor.sp.setCompleteListener(() => {
     if (!loop && actor.alive && actor.node.isValid)
-      animate(actor, "idle", true, { speed });
+      animate(actor, "idle", true, { speed:actor.currentAnimation?.options?.speed||speed });
   });
-  actor.sp.setAnimation(0, key, loop);
+  const entry=actor.sp.setAnimation(0, key, loop);
+  // 可选起始进度跳过蓄力静帧，专属连斩仍由真实攻击动作完成回调收尾。
+  if(entry&&duration&&options.startProgress)entry.trackTime=duration*options.startProgress;
 }
 module.exports = { sourceDirection, direction, animationKey, face, animate };

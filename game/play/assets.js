@@ -66,8 +66,10 @@ class Assets {
             manifest = JSON.parse(await read(key + "-manifest.json")),
             data = new this.cc.sp.SkeletonData();
           data.name = "sanguo:" + hero;
-          data.skeletonJson = JSON.parse(await read(key + ".json"));
-          if (selected.animationKey) data.skeletonJson.animations = JSON.parse(await read(selected.animationKey + ".json")).animations;
+          const skeletonJson = JSON.parse(await read(key + ".json"));
+          if (selected.animationKey) skeletonJson.animations = JSON.parse(await read(selected.animationKey + ".json")).animations;
+          require('./guanyu-jump-animation').install(hero,skeletonJson,manifest);
+          data.skeletonJson=skeletonJson;
           data.atlasText = await read(key + ".atlas");
           data.textures = await Promise.all(
             manifest.textures.map((file) => this.texture(file)),
@@ -86,15 +88,18 @@ class Assets {
     return !!(appearance.models[id] || appearance.legacy[id]);
   }
   /** 启动只预载轻量头像，战场模型按出现的武将懒加载，避免一次占满纹理内存。 */
-  async preload(roster) {
+  async preload(roster, onProgress = () => {}) {
+    let completed = 0; const total = roster.length + 2;
+    /** 每项资源成功装配后报告实际完成量。 */
+    const loaded = () => onProgress(++completed / total);
     await Promise.all(
       roster.map(async (h) => {
-        await this.sprite(h.id + "-avatar.png");
+        await this.sprite(h.id + "-avatar.png"); loaded();
       }),
     );
     await Promise.all([
-      this.sprite(this.config.mapImage),
-      this.sprite(this.config.battleImage),
+      this.sprite(this.config.mapImage).then(loaded),
+      this.sprite(this.config.battleImage).then(loaded),
     ]);
   }
 }

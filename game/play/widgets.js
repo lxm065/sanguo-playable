@@ -181,7 +181,7 @@ class Widgets {
             action?.loop ?? true,
             action?.options || {},
           );
-        }))
+        },()=>n.isValid))
         .catch(console.error);
     else {
       const f = appearance.fallback;

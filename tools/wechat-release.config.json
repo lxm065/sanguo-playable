@@ -1,7 +1,7 @@
 {
-  "output": "dist/wechat-1.0.126",
-  "version": "1.0.126",
-  "description": "对战和远征装备栏按品质显示蓝色紫色边框",
+  "output": "dist/wechat-1.0.238",
+  "version": "1.0.238",
+  "description": "周瑜破军令开局2秒自动全军强化一次",
   "copy": [
     "@babel",
     "cocos-js",
@@ -70,7 +70,12 @@
       "handbook/zhangjiao.png",
       "handbook/zhangliao.png",
       "handbook/zhouyu.png",
-      "handbook/zhurong.png"
+      "handbook/zhurong.png",
+      "classic/route-woodland.png",
+      "classic/route-highlands.png",
+      "classic/home-central.png",
+      "classic/home-north.png",
+      "classic/home-lakes.png"
     ]
   },
   "equipmentImages": {
@@ -166,6 +171,34 @@
     {
       "file": "handbook/zhurong.png",
       "width": 384
+    },
+    {
+      "file": "classic/route-woodland.png",
+      "width": 720
+    },
+    {
+      "file": "classic/route-highlands.png",
+      "width": 720
+    },
+    {
+      "file": "classic/home-central.png",
+      "width": 720
+    },
+    {
+      "file": "classic/home-north.png",
+      "width": 720
+    },
+    {
+      "file": "classic/home-lakes.png",
+      "width": 720
+    },
+    {
+      "file": "classic/chapter-city.png",
+      "width": 232
+    },
+    {
+      "file": "classic/chapter-village.png",
+      "width": 232
     }
   ]
 }

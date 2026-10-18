@@ -1,5 +1,5 @@
 'use strict';
-/** 原版等级表与截图流程；缺失的服务端经济参数单独配置并标注来源。 */
+/** 原始等级费用与用户确认的章节、加速策略；各建筑独立配置。 */
 module.exports={
   "name": "钻石矿场",
   "chapter": 5,
@@ -24,7 +24,7 @@ module.exports={
       "exp": 22500,
       "time": 32400,
       "max": 2,
-      "chapter": 8
+      "chapter": 7
     },
     {
       "lv": 3,
@@ -224,24 +224,28 @@ module.exports={
     }
   ],
   "production": {
-    "seconds": 10800,
-    "diamonds": 2000,
-    "buildSpeedSeconds": 3600,
+    "seconds": 21600,
+    "diamonds": 3000,
+    "buildSpeedSeconds": 10800,
     "productionSpeedSeconds": 3600,
     "dailyBuildSpeeds": 5,
-    "dailyProductionSpeeds": 5
+    "dailyProductionSpeeds": 1,
+    "item": "1",
+    "instantProduction": true,
+    "speedPercentPerLevel": 5
   },
   "source": {
     "levels": "策划资料库/原始配置/fortress_cfg.json id=1",
     "preview": "foretell_cfg.json id=5",
     "guide": "words.json 22634; StrongholdItem / StrongholdPanel",
-    "production": "截图6确认2000钻石；周期、加速量与次数为本地可配置规则，未取得原服服务端数值"
+    "production": "用户2026-10-11截图与说明：首建3小时、升级6小时，每日分享加速一次，3000钻石；普通周期6小时为本地配置",
+    "upgrade": "用户2026-10-12截图：通关第7章升2级，15000钻石/6小时，产出加速5%→10%、容量1→2，视频减3小时"
   },
   "view": {
     "panelY": -1100,
     "panelHeight": 420,
     "focusOffset": 990,
-    "scrollMax": 1200,
+    "scrollMax": 2120,
     "tickMs": 1000,
     "previewAfterChapter": 4,
     "image": "classic/mine.png",
@@ -264,13 +268,34 @@ module.exports={
     "guideArrowScale": 2,
     "progressWidth": 220,
     "progressHeight": 20,
-    "progressY": -101
+    "progressY": -101,
+    "upgradeHint": {
+      "x": -230,
+      "y": -52,
+      "width": 230,
+      "height": 55,
+      "font": 29,
+      "arrowY": 24,
+      "arrowScale": 1.8,
+      "text": "点击升级"
+    },
+    "confirm": {
+      "height": 780,
+      "rewardTitleY": 264,
+      "rewardY": 159,
+      "statsY": 5,
+      "costY": -143,
+      "buttonY": -282,
+      "closeGap": 45
+    }
   },
   "text": {
     "visit": "您的要塞开启了，我们去参观一下！",
     "build": "咱的钻石矿场建好之后，咱就可以坐等收获了！",
     "previewTitle": "远征补给开启",
-    "previewDescription": "钻石矿场，开采钻石源源不绝"
+    "previewDescription": "钻石矿场，开采钻石源源不绝",
+    "upgradeStats": "等级变化       {from}→{to}\n产出加速       {speedFrom}%→{speedTo}%\n存储上限       {maxFrom}→{maxTo}",
+    "buildSpeed": "每次完整观看视频减少3小时建造时间"
   },
   "rewardPreview": [
     {
@@ -289,5 +314,8 @@ module.exports={
       "color": "#DA2424",
       "level": 6
     }
-  ]
+  ],
+  "stateKey": "diamondMine",
+  "legacyLevel": "mineLevel",
+  "guideFlag": "mineGuideDone"
 };

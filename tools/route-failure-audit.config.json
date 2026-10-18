@@ -1,0 +1,10 @@
+{
+  "chapters": [1,2,3,4,5,6,7,8],
+  "seeds": [101,307,911],
+  "maxReliefs": 10,
+  "routes": ["avoidElite","seekElite"],
+  "profiles": [{"id":"bare","name":"裸装参考","items":[],"grade":0},{"id":"equipped","name":"配装参考","items":["7001","7202"],"grade":2}],
+  "heroes": ["xuchu","zhaoyun","zhenji","xiahouyuan","dianwei","zhaoyun","zhenji","xiahouyuan"],
+  "stages": [[1,1,1],[3,2,2,2,1],[4,3,3,2,2,2],[4,4,3,3,3,2,2],[4,4,4,3,3,3,3,2]],
+  "output": "evidence/route-failure-audit-1.0.221"
+}
