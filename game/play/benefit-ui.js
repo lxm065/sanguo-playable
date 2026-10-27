@@ -1,6 +1,6 @@
 "use strict";
-/** 礼包面板复用纸张、按钮和阻挡事件，关闭后刷新宿主红点。 */
-function panel(v,title,c){const shade=v.overlay(),p=v.paper(shade,'benefit-panel',0,0,c.width,c.height);p.addComponent(v.cc.BlockInputEvents);v.ui.text(p,title,0,c.titleY,36,'#674322',580,55);v.ui.text(shade,'点击空白处关闭',0,-c.height/2-35,27,'#FFFFFF',650,44);shade.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;if(e.target===shade){shade.destroy();v.modal=null;require('./notification-view').refresh(v);}});return p;}
+/** 礼包面板按配置选择纯色或纸张背景，保留事件阻挡及关闭后的红点刷新。 */
+function panel(v,title,c){const shade=v.overlay(),p=c.background?v.ui.box(shade,'benefit-panel',0,0,c.width,c.height,c.background):v.paper(shade,'benefit-panel',0,0,c.width,c.height);p.addComponent(v.cc.BlockInputEvents);v.ui.text(p,title,0,c.titleY,36,'#674322',580,55);v.ui.text(shade,'点击空白处关闭',0,-c.height/2-35,27,'#FFFFFF',650,44);shade.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;if(e.target===shade){shade.destroy();v.modal=null;require('./notification-view').refresh(v);}});return p;}
 /** 图片按钮接受滚动上下文，拖动结束时不误领礼包。 */
 function button(v,p,text,x,y,w,action,color='red',scroll=null){const n=v.ui.node(p,text,x,y,w,62);v.ui.image(n,'classic/button-'+color+'.png',0,0,w,62);require('./button-content').draw(v.ui,n,text,27,'#FFE267',w-10,58);n.on(v.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;if(!scroll?.dragged)action();});return n;}
 /** 有界滚动复用轻点阈值，偏移由视图持有而不写入玩家存档。 */

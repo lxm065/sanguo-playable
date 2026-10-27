@@ -16,5 +16,5 @@ test('全部38件有明确策略和理由，新增同类武将自动匹配且未
  a.deepEqual(Object.keys(config.items).sort(),items.map(e=>e.id).sort());
  for(const e of items){a(config.items[e.id].reason);a(config.profiles[config.items[e.id].profile]);a(heroIds(e.id).length);}
  const extended=[...roster,{id:'new-archer',role:'神射',magic:false,range:3},{id:'new-melee',role:'猛将',magic:false,range:1}];
- a(heroIds('7006',extended).includes('new-archer'));a.deepEqual(heroIds('7007',extended),['machao']);a(!heroIds('7007',extended).includes('new-archer'));a.deepEqual(heroIds('unknown'),[]);
+ a(heroIds('7006',extended).includes('new-archer'));a(heroIds('7007',extended).includes('new-melee'));a(!heroIds('7007',extended).includes('new-archer'));a.deepEqual(heroIds('unknown'),[]);
 });

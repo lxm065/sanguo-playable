@@ -59,7 +59,7 @@ module.exports={
     },
     "7005": {
       "profile": "physical",
-      "reason": "张飞专属蛇矛，物攻攻速及普攻削弱"
+      "reason": "物攻、攻速及普攻削弱适合物理输出武将；仅张飞触发丈八擒敌后的专属连击"
     },
     "7006": {
       "profile": "archer",
@@ -67,7 +67,7 @@ module.exports={
     },
     "7007": {
       "profile": "meleePhysical",
-      "reason": "马超专属长枪，物攻、护甲、生命及物理吸血护盾适合近战持续作战"
+      "reason": "物攻、护甲、生命及物理吸血护盾适合近战持续作战；仅马超触发虎魂熔炉专属技能"
     },
     "7008": {
       "profile": "archer",
@@ -83,7 +83,7 @@ module.exports={
     },
     "7101": {
       "profile": "magic",
-      "reason": "甄姬专属羽扇，法攻、攻速与惊鸿魅惑控制"
+      "reason": "法攻、攻速适合能获得法攻成长的武将；仅甄姬触发惊鸿魅惑专属技能"
     },
     "7102": {
       "profile": "magic",

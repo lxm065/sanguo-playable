@@ -8,7 +8,7 @@ function play(v,a,e){
  const back=v.ui.node(a.node,'xuchu-shield-back',0,c.y),front=v.ui.node(a.node,'xuchu-shield-front',0,c.y);
  a.exclusiveShield=back;a.xuchuShieldFront=front;a.xuchuAuraUntil=(e.t??v.elapsed??0)+e.duration;back.setSiblingIndex(0);
  if(a.status?.getSiblingIndex)front.setSiblingIndex(a.status.getSiblingIndex());
- shell.draw(v,back.addComponent(v.cc.Graphics),c,false);shell.draw(v,front.addComponent(v.cc.Graphics),c,true);shell.pulse(v,back,c);shell.pulse(v,front,c);
+ shell.draw(v,back.addComponent(v.cc.Graphics),c,false);shell.draw(v,front.addComponent(v.cc.Graphics),c,true);shell.pulse(v,back,c);shell.pulse(v,front,c,true);
 }
 /** 每场战斗结束后清理所有椭圆护盾节点。 */
 function clear(v){for(const a of v.actors?.values?.()||[])remove(v,a);}

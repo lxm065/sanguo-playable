@@ -1,0 +1,4 @@
+'use strict';
+const test=require('node:test'),a=require('node:assert/strict'),view=require('../game/play/equipment-recommendation-view');
+test('丈八蛇矛场上和备战席保留物理适配推荐，仅张飞显示专属',()=>{const units=[{uid:1,heroId:'zhangfei',slot:0},{uid:2,heroId:'guanyu',slot:1},{uid:3,heroId:'huangzhong',slot:-1},{uid:4,heroId:'zhouyu',slot:2}];a.deepEqual(view.targets({id:'7005'},units,[]),[{uid:1,recommended:true,exclusive:true},{uid:2,recommended:true,exclusive:false},{uid:3,recommended:true,exclusive:false}]);const exclusive=require('../game/play/equipment-exclusive');a.equal(exclusive.active('7005','zhangfei'),true);a.equal(exclusive.active('7005','guanyu'),false);a.equal(exclusive.weaponOwner('7005'),'张飞');});
+test('新增物理武将自动适配，法术武将与历史隐藏单位不误推荐',()=>{const ids=require('../game/play/equipment-recommendations').heroIds('7005',[{id:'physical',magic:false,range:3},{id:'magic',magic:true,range:1},{id:'old',magic:false,legacy:true}]);a.deepEqual(ids,['physical']);});

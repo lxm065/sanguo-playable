@@ -5,7 +5,7 @@ const centers = require('./body-center-config');
 /** 按朝向排除高举武器；渲染、清晰度验证和发布采样共用。 */
 function bodyHeightRatio(heroId,direction){return config.directionBodyHeightRatios?.[heroId]?.[appearance.mirrored[direction]||direction]??config.bodyHeightRatios[heroId]??1;}
 /** 用待机可见边界计算人物中心和头顶信息位置，避免脚底锚点占据格子中心。 */
-function unitLayout(manifest, facing, scale, centered = true, heroId = "") {
+function unitLayout(manifest, facing, scale, centered = true, heroId = "", action = "idle") {
   // 战场局部缩放同步作用于身体居中和头顶信息；地图展示不套用。
   scale *= centered ? (config.battlefieldScale?.[heroId] ?? 1) : 1;
   const direction = appearance.mirrored[facing] || facing;
@@ -21,7 +21,7 @@ function unitLayout(manifest, facing, scale, centered = true, heroId = "") {
   const height = sourceHeight * bodyFraction * ratio;
   const offset = centered ? -height / 2 : 0;
   return {
-    bodyX: -(centers[heroId]?.[direction] || 0) * scale * ratio * (appearance.mirrored[facing] ? -1 : 1),
+    bodyX: -(require('./action-body-center-config')[heroId]?.[action]?.[direction] ?? centers[heroId]?.[direction] ?? 0) * scale * ratio * (appearance.mirrored[facing] ? -1 : 1),
     bodyY: offset * scale,
     headY: (height + offset) * scale + config.headGap,
     modelScale: scale * ratio,

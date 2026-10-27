@@ -4,8 +4,9 @@ const { random, distance, approachStep } = require("./combat"),
   policy = require("./expedition-config");
 /** 创建独立战斗快照；旧低阶角色继续可用，面板属性由共用查询层计算。 */
 function prepare(units, side, roster, rules, scale, equipment) {
+  const snapshotRules=require("./stat-evaluation-cache").create(side === "ally" ? rules : {...rules,playerBonds:undefined,playerEquipmentGrades:{},playerTalentTree:{},playerVip:null});
   return units.map((u) => {
-    const h = stats(u, units, roster, equipment, side === "ally" ? rules : {...rules,playerBonds:undefined,playerEquipmentGrades:{},playerTalentTree:{},playerVip:null }),
+    const h = stats(u, units, roster, equipment, snapshotRules),
       hp = Math.round(h.hp * scale);
     return {
       ...h,
@@ -54,8 +55,9 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
     rng = random(seed),
     events = [],
     hits = [];
+  const frostLuan=require('./frost-luan'),warriors=require('./warrior-skills');
   const exclusive=require('./weapon-exclusive'),charm=require('./charm-exclusive'),overtime=require('./battle-overtime');
-  const protection=require('./combat-protection'),qinggang=require('./qinggang-skill'),survival=require('./xuchu-survival');
+  const protection=require('./combat-protection'),qinggang=require('./qinggang-skill'),survival=require('./xuchu-survival'),lastStand=require('./dianwei-last-stand');
   const skills = require('./hero-skills'),talents=require('./talent-effects');
   skills.initialize(units,events);const equip=require('./equipment-effects');equip.initialize(units);require("./enemy-relief").stagger(units);
   const initial = JSON.parse(JSON.stringify(units));
@@ -70,7 +72,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
     events.push({ type: "heal", t, target: u.uid, hp: u.hp, amount: gain });
   }
   /** 普通击杀与保命到期共享死亡事件、被动和装备结算。 */
-  function death(u,a,t){delete u.xuchuSurvival;exclusive.onDeath(u,units,t,hits,events);equip.death(u,a,units,t,events);events.push({type:'death',t,uid:u.uid,actor:a.uid});skills.onDeath(u,units,t,hits,heal,events);talents.death(u,units,t,heal);require('./machao-shield').death(u,units,t,events,damage,rules);}
+  function death(u,a,t){frostLuan.expire(u,t,events);delete u.xuchuSurvival;exclusive.onDeath(u,units,t,hits,events);equip.death(u,a,units,t,events);events.push({type:'death',t,uid:u.uid,actor:a.uid});skills.onDeath(u,units,t,hits,heal,events);warriors.onDeath(u,units,t,hits,events,rules);talents.death(u,units,t,heal);require('./machao-shield').death(u,units,t,events,damage,rules);}
   /** 无治疗的延迟死亡保留原致命伤来源，不再次经过伤害减免或触发保命。 */
   function survivalDeath(u,source,t){u.hp=0;death(u,units.find(a=>a.uid===source)||u,t);}
   /** 统一生命扣减与死亡，抵挡、反伤、吸血只在命中后计算。 */
@@ -87,7 +89,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
     slashIndex = null,
     overtimeScaled = false,
   ) {
-    if(u.hp<=0||protection.protectedUnit(u)||survival.invulnerable(u,t))return;const magic=damageType&&damageType!=='true'?damageType==='magic':require('./hero-damage').isMagic(a,skill);const up=(a.talent?.[magic?"magicUp":"physicalUp"]||0)+(a.talent?.[skill?"skillUp":"attackUp"]||0),down=(u.talent?.[magic?"magicDown":"physicalDown"]||0)+(u.talent?.[skill?"skillDown":"attackDown"]||0);
+    if(u.hp<=0||protection.protectedUnit(u)||survival.invulnerable(u,t)||lastStand.invulnerable(u,t))return;const magic=damageType&&damageType!=='true'?damageType==='magic':require('./hero-damage').isMagic(a,skill);const up=(a.talent?.[magic?"magicUp":"physicalUp"]||0)+(a.talent?.[skill?"skillUp":"attackUp"]||0),down=(u.talent?.[magic?"magicDown":"physicalDown"]||0)+(u.talent?.[skill?"skillDown":"attackDown"]||0);
     amount*= (1+up)*(1-Math.min(require("./activity-config").talent.damageReductionCap,down));
     let actual = Math.max(
       rules.minDamage,
@@ -95,7 +97,8 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
     );
     const overtimeFactor=overtimeScaled?1:overtime.damageMultiplier(rules,t);actual*=overtimeFactor;
     actual=Math.max(0,Math.round(talents.damage(a,u,actual,critical,rng,magic)));
-    if(effect==='healthLoss')actual=Math.round(amount*overtimeFactor);if(a.side!==u.side&&effect!=='healthLoss')require('./machao-shield').emergency(u,actual,t,events);const absorbed=effect==='healthLoss'?0:Math.min(actual,u.equipmentShield||0);u.equipmentShield=(u.equipmentShield||0)-absorbed;actual-=absorbed;if(absorbed>0)events.push({type:'shield',t,target:u.uid,amount:absorbed});actual=survival.intercept(a,u,actual,t,events,effect);u.hp = Math.max(0, u.hp - actual);require('./machao-shield').sync(u,t,events);
+    const frostHit=effect==='healthLoss'?{amount:actual}:frostLuan.absorb(u,actual,t,events);actual=frostHit.amount;
+    if(effect==='healthLoss')actual=Math.round(amount*overtimeFactor);if(a.side!==u.side&&effect!=='healthLoss')require('./machao-shield').emergency(u,actual,t,events);const absorbed=effect==='healthLoss'?0:Math.min(actual,u.equipmentShield||0);u.equipmentShield=(u.equipmentShield||0)-absorbed;actual-=absorbed;if(absorbed>0)events.push({type:'shield',t,target:u.uid,amount:absorbed});actual=survival.intercept(a,u,actual,t,events,effect);actual=lastStand.intercept(a,u,actual,t,events);u.hp = Math.max(0, u.hp - actual);require('./machao-shield').sync(u,t,events);
     events.push({
       type: "damage",
       t,
@@ -110,6 +113,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
       effect,
     });
     if (!u.hp) death(u,a,t);
+    frostLuan.explode(u,frostHit.broken,units,t,events,damage,rules);
     if(!charm.active(a,t))talents.hit(a,u,actual,t,skill,critical,reflect,rng,heal,damage);
     if (reflect && !magic && u.reflect && a.hp > 0)
       damage(u, a, actual * u.reflect, t, false, false, false,null,null,null,true);
@@ -123,7 +127,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
     const t = +(step * rules.tickSeconds).toFixed(4);
     elapsed = t;
     if(overtime.active(rules,t)&&!overtimeStarted){overtimeStarted=true;events.push({type:'overtime',t,speedMultiplier:overtime.config(rules).speedMultiplier,damageMultiplier:overtime.config(rules).damageMultiplier});}
-    for(const a of units)survival.tick(a,t,survivalDeath);
+    for(const a of units){if(a.invisibleUntil<=t)delete a.invisibleUntil;frostLuan.expire(a,t,events);survival.tick(a,t,survivalDeath);lastStand.tick(a,t,survivalDeath);}
     for(const a of units)exclusive.opening(a,units,t,events);
     for(const a of units){charm.tick(a,t,events);if(!charm.active(a,t))qinggang.tick(a,units,t,hits,events,rules,rng);}
     for (let i = 0; i < hits.length; ) {
@@ -134,6 +138,10 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
       }
       hits.splice(i, 1);
       if(hit.cancelled)continue;
+      if(hit.warriorArea){hits.splice(i,0,...warriors.area(hit,units,t,events));continue;}
+      if(hit.frostScreenHeal){require('./frost-screen').healTick(hit,t,heal);continue;}
+      if(hit.northernArea){hits.splice(i,0,...require('./northern-weapons').area(hit,units,t,events));continue;}
+      if(hit.mechanismVolley){require('./mechanism-volley').launch(hit,units,t,hits,events);continue;}
       if(hit.charm){charm.impact(hit,t,events,hits);continue;}
       if(!charm.validHit(hit,t))continue;
       if(hit.exclusiveArea){if(hit.a.hp>0)hits.splice(i,0,...exclusive.area(hit,units,t));continue;}
@@ -144,14 +152,13 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
       if(!hit.skill&&!s.undodgeable&&u.bondDodge&&rng()<u.bondDodge){talents.onEvade(u,t,heal);events.push({type:'evade',t,target:u.uid});continue;}
       if(!hit.skill&&!s.undodgeable&&talents.evade(u,rng,t,heal)){events.push({type:'evade',t,target:u.uid});continue;}
       if(!hit.skill && !s.undodgeable && u.dodgeUntil>t && rng()<u.skillDodge){talents.onEvade(u,t,heal);events.push({type:'evade',t,target:u.uid});continue;}
-      require('./zhangba-exclusive').beforeHit(hit,t,events);
+      require('./zhangba-exclusive').beforeHit(hit,t,events);warriors.beforeHit(hit,t,events);
       const magic=!s.physical&&require('./hero-damage').isMagic(a,hit.skill);
       const armor = s.trueDamage ? 0 : magic ? u.magicArmor-(a.magicPen||0) : u.armor;
       damage(
         a,
         u,
-        (hit.flatDamage || ((hit.power * (!hit.skill?exclusive.attackMultiplier(a,u):1) * a.attack + (!hit.skill?Object.values(u.rends||{}).filter(r=>r.until>t).reduce((sum,r)=>sum+r.value,0):0)) * rules.armorScale) /
-          (rules.armorScale + Math.max(policy.localCombat.armorFloor, armor))),
+        hit.flatDamage ?? ((hit.baseDamage ?? (hit.power * (!hit.skill?exclusive.attackMultiplier(a,u):1) * a.attack + (!hit.skill?Object.values(u.rends||{}).filter(r=>r.until>t).reduce((sum,r)=>sum+r.value,0):0))) * rules.armorScale / (rules.armorScale + Math.max(policy.localCombat.armorFloor,armor))),
         t,
         hit.skill,
         hit.critical,
@@ -160,26 +167,27 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
         s.trueDamage?"true":magic?"magic":"physical",
         hit.slashIndex,
       );
+      warriors.counter(hit,t,hits,events,rng);require('./northern-weapons').afterHit(hit,t,events);
       if(!hit.skill&&!hit.charmAttack)exclusive.onHit(a,u,t,hits,events,rng);
       if(!hit.charmAttack)skills.onHit(a,u,hit,t,events);
       if(!hit.skill&&u.hp>0)for(const rule of a.equipmentHits||[]){if(rule.stun){if(rng()<(a.range>1?rule.rangedChance:rule.meleeChance)&&!talents.resists(u,rng)){u.stunnedUntil=Math.max(u.stunnedUntil,t+require("./enemy-relief").duration(a,rule.stun));events.push({type:'status',t,target:u.uid,effect:'stun',duration:require("./enemy-relief").duration(a,rule.stun)});}}else{const values={};for(const key of ['armor','magicArmor','attack','cooldownFactor'])if(rule[key])values[key]=rule[key];skills.buff(u,'equipment-'+rule.id,values,t+rule.duration);}}
 
       if (u.hp > 0) {
         if (s.stun&&!talents.resists(u,rng)){u.stunnedUntil = Math.max(u.stunnedUntil, t + require("./enemy-relief").duration(a,s.stun));events.push({type:'status',t,target:u.uid,effect:'stun',duration:require("./enemy-relief").duration(a,s.stun)});}
-        if (s.slow&&!talents.resists(u,rng)) {
+        if (s.slow&&!u.negativeImmune&&!talents.resists(u,rng)) {
           if(!(u.slowUntil>t))events.push({type:'status',t,target:u.uid,effect:'slow',duration:require('./enemy-relief').duration(a,s.duration)});u.slow = s.slow;
           u.slowUntil = t + require("./enemy-relief").duration(a,s.duration);
         }
-        if (s.delay) {u.nextSkill += s.delay;for(const id of Object.keys(u.skillTimers||{}))u.skillTimers[id]+=s.delay;}
-        if (s.armorBreak) {
+        if (s.delay&&!u.negativeImmune) {u.nextSkill += s.delay;for(const id of Object.keys(u.skillTimers||{}))u.skillTimers[id]+=s.delay;}
+        if (s.armorBreak&&!u.negativeImmune) {
           u.armor += (u.restoreArmor?.value || 0) - s.armorBreak;
           u.restoreArmor = { at: t + s.duration, value: s.armorBreak };
         }
-        if (s.magicBreak) {
+        if (s.magicBreak&&!u.negativeImmune) {
           u.magicArmor += (u.restoreMagic?.value || 0) - s.magicBreak;
           u.restoreMagic = { at: t + s.duration, value: s.magicBreak };
         }
-        if (s.pull) {
+        if (s.pull&&!u.negativeImmune) {
           const neighbors = [
             { x: a.x - 1, y: a.y },
             { x: a.x + 1, y: a.y },
@@ -224,7 +232,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
       break;
     }
     for (const a of units) {
-      require('./machao-shield').tick(a,units,t,events,damage,rules);require('./dianwei-exclusive').tick(a,units,t,events);skills.tick(a,units,t,hits,events);exclusive.tick(a,t,events);talents.tick(a,t);if(!charm.active(a,t))equip.tick(a,units,t,events,heal,damage,rng);a.hp=Math.min(a.hp,a.maxHp);
+      require('./machao-shield').tick(a,units,t,events,damage,rules);require('./dianwei-exclusive').tick(a,units,t,events);skills.tick(a,units,t,hits,events);exclusive.tick(a,t,events);talents.tick(a,t);if(!charm.active(a,t))equip.tick(a,units,t,events,heal,damage,rng);a.hp=Math.min(a.hp,a.maxHp);if(a.negativeImmune){a.auraSlow=0;a.equipmentSlowUntil=0;a.slowUntil=0;}
       if (a.hp <= 0) continue;
       if (a.restoreArmor?.at <= t) {
         a.armor += a.restoreArmor.value;
@@ -241,7 +249,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
         a.nextRegen++;
       }
       if(protection.protectedUnit(a))continue;
-      if (a.nextAction > t || a.stunnedUntil > t || a.channelUntil>t || a.tossedUntil>t) continue;
+      if (a.nextAction > t || a.stunnedUntil > t || a.channelUntil>t || a.tossedUntil>t || a.frostScreenUntil>t) continue;
       const controlled=charm.active(a,t);
       if(charm.activate(a,units,t,hits,events))continue;
       if(!controlled&&qinggang.activate(a,units,t,events)){qinggang.tick(a,units,t,hits,events,rules,rng);continue;}
@@ -260,7 +268,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
 
       const skill = !controlled && (a.legacy
         ? (a.attacks + 1) % a.skillEvery === 0
-        : !skills.managed(a) && !spec.passive && !(a.silencedUntil>t) && a.nextSkill <= t);
+        : !a.summoned && !skills.managed(a) && !spec.passive && !(a.silencedUntil>t) && a.nextSkill <= t);
       if (skill && spec.heal) {
         for (const u of units.filter((u) => u.side === a.side))
           heal(u, a.attack * spec.heal, t);
@@ -346,6 +354,7 @@ function simulate(allies, enemies, roster, rules, seed, scale, equipment = []) {
           critical,
           effect: (skill?spec.skillEffect:null) || spec.effect || (!skills.managed(a)?require("./hero-skill-config").primaryEffects[a.heroId]:null) || null,
         });
+      if(!skill&&!controlled)require('./northern-weapons').attack(a,target,units,t,hits,events,rules);
       if(skill)exclusive.afterCast(a,units,t,hits,exclusiveStart,events);
       if(!controlled)skills.afterAttack(a,units,t,events,rng,rules);
       a.nextAction = t + a.interval / ((1-Math.max(a.slowUntil>t?a.slow:0,a.auraSlow||0))*(1+(a.skillHaste||0)+(a.equipmentHaste||0)));

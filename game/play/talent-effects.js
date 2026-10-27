@@ -38,7 +38,7 @@ function hit(a,u,amount,t,skill,critical,reflect,rng,heal,deal){
  if(a.talentClass===2){const reduce=value(a,3012,5)*c.attackCooldownUnit;for(const id of Object.keys(a.skillTimers||{}))a.skillTimers[id]=Math.max(t,a.skillTimers[id]-reduce);}
  if(u.hp<=0)return;
  const controls=a.talentClass===0?[['disarmedUntil',1004,2],['stunnedUntil',1009,4]]:a.talentClass===2?[['silencedUntil',3004,2]]:[];
- for(const [field,id,min]of controls){const chance=value(a,id,min);if(chance&&rng()<chance&&!resists(u,rng))u[field]=Math.max(u[field]||0,t+c.controlSeconds);}
+ for(const [field,id,min]of controls){const chance=value(a,id,min);if((!u.negativeImmune||field==='stunnedUntil')&&chance&&rng()<chance&&!resists(u,rng))u[field]=Math.max(u[field]||0,t+c.controlSeconds);}
 }
 /** 智系主动施法叠加双攻，与原技能冷却及施法次数一致。 */
 function cast(a,t){if(a.talentClass===2)stack(a,'intelligence',value(a,3015),c.intelligenceSeconds,t);}

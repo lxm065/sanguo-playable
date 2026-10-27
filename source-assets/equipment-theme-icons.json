@@ -28,12 +28,12 @@
   },
   {
     "id": "7004",
-    "name": "虎贲护臂",
-    "shape": "bracer",
-    "source": "source-assets/equipment-art/7004.png",
-    "kind": "user-supplied",
+    "name": "河北破阵刀",
+    "shape": "glaive",
+    "source": "source-assets/northern-weapons/7004.png",
+    "kind": "ai-generated",
     "output": "game/skin-assets/equipment/7004.png",
-    "sha256": "c09cf84982b89da65653409c87e7a0719b9d8d496bdbd3a4c273e2590547e5cd"
+    "sha256": "d32088b8787bfe9f40a091b1a9847b073eeda2de7655e02766cb99554c46a808"
   },
   {
     "id": "7005",
@@ -172,12 +172,12 @@
   },
   {
     "id": "7110",
-    "name": "朱雀羽扇",
+    "name": "霜鸾羽扇",
     "shape": "fan",
-    "source": "source-assets/equipment-art/7110.png",
-    "kind": "user-supplied",
+    "source": "source-assets/frost-luan/fan-inventory.png",
+    "kind": "ai-generated",
     "output": "game/skin-assets/equipment/7110.png",
-    "sha256": "af6cc2de105bee0ded996df186a64d4337d7b2eb3e060eca4f286bc82284daa2"
+    "sha256": "74b4108ae2e0e786d2a665a2ba76f069b60f554239b10caaa98a188c0586c907"
   },
   {
     "id": "7111",
@@ -289,12 +289,12 @@
   },
   {
     "id": "7209",
-    "name": "疾风护腕",
-    "shape": "bracer",
-    "source": "source-assets/equipment-art/7209.png",
-    "kind": "user-supplied",
+    "name": "疾风寒羽弓",
+    "shape": "bow",
+    "source": "source-assets/northern-weapons/7209.png",
+    "kind": "ai-generated",
     "output": "game/skin-assets/equipment/7209.png",
-    "sha256": "43a3de7385aa4d9fc5ef8411da96dfb050d4886b31a4fc30af4e5f032209193a"
+    "sha256": "96c30483a5a53d716b21416f997b007ba126420b3037f24f5412f99cf862e351"
   },
   {
     "id": "7210",

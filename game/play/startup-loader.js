@@ -2,6 +2,8 @@
 const c=require('./startup-config');
 /** 在开场已绘制后下载分包，按下载事件和实际资源完成数报告分阶段进度。 */
 async function load(platform,release,assets,roster,intro){
+ // 等待开场首帧提交后才请求美术分包，避免下载等待占据黑屏阶段。
+ if(intro.visible)await intro.visible;
  const weight=release.assetPackage?c.packageWeight:0;
  if(release.assetPackage)await new Promise((resolve,reject)=>{const task=platform.loadSubpackage({name:release.assetPackage,success:resolve,fail:error=>reject(new Error(error.errMsg||'资源分包加载失败'))});task?.onProgressUpdate?.(event=>intro.progress(weight*Math.max(0,Math.min(1,event.progress/100))));});
  intro.progress(weight);let base=0,heroes=0;

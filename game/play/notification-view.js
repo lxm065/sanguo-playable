@@ -1,7 +1,7 @@
 'use strict';
 const c=require('./notification-config');
 /** 从当前状态只读推导红点，不能因为打开页面清除尚未处理的奖励。 */
-function query(v,key){const m=v.model,a=m.activities;if(!a)return false;
+function query(v,key){const m=v.model,a=m.activities;if(key==='fortress')return require('./fortress-notification').ready(m.progression);if(!a)return false;
  if(key==='warOrder')return require('./war-order').ready(m);
  if(key==='vip')return require('./vip').ready(m);
  if(key==='daily')return a.daily().some(t=>!t.claimed&&t.count>=t.target)||!require('./sign-rewards').status(m.progression).today;
@@ -16,7 +16,7 @@ function query(v,key){const m=v.model,a=m.activities;if(!a)return false;
 /** 绘制圆形提示并注册刷新回调，位置由所属控件决定。 */
 function badge(v,parent,key,x,y,ready=()=>query(v,key)){
  const n=v.ui.node(parent,'red-dot-'+key,x,y,c.radius*2,c.radius*2),g=n.addComponent(v.cc.Graphics);g.fillColor=new v.cc.Color(c.fill);g.strokeColor=new v.cc.Color(c.rim);g.lineWidth=c.lineWidth;g.circle(0,0,c.radius);g.fill();g.stroke();
- v.notificationBadges=(v.notificationBadges||[]).filter(e=>e.node.isValid);v.notificationBadges.push({node:n,ready});n.active=!!ready();return n;
+ v.notificationBadges=(v.notificationBadges||[]).filter(e=>e.node.isValid);v.notificationBadges.push({node:n,ready});n.active=!!ready();if(key==='fortress'){const timer=setInterval(()=>{if(n.isValid)n.active=!!ready();else clearInterval(timer);},c.fortress.tickMs);n.on(v.cc.Node.EventType.NODE_DESTROYED,()=>clearInterval(timer));}return n;
 }
 /** 事务或子弹窗操作后局部刷新提示，不重建武将或重播动画。 */
 function refresh(v){v.notificationBadges=(v.notificationBadges||[]).filter(e=>e.node.isValid);for(const e of v.notificationBadges)e.node.active=!!e.ready();}

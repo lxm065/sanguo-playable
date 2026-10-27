@@ -15,7 +15,7 @@ function cast(v,e){
  a.furnaceShell=back;a.furnaceEnergy=front;back.setSiblingIndex(0);
  if(a.status?.getSiblingIndex)front.setSiblingIndex(a.status.getSiblingIndex());
  shell.draw(v,back.addComponent(v.cc.Graphics),c,false);shell.draw(v,front.addComponent(v.cc.Graphics),c,true);
- shell.pulse(v,back,c);shell.pulse(v,front,c);
+ shell.pulse(v,back,c);shell.pulse(v,front,c,true);
 }
 /** 全场回放重置时移除持续护盾，不让旧节点进入下一场战斗。 */
 function clear(v){for(const a of v.actors?.values?.()||[])remove(v,a);}

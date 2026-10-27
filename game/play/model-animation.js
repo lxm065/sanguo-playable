@@ -27,6 +27,7 @@ function animate(actor, name, loop = false, options = {}) {
   // 专属动作的短暂视觉锁防止迟到的移动/普攻回调覆盖下劈；死亡始终优先。
   if(actor.animationLock&&name!==actor.animationLock&&name!=='dead')return;
   actor.currentAnimation = { name, loop, options };
+  actor.updateLayout?.();
   if (!actor.sp.skeletonData) return;
   const key = animationKey(name, actor.facing, actor.directional),
     speed = options.speed || 1,

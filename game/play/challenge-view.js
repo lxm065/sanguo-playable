@@ -15,7 +15,7 @@ class ChallengeView {
   /** 已解锁才创建存档，不修改玩家实际章节用于强开入口。 */
   open(id){if(id!=='multiplayer'){this.message=c.ui.unavailable;this.render();return;}this.act(()=>{this.service.initialize();this.screen='lobby';});}
   /** 大标题、棋盘预览和开局按钮对应原版多人对战首页。 */
-  renderLobby(){const u=this.ui,s=this.service.state;u.text(this.root,c.ui.title,0,518,55,'#FFE4A4');require('./challenge-rank-view').lobby(this);u.text(this.root,c.ui.localLabel,0,393,24,'#E1D5B9');u.image(this.root,this.config.battleImage,0,89,605,540);const deck=s.decks[s.activeDeck];deck.slice(0,6).forEach((id,i)=>{const h=this.roster.find(h=>h.id===id);u.actor(this.root,{uid:i,heroId:id,star:c.initialLevel},(i%3-1)*151,145-Math.floor(i/3)*158,.8,false);});u.button(this.root,'选棋 · 棋组'+(s.activeDeck+1),-178,-229,270,()=>{this.deckIndex=s.activeDeck;this.draft=[...deck];this.deckDrafts=null;this.screen='decks';this.render();},'#796044',70);u.button(this.root,'规则',178,-229,220,()=>this.rules(), '#796044',70);this.host.paper(this.root,'challenge-start-panel',0,-394,682,218);u.text(this.root,'自选10枚棋子，加入4人棋局',0,-332,29,'#503923',640);u.button(this.root,'对战',0,-422,260,()=>this.act(()=>{this.service.start();this.screen='game';}), '#A63222',90);u.button(this.root,'关闭',0,-548,210,()=>this.close(),'#665340',62);}
+  renderLobby(){const u=this.ui,s=this.service.state;u.text(this.root,c.ui.title,0,518,55,'#FFE4A4');require('./challenge-rank-view').lobby(this);u.image(this.root,this.config.battleImage,0,89,605,540);const deck=s.decks[s.activeDeck];deck.slice(0,6).forEach((id,i)=>{const h=this.roster.find(h=>h.id===id);u.actor(this.root,{uid:i,heroId:id,star:c.initialLevel},(i%3-1)*151,145-Math.floor(i/3)*158,.8,false);});u.button(this.root,'选棋 · 棋组'+(s.activeDeck+1),-178,-229,270,()=>{this.deckIndex=s.activeDeck;this.draft=[...deck];this.deckDrafts=null;this.screen='decks';this.render();},'#796044',70);u.button(this.root,'规则',178,-229,220,()=>this.rules(), '#796044',70);this.host.paper(this.root,'challenge-start-panel',0,-394,682,218);u.text(this.root,'自选10枚棋子，加入4人棋局',0,-332,29,'#503923',640);u.button(this.root,'对战',0,-422,260,()=>this.act(()=>{this.service.start();this.screen='game';}), '#A63222',90);u.button(this.root,'关闭',0,-548,210,()=>this.close(),'#665340',62);}
   /** 显示哪些规则已核对、哪些数值是本地策略，产品内仅保留必要说明。 */
   rules(){this.dialog('对战规则','任选'+c.deckSize+'名已解锁武将，不限制档位，入局均为'+c.initialLevel+'级'+'。\n开局'+c.initialGold+'金币、'+c.initialHp+'颗心、'+c.initialPopulation+'人口。\n三选一后直接上阵，同名棋子自动升级。\n人口满时需先升人口，也可选择带↑的同名棋子。\n升人口直接增加一位；可在棋盘内拖动换位。\n每轮战败扣'+c.lossDamage+'颗心，归零淘汰。\n当前对手均为电脑，不进行真人联网匹配。');}
   /** 主动结束需用户在游戏内确认，返回大厅或关闭均结束本局，不保留续局入口。 */
@@ -52,7 +52,6 @@ class ChallengeView {
     u.text(this.root,'回合 '+r.round,226,529,26,'#EFE1BC',180,42);
     this.clockLabel=u.text(this.root,'',210,582,31,'#FFE263',218,44);
     u.button(this.root,'大厅',-302,616,103,()=>this.confirmAbandon(),'#69523C',38);
-    u.text(this.root,'本地电脑对局',-61,616,19,'#DBCDA9',300,30);
     u.button(this.root,'战况',83,528,109,()=>this.standings(),'#69523C',43);
     for(let y=0;y<this.config.rows*2;y++)for(let x=0;x<this.config.columns;x++){
       const pos=this.position(x,y),slot=y*this.config.columns+x,tile=u.box(this.root,'challenge-cell-'+slot,pos.x,pos.y,100,94,y<this.config.rows?'#52664A45':'#75634420',false);
@@ -70,15 +69,19 @@ class ChallengeView {
       if(canUpgrade)u.text(n,'↑ 升级',0,c.ui.choiceUpgradeY,26,'#83E271',126,37);
       this.bindChoice(n,i,id);
     });
-    u.button(this.root,'换一批 · '+this.service.refreshCost()+'金币',230,-349,229,()=>this.act(()=>{if(p.gold>=this.service.refreshCost())this.service.refresh();}),'#A96A20',66);
+    const refreshCost=this.service.refreshCost(),refreshButton=u.button(this.root,'换一批 · '+refreshCost+'金币',230,-349,229,()=>this.act(()=>{if(p.gold>=this.service.refreshCost())this.service.refresh();}),'#A96A20',66);
+    this.updateGoldButtonColor(refreshButton,p.gold,refreshCost);
     u.text(this.root,'金币 '+p.gold,230,-397,25,'#FFE263',217,36);
-    const cost=this.service.populationCost();u.button(this.root,cost===null?'升人口 · MAX':'升人口 · '+cost+'金币',230,-455,229,()=>this.act(()=>{if(cost!==null&&p.gold>=cost)this.service.upgrade();}),'#A96A20',66);
+    const cost=this.service.populationCost(),populationButton=u.button(this.root,cost===null?'升人口 · MAX':'升人口 · '+cost+'金币',230,-455,229,()=>this.act(()=>{if(cost!==null&&p.gold>=cost)this.service.upgrade();}),'#A96A20',66);
+    this.updateGoldButtonColor(populationButton,p.gold,cost);
     u.text(this.root,p.units.length+'/'+p.population,230,-504,28,p.units.length>=p.population?'#F46C58':'#EEE1C1',218,39);
     this.renderInspection(p);
     u.text(this.root,'♥'.repeat(p.hp),226,-557,35,'#F26C58',216,46);u.text(this.root,'我方',226,-602,26,'#EEE1C1',214,36);
     if(r.phase==='result'){this.renderResult();return;}this.updateClock();
     this.timer=setInterval(()=>{if(!this.root?.isValid)return;try{if(this.service.tick()){this.message='';this.play();}else this.updateClock();}catch(error){this.message=error.message;this.render();}},c.ui.tickMs);this.rewardPopup();
   }
+  /** 按各按钮费用更新文字颜色；余额刚好足够及人口满级时保留正常皮肤色。 */
+  updateGoldButtonColor(button,gold,cost){const label=button.getComponentInChildren(this.cc.Label);if(label)label.color=new this.cc.Color(cost!==null&&gold<cost?c.ui.insufficientGoldColor:require('./button-skin-config').text);}
   /** 装备拖动使用棋盘格命中，完整覆盖模型区域；越界放手不消耗装备。 */
   /** 备战和回放共用只读信息入口，回放布局避开速度按钮。 */
   renderInspection(p,layout=c.ui){const u=this.ui;

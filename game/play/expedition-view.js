@@ -167,11 +167,13 @@ class ExpeditionView extends ClassicView {
         );
       }
     if (s.pending) {
-      for (const initial of s.pending.battle.initial) {
+      for (const initial of (this.startingBattle ? [] : s.pending.battle.initial)) {
         if(!require("./enemy-board-view").showResult(s,initial))continue;
         const final = s.pending.battle.final.find((f) => f.uid === initial.uid),
-          unit = { ...initial, ...final },
-          p = this.position(unit.x, unit.y),
+          unit = { ...initial, ...final };
+        // 战后死亡单位不可见，无须再次装配骨骼及状态节点。
+        if (unit.hp === 0) continue;
+        const p = this.position(unit.x, unit.y),
           actor = u.actor(
             this.root,
             unit,
@@ -736,7 +738,7 @@ class ExpeditionView extends ClassicView {
       u = this.ui,
       actor = this.actors.get(event.uid),
       target = this.actors.get(event.target);
-    if(event.type==='ability'&&actor){if(target&&target!==actor)u.face(actor,target.node.position.x-actor.node.position.x,target.node.position.y-actor.node.position.y);u.animate(actor,'skill2',false,{speed:this.speed});require('./skill-effects').ability(this,actor,target,event);return;}
+    if(event.type==='ability'&&actor){if(event.impactOnly){require('./warrior-skill-view').ability(this,actor,target,event);return;}if(target&&target!==actor)u.face(actor,target.node.position.x-actor.node.position.x,target.node.position.y-actor.node.position.y);u.animate(actor,'skill2',false,{speed:this.speed});require('./skill-effects').ability(this,actor,target,event);return;}
     if(event.type==='shield'&&target){require('./combat-text').show(this,target,require('./combat-text-config').status.shield+' '+event.amount,'gain');return;}
     if(event.type==='gain'&&target){if(event.effect)require('./native-effects').play(this,event.effect,target.node,0,40,{duration:require('./equipment-vfx-config').duration});require('./combat-text').show(this,target,event.text,'gain');return;}
     if(event.type==='equipment'&&actor){require('./equipment-vfx').cast(this,event);return;}

@@ -1,0 +1,6 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),row=require('../game/play/buff-icon-row'),c=require('../game/play/buff-icon-row-config');
+/** 模拟节点销毁通知，覆盖原生动画自动到期导致的重新排列。 */
+function node(){return {isValid:true,setPosition(x,y){this.position={x,y};},once(name,fn){this.ended=fn;},destroy(){this.isValid=false;this.ended?.();}};}
+test('赤兔与周瑜无论添加顺序都并排，原生效果到期后剩余图标居中',()=>{const a={},v={},strategy=node(),march=node();row.attach(v,a,'strategy',strategy);assert.equal(strategy.position.x,0);row.attach(v,a,'march',march);assert.equal(march.position.x,-c.gap/2);assert.equal(strategy.position.x,c.gap/2);assert(c.gap>c.size);march.destroy();assert.equal(strategy.position.x,0);assert.equal(strategy.position.y,c.y);row.clear(a);assert(!strategy.isValid);});
+test('第三个嗜血图标加入不重叠，旧图标延迟销毁不删除同名新图标',()=>{const a={},v={},old=node(),newer=node(),march=node(),rage=node();row.attach(v,a,'strategy',old);row.attach(v,a,'strategy',newer);old.destroy();assert.equal(a.buffIconRow.strategy,newer);row.attach(v,a,'march',march);row.attach(v,a,'rage',rage);assert.deepEqual([march,newer,rage].map(n=>n.position.x),[-c.gap,0,c.gap]);row.remove(a,'strategy');assert.deepEqual([march,rage].map(n=>n.position.x),[-c.gap/2,c.gap/2]);row.clear(a);assert.deepEqual(Object.keys(a.buffIconRow),[]);});

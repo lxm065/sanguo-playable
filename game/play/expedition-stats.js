@@ -55,6 +55,8 @@ function stats(
   if(!shared){shared={team:units.map(u=>u.uid),bonds:bonds(units,roster,rules.playerBonds)};evaluation?.teams.set(units,shared);}
   const team=shared.team;
   for (const item of equipment) {
+    // 未被当前队伍穿戴的背包装备不参与面板计算，也不解析其升级定义。
+    if(item.owner!==unit.uid&&!team.includes(item.owner))continue;
     const cacheKey=item.id+':'+(item.potency??'default');
     let e=evaluation?.equipment.get(cacheKey);
     if(!e){

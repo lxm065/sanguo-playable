@@ -4,7 +4,7 @@ const {Progression}=require('./progression');
 /** 给纯战役模型注入章节策略，UI 不参与解锁和奖励判定。 */
 function attach(model,roster){const progress=new Progression(model,config);model.progression=progress;require('./lord-unlock').initialize(progress);require("./speed-credits").initialize(model);require('./novice-rewards').initialize(model);model.activities=new (require('./activities').Activities)(model);model.hooks={
  /** 张飞解锁前不会从随机合成、选将或商店获得。 */
- pool(){return roster.filter(h=>progress.state.unlocked.includes(h.id));},
+ pool(){return roster.filter(h=>(progress.state.unlocked.includes(h.id)||require("./permanent-unlocks").has(progress.state,"heroes",h.id)));},
  /** 刘备的仁德额外增加1名上阵单位，基础人数与等级成长分开。 */
  limit(){return Math.min(model.rules.maxDeployedLimit,config.baseArmyLimit+(config.lordArmyBonus[progress.state.lord]||0)+Math.floor(model.state.wins/model.rules.limitEveryWins));},
  /** BOSS 使用独立章节阵容，其余节点继续使用本地战斗生成。 */

@@ -5,7 +5,7 @@ function ready(progress,id){const lord=progress.lord(id),m=progress.state;return
 /** 完整视频进度保存在局外，重开远征不会清零。 */
 function count(progress,id){return Math.min(config.entries[id]?.videos||0,Math.max(0,Math.floor(progress.state.lordRecruitment?.[id]||0)));}
 /** 选择和技能实际入口共用解锁判断，不能由显示标记绕过。 */
-function unlocked(progress,id){const entry=config.entries[id];return ready(progress,id)&&(!entry||count(progress,id)>=entry.videos);}
+function unlocked(progress,id){if(progress.lord(id)&&require('./permanent-unlocks').has(progress.state,'lords',id))return true;const entry=config.entries[id];return ready(progress,id)&&(!entry||count(progress,id)>=entry.videos);}
 /** 仅迁移旧版已经在使用的合法主公，未选中的主公仍需招募。 */
 function initialize(progress){if(progress.state.lordRecruitment)return;progress.model.transact(()=>{progress.state.lordRecruitment={};const id=progress.state.lord;if(config.entries[id]&&ready(progress,id))progress.state.lordRecruitment[id]=config.entries[id].videos;});}
 /** 捕获本次招募次数与广告流水，过期回调不得消耗下一次机会。 */

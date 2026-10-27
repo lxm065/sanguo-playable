@@ -10,7 +10,7 @@ function tick(unit,t,events){if(unit.charmedUntil!==undefined&&(!active(unit,t))
 /** 在攻击距离内选取最近敌将；冷却和首次触发由装备配置驱动。 */
 function activate(actor,units,t,hits,events){
  const c=config[id];if(!require('./weapon-exclusive').active(actor,id)||active(actor,t)||actor.silencedUntil>t||t<(actor.nextCharm??c.initialCooldown))return false;
- const target=units.filter(u=>hostile(actor,u,t)&&!u.summoned&&protection.targetable(u)&&!active(u,t)&&distance(actor,u)<=actor.range).sort((a,b)=>distance(actor,a)-distance(actor,b)||a.uid-b.uid)[0];
+ const target=units.filter(u=>hostile(actor,u,t)&&!u.summoned&&!u.negativeImmune&&protection.targetable(u)&&!active(u,t)&&distance(actor,u)<=actor.range).sort((a,b)=>distance(actor,a)-distance(actor,b)||a.uid-b.uid)[0];
  if(!target)return false;
  actor.nextCharm=t+c.cooldown;actor.nextAction=t+c.travel;
  hits.push({at:t+c.travel,a:actor,u:target,charm:true});
@@ -18,7 +18,7 @@ function activate(actor,units,t,hits,events){
 }
 /** 命中才开始四秒控制，同时打断旧动作；已飞出的旧阵营攻击不再生效。 */
 function impact(hit,t,events,hits=[]){
- const {a,u}=hit;if(a.hp<=0||!protection.targetable(u)||u.summoned||a.side===u.side||active(a,t))return;
+ const {a,u}=hit;if(u.negativeImmune||a.hp<=0||!protection.targetable(u)||u.summoned||a.side===u.side||active(a,t))return;
  for(const pending of hits)if(pending.a===u&&!pending.healPower)pending.cancelled=true;
  u.charmedUntil=t+config[id].duration;u.charmSource=a.uid;u.charmEpoch=(u.charmEpoch||0)+1;u.channelUntil=t;u.channelInterruptedAt=t;u.nextAction=t;
  events.push({type:'equipment',exclusive:true,id,t,uid:a.uid,target:u.uid,phase:'impact',duration:config[id].duration});

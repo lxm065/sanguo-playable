@@ -1,6 +1,10 @@
 'use strict';
 /** 专属伤害、触发与表现统一配置；基础装备效果仍由原配置负责。 */
 module.exports={
+ '7110':require('./frost-luan-config'),
+ '7004':require('./northern-weapons-config').blade,
+ '7209':require('./northern-weapons-config').bow,
+ '7006':{hero:'huangyueying',name:'机关齐射',bows:3,waves:3,power:.3,deploy:.4,interval:.3,travel:.3,effect:'exclusive-mechanism',visual:require('./mechanism-volley-config'),description:'黄月英专属技能【机关齐射】：每次主动施法后召出3架机关弩，连续齐射3轮共9箭，每箭造成30%攻击力的物理伤害；优先近敌并分配目标，不足3人可集中射击。无独立冷却，同名多件及同次多重施法不重复触发'},
  '7007':{hero:'machao',name:'虎魂熔炉',delay:2,emergency:{threshold:.2,shieldRatio:.5,cooldown:12},radius:1,healthSource:'self',healthRatio:.15,damageType:'magic',effect:'exclusive-furnace',visual:{y:0,explodeY:48,color:'#F05B40',fill:'#A6212928',width:138,height:164,glow:[{width:14,color:'#900E2814'},{width:9,color:'#A80E3030'},{width:5,color:'#BF163B65'},{width:2,color:'#DF294FBA'}],highlight:{width:3,color:'#F0536558',curves:[[[-.75,-.6],[-1,-.1],[-.95,.52],[-.5,.84]],[[.62,.75],[.96,.4],[1,-.12],[.73,-.62]]]},pulseSeconds:.4,pulseScale:1.035,explode:'flameWave',blast:'stomp',explodeSize:270,blastSize:250,explodeDuration:.55,blastDuration:.4},description:'马超专属技能【虎魂熔炉】：吸血溢出可产生护盾；生命低于20%或即将受到敌方致命伤害时，获得最大生命50%的护盾，保命盾冷却12秒。护盾蓄能2秒后若仍存在，消耗剩余护盾引爆；蓄能期间阵亡则在死亡位置立即爆炸，对周围一格（含斜角）敌人造成马超自身最大生命值15%的法术伤害。补盾不重置蓄能，同名多件不叠加'},
  '7101':{hero:'zhenji',name:'惊鸿魅惑',duration:4,initialCooldown:2,cooldown:15,travel:.3,visual:{size:34,y:58,color:'#FF67B5',outline:'#FFD3ED',lineWidth:2,animation:'skill2'},description:'甄姬专属技能【惊鸿魅惑】：向攻击距离内最近的敌方武将释放爱心妖术，使其转而普攻原阵营其他单位，持续4秒；控制期间不能主动施法。首次2秒可用，冷却15秒，同名多件不叠加'},
  '7005':{hero:'zhangfei',name:'擒敌连刺',triggerSkill:'12091',stun:3,count:5,power:1,interval:.16,effect:'exclusive-zhangba',animation:'skill1',animationStart:.25,slash:'bladeSweep',slashSize:125,slashY:42,slashColor:'#FFE5A0',description:'张飞专属技能【擒敌连刺】：丈八擒敌命中后使目标眩晕3秒，随后快速攻击同一目标5次，每次造成100%攻击力的真实伤害；目标阵亡或连击被打断时结束，同名多件不叠加'},

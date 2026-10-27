@@ -1,7 +1,7 @@
 {
-  "output": "dist/wechat-1.0.238",
-  "version": "1.0.238",
-  "description": "周瑜破军令开局2秒自动全军强化一次",
+  "output": "dist/wechat-1.0.278",
+  "version": "1.0.278",
+  "description": "烈刃焚阵升级火刃天降，五刃蓄势俯射、落地爆焰与焦痕",
   "copy": [
     "@babel",
     "cocos-js",

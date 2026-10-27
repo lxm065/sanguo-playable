@@ -1,0 +1,7 @@
+'use strict';
+const test=require('node:test'),a=require('node:assert/strict'),{FortressBuilding}=require('../game/play/fortress-building'),config=require('../game/play/diamond-mine-config');
+/** 固定时钟验证离线到期，读取提醒不能修改真实存档。 */
+function fixture(){let now=100000;const state={cleared:30,diamonds:1000000},p={state,clock:()=>now,day:()=> '2026-10-19'};return {p,b:new FortressBuilding(p,config),advance:t=>now+=t};}
+test('未解锁、钻石不足、建造中不显示升级红点，满足条件后显示',()=>{const {p,b}=fixture();p.state.cleared=0;a.deepEqual(b.attention(),{claim:false,upgrade:false});p.state.cleared=5;p.state.diamonds=0;a.equal(b.attention().upgrade,false);p.state.diamonds=7500;a.equal(b.attention().upgrade,true);p.state[config.stateKey]={level:0,ready:0,nextAt:200000,build:{level:1,start:100000,end:200000}};a.equal(b.attention().upgrade,false);});
+test('首页只读检测建造完成和产出到期，不变更存档',()=>{const {p,b,advance}=fixture();p.state[config.stateKey]={level:0,ready:0,nextAt:200000,build:{level:1,start:100000,end:200000}};const before=JSON.stringify(p.state);advance(100000);a.equal(b.attention().claim,true);a.equal(JSON.stringify(p.state),before);a(require('../game/play/fortress-notification').ready(p));});
+test('领取冷却和满级不误报，所有注册建筑使用相同门槛',()=>{for(const c of [config,...require('../game/play/fortress-panels-config').buildings]){const {p}=fixture();p.state[c.stateKey]={level:c.levels.length-1,ready:0,nextAt:200000};const b=new FortressBuilding(p,c);a.deepEqual(b.attention(),{claim:false,upgrade:false});p.state[c.stateKey].ready=1;a.equal(b.attention().claim,true);}});

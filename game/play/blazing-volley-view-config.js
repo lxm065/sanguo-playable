@@ -1,0 +1,3 @@
+'use strict';
+/** 火刃天降的阵列、阶段比例与落地层次；预备及飞行合计严格使用真实命中延迟。 */
+module.exports={hitY:24,ash:{rx:80,ry:32,color:'#382419',layers:[{scale:1,alpha:22},{scale:.8,alpha:35},{scale:.55,alpha:48}]},chargeRatio:.38,blade:'bladeSweep',flame:'fireArrow',chargeSize:110,bladeSize:135,trailSize:125,edge:'#FFF1BD',fire:'#FFB270',chargeFrames:[4],bladeFrames:[4],fade:.45,slots:[[-76,112],[-39,143],[0,156],[39,143],[76,112]],landings:[[-70,-24],[-35,18],[0,0],[35,18],[70,-24]],impact:{id:'zhouyuPillar',size:220,duration:.7},shock:{id:'flameWave',size:260,duration:.55},scorch:{id:'zhouyuGround',size:210,duration:1.4,color:'#8E492B',height:.48,fade:.9},hit:{id:'emberBolt',size:85,duration:.3}};

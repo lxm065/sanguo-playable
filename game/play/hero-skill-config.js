@@ -1,6 +1,19 @@
 'use strict';
 /** 前两章技能表：倍率、持续时间、目标规则均按图鉴恢复；冷却和阶级来自原技能表。 */
 module.exports={
+ ...require('./zhurong-skill-config'),
+ '11051':{kind:'legacyToss',effect:'dianweiToss'},
+ '11052':{kind:'ironBody',armor:30,chance:.25,power:.25,radius:1,stun:1.5,effect:'ironCounter'},
+ '11053':{kind:'damage',power:2,radius:1,selfCenter:true,stun:2,effect:'earthSlam'},
+ '11054':{kind:'lastStand',duration:3,minimumHp:1,effect:'lastStand',description:'免疫除眩晕以外的负面效果。每场首次受到致命伤害时保留1点生命，触发恶来护主：体型增大、攻速提高100%，无敌并继续战斗3秒。'},
+ '13151':{kind:'damage',power:1.5,line:true,global:true,stun:2,effect:'cavalryStrike'},
+ '13152':{kind:'sandstorm',power:1,radius:1,period:1,duration:5,invisible:1,effect:'sandstorm'},
+ '13153':{kind:'bonus',power:1.5,infectionDuration:5,deathPower:1,radius:1,effect:'boneEdge'},
+ '13154':{kind:'epicenter',power:2.5,radius:2,windup:2,slow:.3,duration:3,effect:'epicenter'},
+ '12101':{kind:'damage',power:3,select:'highestHp',global:true,radius:1,slow:.25,slowClass:1,duration:4,effect:'iceNova'},
+ '12103':{kind:'frostScreen',global:true,armor:1000,healRatio:.15,period:1,duration:3,effect:'frostScreen'},
+ '12102':{kind:'damage',power:3,classPower:{0:6},select:'highestHp',global:true,effect:'frostFlame'},
+ '12104':{kind:'freeze',power:1.5,select:'highestHp',global:true,duration:5,period:1,effect:'freeze'},
  '11012':{kind:'damage',power:1.2,radius:1,slow:.5,duration:4,effect:'iceNova'},
  '11011':{kind:'freeze',power:.8,duration:3,period:1,effect:'freeze'},
  '11013':{kind:'channel',power:1.2,duration:require('./skill-timing-config')['11013'].duration,period:1,radius:2,slow:.25,effect:'blizzard'},
@@ -46,7 +59,8 @@ module.exports={
  '14193':{kind:'damage',power:.8,stun:1.5,effect:'blast'},
  '14194':{kind:'multicast',chances:[{chance:.05,count:4},{chance:.15,count:3},{chance:.30,count:2}],effect:'multicast'},
  primaryEffects:{zhenji:'iceNova',taishici:'fireArrow'},
- activeKinds:['damage','dot','channel','freeze','taunt','execute','silence','blinkStrike','haste','pact','heal','cleanse','protect','enrage','allyHaste'],
- supportHeroes:['zhenji','xuchu','xiahouyuan','zhaoyun','huangzhong','taishici','zhangfei','zhouyu','guanyu','yanliang','huangyueying'],
+ legacyPrimaryHeroes:['dianwei'],
+ activeKinds:['sandstorm','epicenter','frostScreen','damage','dot','channel','freeze','taunt','execute','silence','blinkStrike','haste','pact','heal','cleanse','protect','enrage','allyHaste'],
+ supportHeroes:['zhurong','dianwei','machao','xiaoqiao','zhenji','xuchu','xiahouyuan','zhaoyun','huangzhong','taishici','zhangfei','zhouyu','guanyu','yanliang','huangyueying'],
  defaults:{nearRadius:1,burstSpacing:.15,defenseCap:.9}
 };

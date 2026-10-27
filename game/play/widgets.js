@@ -157,6 +157,7 @@ class Widgets {
         scale,
         showBars,
         unit.heroId,
+        state.currentAnimation?.name || "idle",
       );
       body.setPosition(layout.bodyX, layout.bodyY);
       const sign =

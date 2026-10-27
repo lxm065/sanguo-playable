@@ -59,9 +59,9 @@ module.exports=[
   },
   {
     "id": "7004",
-    "name": "虎贲护臂",
-    "shape": "bracer",
-    "flavor": "虎贲披坚，临危愈勇。",
+    "name": "河北破阵刀",
+    "shape": "glaive",
+    "flavor": "重刀摧锋，河北破阵。",
     "category": "physical",
     "quality": 2,
     "unlock": {
@@ -380,9 +380,9 @@ module.exports=[
   },
   {
     "id": "7110",
-    "name": "朱雀羽扇",
+    "name": "霜鸾羽扇",
     "shape": "fan",
-    "flavor": "朱羽引火，焚尽敌阵。",
+    "flavor": "霜羽护同袍，鸾影退敌锋。",
     "category": "magic",
     "quality": 3,
     "unlock": {
@@ -394,7 +394,7 @@ module.exports=[
       "法术穿透+35"
     ],
     "effects": [
-      "佩戴后，每10秒对对方攻击最高的生物释放【朱雀焚天】造成500点伤害;每击杀一个敌方非召唤物额外增加【朱雀焚天】100点伤害最高累计1000点。死亡后额外效果掉去一半"
+      "佩戴后，每10秒对对方攻击最高的生物释放【霜鸾破阵】造成500点伤害;每击杀一个敌方非召唤物额外增加【霜鸾破阵】100点伤害最高累计1000点。死亡后额外效果掉去一半"
     ]
   },
   {
@@ -641,9 +641,9 @@ module.exports=[
   },
   {
     "id": "7209",
-    "name": "疾风护腕",
-    "shape": "bracer",
-    "flavor": "腕若疾风，百战争先。",
+    "name": "疾风寒羽弓",
+    "shape": "bow",
+    "flavor": "疾行争先，寒羽贯阵。",
     "category": "support",
     "quality": 2,
     "unlock": {

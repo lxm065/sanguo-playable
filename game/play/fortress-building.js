@@ -11,6 +11,8 @@ class FortressBuilding{
  gate(){if(this.progress.state.cleared<this.config.chapter)throw Error('通关第'+this.config.chapter+'章解锁'+this.config.name);}
  /** 到期结算保留时间余量；库存满后暂停积累，不能离线无限领取。 */
  sync(){const p=this.progress.state,c=this.config,now=this.progress.clock(),key=c.stateKey;let s=p[key];if(!s)s=p[key]={level:Math.max(0,Math.min(p[c.legacyLevel]||0,c.levels.length-1)),ready:0,nextAt:now+c.production.seconds*1000,serial:0};if(s.build&&now>=s.build.end){s.level=s.build.level;s.nextAt=s.build.end;delete s.build;}if(c.legacyLevel)p[c.legacyLevel]=s.level;if(s.day!==this.progress.day()){s.day=this.progress.day();s.buildSpeeds=0;s.productionSpeeds=0;}const capacity=c.levels[s.level].max,period=this.period(s.level);if(s.level&&s.ready<capacity&&now>=s.nextAt){const elapsed=1+Math.floor((now-s.nextAt)/period);s.ready=Math.min(capacity,s.ready+elapsed);s.nextAt=s.ready===capacity?now+period:s.nextAt+elapsed*period;}return s;}
+ /** 在隔离的建筑状态上计算到期及红点，不写盘、不增加模型事务版本。 */
+ attention(){const p=this.progress,c=this.config,state={...p.state},saved=state[c.stateKey];if(saved)state[c.stateKey]={...saved,build:saved.build?{...saved.build}:undefined};const preview=new FortressBuilding({state,clock:()=>p.clock(),day:()=>p.day()},c),s=preview.sync(),unlocked=state.cleared>=c.chapter,next=c.levels[s.level+1];return {claim:unlocked&&s.level>0&&s.ready>0,upgrade:unlocked&&!s.build&&!!next&&state.cleared>=next.chapter&&state.diamonds>=c.levels[s.level].exp};}
  /** 返回快照，UI只能通过事务入口更改生产状态。 */
  status(){return this.progress.model.transact(()=>{const s=this.sync();return {...s,build:s.build?{...s.build}:null};});}
  /** 建造与升级消耗按原表读取，失败不留下半次扣款。 */

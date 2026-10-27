@@ -127,10 +127,10 @@ class Expedition extends Campaign {
     const m = this.state.meta;
     return this.roster.filter(
       (h) =>
-        !h.legacy && require("./section-policy").eligible(h.id,m) &&
+        !h.legacy && (require('./permanent-unlocks').has(m,'heroes',h.id) || (require("./section-policy").eligible(h.id,m) &&
         (h.unlock === "initial" ||
           (h.unlock === "boss" && m?.unlocked.includes(h.id)) ||
-          (h.unlock === "chapter" && (m?.cleared || 0) >= h.chapter)),
+          (h.unlock === "chapter" && (m?.cleared || 0) >= h.chapter)))),
     );
   }
   /** 当前可升阶上限采用章节条件而非图鉴展示等级。 */

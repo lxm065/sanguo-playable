@@ -8,7 +8,7 @@ function landing(a,u,units,rules){
  return free[0]||{x:u.x,y:u.y};
 }
 /** 预占落地点并锁定飞行期行动；死亡单位原格和被其他单位预占的落点均按真实战局处理。 */
-function launch(a,u,units,t,rules){const from={x:u.x,y:u.y},to=landing(a,u,units,rules),duration=rules.attackDelay;Object.assign(u,to);u.tossedUntil=Math.max(u.tossedUntil||0,t+duration);return {from,to,duration};}
+function launch(a,u,units,t,rules){if(u.negativeImmune)return null;const from={x:u.x,y:u.y},to=landing(a,u,units,rules),duration=rules.attackDelay;Object.assign(u,to);u.tossedUntil=Math.max(u.tossedUntil||0,t+duration);return {from,to,duration};}
 /** 落地时再读取周围存活敌人，避免用起飞位置或起飞时快照结算范围伤害。 */
 function impact(hit,units,t){return units.filter(u=>u.side!==hit.a.side&&u.hp>0&&(u===hit.u||distance(u,hit.toss.to)<=hit.s.radius)).map(u=>({...hit,u,toss:undefined,at:t}));}
 module.exports={landing,launch,impact};

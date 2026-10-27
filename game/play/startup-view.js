@@ -2,6 +2,7 @@
 const c=require('./startup-config');
 /** 绘制可独立释放的开场；资源进度由外部真实完成量驱动。 */
 function show(cc,root,u){
+ const visible=new Promise(resolve=>cc.director.once(cc.Director.EVENT_AFTER_DRAW,resolve));
  const host=u.node(root,'startup'),timers=[],tweens=[],started=Date.now();let closed=false,ratio=0;
  u.box(host,'startup-background',0,0,c.width,c.height,c.background,false);
  const glow=u.box(host,'startup-panel',0,70,c.width*.9,c.height*.73,c.panel,false);glow.addComponent(cc.UIOpacity).opacity=100;
@@ -23,6 +24,6 @@ function show(cc,root,u){
  function close(){if(closed)return;closed=true;timers.forEach(clearInterval);tweens.forEach(t=>t.stop());if(host.isValid)host.destroy();}
  /** 最短展示仅服务标题入场，不冒充加载百分比。 */
  async function finish(){const remaining=Math.max(0,c.minimumDisplay-(Date.now()-started));if(remaining)await new Promise(r=>setTimeout(r,remaining));progress(1);await new Promise(r=>setTimeout(r,c.exitDelay));close();}
- timers.push(setInterval(()=>{if(!host.isValid){close();return;}const elapsed=Date.now()-started;tip.string=c.tips[Math.floor(elapsed/c.tipInterval)%c.tips.length];particles.clear();particles.fillColor=new cc.Color(c.gold);for(let i=0;i<c.particleCount;i++){const x=(i*137%c.width)-c.width/2,y=((i*91+elapsed*c.particleSpeed/1000)%c.height)-c.height/2;particles.circle(x,y,c.particleRadius*(.4+.6*(i%3)/2));particles.fill();}},c.tickMs));host.on(cc.Node.EventType.NODE_DESTROYED,close);progress(0);return{prepare,progress,finish,close};
+ timers.push(setInterval(()=>{if(!host.isValid){close();return;}const elapsed=Date.now()-started;tip.string=c.tips[Math.floor(elapsed/c.tipInterval)%c.tips.length];particles.clear();particles.fillColor=new cc.Color(c.gold);for(let i=0;i<c.particleCount;i++){const x=(i*137%c.width)-c.width/2,y=((i*91+elapsed*c.particleSpeed/1000)%c.height)-c.height/2;particles.circle(x,y,c.particleRadius*(.4+.6*(i%3)/2));particles.fill();}},c.tickMs));host.on(cc.Node.EventType.NODE_DESTROYED,close);progress(0);return{visible,prepare,progress,finish,close};
 }
 module.exports={show};

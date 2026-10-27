@@ -1,0 +1,3 @@
+'use strict';
+/** 火刃与藤甲的资源、尺寸及弹道配置；视觉数量不增加战斗伤害次数。 */
+module.exports={hero:'zhurong',offsetY:24,color:'#FFBD76',edge:'#FFF0C2',blade:'bladeSweep',flame:'emberBolt',impact:'flameWave',armor:'shield',armorColor:'#D4B879',armorSize:110,armorDuration:.75,fade:.35,returnDuration:.28,spin:300,normal:{size:48,flameSize:44},skills:{fireBlade:{size:78,flameSize:65,impactSize:90,impactDuration:.32,offsets:[[0,0]]},returningBlade:{size:105,flameSize:70,impactSize:105,impactDuration:.36,offsets:[[0,0]],returning:true},blazingVolley:{size:80,flameSize:65,impactSize:130,impactDuration:.45,offsets:[[-60,-25],[-30,20],[0,0],[30,20],[60,-25]]}}};

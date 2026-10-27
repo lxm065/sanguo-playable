@@ -1,6 +1,7 @@
 'use strict';
 /** 入口配置独立声明图片和裁剪；透明原图完整显示，仅旧方形徽章使用圆形裁剪。 */
 module.exports={diameterScale:1,offsetY:8,maskSegments:64,icons:{
+ vip:{file:'home-ui/vip.png'},'war-order':{file:'home-ui/war-order.png'},
  'tab-lord':{file:'home-ui/hero.jpg',circle:true},
  'tab-expedition':{file:'home-ui/expedition.jpg',circle:true},
  'tab-talent':{file:'home-ui/talent.png'},'tab-fort':{file:'home-ui/fort.png'},

@@ -38,7 +38,7 @@ module.exports = {
     huangyueying: { profile: 'fire', projectileSize: 100, color: '#E6C9A0' },
     diaochan: { profile: 'spirit', color: '#D9BCCF' },
     zhangjiao: { profile: 'spirit', color: '#D6C99F', projectileSize: 104 },
-    zhurong: { profile: 'water', projectileSize: 105 },
+    zhurong: { profile: 'fire', projectileSize: 80 },
     zhugeliang: { profile: 'spirit', color: '#C8D9DE' }
   },
   skills: {
