@@ -1,11 +1,14 @@
 'use strict';
 const config = require('./hero-vfx-config');
 const native = require('./native-effects');
+const pixel = require('./pixelfx-config');
 
 /** 合并武器类别与武将覆写；未知旧角色走既有特效，不猜测技能。 */
 function profile(heroId) {
   const hero = config.heroes[heroId];
-  return config.enabled && hero ? { ...config.profiles[hero.profile], ...hero } : null;
+  if (!config.enabled || !hero) return null;
+  return { ...config.profiles[hero.profile], ...hero,
+    ...(pixel.enabled ? pixel.profiles[hero.profile] : null), ...(pixel.enabled ? pixel.heroes[heroId] : null) };
 }
 
 /** 从真实源目标位置计算屏幕方向，独立于魔法/物理伤害属性。 */
@@ -35,7 +38,9 @@ function projectile(v, source, target) {
   native.play(v, p.projectile, v.root, a.x, a.y + config.offsetY, {
     size: p.projectileSize, duration: v.config.attackDelay, angle: direction(source, target),
     travel: { x: b.x, y: b.y + config.offsetY }, color: p.projectileColor ?? p.color,
-    widthRatio: p.projectileWidthRatio ?? 1, heightRatio: p.projectileHeightRatio ?? 1
+    widthRatio: p.projectileWidthRatio ?? 1, heightRatio: p.projectileHeightRatio ?? 1,
+    ...(pixel.enabled ? { loop: !!p.projectileLoop, fadeOut: pixel.projectile.fadeOut,
+      followTarget: pixel.projectile.followTarget ? target.node : null, targetOffsetY: config.offsetY } : {})
   });
   return true;
 }
@@ -44,10 +49,10 @@ function projectile(v, source, target) {
 function attack(v, source, event) {
   const target = v.actors?.get(event.target), p = profile(source?.unit?.heroId);
   if (!p || event.ranged || !source?.node?.isValid || !target?.node?.isValid) return;
-  const a = source.node.position, b = target.node.position, t = config.trail;
+  const a = source.node.position, b = target.node.position, t = { ...config.trail, ...p.trail };
   native.play(v, t.id, v.root, a.x + (b.x-a.x)*t.reachRatio, a.y + (b.y-a.y)*t.reachRatio + config.offsetY, {
     size: t.size, duration: t.duration, delay: v.config.attackDelay*t.contactRatio,
-    angle: direction(source, target), color: p.color, widthRatio: p.widthRatio, heightRatio: p.heightRatio
+    angle: direction(source, target), color: p.color, widthRatio: t.widthRatio ?? p.widthRatio, heightRatio: t.heightRatio ?? p.heightRatio
   });
 }
 

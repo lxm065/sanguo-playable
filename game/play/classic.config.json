@@ -43,7 +43,7 @@
       "chapter": 35,
       "sign": 0,
       "skillName": "虎威 Lv.1",
-      "skillDescription": "开局赐予你女神赐福过的【装备】，该装备可以无限升级。",
+      "skillDescription": "开局获得赐福装备，穿戴者存活通关后可无限成长。",
       "source": {
         "id": "1002",
         "hp": "1",
@@ -422,7 +422,8 @@
         "discount": 8
       }
     ],
-    "source": "2026-10-02 原版要塞实测当前三件商品；非全服完整商品池"
+    "source": "2026-10-02 原版要塞实测当前三件商品；非全服完整商品池",
+    "title": "军需商铺"
   },
   "mine": {
     "chapter": 5,
@@ -441,8 +442,8 @@
     }
   },
   "ads": {
-    "mode": "development",
-    "adUnitId": ""
+    "mode": "wechat",
+    "adUnitId": "adunit-169ed6b4a88c03ba"
   },
   "map": {
     "rowSpacing": 205,

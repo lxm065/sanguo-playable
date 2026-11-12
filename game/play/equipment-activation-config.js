@@ -1,3 +1,3 @@
 'use strict';
-/** 原版装备表unlock_type/value及客户端统一5碎片替代条件；英雄副本尚未开放。 */
-module.exports={fragmentAlternative:5,dungeonEnabled:false,activationVideo:true,kinds:{default:0,chapter:1,dungeon:2,fragments:3}};
+/** 保留原版条件及5碎片替代；副本门槛只接受新副本实际通关记录。 */
+module.exports={fragmentAlternative:5,dungeonEnabled:true,activationVideo:true,kinds:{default:0,chapter:1,dungeon:2,fragments:3}};

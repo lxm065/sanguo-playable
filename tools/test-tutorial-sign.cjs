@@ -12,3 +12,40 @@ test('旧待确认碎片补发散失和蓝装，重复核销不再发货',()=>{c
 test('第三轮九格按截图发奖，共65000钻石和40紫装碎片，不再重复主公',()=>{const {p,next}=fixture();p.state.signs=18;const rows=sign.status(p).rows;assert.deepEqual(rows.map(r=>r.displayDay),[1,2,3,4,5,6,7,8,9]);assert.deepEqual(rows.map(r=>r.count),[11000,10,12000,10,13000,10,14000,10,15000]);assert(rows.filter(r=>r.randomPurple).length===4);for(let i=0;i<9;i++){sign.claim(p);if(i<8)next();}assert.equal(p.state.diamonds,65000);const pool=require('../game/play/sign-config').purplePool;assert.equal(pool.reduce((sum,id)=>sum+(p.state.inventory[id]||0),0),40);assert.equal(p.state.signs,27);assert.equal(p.state.signClaim.reward.item,'1');});
 test('第二轮末尾视频跨入第三轮，随机紫碎片落盘后不重抽',()=>{const {p,next}=fixture();p.state.signs=17;sign.claim(p);assert.equal(p.state.signClaim.reward.lord,'1006');sign.claim(p,sign.ticket(p));assert.equal(p.state.signs,19);assert.equal(p.state.diamonds,11000);assert.equal(sign.status(p).rows.find(r=>r.current).displayDay,2);next();sign.claim(p);const reward=p.state.signClaim.reward,seed=p.model.state.seed;assert(require('../game/play/sign-config').purplePool.includes(reward.item));assert.equal(p.state.inventory[reward.item],10);assert.equal(sign.status(p).rows[1].item,reward.item);assert.equal(p.model.state.seed,seed);const old=sign.ticket(p);sign.claim(p,old);assert.equal(p.state.diamonds,23000);assert.throws(()=>sign.claim(p,old));});
 test('第三轮查询保留旧版已经领取的实物且不追溯补差，失败保存不消耗奖励',()=>{const {p,m,fail}=fixture();p.state.signs=19;p.state.lastSign=p.day();p.state.signRewards={19:{day:19,item:'1',count:3000}};assert.equal(sign.status(p).rows[0].count,3000);const before=JSON.stringify(m.state);fail();assert.throws(()=>sign.claim(p,sign.ticket(p)),/写盘/);assert.equal(JSON.stringify(m.state),before);});
+
+test('从第28签起每九天循环截图奖表，第四、第五轮实际入库一致',()=>{
+ const {p,next}=fixture();
+ const amounts=[15000,10,16000,10,17000,10,18000,10,19000];
+ const {purplePool}=require('../game/play/sign-config');
+ p.state.signs=27;
+ for(let cycle=0;cycle<2;cycle++){
+  assert.deepEqual(sign.status(p).rows.map(row=>row.count),amounts);
+  for(let day=0;day<amounts.length;day++){
+   const reward=sign.claim(p).reward;
+   assert.equal(reward.count,amounts[day]);
+   if(day%2)assert(purplePool.includes(reward.item));
+   else assert.equal(reward.item,'1');
+   next();
+  }
+ }
+ assert.equal(p.state.diamonds,170000);
+ assert.equal(purplePool.reduce((total,id)=>total+(p.state.inventory[id]||0),0),80);
+ assert.equal(p.state.signs,45);
+ assert(p.unlocked('1005')&&p.unlocked('1006'));
+});
+
+test('第27签广告跨轮后显示下一轮第一格，历史记录仍显示原奖励',()=>{
+ const {p}=fixture();
+ p.state.signs=26;
+ sign.claim(p);
+ assert.equal(sign.status(p).rows.at(-1).count,15000);
+ sign.claim(p,sign.ticket(p));
+ const {rows}=sign.status(p);
+ assert.equal(rows[0].day,28);
+ assert.equal(rows[0].displayDay,1);
+ assert(rows[0].claimed&&rows[1].current);
+ assert.equal(p.state.diamonds,30000);
+ p.state.signRewards[28]={day:28,item:'1',count:3000};
+ assert.equal(sign.status(p).rows[0].count,3000);
+ assert.equal(sign.status(p).rows[2].count,16000);
+});

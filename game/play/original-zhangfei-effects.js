@@ -3,7 +3,7 @@ const config=require('./original-zhangfei-config');
 /** 缓存原二进制 Spine 数据，与武将资源复用本地纹理仓库。 */
 function load(v){const key='original-zhangfei-rot';if(!v.assets.cache.has(key)){const fs=v.assets.wx.getFileSystemManager(),read=(name,encoding)=>new Promise((resolve,reject)=>fs.readFile({filePath:v.assets.config.assetsRoot+config.directory+name,...(encoding?{encoding}:{}),success:r=>resolve(r.data),fail:reject}));v.assets.cache.set(key,Promise.all([read(config.rot.binary),read(config.rot.atlas,'utf8'),v.assets.texture(config.directory+config.rot.texture)]).then(([binary,atlas,texture])=>{const d=new v.cc.sp.SkeletonData();d.name=key;d._uuid=key;d._nativeAsset=binary;d.atlasText=atlas;d.textures=[texture];d.textureNames=[config.rot.textureName];if(!d.getRuntimeData())throw Error('原版腐烂动画解析失败');d.addRef();return d;}).catch(e=>{v.assets.cache.delete(key);throw e;}));}return v.assets.cache.get(key);}
 /** 备战时预热，避免技能第一次触发等待磁盘读取。 */
-function warm(v){return Promise.all([load(v),v.assets.sprite(config.directory+config.hook.head),v.assets.sprite(config.directory+config.hook.chain)]).catch(e=>console.warn('张飞原版特效预热失败',e.message));}
+function warm(v){const pixel=require('./pixelfx-config');return Promise.all([...(pixel.enabled&&pixel.tigerRoar.enabled?[]:[load(v)]),v.assets.sprite(config.directory+config.hook.head),v.assets.sprite(config.directory+config.hook.chain)]).catch(e=>console.warn('张飞原版特效预热失败',e.message));}
 /** 登记效果并启动统一时钟，倍速切换即时生效。 */
 function register(v,e){(v.originalZhangfeiEffects||(v.originalZhangfeiEffects=[])).push(e);if(!v.originalZhangfeiTimer)v.originalZhangfeiTimer=setInterval(()=>tick(v),config.tickMs);return e.node;}
 /** 原钩头与分段锁链伸出后收回，始终跟随实际施法者与目标。 */

@@ -15,27 +15,27 @@ function score(units,roster,rules,equipment){const power=require('./combat-power
  return (base+bonus)*(marchActive?Math.sqrt(1+march.haste*Math.min(1,march.duration/march.period)):1);
 }
 /** 在真实物品及每人槽位限制内分配装备，迭代改善归属；同一实例只计一次。 */
-function equip(units,items,roster,rules){let equipment=[];let value=score(units,roster,rules,equipment);
+function equip(units,items,roster,rules,evaluate){let equipment=[];let value=evaluate(units,roster,rules,equipment);
  for(let pass=0;pass<c.equipmentPasses;pass++)for(const item of items){const rest=equipment.filter(e=>e.uid!==item.uid);let best=equipment,bestValue=value;
   for(const u of units){const owned=rest.filter(e=>e.owner===u.uid),options=owned.length>=policy.equipmentLimit?owned.map(old=>rest.filter(e=>e.uid!==old.uid)):[rest];
-   for(const option of options){const candidate=option.concat({...item,owner:u.uid}),next=score(units,roster,rules,candidate);
+   for(const option of options){const candidate=option.concat({...item,owner:u.uid}),next=evaluate(units,roster,rules,candidate);
    if(next>bestValue+c.improvementEpsilon){best=candidate;bestValue=next;}}}
   equipment=best;value=bestValue;
  }
  return {units,equipment,power:value};
 }
 /** 无装备的束搜索保留羁绊组合，再对有限最终候选进行合法配装优化。 */
-function search(pool,items,roster,rules,limit){if(pool.length<=limit)return equip(formation(pool,roster,rules),items,roster,rules);let beam=[{units:[],power:0}];
+function search(pool,items,roster,rules,limit){if(pool.length<=limit)return equip(formation(pool,roster,rules),items,roster,rules,score);const evaluate=require('./static-score-cache').create(score);let beam=[{units:[],power:0}];
  for(let size=0;size<limit;size++){const candidates=new Map();for(const prior of beam)for(const u of pool){if(prior.units.some(v=>v.uid===u.uid))continue;
   const units=formation(prior.units.concat(u).sort((a,b)=>String(a.uid).localeCompare(String(b.uid))),roster,rules),key=units.map(v=>v.uid).join(':');if(candidates.has(key))continue;
-  candidates.set(key,{units,power:score(units,roster,rules,[])});}
+  candidates.set(key,{units,power:evaluate(units,roster,rules,[])});}
   beam=[...candidates.values()].sort((a,b)=>b.power-a.power).slice(0,c.beamWidth);
  }
  // 保留装备适配候选，避免裸装评分漏选持有专属装备的武将。
- const equippedPool=pool.map(u=>{const result=equip(formation([u],roster,rules),items,roster,rules);return {u,power:result.power};}).sort((a,b)=>b.power-a.power);
+ const equippedPool=pool.map(u=>{const result=equip(formation([u],roster,rules),items,roster,rules,evaluate);return {u,power:result.power};}).sort((a,b)=>b.power-a.power);
  const gearTeam=formation(equippedPool.slice(0,limit).map(x=>x.u),roster,rules);
  const finalists=beam.slice(0,c.finalists).concat({units:gearTeam});
- let best={units:[],equipment:[],power:0};for(const candidate of finalists){const next=equip(candidate.units,items,roster,rules);if(next.power>best.power)best=next;}
+ let best={units:[],equipment:[],power:0};for(const candidate of finalists){const next=equip(candidate.units,items,roster,rules,evaluate);if(next.power>best.power)best=next;}
  return best;
 }
 /** 人口内的最强静态估算阵容；缓存忽略部署和装备归属，移动到场下不会降低结果。 */

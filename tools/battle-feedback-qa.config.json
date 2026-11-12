@@ -1,0 +1,29 @@
+{
+  "width": 720,
+  "height": 1280,
+  "background": "battle-ground.png",
+  "title": "《这把靠子龙》战斗反馈实拍",
+  "titleY": 585,
+  "headerY": 509,
+  "footerY": -588,
+  "maxHp": 1000,
+  "modelScale": 0.86,
+  "waitMs": 120000,
+  "readyMs": 110,
+  "minScreenshotBytes": 20000,
+  "columns": [
+    {"x": -228, "label": "远征"},
+    {"x": 0, "label": "挑战"},
+    {"x": 228, "label": "单人挑战"}
+  ],
+  "rows": [
+    {"y": 338, "hero": "xuchu", "hp": 830, "id": "pixelShieldAbsorb", "caption": "护盾吸收 180", "event": {"type": "shield", "amount": 180}},
+    {"y": 84, "hero": "zhaoyun", "hp": 720, "id": "pixelEvade", "caption": "闪避", "event": {"type": "evade"}},
+    {"y": -167, "hero": "zhenji", "hp": 520, "id": "pixelHealPulse", "caption": "+240", "event": {"type": "heal", "amount": 240, "hp": 760}},
+    {"y": -408, "hero": "guanyu", "hp": 920, "id": "pixelCleanse", "caption": "净化", "event": {"type": "status", "effect": "cleanse", "duration": 5}}
+  ],
+  "shots": [
+    {"time": 0.09, "label": "盾缘亮弧 · 冰蓝掠影 · 回血绿环 · 净化扫光"},
+    {"time": 0.2, "label": "瞬时反馈逐步消散"}
+  ]
+}

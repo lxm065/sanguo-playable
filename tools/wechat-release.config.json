@@ -1,7 +1,14 @@
 {
-  "output": "dist/wechat-1.0.278",
-  "version": "1.0.278",
-  "description": "烈刃焚阵升级火刃天降，五刃蓄势俯射、落地爆焰与焦痕",
+  "output": "dist/wechat-1.0.301",
+  "version": "1.0.301",
+  "description": "领奖升级、合成与布阵成功后按区域刷新，保留未变化的武将、背景和操作栏",
+  "projectPolicy": {
+    "appid": "wx7a597ac02546773f",
+    "compileType": "game",
+    "babelIgnore": [
+      "@babel/runtime/*"
+    ]
+  },
   "copy": [
     "@babel",
     "cocos-js",
@@ -26,7 +33,7 @@
   "pngQuality": "65-85",
   "pngSpeed": 1,
   "maxMainBytes": 4194304,
-  "maxTotalBytes": 31457280,
+  "maxTotalBytes": 31326208,
   "imageBudget": {
     "bodyPixels": 82,
     "atlasEdge": 1024,
@@ -36,7 +43,7 @@
     "attachmentPrecision": 4
   },
   "opaqueJpeg": {
-    "quality": 52,
+    "quality": 28,
     "files": [
       "campaign-map.png",
       "battle-ground.png",
@@ -200,5 +207,33 @@
       "file": "classic/chapter-village.png",
       "width": 232
     }
-  ]
+  ],
+  "effectImages": {
+    "colors": 48,
+    "palettes": {
+      "native-effects/blizzard.png": 24
+    },
+    "files": [
+      "pixelfx/pixelArrow.png",
+      "pixelfx/pixelFireball.png",
+      "pixelfx/pixelIce.png",
+      "pixelfx/pixelSpirit.png",
+      "pixelfx/pixelWater.png",
+      "pixelfx/pixelVenom.png",
+      "pixelfx/pixelCharge.png",
+      "pixelfx/pixelLightningBeam.png",
+      "pixelfx/pixelLightningHit.png",
+      "pixelfx/pixelFireBurst.png",
+      "pixelfx/pixelFirePillar.png",
+      "pixelfx/pixelFrozen.png",
+      "pixelfx/pixelStunned.png",
+      "pixelfx/pixelIceRelease.png",
+      "pixelfx/pixelShieldAbsorb.png",
+      "pixelfx/pixelEvade.png",
+      "pixelfx/pixelHealPulse.png",
+      "pixelfx/pixelCleanse.png",
+      "pixelfx/pixelBlizzardWave.png",
+      "pixelfx/pixelTigerRoar.png"
+    ]
+  }
 }

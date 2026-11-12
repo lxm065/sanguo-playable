@@ -1,0 +1,87 @@
+{
+  "width": 720,
+  "height": 1280,
+  "titleY": 555,
+  "headerY": 485,
+  "footerY": -575,
+  "labelOffsetY": 104,
+  "rows": [
+    350,
+    185,
+    20,
+    -145,
+    -310,
+    -475
+  ],
+  "oldX": [
+    -255,
+    -95
+  ],
+  "newX": [
+    95,
+    255
+  ],
+  "scale": 0.6,
+  "background": "battle-ground.png",
+  "title": "雷火技能与远程弹道对比",
+  "oldTitle": "原有效果",
+  "newTitle": "PixelFX 新效果",
+  "demos": [
+    {
+      "heroId": "zhouyu",
+      "kind": "skill",
+      "effect": "lightning",
+      "label": "雷电 · 蓄力与电弧"
+    },
+    {
+      "heroId": "zhouyu",
+      "kind": "skill",
+      "effect": "firePillar",
+      "label": "火柱 · 预兆与爆发"
+    },
+    {
+      "heroId": "zhouyu",
+      "kind": "skill",
+      "effect": "flameWave",
+      "label": "炎浪 · 飞行与命中"
+    },
+    {
+      "heroId": "huangzhong",
+      "kind": "projectile",
+      "label": "弓箭 · 箭头与风尾"
+    },
+    {
+      "heroId": "taishici",
+      "kind": "projectile",
+      "label": "火箭 · 拖焰"
+    },
+    {
+      "heroId": "xiahouyuan",
+      "kind": "projectile",
+      "label": "冰箭 · 冰晶轮廓"
+    }
+  ],
+  "shots": [
+    {
+      "label": "出手与飞行（抽帧）",
+      "atMs": 200,
+      "expected": [
+        "pixelCharge",
+        "pixelFireball",
+        "pixelArrow",
+        "pixelIce"
+      ]
+    },
+    {
+      "label": "真实命中后（抽帧）",
+      "atMs": 480,
+      "expected": [
+        "pixelLightningBeam",
+        "pixelLightningHit",
+        "pixelFirePillar",
+        "pixelFireBurst"
+      ]
+    }
+  ],
+  "minScreenshotBytes": 20000
+}

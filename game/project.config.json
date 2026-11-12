@@ -7,7 +7,9 @@
     "enhance": true,
     "packNpmRelationList": [],
     "babelSetting": {
-      "ignore": [],
+      "ignore": [
+        "@babel/runtime/*"
+      ],
       "disablePlugins": [],
       "outputPath": ""
     },
@@ -19,7 +21,9 @@
     "minifyWXML": true,
     "localPlugins": false,
     "disableUseStrict": false,
-    "condition": false
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
   },
   "compileType": "game",
   "simulatorPluginLibVersion": {},
@@ -29,5 +33,6 @@
   },
   "isGameTourist": false,
   "appid": "wx7a597ac02546773f",
-  "editorSetting": {}
+  "editorSetting": {},
+  "libVersion": "3.17.3"
 }

@@ -1,7 +1,7 @@
 'use strict';
 const entries=require('./equipment-catalog-data'),quality=require('./equipment-catalog-config').quality,theme=require('./equipment-theme'),icon=require('./equipment-icon');
 /** 只读取装备展示元数据，不查询进阶资格、不抽奖、不修改存档。 */
-function describe(id){const entry=entries.find(e=>e.id===id);if(!entry)throw Error('未知装备：'+id);return {id,name:theme[id]?.name||entry.name,quality:quality[entry.quality]};}
+function describe(id){if(id===require('./sunjian-skill-config').id){const c=require('./sunjian-skill-config');return {id,name:c.name,quality:c.quality};}const entry=entries.find(e=>e.id===id);if(!entry)throw Error('未知装备：'+id);return {id,name:theme[id]?.name||entry.name,quality:quality[entry.quality]};}
 /** 组合共用品质边框、名称和可选品质标签，返回动画及交互需要的节点。 */
 function draw(ui,parent,id,layout,nodeName='equipment-reward'){
  const data=describe(id),p=layout.icon,item=icon.draw(ui,parent,{id},p.x,p.y,p.size,nodeName);

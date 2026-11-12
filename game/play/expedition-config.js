@@ -1,6 +1,7 @@
 "use strict";
 /** 远征本地规则集中维护；掉落权重与模拟数值属于本地策略。 */
 module.exports = {
+  pendingRewards: { resumeOnRender: true },
   equipmentLimit: 3,
   teamMagicPenCap:120,
   baseArmyLimit: 1,

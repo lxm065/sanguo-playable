@@ -18,12 +18,14 @@ function show(cc,root,u){
  u.text(host,c.footer,0,c.footerY,18,c.white,c.width-40,115);
  /** 进度只前进，100%仅在调用方完成所有必要初始化后呈现。 */
  function progress(value){if(closed)return;ratio=Math.max(ratio,Math.min(1,Math.max(0,value)));ink.clear();ink.fillColor=new cc.Color(c.bar.color);if(ratio>0){ink.roundRect(-c.bar.width/2+2,-c.bar.height/2+2,(c.bar.width-4)*ratio,c.bar.height-4,6);ink.fill();}status.string=ratio===1?c.readyText:c.loadingText+' '+Math.floor(ratio*100)+'%';}
+ /** 等待真实账号或云档响应时只更新状态文案，不虚增加载进度。 */
+ function setStatus(text){if(!closed)status.string=text;}
  /** 共用资源缓存；加载后才创建骨骼，避免未就绪时显示空角色。 */
  async function prepare(assets,onProgress){let done=0;await Promise.all(c.heroes.map(async(h,i)=>{await assets.skeleton(h.id,1);if(closed)return;const actor=u.actor(host,{uid:'intro-'+i,heroId:h.id,star:1,side:'ally'},h.x,h.y,h.scale,false);actors.push(actor);onProgress(++done/c.heroes.length);}));}
  /** 成功离场或启动失败时停止计时器与标题动画。 */
  function close(){if(closed)return;closed=true;timers.forEach(clearInterval);tweens.forEach(t=>t.stop());if(host.isValid)host.destroy();}
  /** 最短展示仅服务标题入场，不冒充加载百分比。 */
  async function finish(){const remaining=Math.max(0,c.minimumDisplay-(Date.now()-started));if(remaining)await new Promise(r=>setTimeout(r,remaining));progress(1);await new Promise(r=>setTimeout(r,c.exitDelay));close();}
- timers.push(setInterval(()=>{if(!host.isValid){close();return;}const elapsed=Date.now()-started;tip.string=c.tips[Math.floor(elapsed/c.tipInterval)%c.tips.length];particles.clear();particles.fillColor=new cc.Color(c.gold);for(let i=0;i<c.particleCount;i++){const x=(i*137%c.width)-c.width/2,y=((i*91+elapsed*c.particleSpeed/1000)%c.height)-c.height/2;particles.circle(x,y,c.particleRadius*(.4+.6*(i%3)/2));particles.fill();}},c.tickMs));host.on(cc.Node.EventType.NODE_DESTROYED,close);progress(0);return{visible,prepare,progress,finish,close};
+ timers.push(setInterval(()=>{if(!host.isValid){close();return;}const elapsed=Date.now()-started;tip.string=c.tips[Math.floor(elapsed/c.tipInterval)%c.tips.length];particles.clear();particles.fillColor=new cc.Color(c.gold);for(let i=0;i<c.particleCount;i++){const x=(i*137%c.width)-c.width/2,y=((i*91+elapsed*c.particleSpeed/1000)%c.height)-c.height/2;particles.circle(x,y,c.particleRadius*(.4+.6*(i%3)/2));particles.fill();}},c.tickMs));host.on(cc.Node.EventType.NODE_DESTROYED,close);progress(0);return{visible,prepare,progress,setStatus,finish,close};
 }
 module.exports={show};

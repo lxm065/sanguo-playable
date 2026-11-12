@@ -57,12 +57,12 @@ function stats(
   for (const item of equipment) {
     // 未被当前队伍穿戴的背包装备不参与面板计算，也不解析其升级定义。
     if(item.owner!==unit.uid&&!team.includes(item.owner))continue;
-    const cacheKey=item.id+':'+(item.potency??'default');
+    const cacheKey=item.id+':'+(item.potency??'default')+(item.id===require('./sunjian-skill-config').id?':'+(item.stacks||0):'');
     let e=evaluation?.equipment.get(cacheKey);
     if(!e){
-    const definition = policy.equipment.find((v) => v.id === item.id);
+    const definition = require('./equipment-definitions').get(item.id);
     const resolved = definition && require("./equipment-upgrades").resolve(definition,rules.playerEquipmentGrades);
-    e=resolved&&require("./enemy-budget").equipment(resolved,item);
+    e=resolved&&require("./enemy-budget").equipment(require('./sunjian-skill').resolve(resolved,item),item);
     if(e)evaluation?.equipment.set(cacheKey,e);
     }
     if (!e) continue;

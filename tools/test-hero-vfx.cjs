@@ -1,7 +1,7 @@
 'use strict';
 const test = require('node:test'), assert = require('node:assert/strict');
 const fx = require('../game/play/hero-vfx'), cfg = require('../game/play/hero-vfx-config');
-const native = require('../game/play/native-effects'), manifest = require('../game/play/native-effect-manifest');
+const native = require('../game/play/native-effects'), manifest = require('../game/play/effect-manifest');
 /** 创建位置可控的只读角色夹具，不加载真实玩家存档。 */
 function actor(heroId, x, y) { return { unit: { heroId, magic: true }, node: { isValid: true, position: { x, y } } }; }
 
@@ -25,7 +25,7 @@ test('普攻和弹道以真实位置及原时长播放，不修改事件与角�
   try {
     const a=actor('huangzhong',10,20), b=actor('xuchu',110,20), event={critical:true};
     const before=JSON.stringify({a,b,event}),v={root:{},config:{attackDelay:.4}};
-    assert(fx.projectile(v,a,b));assert.equal(calls[0][1],'arrow');assert.equal(calls[0][5].duration,.4);
+    assert(fx.projectile(v,a,b));assert.equal(calls[0][1],fx.profile('huangzhong').projectile);assert.equal(calls[0][5].duration,.4);
     assert.deepEqual(calls[0][5].travel,{x:110,y:50});assert(fx.hit(v,a,b,event));
     assert.equal(calls[1][5].size,fx.profile('huangzhong').size*cfg.criticalScale);
     assert.equal(JSON.stringify({a,b,event}),before);

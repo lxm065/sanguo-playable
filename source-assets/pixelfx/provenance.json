@@ -1,0 +1,172 @@
+{
+  "repository": "https://github.com/patch-gg/pixelfx",
+  "version": "0.3.0",
+  "files": [
+    {
+      "file": "src/core/act.js",
+      "sha256": "b4fdeaf8af30c709748bb221c3b3854cc0438f2ce6c6d99f0324e3b3701b9f71"
+    },
+    {
+      "file": "src/core/actor.js",
+      "sha256": "5c867a24a88e93520d020b77190f12db265eb8fc357136ce3d92de05e19e63c2"
+    },
+    {
+      "file": "src/core/chain.js",
+      "sha256": "5014a0eae326f1855f5e320308ad370dbc342d2f1051df3665866401956bfef9"
+    },
+    {
+      "file": "src/core/color.js",
+      "sha256": "4e63f3074df7c1e138f721959858d12e4f6ccc2bf4f8e98c576efbae51241e54"
+    },
+    {
+      "file": "src/core/font.js",
+      "sha256": "c094f1d3a9f94478a255f1cc81aa7ccd2c2ba7a97fc1227a29d268acc1f2ec7c"
+    },
+    {
+      "file": "src/core/fx.js",
+      "sha256": "a959c5f7b1c15ba8e07cb26e5b1ccc0bce0aef54ca14cf01f9d6e794cf4e5a0b"
+    },
+    {
+      "file": "src/core/index.js",
+      "sha256": "ef5966a6365dbbe8a990867b6c7f3fc61922428e5f2e61262a3a430c119bf02d"
+    },
+    {
+      "file": "src/core/math.js",
+      "sha256": "da45e1ed43f7d119dd80fbe97c7de2b35b4ea95dea8781671c296ee5942ac0bc"
+    },
+    {
+      "file": "src/core/painter.js",
+      "sha256": "5b8ada6a25cdf1e63ae3684cc56276c61306558dc0a3a827a6a39ab038f74681"
+    },
+    {
+      "file": "src/core/particles.js",
+      "sha256": "867e58baf522278b4aad383c7224c599cff9ba93268b5eac9485a39a3809477b"
+    },
+    {
+      "file": "src/core/poses.js",
+      "sha256": "829f9b59ac883061afb9e952d6b608363ec7678bd00b026c538046685af88139"
+    },
+    {
+      "file": "src/core/rig.js",
+      "sha256": "5af3f455b18f9feb9f060732fb457529c6c76975a309c72171aa4e88b31aa70c"
+    },
+    {
+      "file": "src/core/scene.js",
+      "sha256": "520a465f771829162dde114880224eb30efbab3cff859cb8a24a28e49d8e198c"
+    },
+    {
+      "file": "src/core/shapes.js",
+      "sha256": "3e28f77e25b3083949f083c74304ead6826b7b1da20a658ccb114ab531fc8898"
+    },
+    {
+      "file": "src/core/sim.js",
+      "sha256": "517febe05b72de9d07e3596c019b9bb01e1f97a74089a30fa80e9e98849ba4b0"
+    },
+    {
+      "file": "src/fx/arcane/_lib.js",
+      "sha256": "08615fc869f6b6a171f630fdccc42696cb14639ec7ccb93bc350130549bcf37a"
+    },
+    {
+      "file": "src/fx/arcane/arcane-orb.js",
+      "sha256": "22e7651d13482d9558b3ade048f86322ae0c116cf88f2834d7dd373499ebde9f"
+    },
+    {
+      "file": "src/fx/fire/_lib.js",
+      "sha256": "ffa1d5e92b65c7bbac94baa63a0f1dff9feb249c084552ed149876bcf42191da"
+    },
+    {
+      "file": "src/fx/fire/fire-ring.js",
+      "sha256": "6c61ba5dfef87b36c4bb3c8e3b3a10f2d8e40c10f093b0077d623f1bbccca832"
+    },
+    {
+      "file": "src/fx/fire/fireball.js",
+      "sha256": "22b286d2632742216940e775a931a91d3bbe3ef914bc150b70b041dbe5e02bb4"
+    },
+    {
+      "file": "src/fx/fire/flame-pillar.js",
+      "sha256": "348910dcff7d5f69287912dd0b5a130cb31f03553884d50fc4eb07abc1aff659"
+    },
+    {
+      "file": "src/fx/ice/_lib.js",
+      "sha256": "a81ae57b7f90a1e8266cf2f7f6f11dd4551a088220ddeac03d4539dfb40e5782"
+    },
+    {
+      "file": "src/fx/ice/ice-lance.js",
+      "sha256": "4d5168e7ce7a5fc1f37e150c6d8227258962833d47e7b42dcc3da792f2e063a4"
+    },
+    {
+      "file": "src/fx/impacts/hit-spark.js",
+      "sha256": "b0f2d0e5337ab2fff3a6a8995e6404fed72512bdcd1bc92838a60bf879bc732a"
+    },
+    {
+      "file": "src/fx/lightning/_lib.js",
+      "sha256": "6fa0eba00e706590865c0cadbcb0c79b07ae934f0f40dbf72426e45b51ccf487"
+    },
+    {
+      "file": "src/fx/lightning/zap-hit.js",
+      "sha256": "ad93c93f57babccc82ac1a20c7027b1f950e417b5e5a6969b35445ed23fff83a"
+    },
+    {
+      "file": "src/fx/melee/_lib.js",
+      "sha256": "e81ce122e878fec4d510ae17e8849fa5b8e0c70aa96caa6350157bf0d87f31f9"
+    },
+    {
+      "file": "src/fx/melee/spear-sweep.js",
+      "sha256": "0b7c40a67b89f3b880d2341e327ba9e978dbb7d1c74670901d201667f1e4d075"
+    },
+    {
+      "file": "src/fx/melee/sword-slash.js",
+      "sha256": "3abcde4466df41bddd1da0c9c9824aa2450185de39c61c3b7d156272dcc9327a"
+    },
+    {
+      "file": "src/fx/pickups/_lib.js",
+      "sha256": "85312a8df8ee5ae76a296ebf6da73bb3ffa11db451db999013a960fc59e062de"
+    },
+    {
+      "file": "src/fx/pickups/collect-burst.js",
+      "sha256": "14e767332f999978b6234165dde880f7dd21e77eec11f8bb094ae58d9a4d667b"
+    },
+    {
+      "file": "src/fx/projectiles/_lib.js",
+      "sha256": "d1211e9dc805ba6e9c0d5545bb487129305fb578bb3f3d834ae021b03a91b2e6"
+    },
+    {
+      "file": "src/fx/projectiles/arrow.js",
+      "sha256": "eea09af0fcda7a753fb3601095214b4d763e279996dc1e5941322a17614d09b3"
+    },
+    {
+      "file": "src/fx/status/_lib.js",
+      "sha256": "4e6b6d0fff28f8c2cfdbc0245be59284d141c5a461521a176a2e2c1bca254c90"
+    },
+    {
+      "file": "src/fx/status/stunned.js",
+      "sha256": "c0287339fd48ce6aedc117707dfd0ff1038b24b11f6ca9437d42b4beea556d55"
+    },
+    {
+      "file": "tools/lib/fxlib.mjs",
+      "sha256": "4667773a1b83c9c64498006caa7349f65c9f19ddc61be94e72ba94554faa6431"
+    },
+    {
+      "file": "tools/lib/png.mjs",
+      "sha256": "19da8ce363e7a4722fa49f06dd9066e07e83262c24da14a496b39a793111ed7c"
+    }
+  ],
+  "localFiles": [
+    {
+      "file": "src/fx/lightning/combat-beam.js",
+      "sha256": "aed4cb43ad710d951723c0a693e4a39c6e2b32fbd8fbf1a24961af473d7e2305"
+    },
+    {
+      "file": "src/fx/status/control-stars.js",
+      "sha256": "8eb4009bd2bf14d5127638083761a42135c1f11aa4d75db5e65ed6960dd738a9"
+    },
+    {
+      "file": "src/fx/ice/control-shell.js",
+      "sha256": "e25be108b0bee56ce608e77e9229c22754982c8dd1efb0717a406772efec14b4"
+    },
+    {
+      "file": "src/fx/ice/control-break.js",
+      "sha256": "ef6f77285fcbdf38f08e92958dd652211c80c4d0c7a0748ffce28e374b03e4c3"
+    }
+  ]
+}

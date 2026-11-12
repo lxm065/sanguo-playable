@@ -6,6 +6,8 @@ function report(error){wx.hideLoading?.();console.error('[sanguo-playable]',erro
 /** 初始化本地引擎和画布；不加载原登录、广告、协议或账号 SDK。 */
 async function boot(){
  const release=require('./release-config');
+ const playBenefits=require('./play-benefits').get(wx);
+ if(require('./play-benefits-config').preload&&playBenefits.availability().supported)playBenefits.preload().catch(()=>{});
  wx.onTouchStart?.(()=>{const audio=require('./audio-settings').get();if(!audio.started)audio.start();});
  const denied=[];
  for(const method of ['request','downloadFile','connectSocket']){
@@ -25,8 +27,25 @@ async function boot(){
   const scene=new cc.Scene('SanguoLocalScene'),root=new cc.Node('Canvas');root.layer=cc.Layers.Enum.UI_2D;root.addComponent(cc.UITransform).setContentSize(config.layout.width,config.layout.height);root.setPosition(config.layout.width/2,config.layout.height/2,0);const canvas=root.addComponent(cc.Canvas);
   const cameraNode=new cc.Node('LocalCamera');cameraNode.setPosition(config.layout.width/2,config.layout.height/2,1000);const camera=cameraNode.addComponent(cc.Camera);camera.projection=cc.Camera.ProjectionType.ORTHO;camera.orthoHeight=config.layout.height/2;camera.near=.1;camera.far=2000;camera.visibility=cc.Layers.Enum.UI_2D;camera.clearFlags=cc.Camera.ClearFlag.SOLID_COLOR;camera.clearColor=new cc.Color(config.colors.ink);canvas.cameraComponent=camera;scene.addChild(cameraNode);scene.addChild(root);cc.director.runSceneImmediate(scene);
   const {Assets}=require('./assets'),{Expedition:Campaign}=require('./expedition'),{storage}=require('./storage'),{ExpeditionView:PlayView}=require('./expedition-view'),{Widgets}=require('./widgets');
-  const globalRank=new (require('./global-rank-runtime').GlobalRankRuntime)(wx);const friendRank=new (require('./friend-rank-runtime').FriendRankRuntime)(wx);const assets=new Assets(cc,wx,config),widgets=new Widgets(cc,assets,config.colors);const intro=require('./startup-view').show(cc,root,widgets);wx.hideLoading?.();
-  require('./startup-loader').load(wx,release,assets,roster,intro).then(async()=>{const model=new Campaign(config,roster,storage(wx,config,state=>{friendRank.saved(state);globalRank.saved(state);}));require('./classic-hooks').attach(model,roster);model.simulator=(allies,enemies,list,rules,seed,scale)=>require('./expedition-combat').simulate(allies,enemies,list,require('./player-combat-context').rules(model,rules),seed,scale,model.state.expedition.equipment);await intro.finish();const view=new PlayView(cc,root,assets,model,config,roster);view.shareService=new (require('./share-service').ShareService)(wx);view.shareService.initialize();view.friendRankRuntime=friendRank;view.globalRankRuntime=globalRank;view.permanentUnlocks=require("./permanent-unlocks").attach(model,wx,names=>wx.showToast?.({title:require("./permanent-unlock-config").text+names.join("、"),icon:"none",duration:4000}));globalRank.saved(model.state);require('./fortress-reminders').flush(view.progress);friendRank.initialize(model.state);globalThis.__sanguoPlay={model,view,assets,cc,config,roster,denied,ready:true};console.info('[sanguo-playable] ready',roster.length,'heroes');}).catch(error=>{intro.close();report(error);});
+  const assets=new Assets(cc,wx,config),widgets=new Widgets(cc,assets,config.colors);const intro=require('./startup-view').show(cc,root,widgets);wx.hideLoading?.();
+  require('./startup-loader').load(wx,release,assets,roster,intro).then(async()=>{
+   const syncStartup={onStatus:intro.setStatus};
+   const cloud=await require('./cloud-save-bootstrap').initialize(wx,config,roster,syncStartup);if(cloud===false){intro.close();return;}
+   const globalRank=new (require('./global-rank-runtime').GlobalRankRuntime)(wx),friendRank=new (require('./friend-rank-runtime').FriendRankRuntime)(wx);
+   const port=cloud?cloud.local:storage(wx,config);
+   const saved=port.write.bind(port);
+   /** 云端回执与成绩各有队列，成绩错误不影响已成功落盘的主进度。 */
+   port.write=function saveAndObserve(state){saved(state);try{friendRank.saved(state);globalRank.saved(state);}catch{console.warn('成绩同步暂不可用');}};
+   const model=new Campaign(config,roster,port);require('./classic-hooks').attach(model,roster);
+   model.simulator=(allies,enemies,list,rules,seed,scale)=>require('./expedition-combat').simulate(allies,enemies,list,require('./player-combat-context').rules(model,rules),seed,scale,model.state.expedition.equipment);
+   if(!await require('./cloud-save-bootstrap').ready(wx,cloud,syncStartup)){intro.close();return;}
+   await intro.finish();const view=new PlayView(cc,root,assets,model,config,roster);view.cloudSave=cloud;view.playBenefits=playBenefits;
+   if(cloud){cloud.onState=()=>require('./cloud-save-ui').update(view);cloud.start();}
+   view.shareService=new (require('./share-service').ShareService)(wx);view.shareService.initialize();view.friendRankRuntime=friendRank;view.globalRankRuntime=globalRank;
+   view.permanentUnlocks=require('./permanent-unlocks').attach(model,wx,names=>wx.showToast?.({title:require('./permanent-unlock-config').text+names.join('、'),icon:'none',duration:4000}));
+   globalRank.saved(model.state);require('./fortress-reminders').flush(view.progress);friendRank.initialize(model.state);
+   globalThis.__sanguoPlay={model,view,assets,cc,config,roster,cloudSave:cloud,denied,ready:true};console.info('[sanguo-playable] ready',roster.length,'heroes');
+  }).catch(error=>{intro.close();report(error);});
  });
 }
 boot().catch(report);

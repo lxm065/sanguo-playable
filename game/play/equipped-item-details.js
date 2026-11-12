@@ -1,6 +1,7 @@
 'use strict';
 /** 穿戴详情与图鉴共用属性正文；战斗中仅只读查看，卸下仍由战役事务处理。 */
 function showEquippedItem(view,parent,item,refresh,readOnly=false){
+ if(item.id===require('./sunjian-skill-config').id)return require('./blessed-equipment-view').show(view,parent,item,refresh,readOnly);
  const book={host:view,ui:view.ui,cc:view.cc,modal:parent};
  return require('./equipment-catalog-view').show(book,item.id,'detail','',0,{
   equipped:true,readOnly:readOnly||!!view.playing||!!view.model.state.pending,

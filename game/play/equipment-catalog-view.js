@@ -45,7 +45,7 @@ function body(book,card,rows,scroll=0){
 }
 /** 属性展示与进阶共用条目查询；关闭后回到列表原滚动位置。 */
 function show(book,id,mode='detail',message='',scroll=0,options={}){
- const host=book.host,u=book.ui,cc=book.cc,l=config.layout,item=catalog.query(id,host.model.state);
+ const host=book.host,u=book.ui,cc=book.cc,l=config.layout,item=catalog.query(id,host.model.state),failure=require('./action-feedback'),displayed=failure.begin(host.model);
  if(config.feedback.hideFragmentHint&&message===config.text.noFragments)message='';
  if(options.equipped)item.revealed=true;
  book.modal.getChildByName('equipment-detail-overlay')?.destroy();
@@ -76,8 +76,9 @@ function show(book,id,mode='detail',message='',scroll=0,options={}){
   else if(!item.max)u.button(card,require('./equipment-ad').required(item)?'▶ 视频进阶':'进阶',0,l.buttonY,320,()=>{
    if(require('./equipment-ad').eligible(host.model,id)){require('./equipment-ad-view').offer(book,id);return;}
    if(item.canUpgrade&&require('./equipment-ad').required(item)){const ticket=host.model.adTicket();host.ad(()=>upgrades.upgrade(host.model,id,item.grade,ticket),()=>require('./equipment-ad-view').reopen(host,id,true));return;}
+   const scope={...failure.begin(host.model,host),rendered:displayed};
    try{upgrades.upgrade(host.model,id,item.grade);require('./notification-view').refresh(host);book.render();const upgraded=show(book,id,'upgrade','',content.position.y);require('./upgrade-feedback').play(host,upgraded,'equipment',0,l.iconY);}
-   catch(error){show(book,id,'upgrade',error.message,content.position.y);}
+   catch(error){if(config.feedback.hideFragmentHint&&error.message===config.text.noFragments&&failure.canRetain(host.model,error,scope))return;failure.notice(host,error,scope);}
   },item.canUpgrade?l.ready:l.muted,60);
   if(message)u.text(card,message,0,l.costY+l.costMessageOffset,22,l.ready,l.detailWidth-35,30);
   if(item.cost)require('./currency-view').amount(host,card,item.diamonds+'/'+item.cost.diamonds+' '+require('./equipment-upgrade-config').currencyName,0,l.costY-(message?l.costMessageOffset:0));

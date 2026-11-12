@@ -8,7 +8,7 @@ test('仅允许指定后端两个POST接口，其他域名、方法和下载保�
 
 test('无待同步任务不发登录请求，有任务上传成功后才移除',async()=>{
  const progress={state:{fortressReminders:{}},model:{transact(fn){fn();}}};let logins=0,uploads=0;
- const api={login(o){logins++;o.success({code:'test-code'});},request(o){if(o.url.endsWith(c.loginPath)){o.success({statusCode:200,data:{code:'OK',data:{access_token:'test-token',expires_at:new Date(Date.now()+3600000).toISOString()}}});}else{uploads++;a.equal(o.header.Authorization,'Bearer test-token');o.success({statusCode:200,data:{code:'OK',data:{}}});}}};
+ const api={login(o){logins++;o.success({code:'test-code'});},request(o){if(o.url.endsWith(c.loginPath)){o.success({statusCode:200,data:{code:'OK',data:{access_token:'test-token',expires_at:new Date(Date.now()+3600000).toISOString(),player:{player_id:'1885'}}}});}else{uploads++;a.equal(o.header.Authorization,'Bearer test-token');o.success({statusCode:200,data:{code:'OK',data:{}}});}}};
  await r.flush(progress,api);a.equal(logins,0);
  progress.state.fortressReminders.diamondMine={building:'diamondMine',revision:1,build_at:0,chest_at:0,accepted:[]};
  await r.flush(progress,api);a.equal(logins,1);a.equal(uploads,1);a.deepEqual(progress.state.fortressReminders,{});

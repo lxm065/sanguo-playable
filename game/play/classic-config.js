@@ -45,7 +45,7 @@ module.exports={
       "chapter": 35,
       "sign": 0,
       "skillName": "虎威 Lv.1",
-      "skillDescription": "开局赐予你女神赐福过的【装备】，该装备可以无限升级。",
+      "skillDescription": "开局获得赐福装备，穿戴者存活通关后可无限成长。",
       "source": {
         "id": "1002",
         "hp": "1",
@@ -403,6 +403,7 @@ module.exports={
     "8": 10
   },
   "shop": {
+    "title": "军需商铺",
     "dailyAdRefreshes": 5,
     "offers": [
       {
@@ -443,8 +444,8 @@ module.exports={
     }
   },
   "ads": {
-    "mode": "development",
-    "adUnitId": ""
+    "mode": "wechat",
+    "adUnitId": "adunit-169ed6b4a88c03ba"
   },
   "map": {
     "rowSpacing": 205,
@@ -474,5 +475,5 @@ module.exports={
   ]
 };
 
-/** 装备碎片在黑市与仓库使用统一的三国名称。 */
+/** 装备碎片在军需商铺与仓库使用统一的三国名称。 */
 for(const [id,item] of Object.entries(module.exports.items)){const theme=require('./equipment-theme')[id];if(theme){item.name=theme.name+'碎片';item.description='用于'+theme.name+'进阶。';}}

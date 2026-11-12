@@ -32,5 +32,5 @@ module.exports = {
     deckColumns:5,deckCell:124,deckRow:142,deckTop:330,
     colors:['#70C46B','#69A6E9','#CB82EC','#F5AC4A'],
     title:'多人对战',
-    unavailable:'本次仅开放多人对战，此入口保留，玩法尚未实现。'},
+    unavailable:'该挑战暂不可进入，请检查解锁条件。'},
 };

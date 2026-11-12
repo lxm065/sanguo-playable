@@ -1,0 +1,9 @@
+{
+  "readyTimeoutMs": 120000,
+  "pollMs": 100,
+  "runnerTimeoutMs": 180000,
+  "runnerPollMs": 1500,
+  "captureDelayMs": 500,
+  "captureTimeoutMs": 45000,
+  "minScreenshotBytes": 10000
+}

@@ -1,0 +1,8 @@
+{
+  "width":720,"height":1280,"titleY":555,"headerY":470,"footerY":-540,"labelOffsetY":165,
+  "rows":[240,-85,-390],"columns":[-170,170],"scale":1,"background":"battle-ground.png",
+  "title":"冰封与眩晕 · 真实武将对照","oldTitle":"原有效果","newTitle":"PixelFX 新效果",
+  "minScreenshotBytes":20000,"duration":2,
+  "demos":[{"heroId":"xuchu","label":"冰封 · 半透明冰壳","effects":["freeze"]},{"heroId":"guanyu","label":"眩晕 · 头顶星环","effects":["stun"]},{"heroId":"zhaoyun","label":"冰封与眩晕同时存在","effects":["freeze","stun"]}],
+  "shots":[{"kind":"active","label":"真实状态生效中（抽帧）","atMs":250},{"kind":"refresh","label":"较短刷新保留原结束时间","atMs":650,"refreshAtMs":120,"refreshDuration":0.15},{"kind":"cleanse","label":"实际驱散：星环结束，冰屑消散","atMs":100},{"kind":"death","label":"死亡：立即清理附着层","atMs":80}]
+}

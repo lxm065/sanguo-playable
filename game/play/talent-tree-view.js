@@ -33,7 +33,7 @@ function detail(v,id){
  u.text(p,'当前效果\n'+service.description(id,q.rank),0,95,28,l.ink,535,150);
  if(!q.max)u.text(p,'下一级\n'+service.description(id,q.rank+1),0,-69,28,l.ink,535,150);
  const condition=q.locked?'前置满级：'+q.parents.map(id=>service.query(v.model,id).name).join('、'):q.max?'已达满级':'消耗 '+q.need_num+' 天赋点 ＋ '+q.need_money+' 钻石';u.text(p,condition,0,-210,26,l.ink,535,80);
- u.button(p,q.canUpgrade?'升级':q.reason,0,-311,380,()=>{try{service.upgrade(v.model,id,q.rank);open(v,q.page);const upgraded=detail(v,id);require('./notification-view').refresh(v);require('./upgrade-feedback').play(v,upgraded,'talent',0,241);}catch(e){v.notice('提示',e.message);}},q.canUpgrade?'#287A4B':'#796650',70);
+ u.button(p,q.canUpgrade?'升级':q.reason,0,-311,380,()=>{const failure=require('./action-feedback'),scope=failure.begin(v.model,v);try{service.upgrade(v.model,id,q.rank);open(v,q.page);const upgraded=detail(v,id);require('./notification-view').refresh(v);require('./upgrade-feedback').play(v,upgraded,'talent',0,241);failure.rendered(v);}catch(e){failure.notice(v,e,scope);}},q.canUpgrade?'#287A4B':'#796650',70);
  u.button(p,'×',260,343,60,()=>{m.destroy();},'#8B5738',55);return m;
 }
 /** 获取和重置沿用现有广告适配器，取消与开发模拟未完成均不提交。 */

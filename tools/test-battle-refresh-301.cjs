@@ -1,0 +1,41 @@
+'use strict';
+const test=require('node:test'),a=require('node:assert/strict'),{scene,fixture,reward}=require('./battle-refresh-fixture.cjs'),refresh=require('../game/play/battle-refresh');
+/** 每个用例释放隔离的表现端口，避免其他用例沿用临时替身。 */
+function run(body,model){const f=scene(model);try{body(f);}finally{f.close();}}
+test('合成只替换升阶棋子、删除材料，背景/其他武将/主公/按钮仍为原节点',()=>run(({v,model:m,counts})=>{
+ m.state.units[8].heroId=m.state.units[9].heroId=m.state.units[0].heroId;m.state.units[8].star=m.state.units[9].star=m.state.units[0].star;v.render();
+ const kept=v.actors.get(2),old=v.actors.get(1),background=v.root.children[0],header=v.battleHeader,button=v.battleStartButton,renders=counts.renders,consumed=m.state.units.filter(u=>u.uid!==1&&u.heroId===m.unit(1).heroId&&u.star===m.unit(1).star).slice(0,2).map(u=>u.uid);
+ v.mergePanel(1);v.modal.children.find(n=>n.name==='原地合成').emit('end');
+ a.equal(counts.renders,renders);a.equal(v.actors.get(2),kept);a.equal(v.root.children[0],background);a.equal(v.battleHeader,header);a.equal(v.battleStartButton,button);a(!old.node.isValid);a.equal(m.unit(1).star,4);for(const uid of consumed)a(!v.actors.has(uid));a.equal(v.actors.get(1).unit,m.unit(1));a.equal(v.modal,null);a.equal(counts.writes,1);
+}));
+test('连续领奖、主公升级、再领奖不重建场景，战后死亡棋子恢复站位和可拖动绑定',()=>{const m=fixture(24);reward(m,{experience:require('../game/play/level-progression').cost(m.state.expedition.level)});run(({v,counts})=>{
+ const background=v.root.children[0],header=v.battleHeader,bench=v.actors.get(9),button=v.battleStartButton,renders=counts.renders; a(!v.actors.has(1));
+ v.act(()=>m.claim(0));a.equal(counts.renders,renders);a.equal(v.root.children[0],background);a.equal(v.battleHeader,header);a.equal(v.actors.get(9),bench);a.equal(v.battleStartButton,button);a(v.actors.get(1).node.events.has('start'));a.equal(v.actors.get(1).node.position.x,v.position(0,0).x);a.equal(v.battleHeader.gold.string,'金币 '+m.state.gold);a.equal(v.battleHeader.population.string,'8/'+m.limit());a.equal(v.battleHeader.level.string,'等级 9');a.equal(button.getComponentInChildren(v.cc.Label).string,'前进');
+ const count=m.state.units.length;v.act(()=>m.claim(0));a.equal(m.state.units.length,count);a.equal(counts.renders,renders);a.equal(counts.writes,1);
+ button.emit('end');a.equal(v.page,'map');a.equal(counts.renders,renders+1);
+ },m);});
+test('奖励换一批只替换弹窗，角色、资源栏及战报引用保留，旧凭据不能重复消费',()=>{const m=fixture();reward(m);m.state.meta.inventory[require('../game/play/reward-refresh-config').item]=10;run(({v,counts})=>{
+ const actors=new Map(v.actors),p=m.state.pending,old=v.modal,renders=counts.renders,expected={id:p.id,coins:0,ads:0};v.act(()=>m.refreshReward(null,expected));a.equal(counts.renders,renders);a.equal(m.state.pending,p);a.notEqual(v.modal,old);a(!old.isValid);for(const [id,actor]of actors)a.equal(v.actors.get(id),actor);
+ v.act(()=>m.refreshReward(null,expected));a.equal(counts.writes,1);a.equal(counts.renders,renders);
+ },m);});
+test('装备领奖更新背包，不替换未变化的备战席，结算每次只落盘一次',()=>{const m=fixture();reward(m,{kind:'equipment'});run(({v,counts})=>{const bench=v.actors.get(9),bag=v.root.getChildByName('equipment-inventory'),size=m.state.expedition.equipment.length,renders=counts.renders;v.act(()=>m.claim());a.equal(counts.renders,renders);a.equal(v.actors.get(9),bench);a(!bag.isValid);a.equal(m.state.expedition.equipment.length,size+1);a.equal(counts.writes,1);},m);});
+test('交换/下阵/重新上阵及同格释放后闭包和地图层级始终匹配真实站位',()=>run(({v,model:m,counts})=>{
+ const renders=counts.renders,untouched=v.actors.get(3);v.act(()=>m.deploy(1,1));a.equal(v.actors.get(3),untouched);a.equal(v.actors.get(1).node.position.x,v.position(1,0).x);v.act(()=>m.deploy(1,-1));a.equal(v.actors.get(1)?.unit.slot,-1);v.act(()=>m.deploy(1,0));a.equal(v.actors.get(1).unit.slot,0);const actor=v.actors.get(1);actor.node.setPosition(999,999);actor.node.setSiblingIndex(v.root.children.length-1);v.act(()=>m.deploy(1,0));a.equal(v.actors.get(1),actor);a.equal(actor.node.position.x,v.position(0,0).x);a(actor.node.getSiblingIndex()<v.battleStartButton.getSiblingIndex());a.equal(counts.renders,renders);
+}));
+test('备战席末页合成自动夹紧页码，无重复演员、失效标签或残留材料',()=>run(({v,model:m,counts})=>{
+ m.state.units.slice(-3).forEach(u=>{u.heroId='xuchu';u.star=1;});v.benchPage=2;v.render();const kept=v.actors.get(1),renders=counts.renders;v.act(()=>m.merge(21));a.equal(counts.renders,renders);a.equal(v.actors.get(1),kept);a.equal(v.benchPage,1);a.equal(v.actors.get(21).unit.star,2);for(const [id,actor]of v.actors){a(actor.node.isValid);a.equal(v.root.children.filter(n=>n.name==='unit-'+id).length,1);}a(v.reserveScope.nodes.every(n=>n.isValid));
+},fixture(21)));
+test('合成释放材料装备后同时更新背包、角色图标与羁绊，未改动角色保留',()=>run(({v,model:m})=>{
+ for(const u of m.state.units.slice(0,3)){u.heroId='xuchu';u.star=3;}v.render();const kept=v.actors.get(4);v.act(()=>m.merge(1));a.equal(v.actors.get(4),kept);a(m.state.expedition.equipment.filter(e=>e.uid>=4&&e.uid<=9).every(e=>e.owner===null));a.equal(v.actors.get(1).status.children.filter(n=>n.name==='equipped-icons').length,1);
+}));
+test('写盘失败、换章节、换模型和旧画布不冒用局部更新',()=>run(({v,model:m,counts})=>{
+ const before=JSON.stringify(m.state),renders=counts.renders;m.storage.write=()=>{throw Error('写盘失败');};v.act(()=>m.deploy(1,1));a.equal(JSON.stringify(m.state),before);a.equal(counts.renders,renders+1);
+ m.storage.write=()=>{};const start=refresh.begin(v);m.state.meta.chapter++;a.equal(refresh.apply(v,start),false);m.state.meta.chapter--;m.transact(()=>m.state.gold++);a.equal(refresh.begin(v),null);
+}));
+test('局部与完整刷新执行相同奖励事务，种子、战果和保存数据完全一致',()=>{const m=fixture();reward(m,{experience:100});run(({v})=>{const control=fixture();control.state=structuredClone(m.state);control.claim(0);v.act(()=>m.claim(0));a.deepEqual(m.state,control.state);},m);});
+test('同值替换武将对象时只重绑该实例，保留其他武将，避免旧拖动闭包',()=>run(({v,model:m,counts})=>{const old=v.actors.get(9),kept=v.actors.get(10),renders=counts.renders;v.act(()=>m.transact(()=>{m.state.units=m.state.units.map(u=>u.uid===9?{...u}:u);}));a.equal(counts.renders,renders);a.notEqual(v.actors.get(9),old);a.equal(v.actors.get(9).unit,m.unit(9));a.equal(v.actors.get(10),kept);}));
+test('随机/定向合成保留同一UID，重新绑定新身份并原子消费广告凭据',()=>{for(const mode of ['random','directed'])run(({v,model:m,counts})=>{for(const u of m.state.units.slice(0,3)){u.heroId='xuchu';u.star=3;}v.render();const serial=m.state.expedition.adSerial,renders=counts.renders,target=mode==='directed'?m.directedTargets(1)[0]:null;v.act(()=>m.merge(1,mode,target,mode==='directed'?m.adTicket():null));a.equal(counts.renders,renders);a.equal(v.actors.get(1).unit,m.unit(1));a.equal(m.unit(1).star,4);if(target)a.equal(m.unit(1).heroId,target);a.equal(m.state.expedition.adSerial,serial+(mode==='directed'?1:0));});});
+test('战后放弃选将与演武继续均只更新当前页面，不重复推进或生成敌军',()=>{for(const training of [false,true]){const m=fixture();reward(m,{training,kind:training?'none':'heroes'});run(({v,counts})=>{const renders=counts.renders,units=m.state.units.length;v.act(()=>m.claim(null,true));a.equal(counts.renders,renders);a.equal(m.state.units.length,units);a.equal(m.state.pending,null);a.equal(m.state.wins,training?0:1);},m);}});
+test('成功开战已经建立回放后，不再触发通用页面清理',()=>run(({v,model:m,counts})=>{const renders=counts.renders;v.act(()=>{m.transact(()=>{});v.playing=true;});a.equal(counts.renders,renders);}));
+test('关闭合成面板只撤去遮罩，保留棋盘及全部角色',()=>run(({v,counts})=>{const actors=new Map(v.actors),renders=counts.renders;v.mergePanel(1);v.modal.children.find(n=>n.name==='返回').emit('end');a.equal(v.modal,null);a.equal(counts.renders,renders);for(const [id,actor]of actors)a.equal(v.actors.get(id),actor);}));
+test('合成导致手牌向前补位时保留现有骨骼，拖动取消返回补位后的坐标',()=>run(({v,model:m})=>{m.state.units[8].heroId=m.state.units[9].heroId=m.state.units[0].heroId;m.state.units[8].star=m.state.units[9].star=m.state.units[0].star;v.render();const kept=v.actors.get(11);v.act(()=>m.merge(1));a.equal(v.actors.get(11),kept);const home={...kept.node.position};a.deepEqual(kept.preparationOrigin,home);const deploy=require('../game/play/deployment-view'),old=deploy.show;try{deploy.show=()=>{};kept.node.emit('start',{getUILocation:()=>({x:0,y:0})});kept.node.emit('move',{getUILocation:()=>({x:100,y:100})});kept.node.emit('cancel',{});a.deepEqual(kept.node.position,home);}finally{deploy.show=old;}}));

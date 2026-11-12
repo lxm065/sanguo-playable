@@ -1,7 +1,8 @@
 'use strict';
 const entries=require('./equipment-catalog-data'),config=require('./equipment-catalog-config'),upgrades=require('./equipment-upgrades'),upgradeConfig=require('./equipment-upgrade-config');
 /** 查询所有装备，实际开放性只由战斗配置决定，预览不会变成战斗奖励。 */
-function query(id,state={}){
+function query(id,state={},instance=null){
+ if(id===require('./sunjian-skill-config').id)return require('./sunjian-skill').describe(instance||{id});
  const entry=entries.find(e=>e.id===id);if(!entry)throw Error('未知装备：'+id);
  const definition=require('./expedition-config').equipment.find(e=>e.id===id),meta=state.meta||{},level=upgrades.grade(id,meta.equipmentGrades),steps=upgrades.lines(id),chapter=entry.unlock.kind===1?entry.unlock.value:0;
  const max=!!definition&&level>=steps.length,fragments=meta.inventory?.[id]||0,cost=max||!definition?null:{fragments:upgradeConfig.fragmentCosts[level],diamonds:upgradeConfig.diamondCosts[level]};

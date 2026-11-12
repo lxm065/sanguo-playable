@@ -1,0 +1,353 @@
+{
+  "sourceDirectory": "source-assets/pixelfx",
+  "imageLibrary": "../analysis-work/node_modules/sharp",
+  "outputDirectory": "game/skin-assets/pixelfx",
+  "manifestFile": "game/play/pixelfx-effect-manifest.js",
+  "reportFile": "evidence/vfx-1.0.299/export.json",
+  "maxAtlasEdge": 1024,
+  "maxPngBytes": 1258291,
+  "maxTextureBytes": 9437184,
+  "alphaThreshold": 2,
+  "padding": 2,
+  "effects": [
+    {
+      "id": "pixelHit",
+      "source": "impacts/hit-spark",
+      "fps": 24,
+      "seconds": 0.34,
+      "options": {
+        "palette": [
+          "#2b251b",
+          "#65522f",
+          "#9d8049",
+          "#c9aa6d",
+          "#e7d6a1",
+          "#fff0d0",
+          "#ffffff"
+        ],
+        "height": 12
+      }
+    },
+    {
+      "id": "pixelSpear",
+      "source": "melee/spear-sweep",
+      "fps": 24,
+      "seconds": 0.5,
+      "options": {
+        "palette": [
+          "#1f2936",
+          "#3c526c",
+          "#6b8aa7",
+          "#99bed6",
+          "#cee5ed",
+          "#eaf7fa",
+          "#ffffff"
+        ],
+        "sparks": [
+          "#e3ecf2",
+          "#c8dbe8",
+          "#9bb8cc",
+          "#6b8aa7"
+        ],
+        "stone": "#7d715c"
+      }
+    },
+    {
+      "id": "pixelBlade",
+      "source": "melee/sword-slash",
+      "fps": 24,
+      "seconds": 0.42,
+      "options": {
+        "palette": [
+          "#25362a",
+          "#465b3c",
+          "#728967",
+          "#a0b78c",
+          "#d1d9af",
+          "#f1e9c5",
+          "#ffffff"
+        ],
+        "sparks": [
+          "#fff0c0",
+          "#e6d79a",
+          "#bba66a",
+          "#8c774c"
+        ],
+        "radius": 34
+      }
+    },
+    {
+      "id": "pixelArrow",
+      "source": "projectiles/arrow",
+      "fps": 16,
+      "seconds": 0.6,
+      "options": {}
+    },
+    {
+      "id": "pixelFireball",
+      "source": "fire/fireball",
+      "fps": 16,
+      "seconds": 1.2,
+      "scale": 0.8,
+      "options": {
+        "radius": 5
+      }
+    },
+    {
+      "id": "pixelIce",
+      "source": "ice/ice-lance",
+      "fps": 16,
+      "seconds": 0.8,
+      "scale": 0.75,
+      "options": {
+        "length": 36
+      }
+    },
+    {
+      "id": "pixelSpirit",
+      "source": "arcane/arcane-orb",
+      "fps": 12,
+      "seconds": 1.15,
+      "scale": 0.6,
+      "pivot": [
+        68,
+        52
+      ],
+      "options": {}
+    },
+    {
+      "id": "pixelWater",
+      "source": "arcane/arcane-orb",
+      "fps": 12,
+      "seconds": 1.15,
+      "scale": 0.6,
+      "pivot": [
+        68,
+        52
+      ],
+      "options": {
+        "palette": [
+          "#17293b",
+          "#244967",
+          "#347b9f",
+          "#62a6bf",
+          "#90c9d5",
+          "#c1e4eb",
+          "#e8f8fa",
+          "#ffffff"
+        ]
+      }
+    },
+    {
+      "id": "pixelVenom",
+      "source": "fire/fireball",
+      "fps": 16,
+      "seconds": 1.2,
+      "scale": 0.8,
+      "options": {
+        "radius": 4,
+        "palette": [
+          "#202b21",
+          "#3a5035",
+          "#5b7747",
+          "#8aa365",
+          "#b4c98b",
+          "#d5e4b0",
+          "#edf4d1",
+          "#faffeb",
+          "#ffffff"
+        ]
+      }
+    },
+    {
+      "id": "pixelCharge",
+      "source": "arcane/arcane-orb",
+      "fps": 12,
+      "seconds": 1.15,
+      "scale": 0.6,
+      "pivot": [
+        68,
+        52
+      ],
+      "options": {
+        "palette": [
+          "#18263a",
+          "#2a486c",
+          "#3d719e",
+          "#66a0cb",
+          "#8cc5e3",
+          "#b9e5f3",
+          "#e8f9ff",
+          "#ffffff"
+        ]
+      }
+    },
+    {
+      "id": "pixelLightningBeam",
+      "source": "lightning/combat-beam",
+      "fps": 24,
+      "seconds": 0.5,
+      "beamSpan": 144,
+      "options": {}
+    },
+    {
+      "id": "pixelLightningHit",
+      "source": "lightning/zap-hit",
+      "fps": 20,
+      "seconds": 0.6,
+      "scale": 0.7,
+      "options": {}
+    },
+    {
+      "id": "pixelFireBurst",
+      "source": "fire/fire-ring",
+      "fps": 12,
+      "seconds": 1.6,
+      "scale": 0.6,
+      "options": {
+        "reach": 66
+      }
+    },
+    {
+      "id": "pixelFirePillar",
+      "source": "fire/flame-pillar",
+      "fps": 10,
+      "startSeconds": 0.55,
+      "seconds": 3.5,
+      "scale": 0.45,
+      "options": {
+        "height": 130,
+        "stone": "#6f5946"
+      }
+    },
+    {
+      "id": "pixelStunned",
+      "source": "status/control-stars",
+      "fps": 12,
+      "seconds": 2,
+      "budgetGroup": "control",
+      "bodyFree": true,
+      "options": {}
+    },
+    {
+      "id": "pixelFrozen",
+      "source": "ice/control-shell",
+      "fps": 12,
+      "seconds": 1.5,
+      "budgetGroup": "control",
+      "bodyFree": true,
+      "options": {}
+    },
+    {
+      "id": "pixelIceRelease",
+      "source": "ice/control-break",
+      "fps": 20,
+      "seconds": 0.4,
+      "scale": 0.7,
+      "bodyFree": true,
+      "options": {}
+    },
+    {
+      "id": "pixelShieldAbsorb",
+      "source": "status/battle-feedback",
+      "fps": 15,
+      "seconds": 0.55,
+      "scale": 0.8,
+      "bodyFree": true,
+      "options": {
+        "variant": "shield",
+        "palette": [
+          "#3479AB",
+          "#68ADD7",
+          "#B4E9FF",
+          "#E7F9FF"
+        ]
+      }
+    },
+    {
+      "id": "pixelEvade",
+      "source": "status/battle-feedback",
+      "fps": 15,
+      "seconds": 0.55,
+      "scale": 0.8,
+      "bodyFree": true,
+      "options": {
+        "variant": "evade",
+        "palette": [
+          "#478BA4",
+          "#74C0D6",
+          "#A1E5F2",
+          "#E8FBFF"
+        ]
+      }
+    },
+    {
+      "id": "pixelHealPulse",
+      "source": "status/battle-feedback",
+      "fps": 15,
+      "seconds": 0.55,
+      "scale": 0.8,
+      "bodyFree": true,
+      "options": {
+        "variant": "heal",
+        "palette": [
+          "#1E9F71",
+          "#68E299",
+          "#C9FFAD",
+          "#F4FFF1"
+        ]
+      }
+    },
+    {
+      "id": "pixelCleanse",
+      "source": "status/battle-feedback",
+      "fps": 15,
+      "seconds": 0.55,
+      "scale": 0.8,
+      "bodyFree": true,
+      "options": {
+        "variant": "cleanse",
+        "palette": [
+          "#BF923F",
+          "#E2BB62",
+          "#FFF1AB",
+          "#FFFDF2"
+        ]
+      }
+    },
+    {
+      "id": "pixelBlizzardWave",
+      "source": "status/area-pulse",
+      "fps": 12,
+      "seconds": 0.8,
+      "scale": 0.76,
+      "bodyFree": true,
+      "options": {
+        "variant": "blizzard",
+        "palette": [
+          "#4F8BB0",
+          "#82CEF2",
+          "#C8F4FF",
+          "#F6FFFF"
+        ]
+      }
+    },
+    {
+      "id": "pixelTigerRoar",
+      "source": "status/area-pulse",
+      "fps": 12,
+      "seconds": 0.72,
+      "scale": 0.76,
+      "bodyFree": true,
+      "options": {
+        "variant": "tiger",
+        "palette": [
+          "#864B27",
+          "#DA8840",
+          "#FFC56A",
+          "#FFF0A9"
+        ]
+      }
+    }
+  ]
+}

@@ -11,11 +11,43 @@ class ClassicView extends PlayView{
  /** 父类创建控件后，绑定共用进度服务和独立广告适配器。 */
  constructor(...args){super(...args);this.progress=this.model.progression;this.ads=new RewardedAds(wx,classic.ads);this.lordSelection=this.progress.state.lord;this.mapOffset=0;this.fortOffset=0;this.render();}
  /** 结算成功后统一回到地图，所有选将按钮共用同一个事务出口。 */
- act(operation){const pending=this.model.state.pending;try{if(this.playing)throw Error('交战中，请等待结算');operation();if(pending&&!this.model.state.pending){this.page='map';this.mapOffset=0;}}catch(error){this.message=error.message;this.render();this.notice('提示',error.message);return;}this.render();}
+ act(operation){const pending=this.model.state.pending,failure=require('./action-feedback'),scope=failure.begin(this.model,this);try{if(this.playing)throw Error('交战中，请等待结算');operation();if(pending&&!this.model.state.pending){this.page='map';this.mapOffset=0;}}catch(error){this.message=error.message;failure.notice(this,error,scope);return;}this.render();}
  /** 布阵顶部展示主公生命和局内金币；局外要塞不承担招募职责。 */
- renderBattle(){super.renderBattle();const u=this.ui,s=this.progress.state;for(const name of ['battle-header','返回','军营招募']){const n=this.root.children.find(x=>x.name===name);if(n)n.destroy();}u.box(this.root,'classic-battle-header',0,537,720,206,'#252823');u.portrait(this.root,this.progress.lord().portrait,-276,551,130,145,classic.portraitCrop);u.text(this.root,'♥'.repeat(s.hp),-119,596,32,'#E44E40',184);u.text(this.root,'上阵 '+this.model.state.units.filter(x=>x.slot>=0).length+'/'+this.model.limit(),95,596,26,'#EEE3B9',185);u.text(this.root,'金币 '+this.model.state.gold,255,596,26,'#ECD955',165);u.text(this.root,this.progress.lord().skillName+' · '+this.progress.lord().skillDescription,19,528,27,'#D2C6A0',380);u.button(this.root,'地图',277,482,130,()=>{this.page='map';this.render();},'#69552A',57);u.button(this.root,'装备',227,-509,210,()=>this.notice('装备','装备栏随战役获得装备；要塞黑市出售的装备碎片与局内金币分开保存。'),'#69552A');if(this.modal)this.modal.setSiblingIndex(this.root.children.length-1);}
+ renderBattle(){super.renderBattle();const u=this.ui,s=this.progress.state;for(const name of ['battle-header','返回','军营招募']){const n=this.root.children.find(x=>x.name===name);if(n)n.destroy();}u.box(this.root,'classic-battle-header',0,537,720,206,'#252823');u.portrait(this.root,this.progress.lord().portrait,-276,551,130,145,classic.portraitCrop);u.text(this.root,'♥'.repeat(s.hp),-119,596,32,'#E44E40',184);u.text(this.root,'上阵 '+this.model.state.units.filter(x=>x.slot>=0).length+'/'+this.model.limit(),95,596,26,'#EEE3B9',185);u.text(this.root,'金币 '+this.model.state.gold,255,596,26,'#ECD955',165);u.text(this.root,this.progress.lord().skillName+' · '+this.progress.lord().skillDescription,19,528,27,'#D2C6A0',380);u.button(this.root,'地图',277,482,130,()=>{this.page='map';this.render();},'#69552A',57);u.button(this.root,'装备',227,-509,210,()=>this.notice('装备','装备栏随战役获得装备；要塞'+classic.shop.title+'出售的装备碎片与局内金币分开保存。'),'#69552A');if(this.modal)this.modal.setSiblingIndex(this.root.children.length-1);}
  /** 在视图构造前建立进度，避免首帧误显示旧图鉴。 */
- render(){if(this.page!=='battle')require('./tutorial-voice').stop(this);require('./audio-settings').get().setScene(this.page==='battle'?'battle':this.page==='map'?'map':'home');require('./friend-rank-view').close(this);require("./merge-hints").clear(this);require("./kill-banner").clear(this);require('./battle-effects').clear(this);require('./treasure-animation').cancel(this);require("./talent-animation").cancel(this);require("./tutorial-view").cancel(this);require("./deployment-view").clear(this);if(!this.model.progression)return;this.progress=this.model.progression;if(this.playing)return;require("./lord-skill-view").cancel(this);for(const child of [...this.root.children]){child.removeFromParent();child.destroy();}this.actors.clear();this.reserveScope=null;this.modal=null;if(this.page!=='home')this.ui.image(this.root,'classic/overworld.png',0,0,720,1280);if(this.page==='battle'){this.renderBattle();return;}if(this.page==='map'){this.renderMap();require('./section-reward-view').show(this);require('./run-settlement-view').show(this);require('./sweep-view').show(this);return;}if(this.page==='home')this.renderHome();else if(this.page==='heroes')this.renderHeroes();else if(this.page==='camp')this.renderCamp();else if(this.page==='training')this.renderTraining();else require("./activity-view").talent(this);this.renderHeader();this.renderTabs();if(this.page==='heroes')require('./lord-unlock-view').show(this);require('./diamond-mine-view').guide(this);require('./section-reward-view').show(this);require('./run-settlement-view').show(this);require('./sweep-view').show(this);}
+ render(){
+ let bodies=null;
+ try{
+ if(this.model.progression)require('./battle-recovery').resume(this);
+ if(this.page!=='battle')require('./tutorial-voice').stop(this);
+ require('./audio-settings').get().setScene(this.page==='battle'?'battle':this.page==='map'?'map':'home');
+ require('./friend-rank-view').close(this);
+ require('./merge-hints').clear(this);
+ require('./kill-banner').clear(this);
+ require('./battle-effects').clear(this);
+ require('./treasure-animation').cancel(this);
+ require('./talent-animation').cancel(this);
+ require('./tutorial-view').cancel(this);
+ require('./deployment-view').clear(this);
+ if(!this.model.progression)return;
+ this.progress=this.model.progression;
+ if(this.playing)return;
+ require('./lord-skill-view').cancel(this);
+ bodies=require('./preparation-bodies').begin(this);
+ for(const child of [...this.root.children]){child.removeFromParent();child.destroy();}
+ this.actors.clear();this.reserveScope=null;this.modal=null;this.battleRegions=null;this.formationAnchor=null;this.battlePreviewEnemies=null;
+ if(this.page!=='home')this.ui.image(this.root,'classic/overworld.png',0,0,720,1280);
+ if(this.page==='battle'){this.renderBattle();return;}
+ if(this.page==='map'){
+ this.renderMap();require('./section-reward-view').show(this);require('./run-settlement-view').show(this);require('./sweep-view').show(this);return;
+ }
+ if(this.page==='home')this.renderHome();else if(this.page==='heroes')this.renderHeroes();else if(this.page==='camp')this.renderCamp();else if(this.page==='training')this.renderTraining();else require('./activity-view').talent(this);
+ if(this.page==='home')require('./play-benefits-view').entry(this,'home');
+ this.renderHeader();this.renderTabs();
+ if(this.page==='heroes')require('./lord-unlock-view').show(this);
+ require('./diamond-mine-view').guide(this);require('./section-reward-view').show(this);require('./run-settlement-view').show(this);require('./sweep-view').show(this);
+ }finally{require('./preparation-bodies').end(this,bodies);require('./render-cadence').apply(this);require('./cloud-save-ui').indicator(this);require('./action-feedback').rendered(this);}
+ }
  /** 打开共用图鉴弹窗，保持宿主页面与地图偏移不变。 */
  openHandbook(){if(this.handbook?.modal?.isValid)return;this.handbook=new HandbookView(this);this.handbook.open();}
  /** 使用原版纸质面板纹理而非纯色列表卡片。 */
@@ -67,17 +99,18 @@ class ClassicView extends PlayView{
  }
  /** 点击立即给予反馈，再让出一帧完成事务及界面切换，并记录可测量的耗时。 */
  enterMapNode(id){
+ if(require('./battle-recovery').resume(this)){this.render();return;}
  if(this.enteringMap)return;this.enteringMap=true;const started=Date.now();
- this.ui.text(this.root,'正在进入…',0,-485,27,'#FFF1CF',380,55);
- setTimeout(()=>{try{const type=this.progress.enter(id);if(['battle','elite','boss',...require('./node-event-config').types].includes(type))this.page='battle';this.render();this.lastEntryTiming={id,renderMs:Date.now()-started};}catch(e){this.render();this.notice('提示',e.message);}finally{this.enteringMap=false;}},loading.sliceDelay);
+ const feedback=this.ui.text(this.root,'正在进入…',0,-485,27,'#FFF1CF',380,55),failure=require('./action-feedback'),scope=failure.begin(this.model,this);
+ setTimeout(()=>{try{const type=this.progress.enter(id);if(['battle','elite','boss',...require('./node-event-config').types].includes(type))this.page='battle';this.render();this.lastEntryTiming={id,renderMs:Date.now()-started};}catch(e){if(feedback.node?.isValid)feedback.node.destroy();failure.notice(this,e,scope);}finally{this.enteringMap=false;}},loading.sliceDelay);
  }
 
  /** 道具图标由矢量宝石、丹药和令牌组成，原道具 ID 作为点击键。 */
  item(parent,id,count,x,y,canClick=()=>true){const u=this.ui,gear=require("./equipment-theme")[id],it=gear?{name:gear.name+"碎片",description:"用于图鉴中的装备进阶，已开放装备穿戴后可获得强化效果。"}:classic.items[id]||require("./activity-config").items[id],n=u.box(parent,'item-'+id,x,y,86,86,'#382847');u.image(n,require('./reward-icon').file(id),0,5,72,72);u.text(n,count,0,-26,23,'#FFFFFF',80,35);n.on(this.cc.Node.EventType.TOUCH_END,e=>{e.propagationStopped=true;if(canClick())this.notice(it?.name||String(id),it?.description||'暂无说明');});return n;}
- /** 要塞恢复章节礼包、仓库、黑市、矿场的竖向面板顺序。 */
- renderCamp(){require('./diamond-mine-view').focus(this);const u=this.ui,p=this.progress.state;this.progress.resetShop();const content=this.scrollArea('fortress-scroll',-27,1000,this.fortOffset||0,0,require('./diamond-mine-config').view.scrollMax,v=>this.fortOffset=v);require('./chapter-pack-view').render(this,content);const bag=this.paper(content,'warehouse',0,-165,704,410);require('./fortress-decoration').title(this,bag,'仓库',410);require('./warehouse-view').render(this,bag);const shop=this.paper(content,'black-market',0,-620,704,450);require('./fortress-decoration').title(this,shop,'黑市商店',450);classic.shop.offers.forEach((o,i)=>{const x=(i-1)*220;u.box(shop,'offer',x,-3,207,240,'#E2D0A6');u.text(shop,classic.items[o.item].name,x,92,27,'#227FB6',200);require('./fortress-decoration').discount(this,shop,o.discount,x);this.item(shop,o.item,o.count,x,12);const buy=u.button(shop,p.bought.includes(i)?'已售罄':o.price?'':'▶ 免费',x,-90,190,()=>o.price?this.act(()=>this.progress.buy(i)):this.ad(()=>this.progress.buy(i,true)), '#846238',54);if(o.price&&!p.bought.includes(i))require('./currency-view').amount(this,buy,o.price,0,0,'shop');});u.button(shop,'▶ 刷新+3',0,-164,220,()=>this.ad(()=>this.progress.refresh(true)),'#B78416');u.text(shop,'每日0点重置',-229,-164,22,'#785133',211);u.text(shop,'剩余'+p.refreshes+'次',235,-164,24,'#527844',185);require('./diamond-mine-view').render(this,content);for(const policy of require('./fortress-panels-config').buildings)require('./diamond-mine-view').render(this,content,policy);}
+ /** 要塞恢复章节礼包、仓库、军需商铺、矿场的竖向面板顺序。 */
+ renderCamp(){require('./diamond-mine-view').focus(this);const u=this.ui,p=this.progress.state;this.progress.resetShop();const content=this.scrollArea('fortress-scroll',-27,1000,this.fortOffset||0,0,require('./diamond-mine-config').view.scrollMax,v=>this.fortOffset=v);require('./chapter-pack-view').render(this,content);const bag=this.paper(content,'warehouse',0,-165,704,410);require('./fortress-decoration').title(this,bag,'仓库',410);require('./warehouse-view').render(this,bag);const shop=this.paper(content,'black-market',0,-620,704,450);require('./fortress-decoration').title(this,shop,classic.shop.title,450);classic.shop.offers.forEach((o,i)=>{const x=(i-1)*220;u.box(shop,'offer',x,-3,207,240,'#E2D0A6');u.text(shop,classic.items[o.item].name,x,92,27,'#227FB6',200);require('./fortress-decoration').discount(this,shop,o.discount,x);this.item(shop,o.item,o.count,x,12);const buy=u.button(shop,p.bought.includes(i)?'已售罄':o.price?'':'▶ 免费',x,-90,190,()=>o.price?this.act(()=>this.progress.buy(i)):this.ad(()=>this.progress.buy(i,true)), '#846238',54);if(o.price&&!p.bought.includes(i))require('./currency-view').amount(this,buy,o.price,0,0,'shop');});u.button(shop,'▶ 刷新+3',0,-164,220,()=>this.ad(()=>this.progress.refresh(true)),'#B78416');u.text(shop,'每日0点重置',-229,-164,22,'#785133',211);u.text(shop,'剩余'+p.refreshes+'次',235,-164,24,'#527844',185);require('./diamond-mine-view').render(this,content);for(const policy of require('./fortress-panels-config').buildings)require('./diamond-mine-view').render(this,content,policy);}
  /** 通用说明弹窗只展示已经核对的数据，不发送原服请求。 */
- notice(title,body){const m=this.overlay(),u=this.ui;const panel=this.paper(m,'notice',0,0,630,480);require('./paper-title').draw(this,panel,title,630,480);u.text(m,body,0,24,27,'#4D3B2B',552,220);u.button(m,'关闭',0,-164,244,()=>{m.destroy();this.modal=null;});}
+ notice(title,body,{preserve=false}={}){if(require('./cloud-save-ui').handleNotice(this,body))return;const previous=preserve?this.modal:null,m=this.overlay(preserve),u=this.ui;const panel=this.paper(m,'notice',0,0,630,480);require('./paper-title').draw(this,panel,title,630,480);u.text(m,body,0,24,27,'#4D3B2B',552,220);u.button(m,'关闭',0,-164,244,()=>{if(this.modal!==m)return;m.destroy();this.modal=previous?.isValid?previous:null;if(!preserve&&this.model.state.pending&&!this.playing&&!this.startingBattle)this.render();});}
  /** 开发广告明确要求选择完成或取消，不把点击按钮当作真实看完广告。 */
  async ad(done,after,cancel){const model=this.model,token=require('./vip').ticket(model);let completed=false;const finish=()=>{if(completed||model!==this.model)return;let ok=false;this.act(()=>{model.transact(()=>{require('./vip').recordAd(model,token);done();});ok=true;});if(ok){completed=true;after?.();}};try{const result=await this.ads.show();if(result===true){finish();return;}if(result!=='development'){cancel?.();this.notice('广告未完成','未发放奖励。');return;}const m=this.overlay(),u=this.ui;const panel=this.paper(m,'development-ad',0,0,640,430);require('./paper-title').draw(this,panel,'本地广告测试',640,430);u.text(m,'当前没有连接真实广告平台。\n仅在选择模拟完成后测试领取与刷新。',0,20,27,'#51412D',570,140);u.button(m,'模拟完整观看',-149,-121,275,()=>{finish();});u.button(m,'取消 · 不发奖',149,-121,275,()=>{cancel?.();this.render();},'#6B6655');}catch(e){cancel?.();this.notice('广告未完成',e.message);}}
  /** 签到次数独立于胜场，避免提前开放第9签和第18签主公。 */

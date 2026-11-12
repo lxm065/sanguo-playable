@@ -262,7 +262,8 @@ module.exports={
     "guideNpcX": -245,
     "guideNpcScale": 1.8,
     "guideArrowScale": 2,
-    "progressWidth": 220,
+    "buildingX": -230,
+    "progressWidth": 210,
     "progressHeight": 20,
     "progressY": -101
   },

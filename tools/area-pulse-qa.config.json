@@ -1,0 +1,35 @@
+{
+  "width": 720,
+  "height": 1280,
+  "background": "battle-ground.png",
+  "title": "《这把靠子龙》技能特效实拍",
+  "titleY": 585,
+  "snowTitle": "甄姬 · 暴风雪",
+  "snowY": 507,
+  "upgradeTitle": "武将升级 · 原版光效",
+  "upgradeY": -86,
+  "footerY": -576,
+  "modes": ["远征", "挑战", "单人挑战"],
+  "hp": 100000,
+  "attack": 100,
+  "battleSeconds": 24,
+  "seed": 17,
+  "waitMs": 120000,
+  "readyMs": 100,
+  "samplePhase": 0.22,
+  "upgradePhase": 0.55,
+  "castCaption": "甄姬起手 · 地面保持干净",
+  "hitCaption": "命中落冰 · 武将升级原版光效",
+  "upgradeText": "武将升级",
+  "minScreenshotBytes": 20000,
+  "allies": [{"uid":1,"heroId":"zhenji","star":3,"slot":7},{"uid":2,"heroId":"zhangfei","star":3,"slot":9}],
+  "enemies": [{"uid":-1,"heroId":"taishici","star":1,"slot":7},{"uid":-2,"heroId":"taishici","star":1,"slot":8},{"uid":-3,"heroId":"taishici","star":1,"slot":9}],
+  "snow": {
+    "name": "snow-demo", "centerX": 52, "centerY": 211, "cellX": 104, "cellY": 96, "scale": 0.95,
+    "actors": [{"uid":1,"dx":-230,"dy":-98},{"uid":-1,"dx":0,"dy":0},{"uid":-2,"dx":104,"dy":0}]
+  },
+  "tiger": {
+    "name": "tiger-demo", "centerX": -45, "centerY": -329, "cellX": 104, "cellY": 96, "scale": 1.15,
+    "actors": [{"uid":2,"dx":0,"dy":0},{"uid":-1,"dx":123,"dy":-18}]
+  }
+}

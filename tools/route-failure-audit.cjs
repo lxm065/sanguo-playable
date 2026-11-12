@@ -39,16 +39,16 @@ function run(chapter,profile,routeKind,seed,graphs,observe=null){
    Object.assign(m.state.meta,{activeNode:node.id,layer:node.row});
    const record={chapter,section,node:node.id,row:node.row,type:node.type,profile:profile.id,route:routeKind,seed,attempts:[],reliefs:0};records.push(record);
    if(['battle','elite','boss'].includes(node.type)){
-    budget.lock(m);light.apply(m);const e=m.state.expedition.enemyEncounter,combatRules=req('player-combat-context').rules(m);
+    budget.lock(m);light.apply(m);const e=m.state.expedition.enemyEncounter;
     record.levels=e.units.map(u=>u.star);record.ownLevels=m.state.units.map(u=>u.star);record.beforeDifficulty=cycle.current(m.state)?.difficulty??null;
     for(let attempt=0;attempt<=config.maxReliefs;attempt++){
      // 每次尝试使用预先确定的独立种子；算法确定且可重跑，不采样未来结果来选择路径。
      const battleSeed=(seed+chapter*100003+section*1009+node.row*97+attempt*17)>>>0;
-     const result=combat.simulate(m.state.units,m.enemies(),roster,combatRules,battleSeed,req('chapter-difficulty').scale(m.state,rules),m.state.expedition.equipment);
+     const result=combat.simulate(m.state.units,m.enemies(),roster,req('player-combat-context').rules(m),battleSeed,req('chapter-difficulty').scale(m.state,rules),m.state.expedition.equipment);
      if(observe)observe(m,record,result,battleSeed);
      record.attempts.push({result:result.result,duration:result.duration,scale:e.scale,curve:e.lightBalance?.curve??null,seed:battleSeed});
      if(result.result==='win'){
-      cycle.settle(m,{battle:result});req('enemy-opening-progress').settle(m,{battle:result});record.passed=true;break;
+      req('enemy-relief').settle(m,{battle:result});cycle.settle(m,{battle:result});req('enemy-opening-progress').settle(m,{battle:result});record.passed=true;break;
      }
      cycle.settle(m,{battle:result});
      if(attempt===config.maxReliefs){record.passed=false;blocked=true;break;}

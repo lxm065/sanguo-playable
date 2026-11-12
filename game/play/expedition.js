@@ -10,7 +10,7 @@ class Expedition extends Campaign {
     this.transactionDepth = 1;
     try {
       const acquisition=require('./hero-acquisition'),before=acquisition.known(this),run=this.state.expedition,discovery=require('./equipment-discovery'),seen=discovery.known(this.state);
-      return super.transact(()=>{const rank=require('./friend-rank-metric');rank.record(this.state);const result=operation();acquisition.record(this,before,run);discovery.record(this,seen);rank.record(this.state);return result;});
+      return super.transact(()=>{const rank=require('./friend-rank-metric'),previousRank=rank.score(this.state.meta);const result=operation();require('./sunjian-skill').initialize(this);acquisition.record(this,before,run);discovery.record(this,seen);if(this.state.meta)this.state.meta.friendRankBest=Math.max(previousRank,rank.score(this.state.meta));return result;});
     } finally {
       this.transactionDepth = 0;
     }
@@ -18,7 +18,7 @@ class Expedition extends Campaign {
   /** 兼容旧存档，仅补充缺失的装备与福利字段。 */
   constructor(rules, roster, storage) {
     let migrated=false;
-    super(rules, roster, {read:()=>{const saved=require('./challenge-storage').snapshot(storage.read()),next=require('./population').migrate(saved,rules);migrated=next!==saved;return next;},write:s=>storage.write(require("./challenge-storage").snapshot(s))});
+    super(rules, roster, {assertWritable:()=>storage.assertWritable?.(),read:()=>{const saved=require('./challenge-storage').snapshot(storage.read()),next=require('./population').migrate(saved,rules);migrated=next!==saved;return next;},write:s=>storage.write(require("./challenge-storage").snapshot(s))});
     if(migrated)this.transact(()=>{});
     this.nodeEvents=new (require("./node-events").NodeEvents)(this);
     if (!this.state.expedition)
@@ -109,10 +109,10 @@ class Expedition extends Campaign {
       new Set(e.equipment.map((x) => x.uid)).size === e.equipment.length &&
       e.equipment.every(
         (x) =>
-          (x.stacks===undefined||(Number.isInteger(x.stacks)&&x.stacks>=0&&x.stacks<=(require('./equipment-effect-config')[x.id]?.maxStacks||0))) && Number.isInteger(x.uid) &&
+          (x.stacks===undefined||(Number.isInteger(x.stacks)&&x.stacks>=0&&(x.id===require('./sunjian-skill-config').id||x.stacks<=(require('./equipment-effect-config')[x.id]?.maxStacks||0)))) && Number.isInteger(x.uid) &&
           x.uid > 0 &&
           x.uid < e.nextEquipment &&
-          policy.equipment.some((v) => v.id === x.id) &&
+          !!require('./equipment-definitions').get(x.id) &&
           (x.owner === null || s.units.some((u) => u.uid === x.owner)),
       ) &&
       s.units.every(
@@ -315,7 +315,7 @@ class Expedition extends Campaign {
   /** 发放唯一装备实例，尚未穿戴时放入本局装备栏。 */
   addEquipment(id) {
     const e = this.state.expedition;
-    if (!policy.equipment.some((x) => x.id === id)) throw Error("未知装备");
+    if (!require('./equipment-definitions').get(id)) throw Error("未知装备");
     const item = { uid: e.nextEquipment++, id, owner: null };
     e.equipment.push(item);
     require("./equipment-tutorial").acquired(this,item);
@@ -355,7 +355,7 @@ class Expedition extends Campaign {
         this.state.wins++;
         this.activities?.record("wins");
       }
-      for(const change of p.battle.equipmentProgress||[]){const item=e.equipment.find(v=>v.uid===change.uid);if(item)item.stacks=change.stacks;}
+      for(const change of p.battle.equipmentProgress||[]){const item=e.equipment.find(v=>v.uid===change.uid);if(item&&(!p.training||item.id!==require('./sunjian-skill-config').id))item.stacks=change.stacks;}
       this.state.pending = null;
       this.state.expedition.vipSpeedActive=false;
       if (!p.training) this.roll();

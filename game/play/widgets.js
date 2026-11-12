@@ -106,9 +106,10 @@ class Widgets {
   actor(parent, unit, x, y, scale = 1, showBars = true) {
     const c = unitConfig,
       n = this.node(parent, "unit-" + unit.uid, x, y, c.hitWidth, c.hitHeight),
-      body = this.node(n, "body");
+      reused = require('./preparation-bodies').take(this,unit,n),
+      body = reused?.body || this.node(n, "body");
     body.setScale(scale, scale, 1);
-    const sp = body.addComponent(this.cc.sp.Skeleton),
+    const sp = reused?.sp || body.addComponent(this.cc.sp.Skeleton),
       status = this.node(n, "unit-status"),
       hp = this.node(status, "hp", c.barX, 0, c.barWidth, c.barHeight),
       graphic = hp.addComponent(this.cc.Graphics);
@@ -138,6 +139,7 @@ class Widgets {
       status,
       centered: showBars,
       body,
+      bodyKey:require('./preparation-bodies').key(unit),
       sp,
       hp: graphic,
       label,
@@ -166,7 +168,8 @@ class Widgets {
       status.setPosition(0, layout.headY);
     };
     state.updateLayout();
-    if (this.assets.hasModel(unit.heroId))
+    if(reused){state.manifest=sp.skeletonData.battleManifest;motion.animate(state,'idle',true);}
+    else if (this.assets.hasModel(unit.heroId))
       this.assets
         .skeleton(unit.heroId, unit.star)
         .then((data) => this.assets.assembly.run(() => {

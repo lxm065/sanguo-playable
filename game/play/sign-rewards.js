@@ -1,7 +1,15 @@
 'use strict';
 const c=require('./sign-config'),{random}=require('./combat');
-/** 按累计签到次数选择本轮奖表，已发放记录仍优先展示，避免追溯改奖。 */
-function rewardAt(day){const index=(day-1)%c.days.length,cycle=Math.floor((day-1)/c.days.length),table=c.cycleOverrides?.[cycle]||c.days,source={...table[index]};if(table===c.days&&source.lord&&cycle>0)source.lord='1006';return source;}
+/** 前三轮使用各自奖表，后续每九次签到循环同一套奖励。 */
+function rewardAt(day){
+ const offset=day-1;
+ const index=offset%c.days.length;
+ const cycle=Math.floor(offset/c.days.length);
+ const table=c.cycleOverrides[cycle]||(cycle+1>=c.recurring.fromCycle?c.recurring.days:c.days);
+ const reward={...table[index]};
+ if(table===c.days&&cycle===1&&reward.lord)reward.lord=c.secondCycleLord;
+ return reward;
+}
 /** 每次抽取先保存具体物品，双倍补领复用已保存的抽取结果。 */
 function resolve(p,reward){if((!reward.randomBlue&&!reward.randomPurple)||reward.item)return {...reward};const pool=reward.randomPurple?c.purplePool:c.bluePool,rng=random(p.model.state.seed++);return {...reward,item:pool[Math.floor(rng()*pool.length)]};}
 /** 将旧版待确认碎片原子核销到仓库，重复加载不会再次补发。 */

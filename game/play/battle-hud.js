@@ -24,6 +24,10 @@ class BattleHud {
   }
   /** 用单字徽章和独立人数角标替代两行按钮文字。 */
   renderBonds() {
+    return require('./battle-refresh').region(this.view,'bonds',()=>this.drawBonds());
+  }
+  /** 羁绊变更只替换徽章区域，保持场上与备战席的动画。 */
+  drawBonds() {
     const v = this.view,
       u = v.ui,
       c = config.bonds;
@@ -85,6 +89,7 @@ class BattleHud {
     const v = this.view,
       actor = v.actors.get(unit.uid);
     if (!actor) return;
+    require('./battle-refresh').remove(actor.status.getChildByName('equipped-icons'));
     const c = config.unit,
       items = unit.uid < 0 ? (unit.equipment || []) : v.model.state.expedition.equipment.filter(
         (e) => e.owner === unit.uid,
@@ -221,6 +226,7 @@ class BattleHud {
   lordDetails() {
     const v = this.view;
     if (v.playing || v.model.state.pending) return;
+    if(require('./liubiao-skill').available(v.model))return require('./liubiao-skill-view').show(v);
     const u = v.ui,
       c = config.lord,
       m = v.overlay(),

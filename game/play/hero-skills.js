@@ -2,8 +2,8 @@
 const config=require('./hero-skill-config'),{distance}=require('./combat');
 /** 只查询本阶已解锁技能，以稳定 ID 绑定规则。 */
 function entries(a){return (a.skills||[]).map(s=>({...s,rule:config[s.id]})).filter(s=>s.rule);}
-/** 根据技能种类读取单项被动。 */
-function passive(a,kind){return entries(a).find(s=>s.rule.kind===kind)?.rule;}
+/** 直接查询本阶被动，避免战斗每步为每个技能创建临时数组和对象。 */
+function passive(a,kind){for(const skill of a.skills||[]){const rule=config[skill.id];if(rule?.kind===kind)return rule;}}
 /** 前两章完整技能走独立调度，其他武将暂保留旧主技能实现。 */
 function managed(a){return config.supportHeroes.includes(a.heroId)&&!config.legacyPrimaryHeroes.includes(a.heroId);}
 /** 统一发送技能表现元数据，事件与真实结算共享技能 ID。 */
@@ -13,7 +13,7 @@ function initialize(units,events=[]){for(const a of units){a.cooldownFactor=1;a.
 /** 临时增益覆盖同名旧增益，到期统一撤销，避免重复叠加数值漂移。 */
 function buff(a,key,values,until){if(a.negativeImmune&&Object.entries(values).some(([k,v])=>k==='cooldownFactor'?v>0:v<0))return;a.buffs=a.buffs||{};const old=a.buffs[key];if(old)for(const [k,v]of Object.entries(old.values))a[k]-=v;for(const [k,v]of Object.entries(values))a[k]=(a[k]||0)+v;a.buffs[key]={values,until};}
 /** 每帧清除到期增益，持续被动通过同一命中队列结算。 */
-function tick(a,units,t,hits,events){for(const [key,b]of Object.entries(a.buffs||{}))if(b.until<=t){for(const [k,v]of Object.entries(b.values))a[k]-=v;delete a.buffs[key];}if(a.hp<=0)return;if(a.channelUntil>t&&(a.stunnedUntil>t||a.silencedUntil>t)){a.channelUntil=t;a.channelInterruptedAt=t;}const rot=passive(a,'rot');if(rot&&!require('./charm-exclusive').active(a,t)&&(a.nextRot||rot.period)<=t){a.nextRot=t+rot.period;for(const u of units.filter(u=>u.side!==a.side&&require('./combat-protection').targetable(u)&&distance(a,u)<=rot.radius))hits.push({at:t,a,u,power:rot.power,skill:true,critical:false,effect:rot.effect,s:{}});}a.auraSlow=Math.max(0,...units.filter(u=>u.side!==a.side&&require('./combat-protection').targetable(u)).map(u=>{const s=passive(u,'slowAura');return s&&distance(a,u)<=s.radius?s.slow:0;}));}
+function tick(a,units,t,hits,events){for(const [key,b]of Object.entries(a.buffs||{}))if(b.until<=t){for(const [k,v]of Object.entries(b.values))a[k]-=v;delete a.buffs[key];}if(a.hp<=0)return;if(a.channelUntil>t&&(a.stunnedUntil>t||a.silencedUntil>t)){a.channelUntil=t;a.channelInterruptedAt=t;events.push({type:'channelInterrupted',t,uid:a.uid});}const rot=passive(a,'rot');if(rot&&!require('./charm-exclusive').active(a,t)&&(a.nextRot||rot.period)<=t){a.nextRot=t+rot.period;for(const u of units.filter(u=>u.side!==a.side&&require('./combat-protection').targetable(u)&&distance(a,u)<=rot.radius))hits.push({at:t,a,u,power:rot.power,skill:true,critical:false,effect:rot.effect,s:{}});}a.auraSlow=Math.max(0,...units.filter(u=>u.side!==a.side&&require('./combat-protection').targetable(u)).map(u=>{const s=passive(u,'slowAura');return s&&distance(a,u)<=s.radius?s.slow:0;}));}
 /** 查询普通攻击附带的既有被动，不把火箭误标成主动技能。 */
 function attackSpec(a,rng){for(const kind of ['bonus','slowAttack','delay','bash']){const s=passive(a,kind);if(!s)continue;if(kind==='bash'&&rng()>=s.chance)return {};return {...s,passive:kind==='slowAttack'?'slow':kind};}return {};}
 /** 决定技能的实际目标，嘲讽仅影响普攻选敌。 */
@@ -21,7 +21,7 @@ function select(a,targets,s,rng){if(s.select==='random')return targets[Math.floo
 /** 找到目标周围空格，避免钩取、闪烁与已有单位重叠。 */
 function freeNear(target,units,rules,radius=config.defaults.nearRadius){const free=[];for(let y=Math.max(0,target.y-radius);y<=Math.min(rules.rows*2-1,target.y+radius);y++)for(let x=Math.max(0,target.x-radius);x<=Math.min(rules.columns-1,target.x+radius);x++)if(!units.some(u=>u.hp>0&&u.x===x&&u.y===y))free.push({x,y});return free;}
 /** 一次实际施法同时安排伤害、控制和增益，多重施法只重复有效技能。 */
-function cast(a,target,skill,units,t,hits,events,heal,rules,rng){const s=skill.rule,allies=units.filter(u=>u.side===a.side&&u.hp>0),enemies=units.filter(u=>u.side!==a.side&&require('./combat-protection').targetable(u));emit(events,a,target,skill,t);const castDelay=(s.windup||rules.attackDelay)/(1+(a.marchCast||0));events[events.length-1].impactDelay=castDelay;const soul=passive(a,'flameSoul');if(soul){buff(a,'flameSoul',{skillHaste:soul.haste,attack:a.baseAttack*soul.attack},t+soul.duration);events.push({type:'status',t,target:a.uid,effect:'flameSoul',duration:soul.duration});}
+function cast(a,target,skill,units,t,hits,events,heal,rules,rng){const s=skill.rule,allies=units.filter(u=>u.side===a.side&&u.hp>0),enemies=units.filter(u=>u.side!==a.side&&require('./combat-protection').targetable(u));emit(events,a,target,skill,t);const castDelay=(s.windup||rules.attackDelay)/(1+(a.marchCast||0));const castEvent=events[events.length-1];castEvent.impactDelay=castDelay;if(s.kind==='channel'&&s.radius!==undefined)castEvent.area={x:target.x,y:target.y,radius:s.radius};const soul=passive(a,'flameSoul');if(soul){buff(a,'flameSoul',{skillHaste:soul.haste,attack:a.baseAttack*soul.attack},t+soul.duration);events.push({type:'status',t,target:a.uid,effect:'flameSoul',duration:soul.duration});}
  if(require('./warrior-skills').cast(a,skill,t,hits,events,rules))return;
  if(s.kind==='frostScreen'){require('./frost-screen').cast(a,target,s,t,hits,events,skill.id);return;}
  if(s.kind==='haste'||s.kind==='allyHaste'){const u=s.kind==='haste'?a:allies[Math.floor(rng()*allies.length)];buff(u,'haste',{skillHaste:s.haste},t+s.duration);events.push({type:'status',t,target:u.uid,effect:s.effect,duration:s.duration});return;}

@@ -9,9 +9,11 @@ function query(model,enemies){
  const node=model.progression.nodes().find(n=>n.id===m.activeNode),type=require('./enemy-stage-two-opening').active(state)?c.firstBattle.coefficient:c.types[node?.type];if(type===undefined)return null;
  const cycle=require('./enemy-difficulty-cycle').current(state),sample=require('./enemy-player-baseline').query(model,cycle),reference=sample.units?sample:null;if(!cycle&&!reference?.units.length)return null;enemies=require('./enemy-stage-two-opening').strip(enemies,state);
  const own=sample.power;
- const enemy=require('./strongest-team').score(enemies,model.roster,{...model.rules,playerTalent:{},playerTalentTree:{},playerEquipmentGrades:{},playerVip:null,playerBonds:undefined},require('./enemy-equipment').collect(enemies));
- const difficulty=Math.max(c.minDifficulty,cycle?.difficulty??c.initialDifficulty),curve=type*difficulty;
- return {version:c.version,own,enemy,type,difficulty,curve,scale:scaleFor(own,enemy,curve),...(reference?{reference:{version:require('./strongest-team-config').version,population:reference.population,units:reference.units.map(u=>({uid:u.uid,heroId:u.heroId,star:u.star,slot:u.slot})),equipment:reference.equipment.map(e=>({uid:e.uid,id:e.id,owner:e.owner}))}}:{})};
+ const staticEnemy=require('./strongest-team').score(enemies,model.roster,{...model.rules,playerTalent:{},playerTalentTree:{},playerEquipmentGrades:{},playerVip:null,playerBonds:undefined},require('./enemy-equipment').collect(enemies));
+ const mechanism=require('./enemy-mechanism-budget').query(enemies,model.roster,model.rules,require('./enemy-equipment').collect(enemies)),enemy=staticEnemy*mechanism.factor;
+ const unitBudget=require('./strongest-team').score(enemies,model.roster,{...model.rules,playerTalent:{},playerTalentTree:{},playerEquipmentGrades:{},playerVip:null,playerBonds:undefined},[]),budget={units:unitBudget,equipment:staticEnemy-unitBudget,mechanisms:enemy-staticEnemy,total:enemy};
+ const {difficulty,curve,transition}=require('./enemy-transition-budget').query(state,type,Math.max(c.minDifficulty,cycle?.difficulty??c.initialDifficulty));
+ return {version:c.version,own,enemy,staticEnemy,budget,mechanism,transition,type,difficulty,curve,scale:scaleFor(own,enemy,curve),...(reference?{reference:{version:require('./strongest-team-config').version,population:reference.population,units:reference.units.map(u=>({uid:u.uid,heroId:u.heroId,star:u.star,slot:u.slot})),equipment:reference.equipment.map(e=>({uid:e.uid,id:e.id,owner:e.owner}))}}:{})};
 }
 /** 首战记录本章基准和本关倍率；旧快照只迁移一次，待领战报不变。 */
 function apply(model){

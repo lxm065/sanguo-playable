@@ -9,14 +9,19 @@ const activeKeys=[...require("../game/play/appearance-policy").entries(appearanc
 function files(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?files(path.join(dir,e.name)):[path.join(dir,e.name)]);}
 /** 写出可审阅的发布配置，避免修改原始素材和开发入口。 */
 function json(file,value){fs.writeFileSync(path.join(output,file),JSON.stringify(value,null,2)+'\n');}
+/** 新动效独立使用有限调色板，原模型与其他图片维持既有预算策略。 */
+function pngPalette(file){const name=path.relative(path.join(output,config.assetDirectory),file).split(path.sep).join('/');const override=config.effectImages?.palettes?.[name];if(override)return [String(override)];if(config.effectImages?.files.includes(name))return [String(config.effectImages.colors)];if(config.imageBudget&&path.basename(file).startsWith('battle-')&&path.basename(file)!=='battle-ground.png')return [String(config.imageBudget.modelColors)];return ['--quality',config.pngQuality];}
 /** 按白名单建立独立发布目录；仅允许清理本仓库 dist 下的生成目录。 */
 async function build(){
  if(!output.startsWith(path.join(root,'dist')+path.sep))throw Error('发布目录必须位于仓库 dist 下');
+ const projectPolicy=require('./wechat-project-policy.cjs');
+ const project=projectPolicy.prepare(JSON.parse(fs.readFileSync(path.join(source,'project.config.json'),'utf8')),config.projectPolicy);
  execFileSync(config.pngquant,['--version'],{stdio:'pipe'});
  fs.rmSync(output,{recursive:true,force:true});fs.mkdirSync(output,{recursive:true});
  const excluded=config.omitInactiveModelAssets?inactiveModelAssets(path.join(source,config.assetDirectory),activeKeys):new Set();
  for(const item of [...config.copy,config.assetDirectory])fs.cpSync(path.join(source,item),path.join(output,item),{recursive:true,filter:file=>!excluded.has(path.resolve(file))});
  require('./friend-rank-build.cjs').install(output);
+ json('project.config.json',project);
  verifyActiveModels(path.join(output,config.assetDirectory),activeKeys);
  if(config.imageBudget)await require("./release-image-budget.cjs").prepare(path.join(output,config.assetDirectory),appearance,config.imageBudget);
  const assetAliases={};
@@ -36,7 +41,7 @@ async function build(){
  for(const name of config.opaqueJpeg?.files||[]){const sharp=require('../../analysis-work/node_modules/sharp'),file=path.join(output,config.assetDirectory,name),meta=await sharp(file).metadata();if(meta.hasAlpha)throw Error('禁止将透明资源转成JPEG '+name);const target=name.replace(/\.png$/,'.jpg');await sharp(file).jpeg({quality:config.opaqueJpeg.quality,mozjpeg:true}).toFile(path.join(output,config.assetDirectory,target));fs.unlinkSync(file);assetAliases[name]=target;}
  let count=0;
  for(const file of files(path.join(output,config.assetDirectory)).filter(f=>f.endsWith('.png'))){
-  try{execFileSync(config.pngquant,[...(config.imageBudget&&path.basename(file).startsWith('battle-')&&path.basename(file)!=='battle-ground.png'?[String(config.imageBudget.modelColors)]:['--quality',config.pngQuality]),'--force','--skip-if-larger','--speed',String(config.pngSpeed),'--output',file,file],{stdio:'pipe'});}catch(error){if(![98,99].includes(error.status))throw error;}
+  try{execFileSync(config.pngquant,[...pngPalette(file),'--force','--skip-if-larger','--speed',String(config.pngSpeed),'--output',file,file],{stdio:'pipe'});}catch(error){if(![98,99].includes(error.status))throw error;}
   if(++count%10===0)console.log('PNG 已处理',count);
  }
  fs.writeFileSync(path.join(output,config.assetDirectory,'game.js'),"'use strict';\n// 资源分包入口，资源由 Assets 仓库读取。\n");
@@ -46,6 +51,7 @@ async function build(){
  fs.writeFileSync(path.join(output,'play/release-config.js'),'module.exports='+JSON.stringify({assetPackage:config.assetPackage,assetAliases})+';\n');
  fs.writeFileSync(path.join(output,'play/app-version.js'),"'use strict';\n/** 构建版本，与上传版本保持一致。 */\nmodule.exports="+JSON.stringify({version:config.version})+';\n');
  await require('./release-script-format.cjs').compact(output,config);
+ projectPolicy.verify(JSON.parse(fs.readFileSync(path.join(output,'project.config.json'),'utf8')),config.projectPolicy);
  const all=files(output),size=f=>fs.statSync(f).size;
  const main=all.filter(f=>!game.subpackages.some(p=>path.relative(output,f).split(path.sep).join('/').startsWith(p.root)));
  const report={version:config.version,files:all.length,mainBytes:main.reduce((s,f)=>s+size(f),0),totalBytes:all.reduce((s,f)=>s+size(f),0),pngCount:count,omittedInactiveModelFiles:excluded.size};

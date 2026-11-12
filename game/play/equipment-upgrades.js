@@ -4,7 +4,7 @@ const config=require('./equipment-upgrade-config'),base=require('./equipment-bas
 function grade(id,grades={}){return grades[id]||0;}
 /** 逐阶累计配置属性，返回副本，禁止污染共享装备定义。 */
 function resolve(definition,grades={}){
- const result={...definition,basic:{...(base[definition.id]?.stats||{})}},steps=config.entries[definition.id]||[];
+ const result={...definition,basic:{...(base[definition.id]?.stats||definition.basic||{})}},steps=config.entries[definition.id]||[];
  result.hpPercent=definition.hpPercent||result.basic.hpPercent||0;
  for(const [key,value] of steps.slice(0,grade(definition.id,grades))){const target=config.fields[key][0]==='stats'?result.basic:result;target[key]=(target[key]||0)+value;}
  return result;

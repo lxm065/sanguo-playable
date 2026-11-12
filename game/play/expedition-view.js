@@ -10,6 +10,8 @@ const { showUnitDetails } = require("./unit-details");
 class ExpeditionView extends ClassicView {
   /** 保留战场领取后的阵容，通过前进按钮返回路线。 */
   act(operation) {
+    const failure=require('./action-feedback'),scope=failure.begin(this.model,this);
+    const partial=require('./battle-refresh'),paint=partial.begin(this);
     const sunquanBefore=this.model.state.expedition?.sunquanSkill?.sequence||0;
     const levelNotice=require('./lord-level-notice'),levelBefore=levelNotice.snapshot(this.model);
     const before=new Set(this.model.state.meta.unlocked),acquired=new Set(require('./hero-acquisition').known(this.model)),runReward=this.model.state.meta.runReward,sweepReward=this.model.state.meta.sweep?.pending,diamonds=this.model.state.meta.diamonds;
@@ -19,12 +21,11 @@ class ExpeditionView extends ClassicView {
       if (this.playing) throw Error("交战中，请等待结算");
       operation();
     } catch (e) {
-      this.render();
-      this.notice("提示", e.message);
+      failure.notice(this,e,scope);
       return;
     }
     levelNotice.capture(this,levelBefore);
-    this.render();
+    if(!this.playing&&!partial.apply(this,paint))this.render();
     require("./upgrade-effects").show(this,ranks);
     require("./bond-trigger-view").show(this,bondBefore);
     const added=[...new Set([...this.model.state.meta.unlocked.filter(id=>!before.has(id)),...require('./hero-acquisition').known(this.model).filter(id=>!acquired.has(id))])];
@@ -61,6 +62,15 @@ class ExpeditionView extends ClassicView {
       false,
     );
     require('./expedition-header').render(this);
+    require('./battle-refresh').region(this,'novice',()=>this.renderNovice());
+    u.box(this.root,"expedition-footer",0,-521,720,222,hudLayout.scene.footerColor,false);
+    this.battleHud.render();
+    this.renderBattleControls();
+    this.showBattleOverlays();
+  }
+  /** 福利区域独立持有广告凭据，领奖或广告成功后只替换这一小块。 */
+  renderNovice() {
+    const u=this.ui,s=this.model.state;
     const {offer} = require('./novice-rewards').current(this.model);
     if (offer && !s.pending && !nodeEventView.active(this)) {
       const name =
@@ -96,17 +106,10 @@ class ExpeditionView extends ClassicView {
       );
       const ticket = this.model.adTicket();
     }
-    u.box(
-      this.root,
-      "expedition-footer",
-      0,
-      -521,
-      720,
-      222,
-      hudLayout.scene.footerColor,
-      false,
-    );
-    this.battleHud.render();
+  }
+  /** 固定操作栏只创建一次，回调读取当前状态，避免领奖后残留旧节点闭包。 */
+  renderBattleControls() {
+    const u=this.ui,s=this.model.state,m=s.meta;
     this.battleStartButton = u.button(
       this.root,
       nodeEventView.active(this)?"前进":m.activeNode ? "开始" : "前进",
@@ -118,7 +121,7 @@ class ExpeditionView extends ClassicView {
           ? undefined
           : nodeEventView.active(this)
             ? nodeEventView.forward(this)
-            : m.activeNode
+            : this.model.state.meta.activeNode
             ? this.act(() => this.start(false))
             : ((this.page = "map"), this.render()),
       "#973B22",
@@ -137,12 +140,25 @@ class ExpeditionView extends ClassicView {
     );
     if(!require('./battle-speed-policy').unlocked(this.model)){const c=require('./battle-speed-policy').config,h=c.hint;u.text(this.root,c.lockedLabel,h.x,h.y,h.font,h.color,h.width,h.height);}
     {const c=require('./speed-credit-config'),p=c.count;this.speedCountLabel=u.text(this.root,(s.meta.inventory[c.item]||0)+'次',p.x,p.y,p.font,'#EEE1B8',p.width,35);}
+  }
+  /** 金币、人口、倍速与前进按钮原地更新，不重建背景和武将。 */
+  updateBattleControls() {
+    const s=this.model.state,c=require('./speed-credit-config');
+    if(!require('./battle-speed-policy').unlocked(this.model))this.speed=1;
+    this.battleStartButton.getComponentInChildren(this.cc.Label).string=nodeEventView.active(this)?'前进':s.meta.activeNode?'开始':'前进';
+    this.battleSpeedButton.getComponentInChildren(this.cc.Label).string=(s.meta.inventory[c.item]||0)>0||s.expedition.vipSpeedActive?'×'+this.speed:'+20';
+    this.speedCountLabel.string=(s.meta.inventory[c.item]||0)+'次';
+  }
+  /** 全量和局部刷新共用结算、教学及主公提示，保证奖励推进顺序一致。 */
+  showBattleOverlays() {
+    const s=this.model.state;
     if (s.pending) {if(!this.startingBattle)this.reward();}
     else {require("./section-reward-view").show(this);if(!this.modal)require("./tutorial-view").show(this);}
-    require("./talent-shop-view").entry(this);
+    require('./battle-refresh').region(this,'talent-shop',()=>require("./talent-shop-view").entry(this));
     if (this.modal) this.modal.setSiblingIndex(this.root.children.length - 1);
     require("./lord-preparation").show(this);
     require("./lord-entry-skill").show(this);
+    require("./sunjian-skill").show(this);
     require('./lord-level-notice').show(this);
   }
   /** 绘制敌我棋盘与无外框备战席；不继承旧版额外管理按钮。 */
@@ -166,6 +182,7 @@ class ExpeditionView extends ClassicView {
           false,
         );
       }
+    this.formationAnchor=u.node(this.root,'formation-anchor');
     if (s.pending) {
       for (const initial of (this.startingBattle ? [] : s.pending.battle.initial)) {
         if(!require("./enemy-board-view").showResult(s,initial))continue;
@@ -188,6 +205,7 @@ class ExpeditionView extends ClassicView {
       }
     } else {
       const previewEnemies=require("./enemy-board-view").preview(s)?this.model.enemies():[];
+      this.battlePreviewEnemies=previewEnemies;
       require("./battle-panel-warm").schedule(this,previewEnemies);
       for (const unit of previewEnemies) {
         const p = this.position(
@@ -202,6 +220,7 @@ class ExpeditionView extends ClassicView {
             this.config.layout.modelScale,
           );
         this.actors.set(unit.uid, actor);
+        actor.preparationKey=require('./battle-refresh').friendlyKey(unit,p.x,p.y,this.config.layout.modelScale);
         this.bindAttributeTap(actor, unit);
         this.battleHud.renderEquipped(unit);
       }
@@ -219,8 +238,8 @@ class ExpeditionView extends ClassicView {
     require("./merge-hints").show(this);
   }
   /** 备战席仅保留人物、描边姓名和必要的翻页箭头。 */
-  renderReserve(refresh=false) {
-    const before=require('./reserve-refresh').begin(this),mergeEligible=require('./merge-hints').eligible(this.model);
+  renderReserve(refresh=false,retain=false) {
+    const before=require('./reserve-refresh').begin(this,retain),mergeEligible=require('./merge-hints').eligible(this.model);
     const u = this.ui,
       c = hudLayout.reserve,
       bench = this.model.state.units.filter((v) => v.slot < 0),
@@ -321,16 +340,20 @@ class ExpeditionView extends ClassicView {
   finish(){require("./lord-skill-view").cancel(this);require("./attack-audio").get(this).stop();const active=this.playing,result=this.replay?.result;super.finish();if(active){require("./battle-audio").get(this).finish(result);}}
   /** 单击直接显示武将详情；拖动只布阵，取消时恢复原位置。 */
   drawFriendly(unit, x, y, scale) {
+    const key=require('./battle-refresh').friendlyKey(unit,x,y,scale),previous=this.reserveReuse?.get(unit.uid);
+    if(previous?.node.isValid&&previous.preparationKey===key&&previous.unit===unit){this.reserveReuse.delete(unit.uid);previous.node.setPosition(x,y);previous.preparationOrigin={x,y};this.actors.set(unit.uid,previous);return previous;}
     const actor = this.ui.actor(this.root, unit, x, y, scale);
+    actor.preparationKey=key;actor.preparationOrigin={x,y};
     this.actors.set(unit.uid, actor);
     const events = this.cc.Node.EventType;
-    let start = null,
+    let start = null,sibling,
       moved = false;
     actor.node.on(events.TOUCH_START, (event) => {
       event.propagationStopped = true;
       if (this.playing || this.model.state.pending) return;
       start = event.getUILocation();
       moved = false;
+      sibling=actor.node.getSiblingIndex?.();
       actor.node.setSiblingIndex(this.root.children.length - 1);
     });
     actor.node.on(events.TOUCH_MOVE, (event) => {
@@ -371,13 +394,8 @@ class ExpeditionView extends ClassicView {
       const p = event.getUILocation(),
         q = this.root
           .getComponent(this.cc.UITransform)
-          .convertToNodeSpaceAR(new this.cc.Vec3(p.x, p.y, 0)),
-        slot = this.slotAt(q);
-      this.act(() => {
-        if (slot !== null) this.model.deploy(unit.uid, slot);
-        else if (q.y < this.config.layout.benchDropTop && q.y > this.config.layout.benchDropBottom) this.model.deploy(unit.uid, -1);
-        else throw Error("请放在己方棋盘或备战席");
-      });
+          .convertToNodeSpaceAR(new this.cc.Vec3(p.x, p.y, 0));
+      require('./deployment-drop').submit(this,actor,unit.uid,q,{...actor.preparationOrigin,sibling});
     };
     actor.node.on(events.TOUCH_END, release);
     // 交战及待结算时，备战席只开放属性查看，仍禁止合成和布阵。
@@ -391,7 +409,7 @@ class ExpeditionView extends ClassicView {
       event.propagationStopped = true;
       start = null;
       require("./deployment-view").clear(this);
-      if(moved&&!this.playing)actor.node.setPosition(x,y);
+      if(moved&&!this.playing)actor.node.setPosition(actor.preparationOrigin.x,actor.preparationOrigin.y);
       moved=false;
     });
     return actor;
@@ -573,7 +591,7 @@ class ExpeditionView extends ClassicView {
     this.ui.button(m, "随机合成", 230, -510, 212, () =>
       this.act(() => {this.model.merge(uid, "random");require("./attack-audio").get(this).play("merge");}),
     );
-    this.ui.button(m, "返回", 0, -601, 220, () => this.render(), "#655744", 46);
+    this.ui.button(m, "返回", 0, -601, 220, () => require('./battle-refresh').closeModal(this), "#655744", 46);
   }
   /** 定向广告成功后选目标；凭据在实际合成事务中一次消费。 */
   directedPanel(uid) {
@@ -593,7 +611,7 @@ class ExpeditionView extends ClassicView {
             this.act(() => {this.model.merge(uid, "directed", id, ticket);require("./attack-audio").get(this).play("merge");}),
           );
         });
-        this.ui.button(m, "取消", 0, -282, 240, () => this.render(), "#655744");
+        this.ui.button(m, "取消", 0, -282, 240, () => require('./battle-refresh').closeModal(this), "#655744");
       }, 0);
     });
   }
@@ -691,7 +709,7 @@ class ExpeditionView extends ClassicView {
     const panel=this.paper(m, "equipment-bag", 0, 0, 665, 970);
     require("./paper-title").draw(this,panel,owner ? "选择装备 · 每人最多3件" : "本局装备栏",665,970);
     items.slice(page * size, (page + 1) * size).forEach((item, i) => {
-      const e = policy.equipment.find((v) => v.id === item.id),
+      const e = require('./equipment-definitions').get(item.id),
         y = 296 - i * 111;
       u.image(m, "equipment/" + e.id + ".png", -258, y, 72, 72);
       u.text(
@@ -723,14 +741,14 @@ class ExpeditionView extends ClassicView {
       u.button(m, "下一页", 0, -342, 260, () =>
         this.equipmentPanel(owner, (page + 1) % Math.ceil(items.length / size)),
       );
-    u.button(m, "返回", 0, -419, 260, () => this.render(), "#655744");
+    u.button(m, "返回", 0, -419, 260, () => require('./battle-refresh').closeModal(this), "#655744");
   }
   /** 装备说明提供卸下入口，不触发额外掉落或升级。 */
   equipmentDetails(item) {
     require('./equipped-item-details').showEquippedItem(this,this.root,item,()=>{},item.owner===null);
   }
   /** 根据战报事件更新模型朝向和动作；数值与命中仍由模拟器决定。 */
-  apply(event){if(require('./battle-overtime-view').apply(this,event))return;require('./weapon-exclusive-view').death(this,event);
+  apply(event){if(require('./battle-overtime-view').apply(this,event)||require('./blizzard-view').replayEvent(this,event))return;require('./weapon-exclusive-view').death(this,event);require('./elemental-vfx').death(this,event);
     require("./battle-audio").get(this).event(event,this.replay?.initial||[]);
     const source=this.replay?.initial?.find(u=>u.uid===event.uid);
     const sound=require("./attack-audio");sound.get(this).play(sound.kind(event,source));
@@ -739,15 +757,10 @@ class ExpeditionView extends ClassicView {
       actor = this.actors.get(event.uid),
       target = this.actors.get(event.target);
     if(event.type==='ability'&&actor){if(event.impactOnly){require('./warrior-skill-view').ability(this,actor,target,event);return;}if(target&&target!==actor)u.face(actor,target.node.position.x-actor.node.position.x,target.node.position.y-actor.node.position.y);u.animate(actor,'skill2',false,{speed:this.speed});require('./skill-effects').ability(this,actor,target,event);return;}
-    if(event.type==='shield'&&target){require('./combat-text').show(this,target,require('./combat-text-config').status.shield+' '+event.amount,'gain');return;}
+    if(require('./battle-feedback').apply(this,event))return;
     if(event.type==='gain'&&target){if(event.effect)require('./native-effects').play(this,event.effect,target.node,0,40,{duration:require('./equipment-vfx-config').duration});require('./combat-text').show(this,target,event.text,'gain');return;}
     if(event.type==='equipment'&&actor){require('./equipment-vfx').cast(this,event);return;}
-    if(event.type==='status'&&target){const benefit=require('./combat-text-config').beneficial[event.effect];const text=benefit||require('./combat-text-config').status[event.effect];if(text)require('./combat-text').show(this,target,text,benefit?'gain':'damage');require('./skill-effects').status(this,target,event);return;}
-    if(event.type==='evade'&&target){require('./combat-text').show(this,target,require('./combat-text-config').status.evade,'gain');return;}
-    if (event.type === "heal") {
-      if (target){u.health(target, event.hp);require('./battle-effects').heal(this,target);require('./combat-text').show(this,target,event.amount,'heal');}
-      return;
-    }
+    if(event.type==='status'&&target){const benefit=require('./combat-text-config').beneficial[event.effect];const text=benefit||require('./combat-text-config').status[event.effect];if(text&&event.effect!=='cleanse')require('./combat-text').show(this,target,text,benefit?'gain':'damage');require('./skill-effects').status(this,target,event);return;}
     if (event.type === "move" && actor) {
       if(require('./qinggang-view').move(this,actor,event))return;
       const p = this.position(event.x, event.y);

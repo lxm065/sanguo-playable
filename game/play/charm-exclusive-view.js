@@ -14,7 +14,7 @@ function cast(v,e){
  const a=v.actors.get(e.uid),b=v.actors.get(e.target);
  if(e.phase==='end'){remove(v,b);return;}
  if(!b?.node?.isValid||b.alive===false)return;
- if(e.phase==='impact'){remove(v,b);b.charmIcon=heart(v,b.status||b.node,0,style.y);return;}
+ if(e.phase==='impact'){require('./blizzard-view').interrupt(v,e.target);remove(v,b);b.charmIcon=heart(v,b.status||b.node,0,style.y);return;}
  if(!a?.node?.isValid)return;
  const p=a.node.position,q=b.node.position;v.ui.face(a,q.x-p.x,q.y-p.y);v.ui.animate(a,style.animation,false,{speed:v.speed,duration:e.duration});
  const node=heart(v,v.root,p.x,p.y+style.y);v.effectNodes=(v.effectNodes||[]).filter(n=>n.isValid);v.effectNodes.push(node);
